@@ -13,6 +13,7 @@
 		CE20A6A22590DC0C00F47DC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE20A6A02590DC0C00F47DC8 /* Main.storyboard */; };
 		CE20A6A42590DC0F00F47DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE20A6A32590DC0F00F47DC8 /* Assets.xcassets */; };
 		CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE20A6A52590DC0F00F47DC8 /* LaunchScreen.storyboard */; };
+		CEF1E23325978F8700C10A91 /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1E23225978F8700C10A91 /* Initializer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		CE20A6A32590DC0F00F47DC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE20A6A62590DC0F00F47DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE20A6A82590DC0F00F47DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF1E23225978F8700C10A91 /* Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				CE20A69A2590DC0C00F47DC8 /* AppDelegate.swift */,
 				CE20A69C2590DC0C00F47DC8 /* SceneDelegate.swift */,
+				CEF1E23225978F8700C10A91 /* Initializer.swift */,
 				CE20A69E2590DC0C00F47DC8 /* ViewController.swift */,
 				CE20A6A02590DC0C00F47DC8 /* Main.storyboard */,
 				CE20A6A32590DC0F00F47DC8 /* Assets.xcassets */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF1E23325978F8700C10A91 /* Initializer.swift in Sources */,
 				CE20A69F2590DC0C00F47DC8 /* ViewController.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
 				CE20A69D2590DC0C00F47DC8 /* SceneDelegate.swift in Sources */,
