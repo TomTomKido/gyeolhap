@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tile9.png",
+      "filename" : "tile10.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tile9@2x.png",
+      "filename" : "tile10@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tile9@3x.png",
+      "filename" : "tile10@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
