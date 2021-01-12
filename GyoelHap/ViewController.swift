@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var answerView10: UILabel!
     @IBOutlet weak var answerView11: UILabel!
     @IBOutlet weak var answerView12: UILabel!
+    @IBOutlet weak var gyeolButton: UIButton!
     
     var Tiles: [UIButton] = []
     var answerLabels: [UILabel] = []
@@ -91,7 +92,17 @@ class ViewController: UIViewController {
             }
         }
     }
-    
+    @IBAction func gyeol(_ sender: UIButton) {
+        if answers.count == revealedAnswers.count {
+            print("결성공")
+            
+        } else {
+            
+             
+            
+            print("결실패 +30초")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         Tiles = [Tile1, Tile2, Tile3, Tile4, Tile5, Tile6, Tile7, Tile8, Tile9]

@@ -256,6 +256,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihc-uw-k7g">
                                                 <rect key="frame" x="257" y="0.0" width="118" height="223"/>
                                                 <state key="normal" image="gyeol"/>
+                                                <connections>
+                                                    <action selector="gyeol:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ihv-bm-YEq"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="MdJ-L0-kOf">
                                                 <rect key="frame" x="43" y="26" width="173" height="178"/>
@@ -398,6 +401,7 @@
                         <outlet property="answerView7" destination="B5l-sm-AiI" id="cOD-1P-JDI"/>
                         <outlet property="answerView8" destination="c5X-Rn-Ior" id="HH8-x0-TNj"/>
                         <outlet property="answerView9" destination="3xW-aL-fSe" id="GHI-W5-3kd"/>
+                        <outlet property="gyeolButton" destination="ihc-uw-k7g" id="IAs-bq-fmq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
