@@ -97,9 +97,6 @@ class ViewController: UIViewController {
             print("결성공")
             
         } else {
-            
-             
-            
             print("결실패 +30초")
         }
     }
