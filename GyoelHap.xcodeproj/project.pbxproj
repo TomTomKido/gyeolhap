@@ -14,6 +14,7 @@
 		CE20A6A42590DC0F00F47DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE20A6A32590DC0F00F47DC8 /* Assets.xcassets */; };
 		CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE20A6A52590DC0F00F47DC8 /* LaunchScreen.storyboard */; };
 		CE3343E325CAC91200D1954E /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3343E225CAC91200D1954E /* PlayViewController.swift */; };
+		CEDCC5F025D76F2F008D8044 /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */; };
 		CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */; };
 		CEEBB83925CAF1D500CFFAF4 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83825CAF1D500CFFAF4 /* TileCollectionViewCell.swift */; };
 		CEEBB83F25D37EC900CFFAF4 /* StageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83E25D37EC800CFFAF4 /* StageGenerator.swift */; };
@@ -32,6 +33,7 @@
 		CE20A6A62590DC0F00F47DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE20A6A82590DC0F00F47DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3343E225CAC91200D1954E /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
 		CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		CEEBB83825CAF1D500CFFAF4 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEEBB83E25D37EC800CFFAF4 /* StageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageGenerator.swift; sourceTree = "<group>"; };
@@ -71,8 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				CEDCC5EA25D6D078008D8044 /* Home */,
-				CEEBB84325D3A55600CFFAF4 /* Stage */,
+				CEDCC5F325D772E6008D8044 /* StageMenu */,
 				CEEBB84425D3A55F00CFFAF4 /* GameScreen */,
+				CEEBB84325D3A55600CFFAF4 /* Stage */,
 				CE3343D625CAC40B00D1954E /* StageSelect_temp */,
 				CE3343DA25CAC45200D1954E /* GamePlay_old */,
 				CE20A69A2590DC0C00F47DC8 /* AppDelegate.swift */,
@@ -107,6 +110,14 @@
 			children = (
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		CEDCC5F325D772E6008D8044 /* StageMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */,
+			);
+			path = StageMenu;
 			sourceTree = "<group>";
 		};
 		CEEBB83D25D37E9F00CFFAF4 /* StageGenerator */ = {
@@ -195,6 +206,7 @@
 			files = (
 				CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */,
 				CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */,
+				CEDCC5F025D76F2F008D8044 /* Stage.storyboard in Resources */,
 				CE20A6A42590DC0F00F47DC8 /* Assets.xcassets in Resources */,
 				CE20A6A22590DC0C00F47DC8 /* Main_old.storyboard in Resources */,
 			);
