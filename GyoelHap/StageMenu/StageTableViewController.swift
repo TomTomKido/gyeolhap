@@ -13,6 +13,7 @@ class StageTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "스테이지 선택"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,15 +32,20 @@ class StageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 //        print("hi", stageManager.stages[0].id)
-        return 20
+        return stageManager.stages.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath)
-
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? StageTableViewCell
+            else {
+            return UITableViewCell()
+        }
         // Configure the cell...
 
+        let stage = stageManager.stage(at: indexPath.item)
+        cell.updateUI(item: stage)
         return cell
     }
     

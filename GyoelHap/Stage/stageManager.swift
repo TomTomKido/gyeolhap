@@ -82,4 +82,8 @@ class StageManager {
         }
         return newArray
     }
+    
+    func stage(at index: Int) -> Stage? {
+        return stages[index]
+    }
 }

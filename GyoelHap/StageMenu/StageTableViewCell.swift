@@ -21,6 +21,11 @@ class StageTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func updateUI(item: Stage?) {
+        guard let stage = item else { return }
+        stageName.text = String("Stage \(stage.id)")
+    }
 
     
 }
