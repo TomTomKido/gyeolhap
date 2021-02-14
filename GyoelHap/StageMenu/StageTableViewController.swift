@@ -24,31 +24,33 @@ class StageTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    //몇개의 섹션을 보여줄까?
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
+    // 한섹션당 몇개의 스테이지를 보여줄까?
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-//        print("hi", stageManager.stages[0].id)
         return stageManager.stages.count
     }
 
-    
+    //각 셀을 어떻게 보여줄까?
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? StageTableViewCell
             else {
             return UITableViewCell()
         }
-        // Configure the cell...
-
         let stage = stageManager.stage(at: indexPath.item)
         cell.updateUI(item: stage)
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let playStoryboard = UIStoryboard.init(name: "Play", bundle: nil)
+        guard let playVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? PlayViewController else { return }
+//        let item = stageManager.stage
+        self.navigationController?.pushViewController(playVC, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
