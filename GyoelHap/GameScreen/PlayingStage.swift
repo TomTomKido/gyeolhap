@@ -7,17 +7,17 @@
 
 import Foundation
 
-//struct Stage {
-//    let id: Int
-////    let dataArray: [Int]?
-//    let colors: [Int]
-//    let shapes: [Int]
-//    let BGColors: [Int]
-//
-////    init(id:Int, colors: [Int], shapes: [Int], BGColors: [Int]) {
-////        self.id = id
-////        self.colors = colors
-////        self.shapes = shapes
-////        self.BGColors = BGColors
-////    }
-//}
+struct PlayingStage {
+    let id: Int
+    let dataArray: [Int]
+    let colors: [Int]
+    let shapes: [Int]
+    let BGColors: [Int]
+
+//    init(id:Int, colors: [Int], shapes: [Int], BGColors: [Int]) {
+//        self.id = id
+//        self.colors = colors
+//        self.shapes = shapes
+//        self.BGColors = BGColors
+//    }
+}

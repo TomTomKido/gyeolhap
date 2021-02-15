@@ -8,7 +8,7 @@
 import UIKit
 
 class StageManager {
-    static let shared = StageManager()
+//    static let shared = StageManager()
     
     var Stages:[Stage] = []
     let stageCount: Int = 20

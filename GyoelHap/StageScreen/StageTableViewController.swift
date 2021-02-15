@@ -9,7 +9,8 @@ import UIKit
 
 class StageTableViewController: UITableViewController {
     
-    let stageManager = StageManager.shared
+//    let stageManager = StageManager.shared
+    let stageManager:StageManager = StageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +49,9 @@ class StageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let playStoryboard = UIStoryboard.init(name: "Play", bundle: nil)
         guard let playVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? PlayViewController else { return }
-        let item = stageManager.stage(at: indexPath.item)
-        stageManager.replaceCurrentStage(with: item)
+        let stage = stageManager.stage(at: indexPath.item)
+//        stageManager.replaceCurrentStage(with: item)
+        playVC.currentStage = stage
         self.navigationController?.pushViewController(playVC, animated: true)
     }
 

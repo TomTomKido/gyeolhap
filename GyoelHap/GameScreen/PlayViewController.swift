@@ -8,7 +8,9 @@
 import UIKit
 
 class PlayViewController: UIViewController {
-    let stageManager = StageManager.shared
+//    let stageManager = StageManager.shared
+
+    var currentStage: Stage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +18,10 @@ class PlayViewController: UIViewController {
 //        self.navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        let playingStageManager: PlayingStageManager = PlayingStageManager(currentStage)
+    }
     
 
     /*
@@ -41,7 +47,8 @@ extension PlayViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.updateUI(index: indexPath.item, item: stageManager.currentStage?.dataArray[indexPath.item] ?? 0)
+        cell.updateUI(index: indexPath.item, item: currentStage?.dataArray[indexPath.item] ?? 0)
+//        cell.updateUI(index: indexPath.item, item: stageManager.currentStage?.dataArray[indexPath.item] ?? 0)
         cell.tapHandler = {
             print("tabHandler 연결잘됨")
         }
