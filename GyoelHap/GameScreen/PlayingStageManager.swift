@@ -9,32 +9,17 @@ import Foundation
 
 class PlayingStageManager {
     
-    let stage:Stage
     var playingStage:PlayingStage?
     
     init(stage: Stage) {
-//        self.stages = convertToStages(rawStages: self.stageDatas)
-//        self.playingStage = convertToStage(stage: stage)
-        self.stage = stage
-        convertToStage(stage: self.stage)
-        print("현재 진입한 스테이지는 \(playingStage!.id)")
+        self.playingStage = convertToStage(stage: stage)
     }
     
-    func convertToStage(stage: Stage){
-        self.playingStage = PlayingStage(id: self.stage.id, dataArray: self.stage.dataArray)
-        
+    func convertToStage(stage: Stage) -> PlayingStage {
+        let playingStage = PlayingStage(id: stage.id, dataArray: stage.dataArray)
+        return playingStage
     }
     
-//    func convertToStages(rawStages: [Stage]) ->[PlayingStage] {
-//        var newStages: [Stage] = []
-//
-//        for i in 0..<rawStages.count {
-//            let stage: Stage = parseStage(rawStage: rawStages[i])
-//            newStages.append(stage)
-//        }
-//        return newStages
-//    }
-//
 //    func parseStage(rawStage: Stage) -> PlayingStage {
 //        let colors: [Int] = getColors(array: rawStage.dataArray)
 //        let shapes: [Int] = getShapes(array: rawStage.dataArray)
