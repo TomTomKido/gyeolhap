@@ -76,8 +76,7 @@
 		CE20A6992590DC0C00F47DC8 /* GyoelHap */ = {
 			isa = PBXGroup;
 			children = (
-				CEDCC5EA25D6D078008D8044 /* Home */,
-				CEDCC5F325D772E6008D8044 /* StageMenu */,
+				CEDCC5F325D772E6008D8044 /* StageScreen */,
 				CEEBB84425D3A55F00CFFAF4 /* GameScreen */,
 				CEEBB84325D3A55600CFFAF4 /* Stage */,
 				CE3343D625CAC40B00D1954E /* StageSelect_temp */,
@@ -109,21 +108,14 @@
 			path = GamePlay_old;
 			sourceTree = "<group>";
 		};
-		CEDCC5EA25D6D078008D8044 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		CEDCC5F325D772E6008D8044 /* StageMenu */ = {
+		CEDCC5F325D772E6008D8044 /* StageScreen */ = {
 			isa = PBXGroup;
 			children = (
 				CEDCC62D25D8121C008D8044 /* StageTableViewController.swift */,
 				CEDCC63225D812BF008D8044 /* StageTableViewCell.swift */,
 				CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */,
 			);
-			path = StageMenu;
+			path = StageScreen;
 			sourceTree = "<group>";
 		};
 		CEEBB83D25D37E9F00CFFAF4 /* StageGenerator */ = {

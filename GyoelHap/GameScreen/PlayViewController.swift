@@ -41,9 +41,7 @@ extension PlayViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-//        cell.updateUI(index: indexPath.item)
-        cell.updateUI(index: indexPath.item, item: stageManager.rawStages[indexPath.item].stageRawArray[indexPath.item])
+        cell.updateUI(index: indexPath.item, item: stageManager.currentStage?.dataArray[indexPath.item] ?? 0)
         return cell
     }
 

@@ -7,26 +7,26 @@
 
 import UIKit
 
-struct RawStage {
+struct NewStage {
     let id: Int
-    let stageRawArray: [Int]
+    let dataArray: [Int]
     
-    init(id: Int, stageRawArray: [Int]) {
+    init(id: Int, dataArray: [Int]) {
         self.id = id
-        self.stageRawArray = stageRawArray
+        self.dataArray = dataArray
     }
 }
 
-struct Stage {
-    let id: Int
-    let colors: [Int]
-    let shapes: [Int]
-    let BGColors: [Int]
-    
-    init(id:Int, colors: [Int], shapes: [Int], BGColors: [Int]) {
-        self.id = id
-        self.colors = colors
-        self.shapes = shapes
-        self.BGColors = BGColors
-    }
-}
+//struct Stage {
+//    let id: Int
+//    let colors: [Int]
+//    let shapes: [Int]
+//    let BGColors: [Int]
+//
+//    init(id:Int, colors: [Int], shapes: [Int], BGColors: [Int]) {
+//        self.id = id
+//        self.colors = colors
+//        self.shapes = shapes
+//        self.BGColors = BGColors
+//    }
+//}

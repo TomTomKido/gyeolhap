@@ -31,7 +31,7 @@ class StageTableViewController: UITableViewController {
 
     // 한섹션당 몇개의 스테이지를 보여줄까?
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stageManager.stages.count
+        return stageManager.newStages.count
     }
 
     //각 셀을 어떻게 보여줄까?
