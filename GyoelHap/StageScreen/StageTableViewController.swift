@@ -50,7 +50,6 @@ class StageTableViewController: UITableViewController {
         let playStoryboard = UIStoryboard.init(name: "Play", bundle: nil)
         guard let playVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? PlayViewController else { return }
         let stage = stageManager.stage(at: indexPath.item)
-//        stageManager.replaceCurrentStage(with: item)
         playVC.currentStage = stage
         self.navigationController?.pushViewController(playVC, animated: true)
     }

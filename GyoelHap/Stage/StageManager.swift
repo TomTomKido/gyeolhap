@@ -38,8 +38,4 @@ class StageManager {
     func stage(at index: Int) -> Stage? {
         return Stages[index]
     }
-    
-    func replaceCurrentStage(with item: Stage?){
-        self.currentStage = item
-    }
 }
