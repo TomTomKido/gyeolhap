@@ -19,7 +19,6 @@
 		CEDCC63325D812BF008D8044 /* StageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCC63225D812BF008D8044 /* StageTableViewCell.swift */; };
 		CEEBB83525CACDEE00CFFAF4 /* Play.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEBB83425CACDEE00CFFAF4 /* Play.storyboard */; };
 		CEEBB83925CAF1D500CFFAF4 /* TileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83825CAF1D500CFFAF4 /* TileCollectionViewCell.swift */; };
-		CEEBB83F25D37EC900CFFAF4 /* StageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83E25D37EC800CFFAF4 /* StageGenerator.swift */; };
 		CEEBB84725D3A95500CFFAF4 /* stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB84625D3A95500CFFAF4 /* stage.swift */; };
 		CEEBB84A25D4040400CFFAF4 /* stageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB84925D4040400CFFAF4 /* stageManager.swift */; };
 		CEF1E23325978F8700C10A91 /* Initializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1E23225978F8700C10A91 /* Initializer.swift */; };
@@ -40,7 +39,6 @@
 		CEDCC63225D812BF008D8044 /* StageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageTableViewCell.swift; sourceTree = "<group>"; };
 		CEEBB83425CACDEE00CFFAF4 /* Play.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Play.storyboard; sourceTree = "<group>"; };
 		CEEBB83825CAF1D500CFFAF4 /* TileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCollectionViewCell.swift; sourceTree = "<group>"; };
-		CEEBB83E25D37EC800CFFAF4 /* StageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageGenerator.swift; sourceTree = "<group>"; };
 		CEEBB84625D3A95500CFFAF4 /* stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stage.swift; sourceTree = "<group>"; };
 		CEEBB84925D4040400CFFAF4 /* stageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stageManager.swift; sourceTree = "<group>"; };
 		CEF1E23225978F8700C10A91 /* Initializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initializer.swift; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 				CEDCC5F325D772E6008D8044 /* StageScreen */,
 				CEEBB84425D3A55F00CFFAF4 /* GameScreen */,
 				CEEBB84325D3A55600CFFAF4 /* Stage */,
-				CE3343D625CAC40B00D1954E /* StageSelect_temp */,
 				CE3343DA25CAC45200D1954E /* GamePlay_old */,
 				CE20A69A2590DC0C00F47DC8 /* AppDelegate.swift */,
 				CE20A69C2590DC0C00F47DC8 /* SceneDelegate.swift */,
@@ -88,14 +85,6 @@
 				CE20A6A82590DC0F00F47DC8 /* Info.plist */,
 			);
 			path = GyoelHap;
-			sourceTree = "<group>";
-		};
-		CE3343D625CAC40B00D1954E /* StageSelect_temp */ = {
-			isa = PBXGroup;
-			children = (
-				CEEBB83D25D37E9F00CFFAF4 /* StageGenerator */,
-			);
-			path = StageSelect_temp;
 			sourceTree = "<group>";
 		};
 		CE3343DA25CAC45200D1954E /* GamePlay_old */ = {
@@ -116,14 +105,6 @@
 				CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */,
 			);
 			path = StageScreen;
-			sourceTree = "<group>";
-		};
-		CEEBB83D25D37E9F00CFFAF4 /* StageGenerator */ = {
-			isa = PBXGroup;
-			children = (
-				CEEBB83E25D37EC800CFFAF4 /* StageGenerator.swift */,
-			);
-			path = StageGenerator;
 			sourceTree = "<group>";
 		};
 		CEEBB84325D3A55600CFFAF4 /* Stage */ = {
@@ -217,7 +198,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEEBB83F25D37EC900CFFAF4 /* StageGenerator.swift in Sources */,
 				CEEBB83925CAF1D500CFFAF4 /* TileCollectionViewCell.swift in Sources */,
 				CEEBB84725D3A95500CFFAF4 /* stage.swift in Sources */,
 				CEF1E23325978F8700C10A91 /* Initializer.swift in Sources */,
