@@ -9,23 +9,22 @@ import Foundation
 
 class PlayingStageManager {
     
+    let stage:Stage
     var playingStage:PlayingStage?
     
     init(stage: Stage) {
+        self.stage = stage
         self.playingStage = convertToStage(stage: stage)
     }
     
     func convertToStage(stage: Stage) -> PlayingStage {
-        let playingStage = PlayingStage(id: stage.id, dataArray: stage.dataArray)
+        let colors: [Int] = getColors(array: stage.dataArray)
+        let shapes: [Int] = getShapes(array: stage.dataArray)
+        let BGColors: [Int] = getBGColors(array: stage.dataArray)
+
+        let playingStage = PlayingStage(colors: colors, shapes: shapes, BGColors: BGColors)
         return playingStage
     }
-    
-//    func parseStage(rawStage: Stage) -> PlayingStage {
-//        let colors: [Int] = getColors(array: rawStage.dataArray)
-//        let shapes: [Int] = getShapes(array: rawStage.dataArray)
-//        let BGColors: [Int] = getBGColors(array: rawStage.dataArray)
-//        return Stage(id:rawStage.id, colors: colors, shapes: shapes, BGColors: BGColors)
-//    }
 
     func getColors(array: [Int]) -> [Int] {
         //0: pink, 1: dark blue, 2: yellow

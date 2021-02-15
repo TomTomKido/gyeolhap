@@ -8,20 +8,13 @@
 import Foundation
 
 struct PlayingStage {
-    let id: Int
-    let dataArray: [Int]
-//    let colors: [Int]
-//    let shapes: [Int]
-//    let BGColors: [Int]
+    let colors: [Int]
+    let shapes: [Int]
+    let BGColors: [Int]
 
-    init(id:Int, dataArray: [Int]) {
-        self.id = id
-        self.dataArray = dataArray
+    init(colors: [Int], shapes: [Int], BGColors: [Int]) {
+        self.colors = colors
+        self.shapes = shapes
+        self.BGColors = BGColors
     }
-//    init(id:Int, colors: [Int], shapes: [Int], BGColors: [Int]) {
-//        self.id = id
-//        self.colors = colors
-//        self.shapes = shapes
-//        self.BGColors = BGColors
-//    }
 }
