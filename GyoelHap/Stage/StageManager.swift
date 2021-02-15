@@ -12,8 +12,8 @@ class StageManager {
     
     var Stages:[Stage] = []
     let stageCount: Int = 20
-    var currentStageId: Int?
-    var currentStage: Stage?
+//    var currentStageId: Int?
+//    var currentStage: Stage?
     
     init() {
         self.Stages = createRawStages(size: stageCount)

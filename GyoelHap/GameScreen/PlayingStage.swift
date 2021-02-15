@@ -10,10 +10,14 @@ import Foundation
 struct PlayingStage {
     let id: Int
     let dataArray: [Int]
-    let colors: [Int]
-    let shapes: [Int]
-    let BGColors: [Int]
+//    let colors: [Int]
+//    let shapes: [Int]
+//    let BGColors: [Int]
 
+    init(id:Int, dataArray: [Int]) {
+        self.id = id
+        self.dataArray = dataArray
+    }
 //    init(id:Int, colors: [Int], shapes: [Int], BGColors: [Int]) {
 //        self.id = id
 //        self.colors = colors
