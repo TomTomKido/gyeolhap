@@ -10,21 +10,20 @@ import UIKit
 class StageManager {
     static let shared = StageManager()
     
-    var newStages:[NewStage] = []
+    var Stages:[Stage] = []
     let stageCount: Int = 20
     var currentStageId: Int?
-    var currentStage: NewStage?
+    var currentStage: Stage?
     
     init() {
-        self.newStages = createRawStages(size: stageCount)
-
+        self.Stages = createRawStages(size: stageCount)
     }
     
-    func createRawStages(size: Int) -> [NewStage] {
-        var newRawStages: [NewStage] = []
+    func createRawStages(size: Int) -> [Stage] {
+        var newRawStages: [Stage] = []
         
         for i in 1...size {
-            let rawStage = NewStage(id: i, dataArray: nineRandomNumberFrom0To26())
+            let rawStage = Stage(id: i, dataArray: nineRandomNumberFrom0To26())
             newRawStages.append(rawStage)
         }
         return newRawStages
@@ -36,11 +35,11 @@ class StageManager {
         return Array(shuffledSequence[0...8])
     }
      
-    func stage(at index: Int) -> NewStage? {
-        return newStages[index]
+    func stage(at index: Int) -> Stage? {
+        return Stages[index]
     }
     
-    func replaceCurrentStage(with item: NewStage?){
+    func replaceCurrentStage(with item: Stage?){
         self.currentStage = item
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct NewStage {
+struct Stage {
     let id: Int
     let dataArray: [Int]
     
