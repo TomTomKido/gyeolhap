@@ -42,6 +42,9 @@ extension PlayViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         cell.updateUI(index: indexPath.item, item: stageManager.currentStage?.dataArray[indexPath.item] ?? 0)
+        cell.tapHandler = {
+            print("tabHandler 연결잘됨")
+        }
         return cell
     }
 
