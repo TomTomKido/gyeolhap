@@ -8,12 +8,12 @@
 import UIKit
 
 class PlayViewController: UIViewController {
-
+    let stageManager = StageManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.isNavigationBarHidden = true
     }
     
     
@@ -31,29 +31,32 @@ class PlayViewController: UIViewController {
 
 extension PlayViewController: UICollectionViewDataSource {
 
-    
+    //셀을 몇개 보여줄까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 9
     }
     
+    //컬렉션 뷰 셀 어떻게 보여줄까?
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
             return UICollectionViewCell()
         }
         
-        cell.updateUI(index: indexPath.item)
+//        cell.updateUI(index: indexPath.item)
+        cell.updateUI(index: indexPath.item, item: stageManager.rawStages[indexPath.item].stageRawArray[indexPath.item])
         return cell
     }
 
 }
 
 
-extension PlayViewController: UICollectionViewDelegate {
-    //클릭했을 때 동작
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-}
+//extension PlayViewController: UICollectionViewDelegate {
+//    //클릭했을 때 동작
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print(stageManager.currentStage!.id)
+//
+//    }
+//}
 
 extension PlayViewController:UICollectionViewDelegateFlowLayout {
     //셀 사이즈 어떻게 할까?

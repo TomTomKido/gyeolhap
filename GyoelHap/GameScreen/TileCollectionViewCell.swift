@@ -20,10 +20,15 @@ class TileCollectionViewCell: UICollectionViewCell {
 
     }
     
-    func updateUI(index: Int){
+//    func updateUI(index: Int){
+//        tileNumber.text = String(index + 1)
+////        tileNumber.text = "hi"
+//        tileImage.image = UIImage(named: "tile0")
+//    }
+    func updateUI(index: Int, item: Int) {
         tileNumber.text = String(index + 1)
-//        tileNumber.text = "hi"
-        tileImage.image = UIImage(named: "tile0")
+        tileImage.image = UIImage(named: "tile\(item)")
+        
     }
 
     @IBAction func cardTapped(_ sender: UIButton) {

@@ -8,9 +8,12 @@
 import UIKit
 
 class StageManager {
+    static let shared = StageManager()
+    
     var rawStages:[RawStage] = []
     var stages: [Stage] = []
     let stageCount: Int = 20
+    var currentStage: Stage?
     
     init() {
         self.rawStages = createRawStages(size: stageCount)
@@ -86,4 +89,9 @@ class StageManager {
     func stage(at index: Int) -> Stage? {
         return stages[index]
     }
+    
+    func replaceCurrentStage(with item: Stage?){
+        self.currentStage = item
+    }
+    
 }
