@@ -14,6 +14,8 @@
 		CE20A6A42590DC0F00F47DC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE20A6A32590DC0F00F47DC8 /* Assets.xcassets */; };
 		CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE20A6A52590DC0F00F47DC8 /* LaunchScreen.storyboard */; };
 		CE3343E325CAC91200D1954E /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3343E225CAC91200D1954E /* PlayViewController.swift */; };
+		CE34260425DA8D8300E2A62B /* PlayingStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34260325DA8D8300E2A62B /* PlayingStage.swift */; };
+		CE34260725DA8DB700E2A62B /* PlayingStageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34260625DA8DB700E2A62B /* PlayingStageManager.swift */; };
 		CEDCC5F025D76F2F008D8044 /* Stage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */; };
 		CEDCC62E25D8121C008D8044 /* StageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCC62D25D8121C008D8044 /* StageTableViewController.swift */; };
 		CEDCC63325D812BF008D8044 /* StageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCC63225D812BF008D8044 /* StageTableViewCell.swift */; };
@@ -34,6 +36,8 @@
 		CE20A6A62590DC0F00F47DC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE20A6A82590DC0F00F47DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3343E225CAC91200D1954E /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		CE34260325DA8D8300E2A62B /* PlayingStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingStage.swift; sourceTree = "<group>"; };
+		CE34260625DA8DB700E2A62B /* PlayingStageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingStageManager.swift; sourceTree = "<group>"; };
 		CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stage.storyboard; sourceTree = "<group>"; };
 		CEDCC62D25D8121C008D8044 /* StageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageTableViewController.swift; sourceTree = "<group>"; };
 		CEDCC63225D812BF008D8044 /* StageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 			children = (
 				CE3343E225CAC91200D1954E /* PlayViewController.swift */,
 				CEEBB83825CAF1D500CFFAF4 /* TileCollectionViewCell.swift */,
+				CE34260625DA8DB700E2A62B /* PlayingStageManager.swift */,
+				CE34260325DA8D8300E2A62B /* PlayingStage.swift */,
 				CEEBB83425CACDEE00CFFAF4 /* Play.storyboard */,
 			);
 			path = GameScreen;
@@ -206,8 +212,10 @@
 				CEEBB84A25D4040400CFFAF4 /* StageManager.swift in Sources */,
 				CE20A69F2590DC0C00F47DC8 /* ViewController.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
+				CE34260425DA8D8300E2A62B /* PlayingStage.swift in Sources */,
 				CEDCC63325D812BF008D8044 /* StageTableViewCell.swift in Sources */,
 				CE20A69D2590DC0C00F47DC8 /* SceneDelegate.swift in Sources */,
+				CE34260725DA8DB700E2A62B /* PlayingStageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

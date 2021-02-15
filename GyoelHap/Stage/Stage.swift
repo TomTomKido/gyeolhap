@@ -16,17 +16,3 @@ struct NewStage {
         self.dataArray = dataArray
     }
 }
-
-//struct Stage {
-//    let id: Int
-//    let colors: [Int]
-//    let shapes: [Int]
-//    let BGColors: [Int]
-//
-//    init(id:Int, colors: [Int], shapes: [Int], BGColors: [Int]) {
-//        self.id = id
-//        self.colors = colors
-//        self.shapes = shapes
-//        self.BGColors = BGColors
-//    }
-//}
