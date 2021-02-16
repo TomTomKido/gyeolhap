@@ -11,10 +11,12 @@ class PlayingStageManager {
     
     let stage:Stage
     var playingStage:PlayingStage?
+    var answers: [[Int]]?
     
     init(stage: Stage) {
         self.stage = stage
         self.playingStage = convertToStage(stage: stage)
+        self.answers = solver(playingStage: self.playingStage!)
     }
     
     func convertToStage(stage: Stage) -> PlayingStage {
@@ -57,5 +59,37 @@ class PlayingStageManager {
             newArray.append(BGColor)
         }
         return newArray
+    }
+    
+    
+    func solver(playingStage: PlayingStage) -> [[Int]] {
+        var answers: [[Int]] = []
+        for i in 0 ..< 9 {
+            for j in i + 1 ..< 9 {
+                for k in j + 1 ..< 9 {
+                    let first0 = playingStage.colors[i]
+                    let first1 = playingStage.shapes[i]
+                    let first2 = playingStage.BGColors[i]
+                    let second0 = playingStage.colors[j]
+                    let second1 = playingStage.shapes[j]
+                    let second2 = playingStage.BGColors[j]
+                    let third0 = playingStage.colors[k]
+                    let third1 = playingStage.shapes[k]
+                    let third2 = playingStage.BGColors[k]
+                    if (first0 + second0 + third0) % 3 == 0 {
+                        if (first1 + second1 + third1) % 3 == 0 {
+                            if (first2 + second2 + third2) % 3 == 0 {
+                                var answer : [Int] = Array()
+                                answer.append(i + 1)
+                                answer.append(j + 1)
+                                answer.append(k + 1)
+                                answers.append(answer)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return answers
     }
 }
