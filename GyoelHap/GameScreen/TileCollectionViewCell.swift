@@ -14,6 +14,7 @@ class TileCollectionViewCell: UICollectionViewCell {
     
 //    var tapHandler: ((AVPlayerItem) -> Void)?
     var tapHandler: (() -> Void)?
+    var isClicked: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +31,12 @@ class TileCollectionViewCell: UICollectionViewCell {
     @IBAction func cardTapped(_ sender: UIButton) {
         //TODO: 탭했을 때 처리
         tapHandler?()
-        tileImage.layer.borderWidth = 5
+        isClicked.toggle()
+        if isClicked {
+            tileImage.layer.borderWidth = 5
+        } else {
+            tileImage.layer.borderWidth = 0
+        }
         
     }
 }

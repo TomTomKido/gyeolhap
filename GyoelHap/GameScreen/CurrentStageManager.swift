@@ -24,7 +24,12 @@ class CurrentStageManager {
     }
     
     func addToTryList(_ num: Int) {
-        self.tryList.append(num)
+        if self.tryList.contains(num) {
+            self.tryList = self.tryList.filter{$0 != num}
+        } else {
+            self.tryList.append(num)
+        }
+        
     }
     
     func printTryList() {
