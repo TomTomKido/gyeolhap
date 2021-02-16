@@ -22,7 +22,7 @@ class PlayViewController: UIViewController {
         super.viewDidAppear(animated)
         guard let item = currentStage else { return }
         let playingStageManager: CurrentStageManager = CurrentStageManager(stage: item)
-        print(playingStageManager.answers!)
+        print(playingStageManager.answers)
     }
     
 
