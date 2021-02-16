@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PlayingStage {
+struct CurrentStage {
     let colors: [Int]
     let shapes: [Int]
     let BGColors: [Int]

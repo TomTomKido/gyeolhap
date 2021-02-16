@@ -21,7 +21,7 @@ class PlayViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard let item = currentStage else { return }
-        let playingStageManager: PlayingStageManager = PlayingStageManager(stage: item)
+        let playingStageManager: CurrentStageManager = CurrentStageManager(stage: item)
         print(playingStageManager.answers!)
     }
     

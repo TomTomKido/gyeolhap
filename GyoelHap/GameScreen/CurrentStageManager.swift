@@ -7,10 +7,10 @@
 
 import Foundation
 
-class PlayingStageManager {
+class CurrentStageManager {
     
     let stage:Stage
-    var playingStage:PlayingStage?
+    var playingStage:CurrentStage?
     var answers: [[Int]]?
     
     init(stage: Stage) {
@@ -19,12 +19,12 @@ class PlayingStageManager {
         self.answers = solver(playingStage: self.playingStage!)
     }
     
-    func convertToStage(stage: Stage) -> PlayingStage {
+    func convertToStage(stage: Stage) -> CurrentStage {
         let colors: [Int] = getColors(array: stage.dataArray)
         let shapes: [Int] = getShapes(array: stage.dataArray)
         let BGColors: [Int] = getBGColors(array: stage.dataArray)
 
-        let playingStage = PlayingStage(colors: colors, shapes: shapes, BGColors: BGColors)
+        let playingStage = CurrentStage(colors: colors, shapes: shapes, BGColors: BGColors)
         return playingStage
     }
 
@@ -62,7 +62,7 @@ class PlayingStageManager {
     }
     
     
-    func solver(playingStage: PlayingStage) -> [[Int]] {
+    func solver(playingStage: CurrentStage) -> [[Int]] {
         var answers: [[Int]] = []
         for i in 0 ..< 9 {
             for j in i + 1 ..< 9 {
