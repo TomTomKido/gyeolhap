@@ -16,6 +16,7 @@ class StageTableViewController: UITableViewController {
         super.viewDidLoad()
         title = "스테이지 선택"
 
+        self.tableView.rowHeight = 44
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
