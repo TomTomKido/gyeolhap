@@ -23,6 +23,14 @@ class CurrentStageManager {
         answers = solver(stage: stage)
     }
     
+    func addToTryList(_ num: Int) {
+        self.tryList.append(num)
+    }
+    
+    func printTryList() {
+        print(self.tryList)
+    }
+    
     func solver(stage: Stage) -> [[Int]] {
         var answers: [[Int]] = []
         let colors: [Int] = getColors(array: stage.dataArray)

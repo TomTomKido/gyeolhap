@@ -11,6 +11,7 @@ class PlayViewController: UIViewController {
 //    let stageManager = StageManager.shared
 
     var currentStage: Stage?
+    var currentStageManager: CurrentStageManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,8 @@ class PlayViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard let item = currentStage else { return }
-        let playingStageManager: CurrentStageManager = CurrentStageManager(stage: item)
-        print(playingStageManager.answers)
+        self.currentStageManager = CurrentStageManager(stage: item)
+        print((currentStageManager?.answers)!)
     }
     
 
@@ -52,6 +53,10 @@ extension PlayViewController: UICollectionViewDataSource {
         cell.updateUI(index: indexPath.item, item: currentStage?.dataArray[indexPath.item] ?? 0)
 //        cell.updateUI(index: indexPath.item, item: stageManager.currentStage?.dataArray[indexPath.item] ?? 0)
         cell.tapHandler = {
+            guard let manager = self.currentStageManager else { return }
+            manager.addToTryList(indexPath.item + 1)
+            manager.printTryList()
+
             print("tabHandler 연결잘됨")
         }
         return cell

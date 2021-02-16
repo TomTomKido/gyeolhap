@@ -14,6 +14,7 @@ class TileCollectionViewCell: UICollectionViewCell {
     
 //    var tapHandler: ((AVPlayerItem) -> Void)?
     var tapHandler: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         tileImage.layer.cornerRadius = 4
