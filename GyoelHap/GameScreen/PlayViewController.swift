@@ -56,8 +56,8 @@ extension PlayViewController: UICollectionViewDataSource {
             guard let manager = self.currentStageManager else { return }
             manager.addToTryList(indexPath.item + 1)
             manager.printTryList()
+            
 
-            print("tabHandler 연결잘됨")
         }
         return cell
     }

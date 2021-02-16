@@ -17,23 +17,20 @@ class TileCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        tileImage.layer.cornerRadius = 4
-
     }
     
-//    func updateUI(index: Int){
-//        tileNumber.text = String(index + 1)
-////        tileNumber.text = "hi"
-//        tileImage.image = UIImage(named: "tile0")
-//    }
     func updateUI(index: Int, item: Int) {
         tileNumber.text = String(index + 1)
         tileImage.image = UIImage(named: "tile\(item)")
+        tileImage.layer.cornerRadius = 10
+        tileImage.layer.borderColor = CGColor.init(red: 178/255, green: 80/255, blue: 255/255, alpha: 1)
         
     }
 
     @IBAction func cardTapped(_ sender: UIButton) {
         //TODO: 탭했을 때 처리
         tapHandler?()
+        tileImage.layer.borderWidth = 5
+        
     }
 }
