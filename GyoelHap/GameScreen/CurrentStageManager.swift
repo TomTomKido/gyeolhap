@@ -27,10 +27,21 @@ class CurrentStageManager {
     func addToTryList(_ num: Int) {
         if self.tryList.contains(num) {
             self.tryList = self.tryList.filter{$0 != num}
-        } else {
+        }else if self.tryList.count < 3{
             self.tryList.append(num)
         }
-        
+        if self.tryList.count >= 3 {
+            checkAnswer()
+        }
+    }
+    
+    func checkAnswer() {
+        if answers.contains(tryList.sorted()) {
+            print("정답입니다")
+        } else {
+            print("오답입니다")
+        }
+        tryList = []
     }
     
     func printTryList() {

@@ -50,9 +50,6 @@ extension PlayViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-//        guard let manager = self.currentStageManager else { return UICollectionViewCell() }
-        
         cell.updateUI(index: indexPath.item, item: currentStage?.dataArray[indexPath.item] ?? 0)
         cell.tapHandler = {
             guard let manager = self.currentStageManager else { return }
@@ -60,7 +57,7 @@ extension PlayViewController: UICollectionViewDataSource {
             manager.printTryList()
         }
         cell.isClicked = {
-            //manager 옵셔널 바인딩을 실패했을 때 return false부분이 맞는지 알아보고 바꾸기
+            //TODO: manager 옵셔널 바인딩을 실패했을 때 return false부분이 맞는지 알아보고 바꾸기
             guard let manager = self.currentStageManager else { return false}
             return manager.isClicked(at: indexPath.item)
         }
