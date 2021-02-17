@@ -13,6 +13,7 @@ class CurrentStageManager {
     var answers: [[Int]] = []
     var tryList: [Int] = []
     var revealedAnswers: [[Int]] = []
+    var isClicked: [Bool] = Array(repeating: false, count: 9)
     
     init(stage: Stage) {
         self.stage = stage
@@ -34,6 +35,13 @@ class CurrentStageManager {
     
     func printTryList() {
         print(self.tryList)
+    }
+    
+    func isClicked(at: Int) -> Bool {
+        if tryList.contains(at + 1) {
+            return true
+        }
+        return false
     }
     
     func solver(stage: Stage) -> [[Int]] {
