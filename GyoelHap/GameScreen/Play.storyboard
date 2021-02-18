@@ -105,6 +105,9 @@
                             <constraint firstItem="Lr7-5p-ehr" firstAttribute="top" secondItem="3dr-d2-NQX" secondAttribute="top" constant="539" id="q4E-Y2-COc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="u2n-te-iBl" id="ke4-Oy-Lvy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgw-wJ-EKo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

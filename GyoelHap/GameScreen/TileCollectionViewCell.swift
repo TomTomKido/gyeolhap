@@ -12,9 +12,9 @@ class TileCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tileImage: UIImageView!
     @IBOutlet weak var tileButton: UIButton!
     
-//    var tapHandler: ((AVPlayerItem) -> Void)?
     var tapHandler: (() -> Void)?
     var isClicked: (() -> Bool)?
+    var reloadView: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,5 +37,6 @@ class TileCollectionViewCell: UICollectionViewCell {
         } else {
             tileImage.layer.borderWidth = 0
         }
+        reloadView?()
     }
 }

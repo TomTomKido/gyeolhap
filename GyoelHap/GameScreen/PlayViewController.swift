@@ -10,6 +10,8 @@ import UIKit
 class PlayViewController: UIViewController {
 //    let stageManager = StageManager.shared
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var currentStage: Stage?
     var currentStageManager: CurrentStageManager?
     
@@ -17,6 +19,9 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 //        self.navigationController?.isNavigationBarHidden = true
+//        collectionView.dataSource = self
+//        collectionView.delegate = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,7 +64,11 @@ extension PlayViewController: UICollectionViewDataSource {
         cell.isClicked = {
             //TODO: manager 옵셔널 바인딩을 실패했을 때 return false부분이 맞는지 알아보고 바꾸기
             guard let manager = self.currentStageManager else { return false}
+//            return manager.isClicked(at: indexPath.item)
             return manager.isClicked(at: indexPath.item)
+        }
+        cell.reloadView = {
+            self.collectionView.reloadData()
         }
         return cell
     }
@@ -67,13 +76,13 @@ extension PlayViewController: UICollectionViewDataSource {
 }
 
 
-//extension PlayViewController: UICollectionViewDelegate {
-//    //클릭했을 때 동작
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+extension PlayViewController: UICollectionViewDelegate {
+    //클릭했을 때 동작
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        print(stageManager.currentStage!.id)
-//
-//    }
-//}
+
+    }
+}
 
 extension PlayViewController:UICollectionViewDelegateFlowLayout {
     //셀 사이즈 어떻게 할까?
