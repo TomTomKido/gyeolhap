@@ -48,12 +48,8 @@ class CurrentStageManager {
         print(self.tryList)
     }
     
-    func isClicked(at: Int) -> Bool {
-        if tryList.contains(at + 1) {
-            return true
-        }
-        return false
-    }
+
+    
     
     func solver(stage: Stage) -> [[Int]] {
         var answers: [[Int]] = []

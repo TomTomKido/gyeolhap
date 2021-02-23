@@ -19,8 +19,8 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 //        self.navigationController?.isNavigationBarHidden = true
-//        collectionView.dataSource = self
-//        collectionView.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
     }
     
@@ -28,7 +28,8 @@ class PlayViewController: UIViewController {
         super.viewDidAppear(animated)
         guard let item = currentStage else { return }
         self.currentStageManager = CurrentStageManager(stage: item)
-        print((currentStageManager?.answers)!)
+        
+        print("정답리스트: \((currentStageManager?.answers)!)")
     }
     
 
@@ -63,12 +64,12 @@ extension PlayViewController: UICollectionViewDataSource {
         }
         cell.isClicked = {
             //TODO: manager 옵셔널 바인딩을 실패했을 때 return false부분이 맞는지 알아보고 바꾸기
-            guard let manager = self.currentStageManager else { return false}
-//            return manager.isClicked(at: indexPath.item)
-            return manager.isClicked(at: indexPath.item)
+            guard let manager = self.currentStageManager else { return [] }
+            return manager.tryList
         }
+        //리로드하면 랜덤하게 색칠됨
         cell.reloadView = {
-            self.collectionView.reloadData()
+            self.collectionView.reloadData()            
         }
         return cell
     }
@@ -80,7 +81,6 @@ extension PlayViewController: UICollectionViewDelegate {
     //클릭했을 때 동작
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        print(stageManager.currentStage!.id)
-
     }
 }
 
