@@ -48,14 +48,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tile0" translatesAutoresizingMaskIntoConstraints="NO" id="UTG-Pk-kiJ">
-                                                    <rect key="frame" x="5" y="27" width="90" height="90"/>
+                                                    <rect key="frame" x="6.5" y="27" width="87" height="87"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="2nX-pk-TXM"/>
-                                                        <constraint firstAttribute="height" constant="90" id="W6S-1x-28M"/>
+                                                        <constraint firstAttribute="width" secondItem="UTG-Pk-kiJ" secondAttribute="height" multiplier="1:1" id="6bE-1W-fEX"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tYv-vf-szt">
-                                                    <rect key="frame" x="5" y="27" width="90" height="90"/>
+                                                    <rect key="frame" x="6.5" y="27" width="87" height="87"/>
                                                     <connections>
                                                         <action selector="cardTapped:" destination="3qG-aO-j0E" eventType="touchUpInside" id="NtF-Ph-qv2"/>
                                                     </connections>
@@ -68,8 +67,9 @@
                                                 <constraint firstItem="tYv-vf-szt" firstAttribute="bottom" secondItem="UTG-Pk-kiJ" secondAttribute="bottom" id="Xz2-rF-eyY"/>
                                                 <constraint firstItem="BKR-dQ-UhC" firstAttribute="centerX" secondItem="huB-Mv-SHB" secondAttribute="centerX" id="ZVc-Fg-suG"/>
                                                 <constraint firstItem="UTG-Pk-kiJ" firstAttribute="top" secondItem="BKR-dQ-UhC" secondAttribute="bottom" constant="6" id="e49-0e-aPj"/>
-                                                <constraint firstItem="UTG-Pk-kiJ" firstAttribute="centerX" secondItem="huB-Mv-SHB" secondAttribute="centerX" id="ipp-J9-PN8"/>
+                                                <constraint firstItem="UTG-Pk-kiJ" firstAttribute="centerX" secondItem="huB-Mv-SHB" secondAttribute="centerX" id="gXS-aY-yuO"/>
                                                 <constraint firstItem="tYv-vf-szt" firstAttribute="top" secondItem="UTG-Pk-kiJ" secondAttribute="top" id="neq-GS-glh"/>
+                                                <constraint firstAttribute="bottom" secondItem="UTG-Pk-kiJ" secondAttribute="bottom" constant="5" id="rFC-yB-AdJ"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="100" height="119"/>
