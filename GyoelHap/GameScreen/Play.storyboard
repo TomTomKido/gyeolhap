@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u2n-te-iBl">
-                                <rect key="frame" x="0.0" y="88" width="414" height="529"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="529"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="u2n-te-iBl" secondAttribute="height" multiplier="18:23" id="d95-T9-LTM"/>
@@ -140,24 +140,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgw-wJ-EKo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="457.97101449275368" y="59.598214285714285"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Y4t-fk-kdy">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nCd-0G-rsG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DFn-cn-SXi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="73t-bL-9E7" kind="relationship" relationship="rootViewController" id="E8P-R0-clP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Mf-vC-iYu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-452.17391304347831" y="59.598214285714285"/>
         </scene>
     </scenes>
     <resources>
