@@ -98,17 +98,37 @@ extension PlayViewController:UICollectionViewDelegateFlowLayout {
     //셀 사이즈 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collectionViewUp {
-            let inset: CGFloat = 20
+            let inset: CGFloat = 10
             let width: CGFloat = (collectionView.bounds.width - inset * 4) / 3
-            let height: CGFloat = (collectionView.bounds.width - inset * 4) / 3
+            let height: CGFloat = (collectionView.bounds.height - inset * 4) / 3
             return CGSize(width:width, height: height)
         } else {
             let inset: CGFloat = 5
             let width: CGFloat = (collectionView.bounds.width - inset * 3) / 2
-            let height: CGFloat = collectionView.bounds.width / 6
-//            let width: CGFloat = 80
-//            let height: CGFloat = 60
+            let height: CGFloat = (collectionView.bounds.height - inset * 7) / 6
             return CGSize(width:width, height: height)
         }
     }
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//
+//        if collectionView == collectionViewUp {
+//
+////        } else {
+////            let cellWidth = CellWidth * CellCount
+////            let spacingWidth = CellSpacing * (CellCount - 1)
+////
+////            let leftInset = (collectionViewWidth - CGFloat(CellWidth + SpacingWidth)) / 2
+////            let rightInset = leftInset
+//
+//            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        }
+////        let cellWidth = CellWidth * CellCount
+////        let spacingWidth = CellSpacing * (CellCount - 1)
+////
+////        let leftInset = (collectionViewWidth - CGFloat(CellWidth + SpacingWidth)) / 2
+////        let rightInset = leftInset
+////
+////        return UIEdgeInsetsMake(0, leftInset, 0, rightInset)
+//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//    }
 }
