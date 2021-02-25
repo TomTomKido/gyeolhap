@@ -27,7 +27,6 @@ class TileCollectionViewCell: UICollectionViewCell {
         tileImage.image = UIImage(named: "tile\(item)")
         tileImage.layer.cornerRadius = 10
         tileImage.layer.borderColor = CGColor.init(red: 178/255, green: 80/255, blue: 255/255, alpha: 1)
-        
     }
 
     @IBAction func cardTapped(_ sender: UIButton) {
@@ -42,6 +41,6 @@ class TileCollectionViewCell: UICollectionViewCell {
         print(isClicked?() ?? "")
         
         //나중에 리로드고치기
-//        reloadView?()
+        reloadView?()
     }
 }

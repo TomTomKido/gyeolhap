@@ -38,10 +38,12 @@ class GameManager {
     func checkAnswer() {
         if answers.contains(tryList.sorted()) {
             print("정답입니다")
+            revealedAnswers.append(tryList)
         } else {
             print("오답입니다")
         }
         tryList = []
+        print("밝혀진 정답은 \(revealedAnswers)")
     }
     
     func printTryList() {

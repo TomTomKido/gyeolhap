@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var GyeolButton: UIButton!
     
     var currentStage: Stage?
-    var currentStageManager: GameManager?
+    var gameManager: GameManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,8 @@ class GameViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard let item = currentStage else { return }
-        self.currentStageManager = GameManager(stage: item)
-        print("정답리스트: \((currentStageManager?.answers)!)")
+        self.gameManager = GameManager(stage: item)
+        print("정답리스트: \((gameManager?.answers)!)")
     }
 }
 
@@ -55,24 +55,26 @@ extension GameViewController: UICollectionViewDataSource {
             }
             cell.updateUI(index: indexPath.item, item: currentStage?.dataArray[indexPath.item] ?? 0)
             cell.tapHandler = {
-                guard let manager = self.currentStageManager else { return }
+                guard let manager = self.gameManager else { return }
                 manager.addToTryList(indexPath.item + 1)
                 manager.printTryList()
             }
             cell.isClicked = {
                 //TODO: manager 옵셔널 바인딩을 실패했을 때 return false부분이 맞는지 알아보고 바꾸기
-                guard let manager = self.currentStageManager else { return [] }
+                guard let manager = self.gameManager else { return [] }
                 return manager.tryList
             }
             //리로드하면 랜덤하게 색칠됨
-//            cell.reloadView = {
-//                self.collectionViewUp.reloadData()
-//            }
+            cell.reloadView = {
+                self.collectionViewDown.reloadData()
+            }
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath) as? AnswerCell else {
                 return UICollectionViewCell()
             }
+            cell.updateUI(index: indexPath.item, item: gameManager?.revealedAnswers ?? [])
+            self.collectionViewUp.reloadData()
             return cell
         }
     }
