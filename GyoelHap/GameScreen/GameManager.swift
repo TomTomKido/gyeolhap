@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CurrentStageManager {
+class GameManager {
     
     let stage:Stage
     var answers: [[Int]] = []
@@ -47,9 +47,6 @@ class CurrentStageManager {
     func printTryList() {
         print(self.tryList)
     }
-    
-
-    
     
     func solver(stage: Stage) -> [[Int]] {
         var answers: [[Int]] = []

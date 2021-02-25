@@ -38,7 +38,7 @@ class StageTableViewController: UITableViewController {
 
     //각 셀을 어떻게 보여줄까?
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? StageTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? stageCell
             else {
             return UITableViewCell()
         }
@@ -48,8 +48,8 @@ class StageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let playStoryboard = UIStoryboard.init(name: "Play", bundle: nil)
-        guard let playVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? PlayViewController else { return }
+        let playStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
+        guard let playVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? GameViewController else { return }
         let stage = stageManager.stage(at: indexPath.item)
         playVC.currentStage = stage
         self.navigationController?.pushViewController(playVC, animated: true)

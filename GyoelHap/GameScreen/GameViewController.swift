@@ -1,5 +1,5 @@
 //
-//  PlayViewController.swift
+//  GameViewController.swift
 //  GyeolHap
 //
 //  Created by Terry Lee on 2021/02/03.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlayViewController: UIViewController {
+class GameViewController: UIViewController {
 //    let stageManager = StageManager.shared
 
     @IBOutlet weak var collectionViewUp: UICollectionView!
@@ -16,7 +16,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var GyeolButton: UIButton!
     
     var currentStage: Stage?
-    var currentStageManager: CurrentStageManager?
+    var currentStageManager: GameManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +31,12 @@ class PlayViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard let item = currentStage else { return }
-        self.currentStageManager = CurrentStageManager(stage: item)
+        self.currentStageManager = GameManager(stage: item)
         print("정답리스트: \((currentStageManager?.answers)!)")
     }
 }
 
-extension PlayViewController: UICollectionViewDataSource {
+extension GameViewController: UICollectionViewDataSource {
 
     //셀을 몇개 보여줄까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -85,7 +85,7 @@ extension PlayViewController: UICollectionViewDataSource {
 //    }
 //}
 
-extension PlayViewController:UICollectionViewDelegateFlowLayout {
+extension GameViewController:UICollectionViewDelegateFlowLayout {
     //셀 사이즈 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == collectionViewUp {

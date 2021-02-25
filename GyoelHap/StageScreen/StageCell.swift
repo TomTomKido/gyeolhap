@@ -1,5 +1,5 @@
 //
-//  StageTableViewCell.swift
+//  StageCell.swift
 //  GyeolHap
 //
 //  Created by Terry Lee on 2021/02/13.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StageTableViewCell: UITableViewCell {
+class stageCell: UITableViewCell {
 
     @IBOutlet weak var stageName: UILabel!
     
