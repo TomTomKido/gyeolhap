@@ -84,7 +84,6 @@ extension PlayViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath) as? AnswerCell else {
                 return UICollectionViewCell()
             }
-            cell.backgroundColor = .black
             return cell
         }
     }
@@ -115,26 +114,4 @@ extension PlayViewController:UICollectionViewDelegateFlowLayout {
             return CGSize(width:width, height: height)
         }
     }
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-//
-//        if collectionView == collectionViewUp {
-//
-////        } else {
-////            let cellWidth = CellWidth * CellCount
-////            let spacingWidth = CellSpacing * (CellCount - 1)
-////
-////            let leftInset = (collectionViewWidth - CGFloat(CellWidth + SpacingWidth)) / 2
-////            let rightInset = leftInset
-//
-//            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        }
-////        let cellWidth = CellWidth * CellCount
-////        let spacingWidth = CellSpacing * (CellCount - 1)
-////
-////        let leftInset = (collectionViewWidth - CGFloat(CellWidth + SpacingWidth)) / 2
-////        let rightInset = leftInset
-////
-////        return UIEdgeInsetsMake(0, leftInset, 0, rightInset)
-//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//    }
 }
