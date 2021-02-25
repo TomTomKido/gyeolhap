@@ -13,7 +13,6 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var collectionViewUp: UICollectionView!
     @IBOutlet weak var collectionViewDown: UICollectionView!
     @IBOutlet weak var gyeolImage: UIImageView!
-    
     @IBOutlet weak var GyeolButton: UIButton!
     
     var currentStage: Stage?
@@ -21,7 +20,6 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
 //        self.navigationController?.isNavigationBarHidden = true
         collectionViewUp.delegate = self
         collectionViewUp.dataSource = self
@@ -29,7 +27,6 @@ class PlayViewController: UIViewController {
         collectionViewDown.delegate = self
         collectionViewDown.dataSource = self
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -41,14 +38,6 @@ class PlayViewController: UIViewController {
 
 extension PlayViewController: UICollectionViewDataSource {
 
-    //셀을 몇개의 섹션(컬럼)으로 보여줄까?
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        if collectionView == collectionViewUp {
-//            return 3
-//        } else {
-//            return 2
-//        }
-//    }
     //셀을 몇개 보여줄까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionViewUp {
@@ -76,9 +65,9 @@ extension PlayViewController: UICollectionViewDataSource {
                 return manager.tryList
             }
             //리로드하면 랜덤하게 색칠됨
-            cell.reloadView = {
-                self.collectionViewUp.reloadData()
-            }
+//            cell.reloadView = {
+//                self.collectionViewUp.reloadData()
+//            }
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath) as? AnswerCell else {
@@ -90,12 +79,11 @@ extension PlayViewController: UICollectionViewDataSource {
 }
 
 
-extension PlayViewController: UICollectionViewDelegate {
-    //클릭했을 때 동작
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(stageManager.currentStage!.id)
-    }
-}
+//extension PlayViewController: UICollectionViewDelegate {
+//    //클릭했을 때 동작
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    }
+//}
 
 extension PlayViewController:UICollectionViewDelegateFlowLayout {
     //셀 사이즈 어떻게 할까?
@@ -108,9 +96,7 @@ extension PlayViewController:UICollectionViewDelegateFlowLayout {
         } else {
             let inset: CGFloat = 0
             let width: CGFloat = (collectionView.bounds.width - inset * 3) / 2
-//            let width: CGFloat = collectionView.bounds.width
             let height: CGFloat = (collectionView.bounds.height - inset * 7) / 6
-//            let height: CGFloat = collectionView.bounds.height / 3
             return CGSize(width:width, height: height)
         }
     }
