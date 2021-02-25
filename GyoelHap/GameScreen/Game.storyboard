@@ -86,7 +86,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="llE-Tn-HUL" userLabel="Collection View Down">
-                                <rect key="frame" x="0.0" y="458" width="276" height="404"/>
+                                <rect key="frame" x="0.0" y="468" width="276" height="394"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="42f-Tf-lmC">
                                     <size key="itemSize" width="144" height="59"/>
@@ -95,7 +95,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answerSheet-1" id="MCu-gM-Dex">
-                                    <rect key="frame" x="0.0" y="0.0" width="276" height="404"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="276" height="394"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
@@ -127,10 +127,10 @@
                                 </cells>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gyeol-1" translatesAutoresizingMaskIntoConstraints="NO" id="ouo-a8-t2A" userLabel="ButtonImage">
-                                <rect key="frame" x="276" y="458" width="138" height="404"/>
+                                <rect key="frame" x="276" y="468" width="138" height="394"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FsK-7g-8iZ">
-                                <rect key="frame" x="276" y="458" width="138" height="404"/>
+                                <rect key="frame" x="276" y="468" width="138" height="394"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3dr-d2-NQX"/>
@@ -139,20 +139,19 @@
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="trailing" secondItem="3dr-d2-NQX" secondAttribute="trailing" id="1ao-2t-ujM"/>
                             <constraint firstItem="FsK-7g-8iZ" firstAttribute="leading" secondItem="ouo-a8-t2A" secondAttribute="leading" id="2Sw-OT-Mf8"/>
                             <constraint firstItem="3dr-d2-NQX" firstAttribute="trailing" secondItem="u2n-te-iBl" secondAttribute="trailing" id="2v2-Cq-EcE"/>
+                            <constraint firstItem="llE-Tn-HUL" firstAttribute="top" secondItem="u2n-te-iBl" secondAttribute="bottom" constant="10" id="45x-JS-Caj"/>
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="leading" secondItem="llE-Tn-HUL" secondAttribute="trailing" id="DeE-vz-Hi7"/>
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="bottom" secondItem="llE-Tn-HUL" secondAttribute="bottom" id="Of8-lQ-Rf7"/>
-                            <constraint firstItem="FsK-7g-8iZ" firstAttribute="top" secondItem="ouo-a8-t2A" secondAttribute="top" id="S5r-po-mTe"/>
-                            <constraint firstItem="ouo-a8-t2A" firstAttribute="top" secondItem="llE-Tn-HUL" secondAttribute="top" id="TEu-Eh-Qsg"/>
                             <constraint firstItem="u2n-te-iBl" firstAttribute="leading" secondItem="3dr-d2-NQX" secondAttribute="leading" id="bIr-cD-ULN"/>
-                            <constraint firstItem="llE-Tn-HUL" firstAttribute="top" secondItem="u2n-te-iBl" secondAttribute="bottom" id="dzM-cM-Dc6"/>
                             <constraint firstItem="llE-Tn-HUL" firstAttribute="width" secondItem="ouo-a8-t2A" secondAttribute="width" multiplier="2" id="gkl-nf-blS"/>
+                            <constraint firstItem="ouo-a8-t2A" firstAttribute="top" secondItem="llE-Tn-HUL" secondAttribute="top" id="guY-DZ-bQW"/>
                             <constraint firstItem="u2n-te-iBl" firstAttribute="top" secondItem="3dr-d2-NQX" secondAttribute="top" id="hoD-o8-2YO"/>
                             <constraint firstItem="llE-Tn-HUL" firstAttribute="leading" secondItem="3dr-d2-NQX" secondAttribute="leading" id="oYS-aH-No6"/>
                             <constraint firstItem="FsK-7g-8iZ" firstAttribute="trailing" secondItem="ouo-a8-t2A" secondAttribute="trailing" id="rrb-Vv-4nY"/>
                             <constraint firstItem="3dr-d2-NQX" firstAttribute="bottom" secondItem="llE-Tn-HUL" secondAttribute="bottom" id="s4Y-rV-nDD"/>
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="bottom" secondItem="3dr-d2-NQX" secondAttribute="bottom" id="t8A-sA-URZ"/>
                             <constraint firstItem="FsK-7g-8iZ" firstAttribute="bottom" secondItem="ouo-a8-t2A" secondAttribute="bottom" id="t8I-jB-EjH"/>
-                            <constraint firstItem="ouo-a8-t2A" firstAttribute="top" secondItem="u2n-te-iBl" secondAttribute="bottom" id="vmA-Ld-945"/>
+                            <constraint firstItem="FsK-7g-8iZ" firstAttribute="top" secondItem="ouo-a8-t2A" secondAttribute="top" id="wog-9U-YcA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pN6-nx-8pv"/>
