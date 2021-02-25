@@ -103,9 +103,11 @@ extension PlayViewController:UICollectionViewDelegateFlowLayout {
             let height: CGFloat = (collectionView.bounds.height - inset * 4) / 3
             return CGSize(width:width, height: height)
         } else {
-            let inset: CGFloat = 5
+            let inset: CGFloat = 0
             let width: CGFloat = (collectionView.bounds.width - inset * 3) / 2
+//            let width: CGFloat = collectionView.bounds.width
             let height: CGFloat = (collectionView.bounds.height - inset * 7) / 6
+//            let height: CGFloat = collectionView.bounds.height / 3
             return CGSize(width:width, height: height)
         }
     }
