@@ -12,6 +12,9 @@ class PlayViewController: UIViewController {
 
     @IBOutlet weak var collectionViewUp: UICollectionView!
     @IBOutlet weak var collectionViewDown: UICollectionView!
+    @IBOutlet weak var gyeolImage: UIImageView!
+    
+    @IBOutlet weak var GyeolButton: UIButton!
     
     var currentStage: Stage?
     var currentStageManager: CurrentStageManager?
@@ -26,6 +29,7 @@ class PlayViewController: UIViewController {
         collectionViewDown.delegate = self
         collectionViewDown.dataSource = self
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
