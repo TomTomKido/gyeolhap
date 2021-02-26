@@ -13,7 +13,9 @@ class GameManager {
     var answers: [[Int]] = []
     var tryList: [Int] = []
     var revealedAnswers: [[Int]] = []
-    var isClicked: [Bool] = Array(repeating: false, count: 9)
+    var sortedRevealedAnswers: [[Int]] = []
+    
+    
     
     init(stage: Stage) {
         self.stage = stage
@@ -27,7 +29,7 @@ class GameManager {
     func addToTryList(_ num: Int) {
         if self.tryList.contains(num) {
             self.tryList = self.tryList.filter{$0 != num}
-        }else if self.tryList.count < 3{
+        } else if self.tryList.count < 3 {
             self.tryList.append(num)
         }
         if self.tryList.count >= 3 {
@@ -36,9 +38,12 @@ class GameManager {
     }
     
     func checkAnswer() {
-        if answers.contains(tryList.sorted()) {
+        if sortedRevealedAnswers.contains(tryList.sorted()) {
+          print("제출했던 정답입니다.")
+        } else if answers.contains(tryList.sorted()) {
             print("정답입니다")
             revealedAnswers.append(tryList)
+            sortedRevealedAnswers.append(tryList.sorted())
         } else {
             print("오답입니다")
         }
@@ -47,7 +52,7 @@ class GameManager {
     }
     
     func printTryList() {
-        print(self.tryList)
+        print("현재 시도중: \(self.tryList)")
     }
     
     func solver(stage: Stage) -> [[Int]] {
