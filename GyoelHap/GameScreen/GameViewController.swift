@@ -18,9 +18,35 @@ class GameViewController: UIViewController {
     var currentStage: Stage?
     var gameManager: GameManager?
     
+    
+    var seconds = 00
+    var timer = Timer()
+    var isTimerRunning = false
+    
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        seconds += 1
+        self.navigationItem.title = timeString(time: TimeInterval(seconds))
+    }
+    
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.isNavigationBarHidden = true
+        self.navigationItem.title = "00:00:00"
+        
+        runTimer()
+            
+        
         collectionViewUp.delegate = self
         collectionViewUp.dataSource = self
         
@@ -35,6 +61,8 @@ class GameViewController: UIViewController {
         print("정답리스트: \((gameManager?.answers)!)")
     }
 }
+
+
 
 extension GameViewController: UICollectionViewDataSource {
 
