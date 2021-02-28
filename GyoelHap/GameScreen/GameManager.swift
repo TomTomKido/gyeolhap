@@ -32,16 +32,19 @@ class GameManager {
         } else if self.tryList.count < 3 {
             self.tryList.append(num)
         }
-        if self.tryList.count >= 3 {
-            checkAnswer()
-        }
     }
     
-    func checkAnswer() {
+    func checkAnswer() -> (Bool) {
+        var isAnswer = false
+        
+        if self.tryList.count < 3 {
+            return true
+        }
         if sortedRevealedAnswers.contains(tryList.sorted()) {
           print("제출했던 정답입니다.")
         } else if answers.contains(tryList.sorted()) {
             print("정답입니다")
+            isAnswer = true
             revealedAnswers.append(tryList)
             sortedRevealedAnswers.append(tryList.sorted())
         } else {
@@ -49,6 +52,7 @@ class GameManager {
         }
         tryList = []
         print("밝혀진 정답은 \(revealedAnswers)")
+        return isAnswer
     }
     
     func printTryList() {

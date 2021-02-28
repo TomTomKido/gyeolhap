@@ -19,23 +19,25 @@ class GameViewController: UIViewController {
     var gameManager: GameManager?
     
     
-    var seconds = 00
+    var deciSeconds = 00
     var timer = Timer()
     var isTimerRunning = false
     
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
-        seconds += 1
-        self.navigationItem.title = timeString(time: TimeInterval(seconds))
+        deciSeconds += 1
+        self.navigationItem.title = timeString(time: TimeInterval(deciSeconds))
+
     }
     
     func timeString(time:TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
+        let newTime = time / 10
+        let hours = Int(newTime) / 3600
+        let minutes = Int(newTime) / 60 % 60
+        let seconds = Int(newTime) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
     
@@ -85,6 +87,9 @@ extension GameViewController: UICollectionViewDataSource {
             cell.tapHandler = {
                 guard let manager = self.gameManager else { return }
                 manager.addToTryList(indexPath.item + 1)
+                if manager.checkAnswer() == false {
+                    self.deciSeconds += 100
+                }
                 manager.printTryList()
                 self.collectionViewUp.reloadData()
                 self.collectionViewDown.reloadData()
