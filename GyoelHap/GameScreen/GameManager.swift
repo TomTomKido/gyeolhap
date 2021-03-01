@@ -34,6 +34,15 @@ class GameManager {
         }
     }
     
+    func checkGyeol() -> (Bool) {
+        if answers.count == revealedAnswers.count {
+            print("결 성공")
+            return true
+        }
+        print("결 실패")
+        return false
+    }
+    
     func checkAnswer() -> (Bool) {
         var isAnswer = false
         

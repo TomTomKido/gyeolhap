@@ -14,8 +14,6 @@ class TileCollectionViewCell: UICollectionViewCell {
     
     var tapHandler: (() -> Void)?
     
-    
-    
     func updateUI(index: Int, item: Int, tryList: [Int]) {
         tileNumber.text = String(index + 1)
         tileImage.image = UIImage(named: "tile\(item)")

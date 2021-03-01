@@ -48,9 +48,13 @@ class StageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        pushStage(stageId: indexPath.item)
+    }
+
+    func pushStage(stageId: Int) {
         let playStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
         guard let playVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? GameViewController else { return }
-        let stage = stageManager.stage(at: indexPath.item)
+        let stage = stageManager.stage(at: stageId)
         playVC.currentStage = stage
         self.navigationController?.pushViewController(playVC, animated: true)
     }

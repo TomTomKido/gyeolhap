@@ -131,40 +131,83 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FsK-7g-8iZ">
                                 <rect key="frame" x="276" y="468" width="138" height="394"/>
+                                <connections>
+                                    <action selector="gyeol:" destination="73t-bL-9E7" eventType="touchUpInside" id="Y11-Zp-MO2"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+10sec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCb-YL-gSf" userLabel="sec10">
+                                <rect key="frame" x="66.5" y="641" width="143.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="40"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMF-dR-Tnp">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3dr-d2-NQX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="qCb-YL-gSf" firstAttribute="centerY" secondItem="llE-Tn-HUL" secondAttribute="centerY" id="10m-Kp-Nab"/>
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="trailing" secondItem="3dr-d2-NQX" secondAttribute="trailing" id="1ao-2t-ujM"/>
                             <constraint firstItem="FsK-7g-8iZ" firstAttribute="leading" secondItem="ouo-a8-t2A" secondAttribute="leading" id="2Sw-OT-Mf8"/>
                             <constraint firstItem="3dr-d2-NQX" firstAttribute="trailing" secondItem="u2n-te-iBl" secondAttribute="trailing" id="2v2-Cq-EcE"/>
                             <constraint firstItem="llE-Tn-HUL" firstAttribute="top" secondItem="u2n-te-iBl" secondAttribute="bottom" constant="10" id="45x-JS-Caj"/>
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="leading" secondItem="llE-Tn-HUL" secondAttribute="trailing" id="DeE-vz-Hi7"/>
+                            <constraint firstAttribute="bottom" secondItem="yMF-dR-Tnp" secondAttribute="bottom" id="McN-Tm-7Dh"/>
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="bottom" secondItem="llE-Tn-HUL" secondAttribute="bottom" id="Of8-lQ-Rf7"/>
+                            <constraint firstItem="yMF-dR-Tnp" firstAttribute="leading" secondItem="3dr-d2-NQX" secondAttribute="leading" id="Qhg-70-wAw"/>
                             <constraint firstItem="u2n-te-iBl" firstAttribute="leading" secondItem="3dr-d2-NQX" secondAttribute="leading" id="bIr-cD-ULN"/>
                             <constraint firstItem="llE-Tn-HUL" firstAttribute="width" secondItem="ouo-a8-t2A" secondAttribute="width" multiplier="2" id="gkl-nf-blS"/>
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="top" secondItem="llE-Tn-HUL" secondAttribute="top" id="guY-DZ-bQW"/>
                             <constraint firstItem="u2n-te-iBl" firstAttribute="top" secondItem="3dr-d2-NQX" secondAttribute="top" id="hoD-o8-2YO"/>
+                            <constraint firstItem="yMF-dR-Tnp" firstAttribute="trailing" secondItem="3dr-d2-NQX" secondAttribute="trailing" id="iRB-RE-bsf"/>
+                            <constraint firstItem="yMF-dR-Tnp" firstAttribute="top" secondItem="msM-OW-3BK" secondAttribute="top" id="mH6-da-MMr"/>
                             <constraint firstItem="llE-Tn-HUL" firstAttribute="leading" secondItem="3dr-d2-NQX" secondAttribute="leading" id="oYS-aH-No6"/>
                             <constraint firstItem="FsK-7g-8iZ" firstAttribute="trailing" secondItem="ouo-a8-t2A" secondAttribute="trailing" id="rrb-Vv-4nY"/>
                             <constraint firstItem="3dr-d2-NQX" firstAttribute="bottom" secondItem="llE-Tn-HUL" secondAttribute="bottom" id="s4Y-rV-nDD"/>
                             <constraint firstItem="ouo-a8-t2A" firstAttribute="bottom" secondItem="3dr-d2-NQX" secondAttribute="bottom" id="t8A-sA-URZ"/>
                             <constraint firstItem="FsK-7g-8iZ" firstAttribute="bottom" secondItem="ouo-a8-t2A" secondAttribute="bottom" id="t8I-jB-EjH"/>
+                            <constraint firstItem="qCb-YL-gSf" firstAttribute="centerX" secondItem="llE-Tn-HUL" secondAttribute="centerX" id="vY6-DI-6zM"/>
                             <constraint firstItem="FsK-7g-8iZ" firstAttribute="top" secondItem="ouo-a8-t2A" secondAttribute="top" id="wog-9U-YcA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pN6-nx-8pv"/>
                     <connections>
                         <outlet property="GyeolButton" destination="FsK-7g-8iZ" id="EGd-Pr-3dW"/>
+                        <outlet property="alertBackground" destination="yMF-dR-Tnp" id="63m-ZA-gI9"/>
                         <outlet property="collectionViewDown" destination="llE-Tn-HUL" id="DoV-GC-Dsb"/>
                         <outlet property="collectionViewUp" destination="u2n-te-iBl" id="ke4-Oy-Lvy"/>
                         <outlet property="gyeolImage" destination="ouo-a8-t2A" id="fpm-PV-klp"/>
+                        <outlet property="sec10" destination="qCb-YL-gSf" id="Klm-8e-cOs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgw-wJ-EKo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1368.1159420289855" y="59.598214285714285"/>
+            <point key="canvasLocation" x="1366.6666666666667" y="59.598214285714285"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="d0I-dV-iQy">
+            <objects>
+                <viewController id="F0e-KK-6Gv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DFF-Iu-clY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlK-SL-ChB">
+                                <rect key="frame" x="87" y="266" width="240" height="321"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fAF-0p-UoI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dlx-QM-FWt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2489.8550724637685" y="57.589285714285708"/>
         </scene>
     </scenes>
     <resources>
@@ -173,6 +216,12 @@
         <image name="tile0" width="90" height="90"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

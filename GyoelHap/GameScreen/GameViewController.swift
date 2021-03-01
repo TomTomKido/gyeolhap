@@ -10,9 +10,11 @@ import UIKit
 class GameViewController: UIViewController {
 //    let stageManager = StageManager.shared
 
+    @IBOutlet weak var alertBackground: UIView!
     @IBOutlet weak var collectionViewUp: UICollectionView!
     @IBOutlet weak var collectionViewDown: UICollectionView!
     @IBOutlet weak var gyeolImage: UIImageView!
+    @IBOutlet weak var sec10: UILabel!
     @IBOutlet weak var GyeolButton: UIButton!
     
     var currentStage: Stage?
@@ -41,14 +43,45 @@ class GameViewController: UIViewController {
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
     
+    func showAlert() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [],
+        animations: {
+            self.alertBackground.alpha = 0.5
+        },
+        completion: nil
+        )
+        UIView.animate(withDuration: 0.6, delay: 0, options: [],
+        animations: {
+            self.alertBackground.alpha = 0
+        },
+        completion: nil
+        )
+    }
+    
+    func showSeconds(second: Int) {
+        sec10.text = "+\(String(second))sec"
+        UIView.animate(withDuration: 0.3, delay: 0, options: [],
+        animations: {
+            self.sec10.alpha = 1
+        },
+        completion: nil
+        )
+        UIView.animate(withDuration: 1, delay: 0, options: [],
+        animations: {
+            self.sec10.alpha = 0
+        },
+        completion: nil
+        )
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.isNavigationBarHidden = true
         self.navigationItem.title = "00:00:00"
         
-        runTimer()
-            
         
+        runTimer()
+
         collectionViewUp.delegate = self
         collectionViewUp.dataSource = self
         
@@ -61,6 +94,19 @@ class GameViewController: UIViewController {
         guard let item = currentStage else { return }
         self.gameManager = GameManager(stage: item)
         print("정답리스트: \((gameManager?.answers)!)")
+    }
+    
+    @IBAction func gyeol(_ sender: UIButton) {
+        guard let manager = self.gameManager else { return }
+        print("hi")
+        if !manager.checkGyeol() {
+            self.showAlert()
+            self.showSeconds(second: 30)
+            self.deciSeconds += 300
+        } else {
+            self.timer.invalidate()
+            print("기록은 \(timeString(time: TimeInterval(deciSeconds)))")
+        }
     }
 }
 
@@ -89,6 +135,8 @@ extension GameViewController: UICollectionViewDataSource {
                 manager.addToTryList(indexPath.item + 1)
                 if manager.checkAnswer() == false {
                     self.deciSeconds += 100
+                    self.showAlert()
+                    self.showSeconds(second: 10)
                 }
                 manager.printTryList()
                 self.collectionViewUp.reloadData()
