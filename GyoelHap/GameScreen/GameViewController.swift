@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gyeolImage: UIImageView!
     @IBOutlet weak var sec10: UILabel!
     @IBOutlet weak var GyeolButton: UIButton!
+    @IBOutlet weak var completeMenu: UIView!
     
     var currentStage: Stage?
     var gameManager: GameManager?
@@ -82,6 +83,7 @@ class GameViewController: UIViewController {
         
         runTimer()
 
+        
         collectionViewUp.delegate = self
         collectionViewUp.dataSource = self
         
@@ -106,6 +108,7 @@ class GameViewController: UIViewController {
         } else {
             self.timer.invalidate()
             print("기록은 \(timeString(time: TimeInterval(deciSeconds)))")
+            completeMenu.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         }
     }
 }

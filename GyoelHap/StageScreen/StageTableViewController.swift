@@ -48,6 +48,7 @@ class StageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("stage", indexPath.item)
         pushStage(stageId: indexPath.item)
     }
 
