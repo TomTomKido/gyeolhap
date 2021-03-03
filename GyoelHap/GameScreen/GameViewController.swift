@@ -8,7 +8,6 @@
 import UIKit
 
 class GameViewController: UIViewController {
-//    let stageManager = StageManager.shared
 
     @IBOutlet weak var alertBackground: UIView!
     @IBOutlet weak var collectionViewUp: UICollectionView!
@@ -22,7 +21,7 @@ class GameViewController: UIViewController {
     var gameManager: GameManager?
     
     
-    var deciSeconds = 00
+    var deciSeconds = 0
     var timer = Timer()
     var isTimerRunning = false
     
@@ -79,11 +78,9 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 //        self.navigationController?.isNavigationBarHidden = true
         self.navigationItem.title = "00:00:00"
-        
-        
+            
         runTimer()
 
-        
         collectionViewUp.delegate = self
         collectionViewUp.dataSource = self
         
@@ -107,6 +104,8 @@ class GameViewController: UIViewController {
             self.deciSeconds += 300
         } else {
             self.timer.invalidate()
+            currentStage?.isSolved = true
+            currentStage?.record = deciSeconds
             print("기록은 \(timeString(time: TimeInterval(deciSeconds)))")
             completeMenu.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         }

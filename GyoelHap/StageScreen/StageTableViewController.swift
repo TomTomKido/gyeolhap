@@ -8,8 +8,6 @@
 import UIKit
 
 class StageTableViewController: UITableViewController {
-    
-//    let stageManager = StageManager.shared
     let stageManager:StageManager = StageManager()
     
     override func viewDidLoad() {
@@ -17,13 +15,14 @@ class StageTableViewController: UITableViewController {
         title = "스테이지 선택"
 
         self.tableView.rowHeight = 44
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
+        let a = stageManager.stage(at: 0)?.isSolved
+        print(a)
+    }
     // MARK: - Table view data source
 
     //몇개의 섹션을 보여줄까?

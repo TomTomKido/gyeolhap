@@ -8,12 +8,8 @@
 import UIKit
 
 class StageManager {
-//    static let shared = StageManager()
-    
     var Stages:[Stage] = []
     let stageCount: Int = 20
-//    var currentStageId: Int?
-//    var currentStage: Stage?
     
     init() {
         self.Stages = createRawStages(size: stageCount)
@@ -37,5 +33,9 @@ class StageManager {
      
     func stage(at index: Int) -> Stage? {
         return Stages[index]
+    }
+    
+    func saveRecord(second: Int) {
+        
     }
 }

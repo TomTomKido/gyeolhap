@@ -24,22 +24,42 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hop-TA-tZm">
-                                            <rect key="frame" x="42" y="25.5" width="330" height="30"/>
+                                            <rect key="frame" x="20" y="25.5" width="100" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="330" id="KcM-d9-nQ8"/>
+                                                <constraint firstAttribute="width" constant="100" id="KcM-d9-nQ8"/>
                                                 <constraint firstAttribute="height" constant="30" id="Ov6-e0-Dow"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bip-16-AkC">
+                                            <rect key="frame" x="326.5" y="25.5" width="67.5" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6D-yM-FFY">
+                                            <rect key="frame" x="120" y="25.5" width="28" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hop-TA-tZm" firstAttribute="leading" secondItem="aYj-YL-slJ" secondAttribute="leadingMargin" id="7Zz-Cf-XUx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Bip-16-AkC" secondAttribute="trailing" id="Fys-3s-z9E"/>
+                                        <constraint firstItem="G6D-yM-FFY" firstAttribute="centerY" secondItem="aYj-YL-slJ" secondAttribute="centerY" id="TcO-dF-7r5"/>
+                                        <constraint firstItem="Bip-16-AkC" firstAttribute="centerY" secondItem="aYj-YL-slJ" secondAttribute="centerY" id="gDk-4Z-bfh"/>
+                                        <constraint firstItem="G6D-yM-FFY" firstAttribute="leading" secondItem="hop-TA-tZm" secondAttribute="trailing" id="mMX-wp-mnH"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <constraints>
                                     <constraint firstItem="hop-TA-tZm" firstAttribute="centerY" secondItem="ZDO-7E-4h2" secondAttribute="centerY" id="ZpM-fr-QwJ"/>
-                                    <constraint firstItem="hop-TA-tZm" firstAttribute="centerX" secondItem="ZDO-7E-4h2" secondAttribute="centerX" id="hAV-2q-WS1"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="completeFlag" destination="G6D-yM-FFY" id="jju-Lp-6RU"/>
+                                    <outlet property="record" destination="Bip-16-AkC" id="weA-VS-Jba"/>
                                     <outlet property="stageName" destination="hop-TA-tZm" id="aTI-4B-CLX"/>
                                 </connections>
                             </tableViewCell>
