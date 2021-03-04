@@ -17,4 +17,6 @@ struct Stage {
         self.id = id
         self.dataArray = dataArray
     }
+    
+    
 }

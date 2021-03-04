@@ -27,11 +27,12 @@ class stageCell: UITableViewCell {
     
     func updateUI(item: Stage?) {
         guard let stage = item else { return }
+        print("cell 안쪽,", stage.isSolved)
         if stage.isSolved {
-            record.text = String(stage.record!)
+            record.text = String(stage.record ?? 0)
         } else {
-//            record.text = ""
-//            completeFlag.text = ""
+            record.text = ""
+            completeFlag.text = ""
         }
         stageName.text = String("Stage \(stage.id)")
     

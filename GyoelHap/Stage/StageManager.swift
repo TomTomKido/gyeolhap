@@ -8,10 +8,12 @@
 import UIKit
 
 class StageManager {
+    static let shared = StageManager()
+    
     var Stages:[Stage] = []
     let stageCount: Int = 20
     
-    init() {
+    private init() {
         self.Stages = createRawStages(size: stageCount)
     }
     

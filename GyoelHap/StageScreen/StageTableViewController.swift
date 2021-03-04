@@ -8,8 +8,8 @@
 import UIKit
 
 class StageTableViewController: UITableViewController {
-    let stageManager:StageManager = StageManager()
-    
+//    let stageManager:StageManager = StageManager()
+    let stageManager = StageManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "스테이지 선택"
@@ -17,11 +17,16 @@ class StageTableViewController: UITableViewController {
         self.tableView.rowHeight = 44
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        var a = stageManager.stage(at: 0)?.isSolved
+        a = true
+//        print(a)
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
-        let a = stageManager.stage(at: 0)?.isSolved
-        print(a)
+        
     }
     // MARK: - Table view data source
 
@@ -41,7 +46,7 @@ class StageTableViewController: UITableViewController {
             else {
             return UITableViewCell()
         }
-        let stage = stageManager.stage(at: indexPath.item)
+        var stage = stageManager.stage(at: indexPath.item)
         cell.updateUI(item: stage)
         return cell
     }
