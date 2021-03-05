@@ -17,12 +17,6 @@ class StageTableViewController: UITableViewController {
         self.tableView.rowHeight = 44
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        var a = stageManager.stage(at: 0)?.isSolved
-        a = true
-//        print(a)
-    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
@@ -46,8 +40,8 @@ class StageTableViewController: UITableViewController {
             else {
             return UITableViewCell()
         }
-        var stage = stageManager.stage(at: indexPath.item)
-        cell.updateUI(item: stage)
+        
+        cell.updateUI(index: indexPath.item)
         return cell
     }
     

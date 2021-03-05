@@ -10,7 +10,11 @@ import UIKit
 struct Stage {
     let id: Int
     let dataArray: [Int]
-    var isSolved: Bool = false
+    var isSolved: Bool = false {
+        didSet {
+            print("값이 \(oldValue)에서 \(isSolved)로 바뀜")
+        }
+    }
     var record: Int?
     
     init(id: Int, dataArray: [Int]) {

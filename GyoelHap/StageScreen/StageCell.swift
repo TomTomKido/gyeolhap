@@ -25,9 +25,10 @@ class stageCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateUI(item: Stage?) {
-        guard let stage = item else { return }
-        print("cell 안쪽,", stage.isSolved)
+    func updateUI(index: Int) {
+        let stageManager = StageManager.shared
+        guard let stage = stageManager.stage(at: index) else { return }
+        print("셀 정보:", index, stage.isSolved)
         if stage.isSolved {
             record.text = String(stage.record ?? 0)
         } else {
@@ -35,8 +36,6 @@ class stageCell: UITableViewCell {
             completeFlag.text = ""
         }
         stageName.text = String("Stage \(stage.id)")
-    
-        
     }
 
     

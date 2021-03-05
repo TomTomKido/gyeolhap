@@ -17,7 +17,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var GyeolButton: UIButton!
     @IBOutlet weak var completeMenu: UIView!
     
-    var currentStage: Stage?
+    var currentStage: Stage? = StageManager.shared.currentStage
     var gameManager: GameManager?
     
     
@@ -104,7 +104,9 @@ class GameViewController: UIViewController {
             self.deciSeconds += 300
         } else {
             self.timer.invalidate()
+//            print((currentStage?.isSolved)!)
             currentStage?.isSolved = true
+//            print(currentStage?.isSolved)
             currentStage?.record = deciSeconds
             print("기록은 \(timeString(time: TimeInterval(deciSeconds)))")
             completeMenu.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
