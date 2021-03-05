@@ -15,8 +15,6 @@ class GameManager {
     var revealedAnswers: [[Int]] = []
     var sortedRevealedAnswers: [[Int]] = []
     
-    
-    
     init(stage: Stage) {
         self.stage = stage
         loadAnswerLists(stage:stage)
@@ -67,7 +65,9 @@ class GameManager {
     func printTryList() {
         print("현재 시도중: \(self.tryList)")
     }
-    
+}
+
+extension GameManager {
     func solver(stage: Stage) -> [[Int]] {
         var answers: [[Int]] = []
         let colors: [Int] = getColors(array: stage.dataArray)

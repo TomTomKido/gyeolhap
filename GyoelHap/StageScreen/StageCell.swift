@@ -30,10 +30,11 @@ class stageCell: UITableViewCell {
         guard let stage = stageManager.stage(at: index) else { return }
         print("셀 정보:", index, stage.isSolved)
         if stage.isSolved {
-            record.text = String(stage.record ?? 0)
+            completeFlag.text = "✔️ "
+            record.text = stage.record ?? ""
         } else {
-            record.text = ""
             completeFlag.text = ""
+            record.text = ""
         }
         stageName.text = String("Stage \(stage.id)")
     }

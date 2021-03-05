@@ -8,7 +8,6 @@
 import UIKit
 
 class StageTableViewController: UITableViewController {
-//    let stageManager:StageManager = StageManager()
     let stageManager = StageManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +19,7 @@ class StageTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
+        stageManager.printSolvedStatus()
         
     }
     // MARK: - Table view data source

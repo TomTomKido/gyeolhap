@@ -15,7 +15,7 @@ struct Stage {
             print("값이 \(oldValue)에서 \(isSolved)로 바뀜")
         }
     }
-    var record: Int?
+    var record: String?
     
     init(id: Int, dataArray: [Int]) {
         self.id = id

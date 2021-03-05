@@ -41,4 +41,20 @@ class StageManager {
     func saveRecord(second: Int) {
         
     }
+    
+    func printSolvedStatus ()
+    {
+        for stage in Stages {
+            print("전체 스테이지 상황", stage.id, stage.isSolved)
+        }
+    }
+    
+    func solveStage(at index: Int) {
+        Stages[index].isSolved = true
+    }
+    
+    func getRecord(at index: Int, second: String) {
+        Stages[index].record = second
+    }
+    
 }
