@@ -10,23 +10,27 @@ import Foundation
 import RealmSwift
 
 class StageRealm: Object {
-    @objc dynamic var id: Int = 0
+    enum Property: String{
+        case id, stageId, randomNumberString, isSolved, record
+    }
+    @objc dynamic var id = UUID().uuidString
+    @objc dynamic var stageId: Int = 0
     @objc dynamic var randomNumberString: String? = nil
     @objc dynamic var isSolved = false
     @objc dynamic var record = ""
     
     func incrementID() -> Int {
         let realm = try! Realm()
-        return (realm.objects(StageRealm.self).max(ofProperty: "id") as Int? ?? 0) + 1
+        return (realm.objects(StageRealm.self).max(ofProperty: "stageId") as Int? ?? 0) + 1
     }
     
     override static func primaryKey() -> String? {
-        return "id"
+        return StageRealm.Property.id.rawValue
     }
     
     convenience init(_ arrayData: [Int]) {
         self.init()
-        self.id = incrementID()
+        self.stageId = incrementID()
         self.randomNumberString = arrayData.map { String(describing: $0) }.joined(separator: ",")
     }
     
@@ -36,7 +40,13 @@ class StageRealm: Object {
         return randomNumberArray
     }
     
-    
+
 }
 
+extension StageRealm {
+    static func all(in realm: Realm = try! Realm()) -> Results<StageRealm> {
+        return realm.objects(StageRealm.self).sorted(byKeyPath: StageRealm.Property.isSolved.rawValue)
+    }
+
+}
 
