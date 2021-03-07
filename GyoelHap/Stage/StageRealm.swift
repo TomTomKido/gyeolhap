@@ -11,7 +11,7 @@ import RealmSwift
 
 class StageRealm: Object {
     @objc dynamic var id: Int = 0
-    @objc dynamic var arrayData: String? = nil
+    @objc dynamic var randomNumberString: String? = nil
     @objc dynamic var isSolved = false
     @objc dynamic var record = ""
     
@@ -27,14 +27,16 @@ class StageRealm: Object {
     convenience init(_ arrayData: [Int]) {
         self.init()
         self.id = incrementID()
-        self.arrayData = arrayData.map { String(describing: $0) }.joined(separator: ",")
+        self.randomNumberString = arrayData.map { String(describing: $0) }.joined(separator: ",")
     }
     
     func getArrayData() -> [Int]{
-        guard let arrayData = self.arrayData else { return [] }
-        let intArray = arrayData.components(separatedBy: ",").compactMap { Int($0) }
-        return intArray
+        guard let randomNumberString = self.randomNumberString else { return [] }
+        let randomNumberArray = randomNumberString.components(separatedBy: ",").compactMap { Int($0) }
+        return randomNumberArray
     }
     
     
 }
+
+

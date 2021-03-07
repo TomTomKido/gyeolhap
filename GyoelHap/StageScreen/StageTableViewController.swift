@@ -12,7 +12,7 @@ class StageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "스테이지 선택"
-
+        
         self.tableView.rowHeight = 44
     }
 
