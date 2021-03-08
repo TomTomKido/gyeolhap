@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import RealmSwift
 
 class StageTableViewController: UITableViewController {
+    
+    private var items: Results<StageRealm>?
+    
     let stageManager = StageManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "스테이지 선택"
-        
         self.tableView.rowHeight = 44
+        items = StageRealm.all()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -24,24 +28,20 @@ class StageTableViewController: UITableViewController {
     }
     // MARK: - Table view data source
 
-    //몇개의 섹션을 보여줄까?
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
     // 한섹션당 몇개의 스테이지를 보여줄까?
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stageManager.Stages.count
+//        return stageManager.Stages.count
+        return items?.count ?? 0
     }
 
     //각 셀을 어떻게 보여줄까?
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? stageCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? stageCell, let item = items?[indexPath.row]
             else {
             return UITableViewCell()
         }
         
-        cell.updateUI(index: indexPath.item)
+        cell.updateUI(item)
         return cell
     }
     

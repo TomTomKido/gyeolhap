@@ -39,13 +39,19 @@ class StageRealm: Object {
         let randomNumberArray = randomNumberString.components(separatedBy: ",").compactMap { Int($0) }
         return randomNumberArray
     }
-    
-
 }
 
 extension StageRealm {
     static func all(in realm: Realm = try! Realm()) -> Results<StageRealm> {
-        return realm.objects(StageRealm.self).sorted(byKeyPath: StageRealm.Property.isSolved.rawValue)
+        return realm.objects(StageRealm.self).sorted(byKeyPath: StageRealm.Property.stageId.rawValue)
+    }
+    
+    func solve() {
+        guard let realm = realm else { return }
+        try! realm.write {
+            isSolved = true
+            //TODO: record문자열로 변환해서 저장하는 거 구현
+        }
     }
 
 }
