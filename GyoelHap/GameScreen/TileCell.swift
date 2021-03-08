@@ -31,7 +31,6 @@ class TileCollectionViewCell: UICollectionViewCell {
     }
 
     @IBAction func cardTapped(_ sender: UIButton) {
-        //탭했을 때 어떻게 처리할까?
         tapHandler?()
     }
     

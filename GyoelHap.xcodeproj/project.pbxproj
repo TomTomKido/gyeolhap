@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		147035A58C0559E600A4B3B7 /* Pods_GyeolHap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */; };
+		CE0F933E25F5FE5100D06C63 /* TimerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F933D25F5FE5100D06C63 /* TimerUtil.swift */; };
 		CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16E3B225E52FB600EE07DC /* AnswerCell.swift */; };
 		CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20A69A2590DC0C00F47DC8 /* AppDelegate.swift */; };
 		CE20A69D2590DC0C00F47DC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20A69C2590DC0C00F47DC8 /* SceneDelegate.swift */; };
@@ -21,12 +22,11 @@
 		CEDCC63325D812BF008D8044 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCC63225D812BF008D8044 /* StageCell.swift */; };
 		CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */; };
 		CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */; };
-		CEEBB84725D3A95500CFFAF4 /* Stage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB84625D3A95500CFFAF4 /* Stage.swift */; };
-		CEEBB84A25D4040400CFFAF4 /* StageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB84925D4040400CFFAF4 /* StageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A8CF7D0EB41F3E8948BB2E7D /* Pods-GyeolHap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.release.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.release.xcconfig"; sourceTree = "<group>"; };
+		CE0F933D25F5FE5100D06C63 /* TimerUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUtil.swift; sourceTree = "<group>"; };
 		CE16E3B225E52FB600EE07DC /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		CE20A6972590DC0C00F47DC8 /* GyeolHap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyeolHap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE20A69A2590DC0C00F47DC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,8 +42,6 @@
 		CEDCC63225D812BF008D8044 /* StageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
 		CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCell.swift; sourceTree = "<group>"; };
-		CEEBB84625D3A95500CFFAF4 /* Stage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage.swift; sourceTree = "<group>"; };
-		CEEBB84925D4040400CFFAF4 /* StageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageManager.swift; sourceTree = "<group>"; };
 		E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyeolHap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC865E1CA6C09AF3C40BA2A4 /* Pods-GyeolHap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.debug.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,8 +113,6 @@
 		CEEBB84325D3A55600CFFAF4 /* Stage */ = {
 			isa = PBXGroup;
 			children = (
-				CEEBB84925D4040400CFFAF4 /* StageManager.swift */,
-				CEEBB84625D3A95500CFFAF4 /* Stage.swift */,
 				CEA6A8B425F3661D00BA6195 /* StageRealm.swift */,
 			);
 			path = Stage;
@@ -128,6 +124,7 @@
 				CE3343E225CAC91200D1954E /* GameViewController.swift */,
 				CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */,
 				CE16E3B225E52FB600EE07DC /* AnswerCell.swift */,
+				CE0F933D25F5FE5100D06C63 /* TimerUtil.swift */,
 				CE34260625DA8DB700E2A62B /* GameManager.swift */,
 				CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */,
 			);
@@ -258,16 +255,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
-				CEEBB84725D3A95500CFFAF4 /* Stage.swift in Sources */,
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
 				CEDCC62E25D8121C008D8044 /* StageTableViewController.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
-				CEEBB84A25D4040400CFFAF4 /* StageManager.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
 				CEA6A8B525F3661D00BA6195 /* StageRealm.swift in Sources */,
 				CEDCC63325D812BF008D8044 /* StageCell.swift in Sources */,
 				CE20A69D2590DC0C00F47DC8 /* SceneDelegate.swift in Sources */,
 				CE34260725DA8DB700E2A62B /* GameManager.swift in Sources */,
+				CE0F933E25F5FE5100D06C63 /* TimerUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

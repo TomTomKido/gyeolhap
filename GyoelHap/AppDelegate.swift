@@ -139,7 +139,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             realm.add(StageRealm([14, 24, 18, 17, 7, 5, 9, 12, 23]))
             realm.add(StageRealm([25, 12, 1, 17, 0, 18, 20, 11, 22]))
             realm.add(StageRealm([17, 0, 25, 23, 16, 1, 10, 7, 4]))
-
         }
     }
 }

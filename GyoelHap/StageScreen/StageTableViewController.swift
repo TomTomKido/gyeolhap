@@ -13,7 +13,6 @@ class StageTableViewController: UITableViewController {
     private var items: Results<StageRealm>?
     private var itemsToken: NotificationToken?
     
-    let stageManager = StageManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "스테이지 선택"
@@ -25,7 +24,6 @@ class StageTableViewController: UITableViewController {
       super.viewWillAppear(animated)
       itemsToken = items?.observe { [weak tableView] changes in
         guard let tableView = tableView else { return }
-
         switch changes {
         case .initial:
           tableView.reloadData()
@@ -46,8 +44,6 @@ class StageTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    
     // 한섹션당 몇개의 스테이지를 보여줄까?
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items?.count ?? 0
@@ -59,24 +55,19 @@ class StageTableViewController: UITableViewController {
             else {
             return UITableViewCell()
         }
-        
         cell.updateUI(item)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = items?[indexPath.row] else { return }
-        pushStage(stageId: indexPath.item, item)
+        pushGameVC(item)
     }
 
-    func pushStage(stageId: Int, _ item: StageRealm) {
-//        item.solve()
-        print(item)
+    func pushGameVC(_ item: StageRealm) {
         let playStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
-        guard let playVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? GameViewController else { return }
-//        let stage = stageManager.stage(at: stageId)
-//        playVC.currentStage = stage
-        playVC.currentItem = item
-        self.navigationController?.pushViewController(playVC, animated: true)
+        guard let gameVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? GameViewController else { return }
+        gameVC.currentItem = item
+        self.navigationController?.pushViewController(gameVC, animated: true)
     }
 }

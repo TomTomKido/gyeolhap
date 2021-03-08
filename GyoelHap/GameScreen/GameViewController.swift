@@ -18,25 +18,23 @@ class GameViewController: UIViewController {
     @IBOutlet weak var completeMenu: UIView!
     
     var currentItem: StageRealm?
-//    let stageManager = StageManager.shared
-//    var currentStage: Stage? = StageManager.shared.currentStage
     var gameManager: GameManager?
-    
-    
+
+
     var deciSeconds = 0
     var timer = Timer()
     var isTimerRunning = false
-    
+
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
-    
+
     @objc func updateTimer() {
         deciSeconds += 1
         self.navigationItem.title = timeString(time: TimeInterval(deciSeconds))
 
     }
-    
+
     func timeString(time:TimeInterval) -> String {
         let newTime = time / 10
         let hours = Int(newTime) / 3600
@@ -44,7 +42,7 @@ class GameViewController: UIViewController {
         let seconds = Int(newTime) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
-    
+
     func showAlert() {
         UIView.animate(withDuration: 0.3, delay: 0, options: [],
         animations: {
@@ -59,7 +57,7 @@ class GameViewController: UIViewController {
         completion: nil
         )
     }
-    
+
     func showSeconds(second: Int) {
         sec10.text = "+\(String(second))sec"
         UIView.animate(withDuration: 0.3, delay: 0, options: [],
@@ -101,20 +99,12 @@ class GameViewController: UIViewController {
         } else {
             self.timer.invalidate()
             item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-
-//            stageManager.solveStage(at: (currentStage?.id)!)
-//            stageManager.getRecord(at: (currentStage?.id)!, second: timeString(time: TimeInterval(deciSeconds)))
-////            currentStage?.record = deciSeconds
-//            print("기록은 \(timeString(time: TimeInterval(deciSeconds)))")
             completeMenu.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         }
     }
 }
 
-
-
 extension GameViewController: UICollectionViewDataSource {
-
     //셀을 몇개 보여줄까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionViewUp {

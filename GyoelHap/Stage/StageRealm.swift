@@ -50,7 +50,6 @@ extension StageRealm {
         guard let realm = realm else { return }
         try! realm.write {
             isSolved = true
-            //TODO: record문자열로 변환해서 저장하는 거 구현
             self.record = second
         }
     }
