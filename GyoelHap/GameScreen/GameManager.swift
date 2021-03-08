@@ -6,21 +6,22 @@
 //
 
 import Foundation
+import RealmSwift
 
 class GameManager {
     
-    let stage:Stage
+    let stage:StageRealm
     var answers: [[Int]] = []
     var tryList: [Int] = []
     var revealedAnswers: [[Int]] = []
     var sortedRevealedAnswers: [[Int]] = []
     
-    init(stage: Stage) {
+    init(stage: StageRealm) {
         self.stage = stage
-        loadAnswerLists(stage:stage)
+        loadAnswerLists(stage: stage)
     }
     
-    func loadAnswerLists(stage: Stage) {
+    func loadAnswerLists(stage: StageRealm) {
         answers = solver(stage: stage)
     }
     
@@ -68,11 +69,12 @@ class GameManager {
 }
 
 extension GameManager {
-    func solver(stage: Stage) -> [[Int]] {
+    func solver(stage: StageRealm) -> [[Int]] {
         var answers: [[Int]] = []
-        let colors: [Int] = getColors(array: stage.dataArray)
-        let shapes: [Int] = getShapes(array: stage.dataArray)
-        let BGColors: [Int] = getBGColors(array: stage.dataArray)
+        let dataArray = stage.getArrayData()
+        let colors: [Int] = getColors(array: dataArray)
+        let shapes: [Int] = getShapes(array: dataArray)
+        let BGColors: [Int] = getBGColors(array: dataArray)
         
         for i in 0 ..< 9 {
             for j in i + 1 ..< 9 {

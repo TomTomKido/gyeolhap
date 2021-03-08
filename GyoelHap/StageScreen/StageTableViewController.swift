@@ -11,6 +11,7 @@ import RealmSwift
 class StageTableViewController: UITableViewController {
     
     private var items: Results<StageRealm>?
+    private var itemsToken: NotificationToken?
     
     let stageManager = StageManager.shared
     override func viewDidLoad() {
@@ -20,17 +21,35 @@ class StageTableViewController: UITableViewController {
         items = StageRealm.all()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.tableView.reloadData()
-        stageManager.printSolvedStatus()
-        
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      itemsToken = items?.observe { [weak tableView] changes in
+        guard let tableView = tableView else { return }
+
+        switch changes {
+        case .initial:
+          tableView.reloadData()
+        case .update(_, let deletions, let insertions, let updates):
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: insertions.map {IndexPath(row: $0, section: 0)}, with: .automatic)
+            self.tableView.reloadRows(at: updates.map {IndexPath(row: $0, section: 0)}, with: .automatic)
+            self.tableView.deleteRows(at: deletions.map {IndexPath(row: $0, section: 0)}, with: .automatic)
+            self.tableView.endUpdates()
+        case .error: break
+        }
+      }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      itemsToken?.invalidate()
+    }
+
     // MARK: - Table view data source
 
+    
     // 한섹션당 몇개의 스테이지를 보여줄까?
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return stageManager.Stages.count
         return items?.count ?? 0
     }
 
@@ -46,15 +65,18 @@ class StageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("stage", indexPath.item)
-        pushStage(stageId: indexPath.item)
+        guard let item = items?[indexPath.row] else { return }
+        pushStage(stageId: indexPath.item, item)
     }
 
-    func pushStage(stageId: Int) {
+    func pushStage(stageId: Int, _ item: StageRealm) {
+//        item.solve()
+        print(item)
         let playStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
         guard let playVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? GameViewController else { return }
-        let stage = stageManager.stage(at: stageId)
-        playVC.currentStage = stage
+//        let stage = stageManager.stage(at: stageId)
+//        playVC.currentStage = stage
+        playVC.currentItem = item
         self.navigationController?.pushViewController(playVC, animated: true)
     }
 }

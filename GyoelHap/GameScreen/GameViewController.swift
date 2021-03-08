@@ -17,8 +17,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var GyeolButton: UIButton!
     @IBOutlet weak var completeMenu: UIView!
     
-    let stageManager = StageManager.shared
-    var currentStage: Stage? = StageManager.shared.currentStage
+    var currentItem: StageRealm?
+//    let stageManager = StageManager.shared
+//    var currentStage: Stage? = StageManager.shared.currentStage
     var gameManager: GameManager?
     
     
@@ -79,25 +80,19 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 //        self.navigationController?.isNavigationBarHidden = true
         self.navigationItem.title = "00:00:00"
-            
         runTimer()
-
+        guard let item = self.currentItem else { return }
+        self.gameManager = GameManager(stage: item)
+        print("정답리스트: \((gameManager?.answers)!)")
+        
         collectionViewUp.delegate = self
         collectionViewUp.dataSource = self
-        
         collectionViewDown.delegate = self
         collectionViewDown.dataSource = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        guard let item = currentStage else { return }
-        self.gameManager = GameManager(stage: item)
-        print("정답리스트: \((gameManager?.answers)!)")
-    }
-    
     @IBAction func gyeol(_ sender: UIButton) {
-        guard let manager = self.gameManager else { return }
+        guard let manager = self.gameManager, let item = self.currentItem else { return }
         print("hi")
         if !manager.checkGyeol() {
             self.showAlert()
@@ -105,11 +100,12 @@ class GameViewController: UIViewController {
             self.deciSeconds += 300
         } else {
             self.timer.invalidate()
+            item.solve(second: timeString(time: TimeInterval(deciSeconds)))
 
-            stageManager.solveStage(at: (currentStage?.id)!)
-            stageManager.getRecord(at: (currentStage?.id)!, second: timeString(time: TimeInterval(deciSeconds)))
-//            currentStage?.record = deciSeconds
-            print("기록은 \(timeString(time: TimeInterval(deciSeconds)))")
+//            stageManager.solveStage(at: (currentStage?.id)!)
+//            stageManager.getRecord(at: (currentStage?.id)!, second: timeString(time: TimeInterval(deciSeconds)))
+////            currentStage?.record = deciSeconds
+//            print("기록은 \(timeString(time: TimeInterval(deciSeconds)))")
             completeMenu.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         }
     }
@@ -134,7 +130,8 @@ extension GameViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.updateUI(index: indexPath.item, item: currentStage?.dataArray[indexPath.item] ?? 0, tryList: gameManager?.tryList ?? [])
+            guard let item = currentItem else { return UICollectionViewCell() }
+            cell.updateUI(index: indexPath.item, item: item.getArrayData()[indexPath.item], tryList: gameManager?.tryList ?? [])
             cell.tapHandler = {
                 guard let manager = self.gameManager else { return }
                 manager.addToTryList(indexPath.item + 1)
