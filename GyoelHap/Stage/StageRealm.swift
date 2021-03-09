@@ -53,6 +53,5 @@ extension StageRealm {
             self.record = second
         }
     }
-
 }
 

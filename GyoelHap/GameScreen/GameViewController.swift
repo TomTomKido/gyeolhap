@@ -20,7 +20,6 @@ class GameViewController: UIViewController {
     var currentItem: StageRealm?
     var gameManager: GameManager?
 
-
     var deciSeconds = 0
     var timer = Timer()
     var isTimerRunning = false
@@ -72,6 +71,14 @@ class GameViewController: UIViewController {
         },
         completion: nil
         )
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self.view)
+            print(location)
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -127,7 +134,7 @@ extension GameViewController: UICollectionViewDataSource {
                 manager.addToTryList(indexPath.item + 1)
                 if manager.checkAnswer() == false {
                     self.deciSeconds += 100
-                    self.showAlert()
+//                    self.showAlert()
                     self.showSeconds(second: 10)
                 }
                 manager.printTryList()
