@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Kwj-F9-yFv" userLabel="TitleView">
-                                <rect key="frame" x="89" y="190" width="236" height="69"/>
+                                <rect key="frame" x="89" y="200.33333333333334" width="236" height="69.000000000000028"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo" translatesAutoresizingMaskIntoConstraints="NO" id="DVM-YG-NuY">
                                         <rect key="frame" x="0.0" y="0.0" width="69" height="69"/>
@@ -35,24 +35,24 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fjs-4E-oBq">
-                                <rect key="frame" x="62" y="427.66666666666674" width="290" height="309.33333333333326"/>
+                                <rect key="frame" x="62" y="451" width="290" height="288.66666666666674"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoU-lf-fWK">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="97.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="91"/>
                                         <state key="normal" image="main_PlayButton"/>
                                         <connections>
                                             <action selector="goToStageScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="5Ym-zE-fzD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxg-YW-eCo">
-                                        <rect key="frame" x="0.0" y="105.66666666666669" width="290" height="98"/>
+                                        <rect key="frame" x="0.0" y="99" width="290" height="90.666666666666686"/>
                                         <state key="normal" image="main_HowtoPlayButton"/>
                                         <connections>
                                             <action selector="goToHowToScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="0iv-mV-HV6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exc-Jn-soU">
-                                        <rect key="frame" x="0.0" y="211.66666666666666" width="290" height="97.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="197.66666666666663" width="290" height="91"/>
                                         <state key="normal" image="main_EXITButton"/>
                                         <connections>
                                             <action selector="EXIT:" destination="seM-vK-YOU" eventType="touchUpInside" id="16L-6M-r71"/>
@@ -92,8 +92,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pax-O5-96D" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="dUU-zs-mPT">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" largeTitles="YES" id="dUU-zs-mPT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

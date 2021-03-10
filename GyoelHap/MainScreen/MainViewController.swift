@@ -31,7 +31,7 @@ class MainViewController: UIViewController {
     */
     @IBAction func goToStageScreen(_ sender: UIButton) {
         let stageStoryboard = UIStoryboard.init(name: "Stage", bundle: nil)
-        guard let stageVC = stageStoryboard.instantiateViewController(identifier: "StageVC") as? StageTableViewController else { return }
+        guard let stageVC = stageStoryboard.instantiateViewController(identifier: "StageVC") as? StageViewController else { return }
         self.navigationController?.pushViewController(stageVC, animated: true)
     }
     @IBAction func goToHowToScreen(_ sender: UIButton) {
