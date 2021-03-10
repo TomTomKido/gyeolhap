@@ -115,8 +115,8 @@
 		CEDCC5F325D772E6008D8044 /* StageScreen */ = {
 			isa = PBXGroup;
 			children = (
-				CEDCC63225D812BF008D8044 /* StageCell.swift */,
 				CEBFAC3525F8EEC300964898 /* StageViewController.swift */,
+				CEDCC63225D812BF008D8044 /* StageCell.swift */,
 				CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */,
 			);
 			path = StageScreen;

@@ -10,6 +10,7 @@ import RealmSwift
 class StageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
    
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     private var items: Results<StageRealm>?
@@ -51,7 +52,7 @@ class StageViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     //각 셀을 어떻게 보여줄까?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? stageCell, let item = items?[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? StageCell, let item = items?[indexPath.row]
             else {
             return UITableViewCell()
         }
@@ -71,4 +72,10 @@ class StageViewController: UIViewController, UITableViewDataSource, UITableViewD
         gameVC.currentItem = item
         self.navigationController?.pushViewController(gameVC, animated: true)
     }
+    
+    @IBAction func goToMainMenu(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
+
+

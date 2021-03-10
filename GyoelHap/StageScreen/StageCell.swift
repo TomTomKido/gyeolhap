@@ -7,7 +7,7 @@
 
 import UIKit
 
-class stageCell: UITableViewCell {
+class StageCell: UITableViewCell {
 
     @IBOutlet weak var stageName: UILabel!
     @IBOutlet weak var completeFlag: UILabel!
