@@ -7,9 +7,8 @@
 
 import UIKit
 import RealmSwift
-class StageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-   
+class StageViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
@@ -43,35 +42,6 @@ class StageViewController: UIViewController, UITableViewDataSource, UITableViewD
       super.viewWillDisappear(animated)
       itemsToken?.invalidate()
     }
-
-    // MARK: - Table view data source
-    // 한섹션당 몇개의 스테이지를 보여줄까?
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items?.count ?? 0
-    }
-
-    //각 셀을 어떻게 보여줄까?
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? StageCell, let item = items?[indexPath.row]
-            else {
-            return UITableViewCell()
-        }
-        cell.updateUI(item)
-        return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let item = items?[indexPath.row] else { return }
-        pushGameVC(item)
-    }
-
-    func pushGameVC(_ item: StageRealm) {
-        let playStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
-        guard let gameVC = playStoryboard.instantiateViewController(identifier: "PlayViewController") as? GameViewController else { return }
-        gameVC.currentItem = item
-        self.navigationController?.pushViewController(gameVC, animated: true)
-    }
     
     @IBAction func goToMainMenu(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -79,3 +49,34 @@ class StageViewController: UIViewController, UITableViewDataSource, UITableViewD
 }
 
 
+extension StageViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items?.count ?? 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("row: ", indexPath.row)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? StageCell, let item = self.items?[indexPath.row]
+            else {
+            return UITableViewCell()
+        }
+        cell.updateUI(item)
+        return cell
+    }
+}
+
+extension StageViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        guard let item = items?[indexPath.row] else { return }
+        pushGameVC(item)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+
+    func pushGameVC(_ item: StageRealm) {
+        let playStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
+        guard let gameVC = playStoryboard.instantiateViewController(identifier: "GameVC") as? GameViewController else { return }
+        gameVC.currentItem = item
+        self.navigationController?.pushViewController(gameVC, animated: true)
+    }
+}

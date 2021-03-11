@@ -84,7 +84,9 @@ class GameViewController: UIViewController {
         } else {
             self.timer.invalidate()
             item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-            completeMenu.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            let gameStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
+            guard let successVC = gameStoryboard.instantiateViewController(identifier: "SuccessVC") as? SuccessViewController else { return }
+            self.navigationController?.pushViewController(successVC, animated: true)
         }
     }
     
