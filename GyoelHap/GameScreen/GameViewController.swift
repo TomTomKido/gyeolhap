@@ -9,12 +9,14 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-    @IBOutlet weak var alertBackground: UIView!
-    @IBOutlet weak var collectionViewUp: UICollectionView!
-    @IBOutlet weak var collectionViewDown: UICollectionView!
-    @IBOutlet weak var gyeolImage: UIImageView!
+    
+    @IBOutlet weak var stageIndicator: UILabel!
+    @IBOutlet weak var timeIndicator: UILabel!
+    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var upperCollectionView: UICollectionView!
+    @IBOutlet weak var lowerCollectionView: UICollectionView!
     @IBOutlet weak var sec10: UILabel!
-    @IBOutlet weak var GyeolButton: UIButton!
+    @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var completeMenu: UIView!
     
     var currentItem: StageRealm?
@@ -30,8 +32,7 @@ class GameViewController: UIViewController {
 
     @objc func updateTimer() {
         deciSeconds += 1
-        self.navigationItem.title = timeString(time: TimeInterval(deciSeconds))
-
+        self.timeIndicator.text = timeString(time: TimeInterval(deciSeconds))
     }
 
     func timeString(time:TimeInterval) -> String {
@@ -40,21 +41,6 @@ class GameViewController: UIViewController {
         let minutes = Int(newTime) / 60 % 60
         let seconds = Int(newTime) % 60
         return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
-    }
-
-    func showAlert() {
-        UIView.animate(withDuration: 0.3, delay: 0, options: [],
-        animations: {
-            self.alertBackground.alpha = 0.5
-        },
-        completion: nil
-        )
-        UIView.animate(withDuration: 0.6, delay: 0, options: [],
-        animations: {
-            self.alertBackground.alpha = 0
-        },
-        completion: nil
-        )
     }
 
     func showSeconds(second: Int) {
@@ -73,34 +59,26 @@ class GameViewController: UIViewController {
         )
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let location = touch.location(in: self.view)
-            print(location)
-        }
-        
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.isNavigationBarHidden = true
-        self.navigationItem.title = "00:00:00"
-        runTimer()
         guard let item = self.currentItem else { return }
         self.gameManager = GameManager(stage: item)
+        self.timeIndicator.text = "00:00:00"
+        self.stageIndicator.text = "Stage " + String(item.stageId)
+        runTimer()
         print("정답리스트: \((gameManager?.answers)!)")
-        
-        collectionViewUp.delegate = self
-        collectionViewUp.dataSource = self
-        collectionViewDown.delegate = self
-        collectionViewDown.dataSource = self
+        upperCollectionView.delegate = self
+        upperCollectionView.dataSource = self
+        lowerCollectionView.delegate = self
+        lowerCollectionView.dataSource = self
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
         guard let manager = self.gameManager, let item = self.currentItem else { return }
         print("hi")
         if !manager.checkGyeol() {
-            self.showAlert()
             self.showSeconds(second: 30)
             self.deciSeconds += 300
         } else {
@@ -109,12 +87,17 @@ class GameViewController: UIViewController {
             completeMenu.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         }
     }
+    
+    @IBAction func tapPause(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
 
 extension GameViewController: UICollectionViewDataSource {
     //셀을 몇개 보여줄까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.collectionViewUp {
+        if collectionView == self.upperCollectionView {
             return 9
         } else {
             return 12
@@ -123,7 +106,7 @@ extension GameViewController: UICollectionViewDataSource {
     
     //컬렉션 뷰 셀 어떻게 보여줄까?
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == collectionViewUp {
+        if collectionView == upperCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
                 return UICollectionViewCell()
             }
@@ -138,8 +121,8 @@ extension GameViewController: UICollectionViewDataSource {
                     self.showSeconds(second: 10)
                 }
                 manager.printTryList()
-                self.collectionViewUp.reloadData()
-                self.collectionViewDown.reloadData()
+                self.upperCollectionView.reloadData()
+                self.lowerCollectionView.reloadData()
             }
             return cell
         } else {
@@ -156,7 +139,7 @@ extension GameViewController: UICollectionViewDataSource {
 extension GameViewController:UICollectionViewDelegateFlowLayout {
     //셀 사이즈 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == collectionViewUp {
+        if collectionView == upperCollectionView {
             let inset: CGFloat = 10
             let width: CGFloat = (collectionView.bounds.width - inset * 4) / 3
             let height: CGFloat = (collectionView.bounds.height - inset * 4) / 3
