@@ -34,7 +34,11 @@ class MainViewController: UIViewController {
         guard let stageVC = stageStoryboard.instantiateViewController(identifier: "StageVC") as? StageViewController else { return }
         self.navigationController?.pushViewController(stageVC, animated: true)
     }
+    
     @IBAction func goToHowToScreen(_ sender: UIButton) {
+        let howToStoryboard = UIStoryboard.init(name: "HowTo", bundle: nil)
+        guard let howToVC = howToStoryboard.instantiateViewController(identifier: "HowToVC") as? HowToViewController else { return }
+        self.navigationController?.pushViewController(howToVC, animated: true)
     }
     
     @IBAction func EXIT(_ sender: UIButton) {

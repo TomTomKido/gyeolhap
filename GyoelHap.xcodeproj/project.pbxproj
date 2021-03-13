@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		147035A58C0559E600A4B3B7 /* Pods_GyeolHap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */; };
+		4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2E38D25FCB79D00AFCF85 /* HowToViewController.swift */; };
+		4EC2E39125FCB7A800AFCF85 /* HowTo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2E39025FCB7A800AFCF85 /* HowTo.storyboard */; };
 		CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16E3B225E52FB600EE07DC /* AnswerCell.swift */; };
 		CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20A69A2590DC0C00F47DC8 /* AppDelegate.swift */; };
 		CE20A69D2590DC0C00F47DC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20A69C2590DC0C00F47DC8 /* SceneDelegate.swift */; };
@@ -27,6 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4EC2E38825FC7C9C00AFCF85 /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansMedium.otf; path = ../../../../Downloads/GmarketSansOTF/GmarketSansMedium.otf; sourceTree = "<group>"; };
+		4EC2E38925FC7C9C00AFCF85 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansBold.otf; path = ../../../../Downloads/GmarketSansOTF/GmarketSansBold.otf; sourceTree = "<group>"; };
+		4EC2E38A25FC7C9C00AFCF85 /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansLight.otf; path = ../../../../Downloads/GmarketSansOTF/GmarketSansLight.otf; sourceTree = "<group>"; };
+		4EC2E38D25FCB79D00AFCF85 /* HowToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
+		4EC2E39025FCB7A800AFCF85 /* HowTo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowTo.storyboard; sourceTree = "<group>"; };
 		A8CF7D0EB41F3E8948BB2E7D /* Pods-GyeolHap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.release.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.release.xcconfig"; sourceTree = "<group>"; };
 		CE16E3B225E52FB600EE07DC /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		CE20A6972590DC0C00F47DC8 /* GyeolHap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyeolHap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +78,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4E7CD62F25FB36FC0075F7FC /* HowToScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4EC2E38D25FCB79D00AFCF85 /* HowToViewController.swift */,
+				4EC2E39025FCB7A800AFCF85 /* HowTo.storyboard */,
+			);
+			path = HowToScreen;
+			sourceTree = "<group>";
+		};
+		4E7CD64E25FBAEB50075F7FC /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4EC2E38925FC7C9C00AFCF85 /* GmarketSansBold.otf */,
+				4EC2E38A25FC7C9C00AFCF85 /* GmarketSansLight.otf */,
+				4EC2E38825FC7C9C00AFCF85 /* GmarketSansMedium.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		CE20A68E2590DC0C00F47DC8 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +104,7 @@
 				CE20A6982590DC0C00F47DC8 /* Products */,
 				0D1A16035C8EBDFBAD917744 /* Pods */,
 				E33BB5863235E33A298C2190 /* Frameworks */,
+				4E7CD64E25FBAEB50075F7FC /* fonts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBFAC2F25F8A65100964898 /* MainScreen */,
+				4E7CD62F25FB36FC0075F7FC /* HowToScreen */,
 				CEDCC5F325D772E6008D8044 /* StageScreen */,
 				CEEBB84425D3A55F00CFFAF4 /* GameScreen */,
 				CEEBB84325D3A55600CFFAF4 /* Stage */,
@@ -214,6 +242,7 @@
 			files = (
 				CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */,
 				CEBFAC2D25F8A64A00964898 /* Main.storyboard in Resources */,
+				4EC2E39125FCB7A800AFCF85 /* HowTo.storyboard in Resources */,
 				CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */,
 				CEDCC5F025D76F2F008D8044 /* Stage.storyboard in Resources */,
 				CE20A6A42590DC0F00F47DC8 /* Assets.xcassets in Resources */,
@@ -269,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */,
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,

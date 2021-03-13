@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GmarketSansMedium.otf">
+            <string>GmarketSansMedium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--How To View Controller-->
+        <scene sceneID="Cgx-Ff-pvt">
+            <objects>
+                <viewController storyboardIdentifier="HowToVC" id="EvS-gg-BUG" customClass="HowToViewController" customModule="GyeolHap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TGu-3Z-8rs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKT-YM-8Lf">
+                                <rect key="frame" x="0.0" y="44" width="414" height="71"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결합 플레이 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLM-zX-zid">
+                                        <rect key="frame" x="98" y="20" width="219" height="30"/>
+                                        <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2z-6W-Hwg">
+                                        <rect key="frame" x="15" y="16" width="38" height="38"/>
+                                        <state key="normal" image="back_button"/>
+                                        <connections>
+                                            <action selector="backButton:" destination="EvS-gg-BUG" eventType="touchUpInside" id="sR4-cN-lei"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.32156862745098036" green="0.23921568627450979" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="NLM-zX-zid" firstAttribute="top" secondItem="tKT-YM-8Lf" secondAttribute="top" constant="20" symbolic="YES" id="80Y-hf-Oy0"/>
+                                    <constraint firstItem="d2z-6W-Hwg" firstAttribute="top" secondItem="tKT-YM-8Lf" secondAttribute="top" constant="16" id="GpZ-RU-GhD"/>
+                                    <constraint firstAttribute="bottom" secondItem="NLM-zX-zid" secondAttribute="bottom" constant="21" id="NFd-zE-Pw5"/>
+                                    <constraint firstItem="d2z-6W-Hwg" firstAttribute="leading" secondItem="tKT-YM-8Lf" secondAttribute="leading" constant="15" id="NGW-qO-Ckq"/>
+                                    <constraint firstItem="NLM-zX-zid" firstAttribute="leading" secondItem="tKT-YM-8Lf" secondAttribute="leading" constant="98" id="gwF-0j-hdx"/>
+                                    <constraint firstAttribute="trailing" secondItem="NLM-zX-zid" secondAttribute="trailing" constant="97" id="iIF-oc-T0d"/>
+                                    <constraint firstItem="NLM-zX-zid" firstAttribute="leading" secondItem="d2z-6W-Hwg" secondAttribute="trailing" constant="45" id="s0o-Fh-68L"/>
+                                    <constraint firstAttribute="bottom" secondItem="d2z-6W-Hwg" secondAttribute="bottom" constant="17" id="wBB-HF-0VJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mh7-nq-IVM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tKT-YM-8Lf" firstAttribute="top" secondItem="Mh7-nq-IVM" secondAttribute="top" id="6D7-TQ-H3r"/>
+                            <constraint firstItem="Mh7-nq-IVM" firstAttribute="bottom" secondItem="tKT-YM-8Lf" secondAttribute="bottom" constant="747" id="7ML-ys-fVP"/>
+                            <constraint firstItem="tKT-YM-8Lf" firstAttribute="leading" secondItem="Mh7-nq-IVM" secondAttribute="leading" id="LQo-0j-fe8"/>
+                            <constraint firstItem="Mh7-nq-IVM" firstAttribute="trailing" secondItem="tKT-YM-8Lf" secondAttribute="trailing" id="oKk-vP-BdF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="d2z-6W-Hwg" id="bLh-rj-BIQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCw-Lo-qT2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-301.44927536231887" y="130.58035714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back_button" width="201" height="201"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
