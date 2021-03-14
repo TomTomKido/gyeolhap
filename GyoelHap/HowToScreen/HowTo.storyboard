@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="GmarketSansLight.otf">
+            <string>GmarketSansLight</string>
+        </array>
         <array key="GmarketSansMedium.otf">
             <string>GmarketSansMedium</string>
         </array>
@@ -18,59 +21,236 @@
             <objects>
                 <viewController storyboardIdentifier="HowToVC" id="EvS-gg-BUG" customClass="HowToViewController" customModule="GyeolHap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TGu-3Z-8rs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKT-YM-8Lf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="71"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJt-aM-337">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결합 플레이 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLM-zX-zid">
-                                        <rect key="frame" x="98" y="20" width="219" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jt-bG-dJ5">
+                                        <rect key="frame" x="15" y="9" width="47.5" height="47.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6jt-bG-dJ5" secondAttribute="height" multiplier="1:1" id="HkW-Dq-sxz"/>
+                                        </constraints>
+                                        <state key="normal" image="back_button"/>
+                                        <connections>
+                                            <action selector="goToMainMenu:" destination="EvS-gg-BUG" eventType="touchUpInside" id="3ry-aj-oj5"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결합 플레이 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLt-iA-9cx">
+                                        <rect key="frame" x="78" y="19" width="219" height="26.5"/>
                                         <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2z-6W-Hwg">
-                                        <rect key="frame" x="15" y="16" width="38" height="38"/>
-                                        <state key="normal" image="back_button"/>
-                                        <connections>
-                                            <action selector="backButton:" destination="EvS-gg-BUG" eventType="touchUpInside" id="sR4-cN-lei"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.32156862745098036" green="0.23921568627450979" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.32549019607843138" green="0.23137254901960785" blue="0.40000000000000002" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="NLM-zX-zid" firstAttribute="top" secondItem="tKT-YM-8Lf" secondAttribute="top" constant="20" symbolic="YES" id="80Y-hf-Oy0"/>
-                                    <constraint firstItem="d2z-6W-Hwg" firstAttribute="top" secondItem="tKT-YM-8Lf" secondAttribute="top" constant="16" id="GpZ-RU-GhD"/>
-                                    <constraint firstAttribute="bottom" secondItem="NLM-zX-zid" secondAttribute="bottom" constant="21" id="NFd-zE-Pw5"/>
-                                    <constraint firstItem="d2z-6W-Hwg" firstAttribute="leading" secondItem="tKT-YM-8Lf" secondAttribute="leading" constant="15" id="NGW-qO-Ckq"/>
-                                    <constraint firstItem="NLM-zX-zid" firstAttribute="leading" secondItem="tKT-YM-8Lf" secondAttribute="leading" constant="98" id="gwF-0j-hdx"/>
-                                    <constraint firstAttribute="trailing" secondItem="NLM-zX-zid" secondAttribute="trailing" constant="97" id="iIF-oc-T0d"/>
-                                    <constraint firstItem="NLM-zX-zid" firstAttribute="leading" secondItem="d2z-6W-Hwg" secondAttribute="trailing" constant="45" id="s0o-Fh-68L"/>
-                                    <constraint firstAttribute="bottom" secondItem="d2z-6W-Hwg" secondAttribute="bottom" constant="17" id="wBB-HF-0VJ"/>
+                                    <constraint firstItem="qLt-iA-9cx" firstAttribute="centerX" secondItem="OJt-aM-337" secondAttribute="centerX" id="FhQ-JG-rhn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" secondItem="qLt-iA-9cx" secondAttribute="height" multiplier="2.4717" id="FoK-Ds-jBu"/>
+                                    <constraint firstItem="6jt-bG-dJ5" firstAttribute="top" secondItem="OJt-aM-337" secondAttribute="top" constant="9" id="HXQ-v2-2ce"/>
+                                    <constraint firstItem="qLt-iA-9cx" firstAttribute="top" secondItem="OJt-aM-337" secondAttribute="top" constant="19" id="Jhr-DT-0d2"/>
+                                    <constraint firstAttribute="bottom" secondItem="6jt-bG-dJ5" secondAttribute="bottom" constant="9" id="aUb-SC-dXW"/>
+                                    <constraint firstItem="6jt-bG-dJ5" firstAttribute="leading" secondItem="OJt-aM-337" secondAttribute="leading" constant="15" id="ghr-Nk-iR3"/>
+                                    <constraint firstAttribute="bottom" secondItem="qLt-iA-9cx" secondAttribute="bottom" constant="20" symbolic="YES" id="h69-TB-HAw"/>
                                 </constraints>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62f-qh-Mmw">
+                                <rect key="frame" x="0.0" y="77" width="375" height="1601"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3M-Yi-ehZ" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1528"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결! 합!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WZ-oK-iXq">
+                                                <rect key="frame" x="15" y="10" width="68.5" height="25"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fu-f4-4hu">
+                                                <rect key="frame" x="15" y="50" width="345" height="180"/>
+                                                <string key="text">결!합!게임에는 합!과 결!이 있습니다.
+
+결합 조건을 충족하는 그림 3장을 찾으면 자동으로 합!이 되어 정답으로 등록됩니다. 
+
+정답을 다 찾으면 결!을 외쳐 스테이지를 클리어할 수 있습니다. 정답의 개수는 제공되지 않습니다.</string>
+                                                <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="합의 조건" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jW4-8w-ICV">
+                                                <rect key="frame" x="15" y="270" width="103.5" height="25"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQV-a9-Exk">
+                                                <rect key="frame" x="15" y="310" width="345" height="60"/>
+                                                <string key="text">그림은 각각 3가지 속성을 지니고 있습니다: 
+모양, 색, 배경색</string>
+                                                <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="three attributes" translatesAutoresizingMaskIntoConstraints="NO" id="5P8-b0-ap7">
+                                                <rect key="frame" x="31.5" y="395" width="312" height="133.5"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="합이 되는 조건은, 9개의 그림 중 속성 각각이 모두 같거나 모두 다른 경우입니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-ms-yk3">
+                                                <rect key="frame" x="15" y="553.5" width="345" height="60"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="합 예시 1)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaI-nU-1et">
+                                                <rect key="frame" x="15" y="638.5" width="85.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampler hap! 1" translatesAutoresizingMaskIntoConstraints="NO" id="pCu-eC-5yQ">
+                                                <rect key="frame" x="61" y="758.5" width="253" height="73.5"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="모양이 모두 다르고, 색이 모두 다르고, 배경색이 모두 같으므로 합의 조건을 충족합니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAU-cE-Pk5">
+                                                <rect key="frame" x="15" y="673.5" width="345" height="60"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="합 예시 2)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fu-Zr-e1Q">
+                                                <rect key="frame" x="15" y="857" width="89.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="모양이 모두 같고, 색이 모두 다르고, 배경색이 모두 같으므로 합의 조건을 충족합니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-AA-9Z9">
+                                                <rect key="frame" x="15" y="892" width="345" height="60"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample hap! 2" translatesAutoresizingMaskIntoConstraints="NO" id="ENY-lq-HNg">
+                                                <rect key="frame" x="61" y="977" width="253" height="73"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="모양이 모두 같고 색이 모두 다르지만, 배경색이 모두 같거나 모두 다르지 않아 합의 조건을 충족하지 않습니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kh-bO-l1W">
+                                                <rect key="frame" x="15" y="1110" width="345" height="60"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="오답 예시)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szb-SB-UNu">
+                                                <rect key="frame" x="15" y="1075" width="90" height="20"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample wrong answer" translatesAutoresizingMaskIntoConstraints="NO" id="nwC-L6-cMP">
+                                                <rect key="frame" x="61" y="1195" width="253" height="73"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간 기록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNQ-iM-2Rb">
+                                                <rect key="frame" x="15" y="1308" width="103.5" height="25"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="결!합!게임을 클리어할 경우 해당 스테이지를 클리어했다는 아이콘과 함께 게임에 소요된 시간이 표시됩니다. 이 시간은 잘못된 합!이나 결!을 시도할 때마다 각각 10초, 30초씩 늘어나니 답을 신중하게 선택해주세요!" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsO-N4-cua">
+                                                <rect key="frame" x="15" y="1348" width="345" height="120"/>
+                                                <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="7Fu-f4-4hu" firstAttribute="top" secondItem="1WZ-oK-iXq" secondAttribute="bottom" constant="15" id="0dB-ha-mEx"/>
+                                            <constraint firstAttribute="trailing" secondItem="RsO-N4-cua" secondAttribute="trailing" constant="15" id="1lI-hk-8Kd"/>
+                                            <constraint firstItem="jW4-8w-ICV" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="3mO-Xe-E5E"/>
+                                            <constraint firstItem="pCu-eC-5yQ" firstAttribute="top" secondItem="wAU-cE-Pk5" secondAttribute="bottom" constant="25" id="6bg-Je-lWY"/>
+                                            <constraint firstItem="szb-SB-UNu" firstAttribute="top" secondItem="ENY-lq-HNg" secondAttribute="bottom" constant="25" id="6uf-dW-AHf"/>
+                                            <constraint firstAttribute="trailing" secondItem="7Fu-f4-4hu" secondAttribute="trailing" constant="15" id="8Ac-FC-eZT"/>
+                                            <constraint firstItem="pCu-eC-5yQ" firstAttribute="centerX" secondItem="g3M-Yi-ehZ" secondAttribute="centerX" id="9Kg-D9-3G8"/>
+                                            <constraint firstItem="9Kh-bO-l1W" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="CKM-tY-EfC"/>
+                                            <constraint firstAttribute="trailing" secondItem="wAU-cE-Pk5" secondAttribute="trailing" constant="15" id="HkW-SH-nSo"/>
+                                            <constraint firstItem="5P8-b0-ap7" firstAttribute="top" secondItem="aQV-a9-Exk" secondAttribute="bottom" constant="25" id="MsK-DQ-5PT"/>
+                                            <constraint firstItem="5P8-b0-ap7" firstAttribute="centerX" secondItem="g3M-Yi-ehZ" secondAttribute="centerX" id="PHN-x8-ksX"/>
+                                            <constraint firstItem="ucR-AA-9Z9" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="Ppy-kn-B7e"/>
+                                            <constraint firstItem="ENY-lq-HNg" firstAttribute="centerX" secondItem="g3M-Yi-ehZ" secondAttribute="centerX" id="S7t-nD-Mh1"/>
+                                            <constraint firstAttribute="trailing" secondItem="ucR-AA-9Z9" secondAttribute="trailing" constant="15" id="TaM-V9-6Rf"/>
+                                            <constraint firstItem="RsO-N4-cua" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="UpU-YQ-KAL"/>
+                                            <constraint firstItem="wAU-cE-Pk5" firstAttribute="top" secondItem="xaI-nU-1et" secondAttribute="bottom" constant="15" id="W3G-ik-iik"/>
+                                            <constraint firstAttribute="bottom" secondItem="RsO-N4-cua" secondAttribute="bottom" constant="60" id="WPv-6U-lkl"/>
+                                            <constraint firstItem="wAU-cE-Pk5" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="WRF-rX-nTJ"/>
+                                            <constraint firstItem="9Kh-bO-l1W" firstAttribute="top" secondItem="szb-SB-UNu" secondAttribute="bottom" constant="15" id="Wn8-UJ-hYg"/>
+                                            <constraint firstItem="ucR-AA-9Z9" firstAttribute="top" secondItem="0fu-Zr-e1Q" secondAttribute="bottom" constant="15" id="XiP-Pu-JeT"/>
+                                            <constraint firstItem="sMY-ms-yk3" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="Xk6-VL-ojp"/>
+                                            <constraint firstItem="KNQ-iM-2Rb" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="ZxP-71-LO4"/>
+                                            <constraint firstItem="0fu-Zr-e1Q" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="aDa-eP-RXW"/>
+                                            <constraint firstItem="jW4-8w-ICV" firstAttribute="top" secondItem="7Fu-f4-4hu" secondAttribute="bottom" constant="40" id="cTW-uO-tL1"/>
+                                            <constraint firstItem="xaI-nU-1et" firstAttribute="top" secondItem="sMY-ms-yk3" secondAttribute="bottom" constant="25" id="e34-aq-sgU"/>
+                                            <constraint firstItem="1WZ-oK-iXq" firstAttribute="top" secondItem="g3M-Yi-ehZ" secondAttribute="top" constant="10" id="fac-Qc-CgR"/>
+                                            <constraint firstItem="KNQ-iM-2Rb" firstAttribute="top" secondItem="nwC-L6-cMP" secondAttribute="bottom" constant="40" id="fjS-01-CpU"/>
+                                            <constraint firstItem="7Fu-f4-4hu" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="hoe-fh-lOZ"/>
+                                            <constraint firstItem="aQV-a9-Exk" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="iqM-Fy-VsC"/>
+                                            <constraint firstItem="aQV-a9-Exk" firstAttribute="top" secondItem="jW4-8w-ICV" secondAttribute="bottom" constant="15" id="lIE-Rh-r1M"/>
+                                            <constraint firstAttribute="trailing" secondItem="aQV-a9-Exk" secondAttribute="trailing" constant="15" id="mIq-po-fV4"/>
+                                            <constraint firstItem="ENY-lq-HNg" firstAttribute="top" secondItem="ucR-AA-9Z9" secondAttribute="bottom" constant="25" id="nxg-qF-vAS"/>
+                                            <constraint firstItem="xaI-nU-1et" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="o4a-NE-5OO"/>
+                                            <constraint firstItem="RsO-N4-cua" firstAttribute="top" secondItem="KNQ-iM-2Rb" secondAttribute="bottom" constant="15" id="opx-aU-5Rh"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Kh-bO-l1W" secondAttribute="trailing" constant="15" id="r6x-uG-j2d"/>
+                                            <constraint firstItem="1WZ-oK-iXq" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="tfR-0n-WWx"/>
+                                            <constraint firstItem="0fu-Zr-e1Q" firstAttribute="top" secondItem="pCu-eC-5yQ" secondAttribute="bottom" constant="25" id="uma-a7-JQn"/>
+                                            <constraint firstAttribute="trailing" secondItem="sMY-ms-yk3" secondAttribute="trailing" constant="15" id="w8a-16-2Db"/>
+                                            <constraint firstItem="szb-SB-UNu" firstAttribute="leading" secondItem="g3M-Yi-ehZ" secondAttribute="leading" constant="15" id="wHo-MJ-Ru4"/>
+                                            <constraint firstItem="sMY-ms-yk3" firstAttribute="top" secondItem="5P8-b0-ap7" secondAttribute="bottom" constant="25" id="wlD-Mo-fHs"/>
+                                            <constraint firstItem="nwC-L6-cMP" firstAttribute="centerX" secondItem="g3M-Yi-ehZ" secondAttribute="centerX" id="zRn-md-HS1"/>
+                                            <constraint firstItem="nwC-L6-cMP" firstAttribute="top" secondItem="9Kh-bO-l1W" secondAttribute="bottom" constant="25" id="zmW-LR-EEw"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="g3M-Yi-ehZ" firstAttribute="height" secondItem="e3o-TX-Ga4" secondAttribute="height" priority="250" id="7Zj-mU-dbH"/>
+                                    <constraint firstItem="g3M-Yi-ehZ" firstAttribute="top" secondItem="62f-qh-Mmw" secondAttribute="top" id="IDa-dm-A8Q"/>
+                                    <constraint firstItem="g3M-Yi-ehZ" firstAttribute="width" secondItem="62f-qh-Mmw" secondAttribute="width" id="K3O-G9-H9k"/>
+                                    <constraint firstItem="g3M-Yi-ehZ" firstAttribute="leading" secondItem="62f-qh-Mmw" secondAttribute="leading" id="T2V-Z9-RKe"/>
+                                    <constraint firstAttribute="bottom" secondItem="g3M-Yi-ehZ" secondAttribute="bottom" id="VqV-nE-hAE"/>
+                                    <constraint firstAttribute="trailing" secondItem="g3M-Yi-ehZ" secondAttribute="trailing" id="b0c-TT-b8r"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Z64-DW-6yN"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="e3o-TX-Ga4"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mh7-nq-IVM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tKT-YM-8Lf" firstAttribute="top" secondItem="Mh7-nq-IVM" secondAttribute="top" id="6D7-TQ-H3r"/>
-                            <constraint firstItem="Mh7-nq-IVM" firstAttribute="bottom" secondItem="tKT-YM-8Lf" secondAttribute="bottom" constant="747" id="7ML-ys-fVP"/>
-                            <constraint firstItem="tKT-YM-8Lf" firstAttribute="leading" secondItem="Mh7-nq-IVM" secondAttribute="leading" id="LQo-0j-fe8"/>
-                            <constraint firstItem="Mh7-nq-IVM" firstAttribute="trailing" secondItem="tKT-YM-8Lf" secondAttribute="trailing" id="oKk-vP-BdF"/>
+                            <constraint firstItem="62f-qh-Mmw" firstAttribute="leading" secondItem="Mh7-nq-IVM" secondAttribute="leading" id="7yW-LP-Q5I"/>
+                            <constraint firstItem="Mh7-nq-IVM" firstAttribute="trailing" secondItem="62f-qh-Mmw" secondAttribute="trailing" id="CDF-OQ-gQy"/>
+                            <constraint firstItem="OJt-aM-337" firstAttribute="trailing" secondItem="Mh7-nq-IVM" secondAttribute="trailing" id="DlS-SD-a8m"/>
+                            <constraint firstItem="5P8-b0-ap7" firstAttribute="height" secondItem="Mh7-nq-IVM" secondAttribute="height" multiplier="0.08" id="XOD-Xu-qdS"/>
+                            <constraint firstItem="62f-qh-Mmw" firstAttribute="top" secondItem="Mh7-nq-IVM" secondAttribute="top" constant="77" id="amj-Mf-axJ"/>
+                            <constraint firstItem="OJt-aM-337" firstAttribute="leading" secondItem="Mh7-nq-IVM" secondAttribute="leading" id="cIY-lP-DFC"/>
+                            <constraint firstItem="OJt-aM-337" firstAttribute="leading" secondItem="Mh7-nq-IVM" secondAttribute="leading" id="fhJ-FX-aAd"/>
+                            <constraint firstItem="62f-qh-Mmw" firstAttribute="bottom" secondItem="Mh7-nq-IVM" secondAttribute="bottom" constant="11" id="gyU-7s-Kmq"/>
+                            <constraint firstItem="OJt-aM-337" firstAttribute="top" secondItem="Mh7-nq-IVM" secondAttribute="top" id="jEE-9c-UKL"/>
+                            <constraint firstItem="OJt-aM-337" firstAttribute="height" secondItem="Mh7-nq-IVM" secondAttribute="height" multiplier="0.08" priority="750" id="rSn-B9-0xT"/>
+                            <constraint firstItem="Mh7-nq-IVM" firstAttribute="trailing" secondItem="OJt-aM-337" secondAttribute="trailing" id="wUY-Ab-aC4"/>
+                            <constraint firstItem="OJt-aM-337" firstAttribute="top" secondItem="Mh7-nq-IVM" secondAttribute="top" id="zMb-g0-O1G"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="375" height="1667"/>
                     <connections>
-                        <outlet property="backButton" destination="d2z-6W-Hwg" id="bLh-rj-BIQ"/>
+                        <outlet property="backButton" destination="6jt-bG-dJ5" id="PZB-GC-HKP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCw-Lo-qT2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-301.44927536231887" y="130.58035714285714"/>
+            <point key="canvasLocation" x="-301.60000000000002" y="129.98500749625188"/>
         </scene>
     </scenes>
     <resources>
         <image name="back_button" width="201" height="201"/>
+        <image name="sample hap! 2" width="253" height="73"/>
+        <image name="sample wrong answer" width="253" height="73"/>
+        <image name="sampler hap! 1" width="253" height="73.5"/>
+        <image name="three attributes" width="312" height="52"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -10,6 +10,9 @@
 		147035A58C0559E600A4B3B7 /* Pods_GyeolHap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */; };
 		4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC2E38D25FCB79D00AFCF85 /* HowToViewController.swift */; };
 		4EC2E39125FCB7A800AFCF85 /* HowTo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2E39025FCB7A800AFCF85 /* HowTo.storyboard */; };
+		4EC2E39B25FCEA1300AFCF85 /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2E39825FCEA1300AFCF85 /* GmarketSansBold.otf */; };
+		4EC2E39C25FCEA1300AFCF85 /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2E39925FCEA1300AFCF85 /* GmarketSansMedium.otf */; };
+		4EC2E39D25FCEA1300AFCF85 /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4EC2E39A25FCEA1300AFCF85 /* GmarketSansLight.otf */; };
 		CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16E3B225E52FB600EE07DC /* AnswerCell.swift */; };
 		CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20A69A2590DC0C00F47DC8 /* AppDelegate.swift */; };
 		CE20A69D2590DC0C00F47DC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE20A69C2590DC0C00F47DC8 /* SceneDelegate.swift */; };
@@ -29,11 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4EC2E38825FC7C9C00AFCF85 /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansMedium.otf; path = ../../../../Downloads/GmarketSansOTF/GmarketSansMedium.otf; sourceTree = "<group>"; };
-		4EC2E38925FC7C9C00AFCF85 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansBold.otf; path = ../../../../Downloads/GmarketSansOTF/GmarketSansBold.otf; sourceTree = "<group>"; };
-		4EC2E38A25FC7C9C00AFCF85 /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansLight.otf; path = ../../../../Downloads/GmarketSansOTF/GmarketSansLight.otf; sourceTree = "<group>"; };
 		4EC2E38D25FCB79D00AFCF85 /* HowToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
 		4EC2E39025FCB7A800AFCF85 /* HowTo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowTo.storyboard; sourceTree = "<group>"; };
+		4EC2E39825FCEA1300AFCF85 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansBold.otf; path = "../../../../Downloads/GmarketSansOTF (1)/GmarketSansBold.otf"; sourceTree = "<group>"; };
+		4EC2E39925FCEA1300AFCF85 /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansMedium.otf; path = "../../../../Downloads/GmarketSansOTF (1)/GmarketSansMedium.otf"; sourceTree = "<group>"; };
+		4EC2E39A25FCEA1300AFCF85 /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GmarketSansLight.otf; path = "../../../../Downloads/GmarketSansOTF (1)/GmarketSansLight.otf"; sourceTree = "<group>"; };
 		A8CF7D0EB41F3E8948BB2E7D /* Pods-GyeolHap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.release.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.release.xcconfig"; sourceTree = "<group>"; };
 		CE16E3B225E52FB600EE07DC /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		CE20A6972590DC0C00F47DC8 /* GyeolHap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyeolHap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,9 +93,9 @@
 		4E7CD64E25FBAEB50075F7FC /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				4EC2E38925FC7C9C00AFCF85 /* GmarketSansBold.otf */,
-				4EC2E38A25FC7C9C00AFCF85 /* GmarketSansLight.otf */,
-				4EC2E38825FC7C9C00AFCF85 /* GmarketSansMedium.otf */,
+				4EC2E39825FCEA1300AFCF85 /* GmarketSansBold.otf */,
+				4EC2E39A25FCEA1300AFCF85 /* GmarketSansLight.otf */,
+				4EC2E39925FCEA1300AFCF85 /* GmarketSansMedium.otf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -244,7 +247,10 @@
 				CEBFAC2D25F8A64A00964898 /* Main.storyboard in Resources */,
 				4EC2E39125FCB7A800AFCF85 /* HowTo.storyboard in Resources */,
 				CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */,
+				4EC2E39D25FCEA1300AFCF85 /* GmarketSansLight.otf in Resources */,
 				CEDCC5F025D76F2F008D8044 /* Stage.storyboard in Resources */,
+				4EC2E39C25FCEA1300AFCF85 /* GmarketSansMedium.otf in Resources */,
+				4EC2E39B25FCEA1300AFCF85 /* GmarketSansBold.otf in Resources */,
 				CE20A6A42590DC0F00F47DC8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

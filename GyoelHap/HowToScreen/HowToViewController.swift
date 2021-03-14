@@ -8,7 +8,7 @@
 import UIKit
 
 class HowToViewController: UIViewController {
-
+    
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
@@ -16,11 +16,11 @@ class HowToViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+ 
     
     @IBAction func goToMainMenu(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-   
 
 }
