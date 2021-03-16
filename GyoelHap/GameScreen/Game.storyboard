@@ -33,7 +33,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmk-5I-An4">
-                                        <rect key="frame" x="340" y="7.3333333333333357" width="39" height="39"/>
+                                        <rect key="frame" x="332.33333333333331" y="8" width="37.666666666666686" height="37.666666666666664"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Vmk-5I-An4" secondAttribute="height" multiplier="1:1" id="MO5-NM-6rc"/>
+                                        </constraints>
                                         <state key="normal" image="back_button"/>
                                         <connections>
                                             <action selector="tapPause:" destination="73t-bL-9E7" eventType="touchUpInside" id="ZGi-SY-W0R"/>
@@ -42,12 +45,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.30755198" green="0.24440178279999999" blue="0.49021941419999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstItem="Vmk-5I-An4" firstAttribute="height" secondItem="bNp-2E-g3f" secondAttribute="height" multiplier="0.7" id="Fj3-xZ-2pX"/>
                                     <constraint firstItem="sOI-cQ-Fi2" firstAttribute="leading" secondItem="bNp-2E-g3f" secondAttribute="leading" constant="8" id="Fwr-gS-BBb"/>
                                     <constraint firstItem="Vmk-5I-An4" firstAttribute="centerY" secondItem="bNp-2E-g3f" secondAttribute="centerY" id="LNu-tD-U1k"/>
                                     <constraint firstItem="sOI-cQ-Fi2" firstAttribute="bottom" secondItem="Vwy-5y-s0p" secondAttribute="bottom" id="Z6p-gc-b9C"/>
                                     <constraint firstItem="Vwy-5y-s0p" firstAttribute="centerY" secondItem="bNp-2E-g3f" secondAttribute="centerY" id="bwD-uL-0z7"/>
                                     <constraint firstItem="Vwy-5y-s0p" firstAttribute="centerX" secondItem="bNp-2E-g3f" secondAttribute="centerX" id="pw1-kh-Cpv"/>
-                                    <constraint firstAttribute="trailing" secondItem="Vmk-5I-An4" secondAttribute="trailing" constant="11" id="yN3-ey-baA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vmk-5I-An4" secondAttribute="trailing" constant="20" id="yN3-ey-baA"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u2n-te-iBl">
@@ -301,7 +305,7 @@
     </scenes>
     <resources>
         <image name="answerSheet_round" width="251" height="194"/>
-        <image name="back_button" width="39" height="39"/>
+        <image name="back_button" width="201" height="201"/>
         <image name="deskclock" catalog="system" width="128" height="124"/>
         <image name="gyeol-1" width="113" height="194"/>
         <image name="menu" width="97" height="97"/>
