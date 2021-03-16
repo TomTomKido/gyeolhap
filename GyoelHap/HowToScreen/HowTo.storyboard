@@ -38,7 +38,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결합 플레이 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLt-iA-9cx">
-                                        <rect key="frame" x="78" y="19" width="219" height="26.5"/>
+                                        <rect key="frame" x="88.5" y="19" width="198.5" height="26.5"/>
                                         <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -59,16 +59,16 @@
                                 <rect key="frame" x="0.0" y="77" width="375" height="1601"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3M-Yi-ehZ" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1528"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1559"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결! 합!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WZ-oK-iXq">
-                                                <rect key="frame" x="15" y="10" width="68.5" height="25"/>
+                                                <rect key="frame" x="15" y="10" width="63.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fu-f4-4hu">
-                                                <rect key="frame" x="15" y="50" width="345" height="180"/>
+                                                <rect key="frame" x="15" y="54.5" width="345" height="186.5"/>
                                                 <string key="text">결!합!게임에는 합!과 결!이 있습니다.
 
 결합 조건을 충족하는 그림 3장을 찾으면 자동으로 합!이 되어 정답으로 등록됩니다. 
@@ -79,13 +79,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="합의 조건" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jW4-8w-ICV">
-                                                <rect key="frame" x="15" y="270" width="103.5" height="25"/>
+                                                <rect key="frame" x="15" y="281" width="93.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQV-a9-Exk">
-                                                <rect key="frame" x="15" y="310" width="345" height="60"/>
+                                                <rect key="frame" x="15" y="325.5" width="345" height="47"/>
                                                 <string key="text">그림은 각각 3가지 속성을 지니고 있습니다: 
 모양, 색, 배경색</string>
                                                 <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
@@ -93,67 +93,67 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="three attributes" translatesAutoresizingMaskIntoConstraints="NO" id="5P8-b0-ap7">
-                                                <rect key="frame" x="31.5" y="395" width="312" height="133.5"/>
+                                                <rect key="frame" x="31.5" y="397.5" width="312" height="133.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="합이 되는 조건은, 9개의 그림 중 속성 각각이 모두 같거나 모두 다른 경우입니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-ms-yk3">
-                                                <rect key="frame" x="15" y="553.5" width="345" height="60"/>
+                                                <rect key="frame" x="15" y="556" width="345" height="47"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="합 예시 1)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaI-nU-1et">
-                                                <rect key="frame" x="15" y="638.5" width="85.5" height="20"/>
+                                                <rect key="frame" x="15" y="628" width="79.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sampler hap! 1" translatesAutoresizingMaskIntoConstraints="NO" id="pCu-eC-5yQ">
-                                                <rect key="frame" x="61" y="758.5" width="253" height="73.5"/>
+                                                <rect key="frame" x="61" y="761.5" width="253" height="73.5"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="모양이 모두 다르고, 색이 모두 다르고, 배경색이 모두 같으므로 합의 조건을 충족합니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAU-cE-Pk5">
-                                                <rect key="frame" x="15" y="673.5" width="345" height="60"/>
+                                                <rect key="frame" x="15" y="666.5" width="345" height="70"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="합 예시 2)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fu-Zr-e1Q">
-                                                <rect key="frame" x="15" y="857" width="89.5" height="20"/>
+                                                <rect key="frame" x="15" y="860" width="79.5" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="모양이 모두 같고, 색이 모두 다르고, 배경색이 모두 같으므로 합의 조건을 충족합니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucR-AA-9Z9">
-                                                <rect key="frame" x="15" y="892" width="345" height="60"/>
+                                                <rect key="frame" x="15" y="898.5" width="345" height="70"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample hap! 2" translatesAutoresizingMaskIntoConstraints="NO" id="ENY-lq-HNg">
-                                                <rect key="frame" x="61" y="977" width="253" height="73"/>
+                                                <rect key="frame" x="61" y="993.5" width="253" height="73"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="모양이 모두 같고 색이 모두 다르지만, 배경색이 모두 같거나 모두 다르지 않아 합의 조건을 충족하지 않습니다." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kh-bO-l1W">
-                                                <rect key="frame" x="15" y="1110" width="345" height="60"/>
+                                                <rect key="frame" x="15" y="1130" width="345" height="70"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="오답 예시)" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szb-SB-UNu">
-                                                <rect key="frame" x="15" y="1075" width="90" height="20"/>
+                                                <rect key="frame" x="15" y="1091.5" width="80" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample wrong answer" translatesAutoresizingMaskIntoConstraints="NO" id="nwC-L6-cMP">
-                                                <rect key="frame" x="61" y="1195" width="253" height="73"/>
+                                                <rect key="frame" x="61" y="1225" width="253" height="73"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간 기록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNQ-iM-2Rb">
-                                                <rect key="frame" x="15" y="1308" width="103.5" height="25"/>
+                                                <rect key="frame" x="15" y="1338" width="93.5" height="29.5"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="결!합!게임을 클리어할 경우 해당 스테이지를 클리어했다는 아이콘과 함께 게임에 소요된 시간이 표시됩니다. 이 시간은 잘못된 합!이나 결!을 시도할 때마다 각각 10초, 30초씩 늘어나니 답을 신중하게 선택해주세요!" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsO-N4-cua">
-                                                <rect key="frame" x="15" y="1348" width="345" height="120"/>
+                                                <rect key="frame" x="15" y="1382.5" width="345" height="116.5"/>
                                                 <fontDescription key="fontDescription" name="GmarketSansLight" family="Gmarket Sans" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

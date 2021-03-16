@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "모두 같은.png",
+      "filename" : "sample hap! 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "모두 같은@2x.png",
+      "filename" : "sample hap! 1@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "모두 같은@3x.png",
+      "filename" : "sample hap! 1@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
