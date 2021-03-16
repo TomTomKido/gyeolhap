@@ -59,20 +59,25 @@ class GameViewController: UIViewController {
         )
     }
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let item = self.currentItem else { return }
-        self.gameManager = GameManager(stage: item)
-        self.timeIndicator.text = "00:00:00"
-        self.stageIndicator.text = "Stage " + String(item.stageId)
-        runTimer()
-        print("정답리스트: \((gameManager?.answers)!)")
         upperCollectionView.delegate = self
         upperCollectionView.dataSource = self
         lowerCollectionView.delegate = self
         lowerCollectionView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let item = self.currentItem else { return }
+        self.gameManager = GameManager(stage: item)
+        self.timeIndicator.text = "00:00:00"
+        self.stageIndicator.text = "Stage " + String(item.stageId)
+        print("정답리스트: \((gameManager?.answers)!)")
+        deciSeconds = 0
+        runTimer()
+        guard let manager = self.gameManager else { return }
+        manager.tryList = []
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
@@ -87,6 +92,8 @@ class GameViewController: UIViewController {
             let gameStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
             guard let successVC = gameStoryboard.instantiateViewController(identifier: "SuccessVC") as? SuccessViewController else { return }
             self.navigationController?.pushViewController(successVC, animated: true)
+            successVC.gameManager = gameManager
+            successVC.stageId = currentItem?.stageId
         }
     }
     
