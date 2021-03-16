@@ -9,21 +9,29 @@ import UIKit
 
 class SuccessViewController: UIViewController {
 
+    @IBOutlet weak var record: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var retryButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
+    }
+
+    @IBAction func goToMenuScreen(_ sender: UIButton) {
+        let controller = self.navigationController?.viewControllers[(self.navigationController?.viewControllers.count)! - 3]
+        self.navigationController?.popToViewController(controller!, animated: true)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func retry(_ sender: UIButton) {
+        
     }
-    */
-
+    
+    @IBAction func goToNextStage(_ sender: UIButton) {
+        
+    }
+    
 }

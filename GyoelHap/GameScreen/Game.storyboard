@@ -243,15 +243,27 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-yV-quh">
                                         <rect key="frame" x="23.666666666666657" y="542.33333333333337" width="343" height="97"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="lvm-br-jRd">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6M-Qh-ToC">
                                                 <rect key="frame" x="0.0" y="0.0" width="97" height="97"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retry" translatesAutoresizingMaskIntoConstraints="NO" id="SPK-YX-zfG">
+                                                <state key="normal" image="menu"/>
+                                                <connections>
+                                                    <action selector="goToMenuScreen:" destination="NPH-pn-G1u" eventType="touchUpInside" id="A6D-6z-fFu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-ba-Zon">
                                                 <rect key="frame" x="123" y="0.0" width="97" height="97"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="ASg-ZK-Fe2">
+                                                <state key="normal" image="retry"/>
+                                                <connections>
+                                                    <action selector="retry:" destination="NPH-pn-G1u" eventType="touchUpInside" id="1IO-cS-aeE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMm-Oa-VsP">
                                                 <rect key="frame" x="246" y="0.0" width="97" height="97"/>
-                                            </imageView>
+                                                <state key="normal" image="next"/>
+                                                <connections>
+                                                    <action selector="goToNextStage:" destination="NPH-pn-G1u" eventType="touchUpInside" id="srA-CZ-5ZV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Z7W-uS-v5q">
@@ -293,6 +305,12 @@
                             <constraint firstItem="qv0-cu-4YA" firstAttribute="leading" secondItem="BZE-ib-0Td" secondAttribute="leading" id="vHM-Z8-EDk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="menuButton" destination="G6M-Qh-ToC" id="04u-k1-0Sl"/>
+                        <outlet property="nextButton" destination="dMm-Oa-VsP" id="ziB-QM-KxA"/>
+                        <outlet property="record" destination="tGW-OW-8JS" id="czO-HQ-Ih5"/>
+                        <outlet property="retryButton" destination="fJb-ba-Zon" id="Z11-Kp-hh4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhW-My-CJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
