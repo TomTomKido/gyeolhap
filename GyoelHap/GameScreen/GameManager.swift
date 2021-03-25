@@ -42,7 +42,7 @@ class GameManager {
         return false
     }
     
-    func checkAnswer() -> (Bool) {
+    func checkHap() -> (Bool) {
         var isAnswer = false
         
         if self.tryList.count < 3 {
