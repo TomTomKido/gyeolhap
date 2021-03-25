@@ -9,55 +9,20 @@ import UIKit
 
 class GameViewController: UIViewController {
 
-    
-    @IBOutlet weak var stageIndicator: UILabel!
-    @IBOutlet weak var timeIndicator: UILabel!
-    @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var stageLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var upperCollectionView: UICollectionView!
     @IBOutlet weak var lowerCollectionView: UICollectionView!
-    @IBOutlet weak var sec10: UILabel!
+    @IBOutlet weak var plus10sec: UILabel!
     @IBOutlet weak var gyeolButton: UIButton!
-    @IBOutlet weak var completeMenu: UIView!
     
     var currentItem: StageRealm?
     var gameManager: GameManager?
-
+    
     var deciSeconds = 0
     var timer = Timer()
     var isTimerRunning = false
-
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-    }
-
-    @objc func updateTimer() {
-        deciSeconds += 1
-        self.timeIndicator.text = timeString(time: TimeInterval(deciSeconds))
-    }
-
-    func timeString(time:TimeInterval) -> String {
-        let newTime = time / 10
-        let hours = Int(newTime) / 3600
-        let minutes = Int(newTime) / 60 % 60
-        let seconds = Int(newTime) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
-    }
-
-    func showSeconds(second: Int) {
-        sec10.text = "+\(String(second))sec"
-        UIView.animate(withDuration: 0.3, delay: 0, options: [],
-        animations: {
-            self.sec10.alpha = 1
-        },
-        completion: nil
-        )
-        UIView.animate(withDuration: 1, delay: 0, options: [],
-        animations: {
-            self.sec10.alpha = 0
-        },
-        completion: nil
-        )
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +36,8 @@ class GameViewController: UIViewController {
         super.viewWillAppear(animated)
         guard let item = self.currentItem else { return }
         self.gameManager = GameManager(stage: item)
-        self.timeIndicator.text = "00:00:00"
-        self.stageIndicator.text = "Stage " + String(item.stageId)
+        self.timerLabel.text = "00:00:00"
+        self.stageLabel.text = "Stage " + String(item.stageId)
         print("정답리스트: \((gameManager?.answers)!)")
         deciSeconds = 0
         runTimer()
@@ -97,10 +62,45 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func tapPause(_ sender: UIButton) {
+    @IBAction func tapBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+}
+
+//타이머 로직
+extension GameViewController {
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+
+    @objc func updateTimer() {
+        deciSeconds += 1
+        self.timerLabel.text = timeString(time: TimeInterval(deciSeconds))
+    }
+
+    func timeString(time:TimeInterval) -> String {
+        let newTime = time / 10
+        let hours = Int(newTime) / 3600
+        let minutes = Int(newTime) / 60 % 60
+        let seconds = Int(newTime) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+
+    func showSeconds(second: Int) {
+        plus10sec.text = "+\(String(second))sec"
+        UIView.animate(withDuration: 0.3, delay: 0, options: [],
+        animations: {
+            self.plus10sec.alpha = 1
+        },
+        completion: nil
+        )
+        UIView.animate(withDuration: 1, delay: 0, options: [],
+        animations: {
+            self.plus10sec.alpha = 0
+        },
+        completion: nil
+        )
+    }
 }
 
 extension GameViewController: UICollectionViewDataSource {
@@ -126,7 +126,6 @@ extension GameViewController: UICollectionViewDataSource {
                 manager.addToTryList(indexPath.item + 1)
                 if manager.checkAnswer() == false {
                     self.deciSeconds += 100
-//                    self.showAlert()
                     self.showSeconds(second: 10)
                 }
                 manager.printTryList()
@@ -139,7 +138,6 @@ extension GameViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             cell.updateUI(index: indexPath.item, item: gameManager?.revealedAnswers ?? [])
-            
             return cell
         }
     }
