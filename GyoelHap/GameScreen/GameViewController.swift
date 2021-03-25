@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var lowerCollectionView: UICollectionView!
     @IBOutlet weak var plus10sec: UILabel!
     @IBOutlet weak var gyeolButton: UIButton!
+    @IBOutlet weak var SuccessView: UIView!
     
     var currentItem: StageRealm?
     var gameManager: GameManager?
@@ -48,18 +49,39 @@ class GameViewController: UIViewController {
     @IBAction func gyeol(_ sender: UIButton) {
         guard let manager = self.gameManager, let item = self.currentItem else { return }
         print("hi")
-        if !manager.checkGyeol() {
-            self.showSeconds(second: 30)
-            self.deciSeconds += 300
-        } else {
-            self.timer.invalidate()
-            item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-            let gameStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
-            guard let successVC = gameStoryboard.instantiateViewController(identifier: "SuccessVC") as? SuccessViewController else { return }
-            self.navigationController?.pushViewController(successVC, animated: true)
-            successVC.gameManager = gameManager
-            successVC.stageId = currentItem?.stageId
-        }
+//        if !manager.checkGyeol() {
+//            self.showSeconds(second: 30)
+//            self.deciSeconds += 300
+//        } else {
+//            self.timer.invalidate()
+//            item.solve(second: timeString(time: TimeInterval(deciSeconds)))
+//
+//            UIView.animate(withDuration: 0, delay: 0, options: [],
+//            animations: {
+//                let safeArea = self.view.safeAreaLayoutGuide
+//                self.SuccessView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+//            },
+//            completion: nil
+//            )
+////            let gameStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
+////            guard let successVC = gameStoryboard.instantiateViewController(identifier: "SuccessVC") as? SuccessViewController else { return }
+////            self.navigationController?.pushViewController(successVC, animated: false)
+//
+//
+////            successVC.gameManager = gameManager
+////            successVC.stageId = currentItem?.stageId
+//        }
+        self.timer.invalidate()
+        item.solve(second: timeString(time: TimeInterval(deciSeconds)))
+        
+        UIView.animate(withDuration: 0, delay: 0, options: [],
+        animations: {
+            let safeArea = self.view.safeAreaLayoutGuide
+            self.SuccessView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        },
+        completion: nil
+        )
+        
     }
     
     @IBAction func tapBack(_ sender: UIButton) {
@@ -124,7 +146,7 @@ extension GameViewController: UICollectionViewDataSource {
             cell.tapHandler = {
                 guard let manager = self.gameManager else { return }
                 manager.addToTryList(indexPath.item + 1)
-                if manager.checkAnswer() == false {
+                if manager.checkHap() == false {
                     self.deciSeconds += 100
                     self.showSeconds(second: 10)
                 }
