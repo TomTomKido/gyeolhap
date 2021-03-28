@@ -18,6 +18,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
     
+    @IBOutlet weak var MenuButton: UIButton!
+    @IBOutlet weak var RetryButton: UIButton!
+    @IBOutlet weak var NextButton: UIButton!
     var currentItem: StageRealm?
     var gameManager: GameManager?
     
@@ -88,6 +91,8 @@ class GameViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+
 
 //타이머 로직
 extension GameViewController {

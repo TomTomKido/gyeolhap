@@ -204,21 +204,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-yV-quh">
                                         <rect key="frame" x="23.666666666666686" y="542.33333333333337" width="343" height="97"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6M-Qh-ToC">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6M-Qh-ToC" userLabel="MenuButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="97" height="97"/>
                                                 <state key="normal" image="menu"/>
                                                 <connections>
                                                     <action selector="goToMenuScreen:" destination="NPH-pn-G1u" eventType="touchUpInside" id="A6D-6z-fFu"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-ba-Zon">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-ba-Zon" userLabel="RetryButton">
                                                 <rect key="frame" x="122.99999999999994" y="0.0" width="97" height="97"/>
                                                 <state key="normal" image="retry"/>
                                                 <connections>
                                                     <action selector="retry:" destination="NPH-pn-G1u" eventType="touchUpInside" id="1IO-cS-aeE"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMm-Oa-VsP">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMm-Oa-VsP" userLabel="NextButton">
                                                 <rect key="frame" x="245.99999999999994" y="0.0" width="97" height="97"/>
                                                 <state key="normal" image="next"/>
                                                 <connections>
@@ -285,6 +285,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="pN6-nx-8pv"/>
                     <connections>
+                        <outlet property="MenuButton" destination="G6M-Qh-ToC" id="MGh-V6-R74"/>
+                        <outlet property="NextButton" destination="dMm-Oa-VsP" id="CaU-VA-1JN"/>
+                        <outlet property="RetryButton" destination="fJb-ba-Zon" id="sgF-Nh-fvw"/>
                         <outlet property="SuccessView" destination="qv0-cu-4YA" id="oS9-Br-574"/>
                         <outlet property="backButton" destination="Vmk-5I-An4" id="kE3-1Z-LHK"/>
                         <outlet property="gyeolButton" destination="FsK-7g-8iZ" id="EGd-Pr-3dW"/>

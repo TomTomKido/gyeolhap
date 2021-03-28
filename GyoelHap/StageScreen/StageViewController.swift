@@ -55,7 +55,7 @@ extension StageViewController: UITableViewDataSource{
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("row: ", indexPath.row)
+//        print("row: ", indexPath.row)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StageTableViewCell", for: indexPath) as? StageCell, let item = self.items?[indexPath.row]
             else {
             return UITableViewCell()
@@ -68,9 +68,9 @@ extension StageViewController: UITableViewDataSource{
 extension StageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
-        guard let item = items?[indexPath.row] else { return }
-        pushGameVC(item)
-        tableView.deselectRow(at: indexPath, animated: false)
+//        guard let item = items?[indexPath.row] else { return }
+//        pushGameVC(item)
+//        tableView.deselectRow(at: indexPath, animated: false)
     }
 
     func pushGameVC(_ item: StageRealm) {
