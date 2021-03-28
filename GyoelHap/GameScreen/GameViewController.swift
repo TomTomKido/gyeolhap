@@ -17,7 +17,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var plus10sec: UILabel!
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
-    
+    @IBOutlet weak var SuccessViewLeading: NSLayoutConstraint!
     var currentItem: StageRealm?
     var gameManager: GameManager?
     
@@ -73,14 +73,9 @@ class GameViewController: UIViewController {
 //        }
         self.timer.invalidate()
         item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-        
-        UIView.animate(withDuration: 0, delay: 0, options: [],
-        animations: {
-            let safeArea = self.view.safeAreaLayoutGuide
-            self.SuccessView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
-        },
-        completion: nil
-        )
+        self.SuccessViewLeading.isActive = false
+        let safeArea = self.view.safeAreaLayoutGuide
+        self.SuccessView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
         
     }
     

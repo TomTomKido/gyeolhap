@@ -277,6 +277,7 @@
                     <navigationItem key="navigationItem" id="pN6-nx-8pv"/>
                     <connections>
                         <outlet property="SuccessView" destination="qv0-cu-4YA" id="oS9-Br-574"/>
+                        <outlet property="SuccessViewLeading" destination="tSj-tr-emb" id="xsB-qz-azw"/>
                         <outlet property="backButton" destination="Vmk-5I-An4" id="kE3-1Z-LHK"/>
                         <outlet property="gyeolButton" destination="FsK-7g-8iZ" id="EGd-Pr-3dW"/>
                         <outlet property="lowerCollectionView" destination="llE-Tn-HUL" id="DoV-GC-Dsb"/>
