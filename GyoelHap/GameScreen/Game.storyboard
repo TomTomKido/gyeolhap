@@ -186,7 +186,7 @@
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qv0-cu-4YA" userLabel="SuccessView">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qv0-cu-4YA" userLabel="SuccessView" customClass="SuccessView" customModule="GyeolHap" customModuleProvider="target">
                                 <rect key="frame" x="390" y="0.0" width="390" height="844"/>
                                 <subviews>
                                     <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-9R-8IW" userLabel="Background">
@@ -201,24 +201,36 @@
                                         <color key="shadowColor" systemColor="systemTealColor"/>
                                         <size key="shadowOffset" width="3" height="3"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-yV-quh">
-                                        <rect key="frame" x="23.666666666666686" y="542.33333333333337" width="343" height="97"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-yV-quh" userLabel="Button View">
+                                        <rect key="frame" x="23.666666666666657" y="542.33333333333337" width="343" height="97"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6M-Qh-ToC">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6M-Qh-ToC" userLabel="MenuButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="97" height="97"/>
                                                 <state key="normal" image="menu"/>
+                                                <connections>
+                                                    <action selector="menuTapped:" destination="5H5-rU-vrC" eventType="touchUpInside" id="CyR-ku-ZkX"/>
+                                                    <action selector="menuTapped:" destination="qv0-cu-4YA" eventType="touchUpInside" id="cQF-6f-eCu"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-ba-Zon">
-                                                <rect key="frame" x="122.99999999999994" y="0.0" width="97" height="97"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJb-ba-Zon" userLabel="RetryButton">
+                                                <rect key="frame" x="123" y="0.0" width="97" height="97"/>
                                                 <state key="normal" image="retry"/>
+                                                <connections>
+                                                    <action selector="retryTapped:" destination="5H5-rU-vrC" eventType="touchUpInside" id="3wX-Yz-pbX"/>
+                                                    <action selector="retryTapped:" destination="qv0-cu-4YA" eventType="touchUpInside" id="ic1-hF-Khc"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMm-Oa-VsP">
-                                                <rect key="frame" x="245.99999999999994" y="0.0" width="97" height="97"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMm-Oa-VsP" userLabel="NextButton">
+                                                <rect key="frame" x="246" y="0.0" width="97" height="97"/>
                                                 <state key="normal" image="next"/>
+                                                <connections>
+                                                    <action selector="nextTapped:" destination="5H5-rU-vrC" eventType="touchUpInside" id="RZP-Qv-mMk"/>
+                                                    <action selector="nextTapped:" destination="qv0-cu-4YA" eventType="touchUpInside" id="nE5-pT-DgQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Z7W-uS-v5q">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Z7W-uS-v5q" userLabel="Clock View">
                                         <rect key="frame" x="105.66666666666667" y="404" width="178.66666666666663" height="36"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deskclock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2VL-TP-93S" userLabel="ClockIcon">
@@ -228,8 +240,8 @@
                                                     <constraint firstAttribute="width" secondItem="2VL-TP-93S" secondAttribute="height" multiplier="1:1" id="JvM-fM-vfj"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGW-OW-8JS" userLabel="Record">
-                                                <rect key="frame" x="42.999999999999943" y="0.0" width="135.66666666666666" height="36"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGW-OW-8JS" userLabel="TimeRecord">
+                                                <rect key="frame" x="42.999999999999986" y="0.0" width="135.66666666666663" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -249,6 +261,12 @@
                                     <constraint firstItem="Z7W-uS-v5q" firstAttribute="centerX" secondItem="qv0-cu-4YA" secondAttribute="centerX" id="Wia-3C-NhW"/>
                                     <constraint firstItem="HjX-ZG-HWo" firstAttribute="centerY" secondItem="qv0-cu-4YA" secondAttribute="centerY" multiplier="0.6" id="ZhG-TY-GOP"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="menuButton" destination="G6M-Qh-ToC" id="9og-sn-yiZ"/>
+                                    <outlet property="nextButton" destination="dMm-Oa-VsP" id="bqw-wn-TLA"/>
+                                    <outlet property="retryButton" destination="fJb-ba-Zon" id="YxW-Yd-juP"/>
+                                    <outlet property="timeRecord" destination="tGW-OW-8JS" id="vra-uy-E80"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3dr-d2-NQX"/>
@@ -268,7 +286,6 @@
                             <constraint firstItem="61g-Qs-o9C" firstAttribute="top" secondItem="u2n-te-iBl" secondAttribute="bottom" id="giK-Sn-PSr"/>
                             <constraint firstItem="qv0-cu-4YA" firstAttribute="bottom" secondItem="3dr-d2-NQX" secondAttribute="bottom" constant="34" id="kuq-3z-x6P"/>
                             <constraint firstItem="u2n-te-iBl" firstAttribute="top" secondItem="bNp-2E-g3f" secondAttribute="bottom" id="rI3-dE-UWd"/>
-                            <constraint firstItem="qv0-cu-4YA" firstAttribute="leading" secondItem="3dr-d2-NQX" secondAttribute="trailing" id="tSj-tr-emb"/>
                             <constraint firstItem="61g-Qs-o9C" firstAttribute="trailing" secondItem="3dr-d2-NQX" secondAttribute="trailing" id="v29-BH-seZ"/>
                             <constraint firstItem="3dr-d2-NQX" firstAttribute="top" secondItem="qv0-cu-4YA" secondAttribute="top" constant="44" id="yfC-e3-VEr"/>
                             <constraint firstItem="bNp-2E-g3f" firstAttribute="trailing" secondItem="3dr-d2-NQX" secondAttribute="trailing" id="zXo-fB-2by"/>
@@ -277,7 +294,6 @@
                     <navigationItem key="navigationItem" id="pN6-nx-8pv"/>
                     <connections>
                         <outlet property="SuccessView" destination="qv0-cu-4YA" id="oS9-Br-574"/>
-                        <outlet property="SuccessViewLeading" destination="tSj-tr-emb" id="xsB-qz-azw"/>
                         <outlet property="backButton" destination="Vmk-5I-An4" id="kE3-1Z-LHK"/>
                         <outlet property="gyeolButton" destination="FsK-7g-8iZ" id="EGd-Pr-3dW"/>
                         <outlet property="lowerCollectionView" destination="llE-Tn-HUL" id="DoV-GC-Dsb"/>
@@ -288,6 +304,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgw-wJ-EKo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="5H5-rU-vrC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1366.1538461538462" y="59.004739336492889"/>
         </scene>

@@ -15,6 +15,7 @@
 		CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE20A6A52590DC0F00F47DC8 /* LaunchScreen.storyboard */; };
 		CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3343E225CAC91200D1954E /* GameViewController.swift */; };
 		CE34260725DA8DB700E2A62B /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34260625DA8DB700E2A62B /* GameManager.swift */; };
+		CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE68E44B26102D0500E1000B /* SuccessView.swift */; };
 		CEA6A8B525F3661D00BA6195 /* StageRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6A8B425F3661D00BA6195 /* StageRealm.swift */; };
 		CEBFAC2A25F8A63D00964898 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBFAC2925F8A63D00964898 /* MainViewController.swift */; };
 		CEBFAC2D25F8A64A00964898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBFAC2C25F8A64A00964898 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 		CE20A6A82590DC0F00F47DC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE3343E225CAC91200D1954E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CE34260625DA8DB700E2A62B /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		CE68E44B26102D0500E1000B /* SuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessView.swift; sourceTree = "<group>"; };
 		CEA6A8B425F3661D00BA6195 /* StageRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageRealm.swift; sourceTree = "<group>"; };
 		CEBFAC2925F8A63D00964898 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CEBFAC2C25F8A64A00964898 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				CE3343E225CAC91200D1954E /* GameViewController.swift */,
 				CEBFAC3A25F9F78B00964898 /* SuccessViewController.swift */,
+				CE68E44B26102D0500E1000B /* SuccessView.swift */,
 				CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */,
 				CE16E3B225E52FB600EE07DC /* AnswerCell.swift */,
 				CE34260625DA8DB700E2A62B /* GameManager.swift */,
@@ -273,6 +276,7 @@
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
 				CEBFAC3B25F9F78B00964898 /* SuccessViewController.swift in Sources */,
+				CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
 				CEA6A8B525F3661D00BA6195 /* StageRealm.swift in Sources */,
 				CEBFAC3625F8EEC300964898 /* StageViewController.swift in Sources */,

@@ -17,16 +17,22 @@ class GameViewController: UIViewController {
     @IBOutlet weak var plus10sec: UILabel!
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
-    @IBOutlet weak var SuccessViewLeading: NSLayoutConstraint!
+    
     var currentItem: StageRealm?
     var gameManager: GameManager?
     
     var deciSeconds = 0
     var timer = Timer()
     var isTimerRunning = false
+    var safeArea: UILayoutGuide?
+    var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
+    var successViewLeadingToSafeAreaTrailing: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        safeArea = self.view.safeAreaLayoutGuide
+        successViewLeadingToSafeAreaLeading = self.SuccessView.leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor)
+        successViewLeadingToSafeAreaTrailing = self.SuccessView.leadingAnchor.constraint(equalTo: safeArea!.trailingAnchor)
         upperCollectionView.delegate = self
         upperCollectionView.dataSource = self
         lowerCollectionView.delegate = self
@@ -35,6 +41,7 @@ class GameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        uncoverSuccessView()
         guard let item = self.currentItem else { return }
         self.gameManager = GameManager(stage: item)
         self.timerLabel.text = "00:00:00"
@@ -73,14 +80,44 @@ class GameViewController: UIViewController {
 //        }
         self.timer.invalidate()
         item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-        self.SuccessViewLeading.isActive = false
-        let safeArea = self.view.safeAreaLayoutGuide
-        self.SuccessView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        coverSuccessView()
+        guard let successView = self.SuccessView as? SuccessView else {
+            return
+        }
+
+        successView.menuTapHandler = {
+            self.navigationController?.popViewController(animated: false)
+        }
+        
+        successView.retryTapHandler = {
+            self.uncoverSuccessView()
+            self.deciSeconds = 0
+            self.runTimer()
+            guard let manager = self.gameManager else { return }
+            manager.tryList = []
+            manager.revealedAnswers = []
+            manager.sortedRevealedAnswers = []
+            self.upperCollectionView.reloadData()
+            self.lowerCollectionView.reloadData()
+        }
+            
+        
         
     }
     
     @IBAction func tapBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension GameViewController {
+    func coverSuccessView() {
+        self.successViewLeadingToSafeAreaLeading!.isActive = true
+        self.successViewLeadingToSafeAreaTrailing!.isActive = false
+    }
+    func uncoverSuccessView() {
+        self.successViewLeadingToSafeAreaLeading!.isActive = false
+        self.successViewLeadingToSafeAreaTrailing!.isActive = true
     }
 }
 
