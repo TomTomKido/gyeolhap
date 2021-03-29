@@ -14,6 +14,7 @@ class SuccessView: UIView {
     @IBOutlet weak var nextButton: UIButton!
     var menuTapHandler: (() -> Void)?
     var retryTapHandler: (() -> Void)?
+    var nextTapHandler: (() -> Void)?
     
     
     
@@ -32,6 +33,7 @@ class SuccessView: UIView {
     }
     
     @IBAction func nextTapped(_ sender: UIButton) {
+        nextTapHandler?()
     }
     
 }

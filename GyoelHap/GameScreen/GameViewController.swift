@@ -80,10 +80,13 @@ class GameViewController: UIViewController {
 //        }
         self.timer.invalidate()
         item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-        coverSuccessView()
+        
+        
+        
         guard let successView = self.SuccessView as? SuccessView else {
             return
         }
+        successView.timeRecord.text = timeString(time: TimeInterval(deciSeconds))
 
         successView.menuTapHandler = {
             self.navigationController?.popViewController(animated: false)
@@ -93,15 +96,38 @@ class GameViewController: UIViewController {
             self.uncoverSuccessView()
             self.deciSeconds = 0
             self.runTimer()
-            guard let manager = self.gameManager else { return }
             manager.tryList = []
             manager.revealedAnswers = []
             manager.sortedRevealedAnswers = []
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
         }
-            
         
+        
+        successView.nextTapHandler = {
+
+            guard let item = self.currentItem else { return }
+            let stageID = item.stageId
+            let nextStageID = stageID
+            let items = StageRealm.all()
+            self.currentItem = items[nextStageID]
+
+            self.uncoverSuccessView()
+            self.deciSeconds = 0
+            self.runTimer()
+            manager.tryList = []
+            manager.revealedAnswers = []
+            manager.sortedRevealedAnswers = []
+            self.stageLabel.text = "Stage " + String(item.stageId)
+//            manager.answers
+            print("정답리스트: \(manager.answers)")
+            self.upperCollectionView.reloadData()
+            self.lowerCollectionView.reloadData()
+
+            
+        }
+        coverSuccessView()
+        //
         
     }
     
@@ -112,8 +138,8 @@ class GameViewController: UIViewController {
 
 extension GameViewController {
     func coverSuccessView() {
-        self.successViewLeadingToSafeAreaLeading!.isActive = true
         self.successViewLeadingToSafeAreaTrailing!.isActive = false
+        self.successViewLeadingToSafeAreaLeading!.isActive = true
     }
     func uncoverSuccessView() {
         self.successViewLeadingToSafeAreaLeading!.isActive = false
