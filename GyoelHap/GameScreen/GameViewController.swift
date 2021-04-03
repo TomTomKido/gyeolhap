@@ -51,6 +51,8 @@ class GameViewController: UIViewController {
         runTimer()
         guard let manager = self.gameManager else { return }
         manager.tryList = []
+        manager.revealedAnswers = []
+        manager.sortedRevealedAnswers = []
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
@@ -80,9 +82,7 @@ class GameViewController: UIViewController {
 //        }
         self.timer.invalidate()
         item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-        
-        
-        
+
         guard let successView = self.SuccessView as? SuccessView else {
             return
         }
@@ -91,7 +91,6 @@ class GameViewController: UIViewController {
         successView.menuTapHandler = {
             self.navigationController?.popViewController(animated: false)
         }
-        
         successView.retryTapHandler = {
             self.uncoverSuccessView()
             self.deciSeconds = 0
@@ -102,10 +101,7 @@ class GameViewController: UIViewController {
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
         }
-        
-        
         successView.nextTapHandler = {
-
             guard let item = self.currentItem else { return }
             let stageID = item.stageId
             let nextStageID = stageID
@@ -115,22 +111,16 @@ class GameViewController: UIViewController {
             self.uncoverSuccessView()
             self.deciSeconds = 0
             self.runTimer()
+            self.stageLabel.text = "Stage " + String(self.currentItem!.stageId)
             manager.tryList = []
             manager.revealedAnswers = []
             manager.sortedRevealedAnswers = []
-            self.stageLabel.text = "Stage " + String(item.stageId)
-//            manager.answers
             print("정답리스트: \(manager.answers)")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
-
-            
         }
         coverSuccessView()
-        //
-        
     }
-    
     @IBAction func tapBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
