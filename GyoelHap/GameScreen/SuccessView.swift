@@ -9,6 +9,7 @@ import UIKit
 
 class SuccessView: UIView {
     @IBOutlet weak var timeRecord: UILabel!
+    @IBOutlet weak var oldBestTimeRecord: UILabel!
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var retryButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!

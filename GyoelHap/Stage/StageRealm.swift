@@ -16,7 +16,8 @@ class StageRealm: Object {
     @objc dynamic var stageId: Int = 0
     @objc dynamic var randomNumberString: String? = nil
     @objc dynamic var isSolved = false
-    @objc dynamic var record = ""
+    @objc dynamic var recordString = ""
+    @objc dynamic var record: Int = 9999999999
     
     func incrementID() -> Int {
         let realm = try! Realm()
@@ -45,10 +46,11 @@ extension StageRealm {
         return realm.objects(StageRealm.self).sorted(byKeyPath: StageRealm.Property.stageId.rawValue)
     }
     
-    func solve(second: String) {
+    func solve(secondString: String, second: Int) {
         guard let realm = realm else { return }
         try! realm.write {
             isSolved = true
+            self.recordString = secondString
             self.record = second
         }
     }

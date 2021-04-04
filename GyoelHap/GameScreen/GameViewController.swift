@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
     
+    
     var currentItem: StageRealm?
     var gameManager: GameManager?
     
@@ -62,14 +63,18 @@ class GameViewController: UIViewController {
             self.deciSeconds += 300
             return
         }
+        
         self.timer.invalidate()
-        item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-
+        if item.record >= deciSeconds {
+            item.solve(secondString: timeString(time: TimeInterval(deciSeconds)), second: deciSeconds)
+        }
+        
+        
         guard let successView = self.SuccessView as? SuccessView else {
             return
         }
         successView.timeRecord.text = timeString(time: TimeInterval(deciSeconds))
-
+        successView.oldBestTimeRecord.text = item.recordString
         successView.menuTapHandler = {
             self.navigationController?.popViewController(animated: false)
         }
@@ -77,10 +82,6 @@ class GameViewController: UIViewController {
             self.uncoverSuccessView()
             self.deciSeconds = 0
             self.start()
-            //TODO: 이상 없으면 지우기
-//            manager.tryList = []
-//            manager.revealedAnswers = []
-//            manager.sortedRevealedAnswers = []
             manager.clearAllLists()
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
@@ -96,9 +97,6 @@ class GameViewController: UIViewController {
             self.deciSeconds = 0
             self.start()
             self.stageLabel.text = "Stage " + String(self.currentItem!.stageId)
-//            manager.tryList = []
-//            manager.revealedAnswers = []
-//            manager.sortedRevealedAnswers = []
             manager.clearAllLists()
             print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
