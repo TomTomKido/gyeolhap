@@ -10,11 +10,11 @@ import RealmSwift
 
 class GameManager {
     
-    let stage:StageRealm
-    var answers: [[Int]] = []
-    var tryList: [Int] = []
-    var revealedAnswers: [[Int]] = []
-    var sortedRevealedAnswers: [[Int]] = []
+    private let stage:StageRealm
+    private var answers: [[Int]] = []
+    private var tryList: [Int] = []
+    private var revealedAnswers: [[Int]] = []
+    private var sortedRevealedAnswers: [[Int]] = []
     
     init(stage: StageRealm) {
         self.stage = stage
@@ -32,6 +32,25 @@ class GameManager {
             self.tryList.append(num)
         }
     }
+//  TODO: Only for Debugging, remove when deploying
+    func getAnswers() -> [[Int]] {
+        return answers
+    }
+    func getTryList() -> [Int] {
+        return tryList
+    }
+    func getRevealedAnswers() -> [[Int]] {
+        return revealedAnswers
+    }
+    func clearTryList() {
+        self.tryList = []
+    }
+    
+    func clearAllLists() {
+        clearTryList()
+        revealedAnswers = []
+        sortedRevealedAnswers = []
+    }
     
     func checkGyeol() -> (Bool) {
         if answers.count == revealedAnswers.count {
@@ -42,7 +61,7 @@ class GameManager {
         return false
     }
     
-    func checkAnswer() -> (Bool) {
+    func checkHap() -> (Bool) {
         var isAnswer = false
         
         if self.tryList.count < 3 {

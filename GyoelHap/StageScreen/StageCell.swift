@@ -23,7 +23,7 @@ class StageCell: UITableViewCell {
         stageName.text = String("Stage \(item.stageId)")
         if item.isSolved {
             completeFlag.text = "✔️ "
-            record.text = item.record
+            record.text = item.recordString
         } else {
             completeFlag.text = ""
             record.text = ""
