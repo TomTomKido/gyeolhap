@@ -72,7 +72,6 @@ extension StageViewController: UITableViewDelegate {
         guard let item = items?[indexPath.row] else { return }
 //        print(item.stageId)
         pushGameVC(item)
-        print("hi", self.navigationController?.viewControllers)
         tableView.deselectRow(at: indexPath, animated: false)
     }
 

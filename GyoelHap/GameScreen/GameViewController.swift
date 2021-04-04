@@ -37,6 +37,7 @@ class GameViewController: UIViewController {
         upperCollectionView.dataSource = self
         lowerCollectionView.delegate = self
         lowerCollectionView.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,40 +47,21 @@ class GameViewController: UIViewController {
         self.gameManager = GameManager(stage: item)
         self.timerLabel.text = "00:00:00"
         self.stageLabel.text = "Stage " + String(item.stageId)
-        print("정답리스트: \((gameManager?.answers)!)")
+        print("정답리스트: \(String(describing: gameManager!.getAnswers()))")
         deciSeconds = 0
-        runTimer()
+        start()
         guard let manager = self.gameManager else { return }
-        manager.tryList = []
-        manager.revealedAnswers = []
-        manager.sortedRevealedAnswers = []
+        manager.clearAllLists()
+        
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
         guard let manager = self.gameManager, let item = self.currentItem else { return }
-        print("hi")
-//        if !manager.checkGyeol() {
-//            self.showSeconds(second: 30)
-//            self.deciSeconds += 300
-//        } else {
-//            self.timer.invalidate()
-//            item.solve(second: timeString(time: TimeInterval(deciSeconds)))
-//
-//            UIView.animate(withDuration: 0, delay: 0, options: [],
-//            animations: {
-//                let safeArea = self.view.safeAreaLayoutGuide
-//                self.SuccessView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
-//            },
-//            completion: nil
-//            )
-////            let gameStoryboard = UIStoryboard.init(name: "Game", bundle: nil)
-////            guard let successVC = gameStoryboard.instantiateViewController(identifier: "SuccessVC") as? SuccessViewController else { return }
-////            self.navigationController?.pushViewController(successVC, animated: false)
-//
-//
-////            successVC.gameManager = gameManager
-////            successVC.stageId = currentItem?.stageId
-//        }
+        if !manager.checkGyeol() {
+            self.showSeconds(second: 30)
+            self.deciSeconds += 300
+            return
+        }
         self.timer.invalidate()
         item.solve(second: timeString(time: TimeInterval(deciSeconds)))
 
@@ -94,10 +76,12 @@ class GameViewController: UIViewController {
         successView.retryTapHandler = {
             self.uncoverSuccessView()
             self.deciSeconds = 0
-            self.runTimer()
-            manager.tryList = []
-            manager.revealedAnswers = []
-            manager.sortedRevealedAnswers = []
+            self.start()
+            //TODO: 이상 없으면 지우기
+//            manager.tryList = []
+//            manager.revealedAnswers = []
+//            manager.sortedRevealedAnswers = []
+            manager.clearAllLists()
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
         }
@@ -110,12 +94,13 @@ class GameViewController: UIViewController {
 
             self.uncoverSuccessView()
             self.deciSeconds = 0
-            self.runTimer()
+            self.start()
             self.stageLabel.text = "Stage " + String(self.currentItem!.stageId)
-            manager.tryList = []
-            manager.revealedAnswers = []
-            manager.sortedRevealedAnswers = []
-            print("정답리스트: \(manager.answers)")
+//            manager.tryList = []
+//            manager.revealedAnswers = []
+//            manager.sortedRevealedAnswers = []
+            manager.clearAllLists()
+            print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
         }
@@ -139,7 +124,7 @@ extension GameViewController {
 
 //타이머 로직
 extension GameViewController {
-    func runTimer() {
+    func start() {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
 
@@ -190,7 +175,7 @@ extension GameViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             guard let item = currentItem else { return UICollectionViewCell() }
-            cell.updateUI(index: indexPath.item, item: item.getArrayData()[indexPath.item], tryList: gameManager?.tryList ?? [])
+            cell.updateUI(index: indexPath.item, item: item.getArrayData()[indexPath.item], tryList: gameManager!.getTryList())
             cell.tapHandler = {
                 guard let manager = self.gameManager else { return }
                 manager.addToTryList(indexPath.item + 1)
@@ -207,7 +192,7 @@ extension GameViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath) as? AnswerCell else {
                 return UICollectionViewCell()
             }
-            cell.updateUI(index: indexPath.item, item: gameManager?.revealedAnswers ?? [])
+            cell.updateUI(index: indexPath.item, item: gameManager!.getRevealedAnswers())
             return cell
         }
     }
