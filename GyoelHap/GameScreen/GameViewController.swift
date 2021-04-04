@@ -48,7 +48,7 @@ class GameViewController: UIViewController {
         self.gameManager = GameManager(stage: item)
         self.timerLabel.text = "00:00:00"
         self.stageLabel.text = "Stage " + String(item.stageId)
-        print("정답리스트: \(String(describing: gameManager!.getAnswers()))")
+//        print("정답리스트: \(String(describing: gameManager!.getAnswers()))")
         deciSeconds = 0
         start()
         guard let manager = self.gameManager else { return }
@@ -98,7 +98,7 @@ class GameViewController: UIViewController {
             self.start()
             self.stageLabel.text = "Stage " + String(self.currentItem!.stageId)
             manager.clearAllLists()
-            print("정답리스트: \(manager.getAnswers())")
+//            print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
         }
@@ -181,7 +181,7 @@ extension GameViewController: UICollectionViewDataSource {
                     self.deciSeconds += 100
                     self.showSeconds(second: 10)
                 }
-                manager.printTryList()
+//                manager.printTryList()
                 self.upperCollectionView.reloadData()
                 self.lowerCollectionView.reloadData()
             }
