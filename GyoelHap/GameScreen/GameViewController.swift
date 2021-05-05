@@ -38,7 +38,6 @@ class GameViewController: UIViewController {
         upperCollectionView.dataSource = self
         lowerCollectionView.delegate = self
         lowerCollectionView.dataSource = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -212,3 +211,5 @@ extension GameViewController:UICollectionViewDelegateFlowLayout {
         }
     }
 }
+
+

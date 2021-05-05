@@ -60,7 +60,7 @@ class GameManager {
         print("결 실패")
         return false
     }
-    
+
     func checkHap() -> (Bool) {
         var isAnswer = false
         
