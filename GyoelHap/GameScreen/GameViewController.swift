@@ -47,7 +47,7 @@ class GameViewController: UIViewController {
         self.gameManager = GameManager(stage: item)
         self.timerLabel.text = "00:00:00"
         self.stageLabel.text = "Stage " + String(item.stageId)
-//        print("정답리스트: \(String(describing: gameManager!.getAnswers()))")
+        print("정답리스트: \(String(describing: gameManager!.getAnswers()))")
         deciSeconds = 0
         start()
         guard let manager = self.gameManager else { return }
