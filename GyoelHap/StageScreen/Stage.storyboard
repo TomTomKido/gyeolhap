@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ssW-gH-Z39">
-                                <rect key="frame" x="0.0" y="111.5" width="414" height="784.5"/>
+                                <rect key="frame" x="0.0" y="115.5" width="414" height="780.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StageTableViewCell" rowHeight="85" id="cWo-jp-hHK" customClass="StageCell" customModule="GyeolHap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="85"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cWo-jp-hHK" id="ndc-zn-f8o">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
@@ -73,13 +74,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage Select" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uX9-L7-pA0">
-                                <rect key="frame" x="139" y="64" width="136" height="27.5"/>
+                                <rect key="frame" x="139" y="68" width="136" height="27.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feI-tp-EyC">
-                                <rect key="frame" x="15" y="69.5" width="14.5" height="22"/>
+                                <rect key="frame" x="15" y="73.5" width="16" height="22"/>
                                 <state key="normal">
                                     <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
                                 </state>
@@ -87,13 +88,21 @@
                                     <action selector="goToMainMenu:" destination="e1s-1z-3oZ" eventType="touchUpInside" id="E3B-cb-Jv9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50/1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8c-xy-E13">
+                                <rect key="frame" x="333" y="72" width="66" height="20"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9qs-Rf-c5v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="y8c-xy-E13" firstAttribute="centerY" secondItem="uX9-L7-pA0" secondAttribute="centerY" id="5nc-Td-gXw"/>
                             <constraint firstItem="ssW-gH-Z39" firstAttribute="top" secondItem="uX9-L7-pA0" secondAttribute="bottom" constant="20" id="7bg-cF-MZM"/>
                             <constraint firstItem="uX9-L7-pA0" firstAttribute="top" secondItem="9qs-Rf-c5v" secondAttribute="top" constant="20" id="BHe-S5-h6I"/>
                             <constraint firstItem="ssW-gH-Z39" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" id="Kkw-Iz-0sQ"/>
+                            <constraint firstItem="9qs-Rf-c5v" firstAttribute="trailing" secondItem="y8c-xy-E13" secondAttribute="trailing" constant="15" id="Lqw-yi-mlw"/>
                             <constraint firstItem="feI-tp-EyC" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" constant="15" id="Une-En-8wg"/>
                             <constraint firstItem="feI-tp-EyC" firstAttribute="bottom" secondItem="uX9-L7-pA0" secondAttribute="bottom" id="duX-4H-pO2"/>
                             <constraint firstItem="uX9-L7-pA0" firstAttribute="centerX" secondItem="lRq-cB-34j" secondAttribute="centerX" id="grO-Zj-1yO"/>
@@ -104,6 +113,7 @@
                     <navigationItem key="navigationItem" id="C6I-zD-oNL"/>
                     <connections>
                         <outlet property="backButton" destination="feI-tp-EyC" id="531-yV-r3B"/>
+                        <outlet property="solvedProblemNumberLabel" destination="y8c-xy-E13" id="7AB-tt-2uH"/>
                         <outlet property="tableView" destination="ssW-gH-Z39" id="6E1-Yi-2pM"/>
                     </connections>
                 </viewController>
@@ -113,7 +123,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

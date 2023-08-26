@@ -11,6 +11,7 @@ import RealmSwift
 class StageViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var solvedProblemNumberLabel: UILabel!
     
     private var items: Results<StageRealm>?
     private var itemsToken: NotificationToken?
@@ -18,9 +19,24 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         items = StageRealm.all()
-        
+        addSolvedProblemNumber()
         scrollToFirstNotSolvedIndex()
+    }
+    
+    private func addSolvedProblemNumber() {
+        let solvedProblem = self.items?.reduce(0, { previous, item  in
+            if item.isSolved == true {
+                return previous + 1
+            }
+            return previous
+        })
         
+        if let solvedProblem, let totalProbelm = items?.count {
+            solvedProblemNumberLabel.text = "\(solvedProblem)/\(totalProbelm)"
+            print(totalProbelm)
+        } else {
+            solvedProblemNumberLabel.text = ""
+        }
     }
     
     private func scrollToFirstNotSolvedIndex() {
