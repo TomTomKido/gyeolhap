@@ -18,6 +18,19 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         items = StageRealm.all()
+        
+        scrollToFirstNotSolvedIndex()
+        
+    }
+    
+    private func scrollToFirstNotSolvedIndex() {
+        //첫번째로 안 푼 문제를 찾아서 거기까지 스크롤 해줌
+        guard let firstNotSolvedIndex = self.items?.firstIndex(where: { !$0.isSolved }) else { return }
+//        print("첫번째로 안푼 문제: ", firstNotSolvedIndex)
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: firstNotSolvedIndex, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
