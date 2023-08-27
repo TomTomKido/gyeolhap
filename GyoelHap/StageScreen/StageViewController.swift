@@ -27,9 +27,12 @@ class StageViewController: UIViewController {
     }
     
     private func setAds() {
-        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        let width: Double = UIScreen.main.bounds.width
+        let height = Double(width * 50 / 320)
+        let adSize = GADAdSizeFromCGSize(CGSize(width: width, height: height)) //사이즈 직접지정
+        bannerView = GADBannerView(adSize: adSize)
         addBannerViewToView(bannerView)
-        bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width) //width만 지정해서 높이 도출
+//        bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width) //width만 지정해서 높이 도출
 //        bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50)) //사이즈 직접지정
         print("screenWidth", UIScreen.main.bounds.width)
         #if DEBUG

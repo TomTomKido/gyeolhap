@@ -22,9 +22,11 @@ class MainViewController: UIViewController {
     }
     
     private func setAds() {
-        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        let width: Double = UIScreen.main.bounds.width
+        let height = Double(width * 50 / 320)
+        let adSize = GADAdSizeFromCGSize(CGSize(width: width, height: height)) //사이즈 직접지정
+        bannerView = GADBannerView(adSize: adSize)
         addBannerViewToView(bannerView)
-        bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width)
         #if DEBUG
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //test id
         #else
