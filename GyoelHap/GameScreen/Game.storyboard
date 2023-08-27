@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -193,14 +193,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qv0-cu-4YA" userLabel="SuccessView" customClass="SuccessView" customModule="GyeolHap" customModuleProvider="target">
-                                <rect key="frame" x="390" y="3" width="390" height="841"/>
+                                <rect key="frame" x="390" y="0.0" width="390" height="844"/>
                                 <subviews>
                                     <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-9R-8IW" userLabel="Background">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="841"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLEAR!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HjX-ZG-HWo">
-                                        <rect key="frame" x="71.333333333333329" y="209" width="247.33333333333337" height="86.666666666666686"/>
+                                        <rect key="frame" x="71.333333333333329" y="210" width="247.33333333333337" height="86.666666666666686"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
                                         <color key="textColor" systemColor="systemPurpleColor"/>
                                         <nil key="highlightedColor"/>
@@ -208,7 +208,7 @@
                                         <size key="shadowOffset" width="3" height="3"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-yV-quh" userLabel="Button View">
-                                        <rect key="frame" x="23.666666666666657" y="540.33333333333337" width="343" height="97"/>
+                                        <rect key="frame" x="23.666666666666657" y="542.33333333333337" width="343" height="97"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6M-Qh-ToC" userLabel="MenuButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="97" height="97"/>
@@ -237,7 +237,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Z7W-uS-v5q" userLabel="Clock View">
-                                        <rect key="frame" x="105.66666666666667" y="362.66666666666669" width="178.66666666666663" height="36"/>
+                                        <rect key="frame" x="105.66666666666667" y="364" width="178.66666666666663" height="36"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deskclock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2VL-TP-93S" userLabel="ClockIcon">
                                                 <rect key="frame" x="0.0" y="0.6666666666666643" width="36" height="35"/>
@@ -255,7 +255,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5IF-er-6Pb" userLabel="Old Record View">
-                                        <rect key="frame" x="130.33333333333331" y="438.66666666666669" width="129.33333333333331" height="24"/>
+                                        <rect key="frame" x="130.33333333333331" y="440" width="129.33333333333331" height="24"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Tha-mu-rQ2" userLabel="Flag Icon">
                                                 <rect key="frame" x="0.0" y="1.3333333333333339" width="24" height="22"/>
@@ -311,10 +311,10 @@
                             <constraint firstAttribute="bottom" secondItem="61g-Qs-o9C" secondAttribute="bottom" id="UsS-BY-bmp"/>
                             <constraint firstItem="u2n-te-iBl" firstAttribute="leading" secondItem="3dr-d2-NQX" secondAttribute="leading" id="bIr-cD-ULN"/>
                             <constraint firstItem="61g-Qs-o9C" firstAttribute="top" secondItem="u2n-te-iBl" secondAttribute="bottom" id="giK-Sn-PSr"/>
-                            <constraint firstItem="qv0-cu-4YA" firstAttribute="bottom" secondItem="3dr-d2-NQX" secondAttribute="bottom" constant="34" id="kuq-3z-x6P"/>
+                            <constraint firstItem="qv0-cu-4YA" firstAttribute="bottom" secondItem="msM-OW-3BK" secondAttribute="bottom" id="kuq-3z-x6P"/>
                             <constraint firstItem="u2n-te-iBl" firstAttribute="top" secondItem="bNp-2E-g3f" secondAttribute="bottom" id="rI3-dE-UWd"/>
                             <constraint firstItem="61g-Qs-o9C" firstAttribute="trailing" secondItem="3dr-d2-NQX" secondAttribute="trailing" id="v29-BH-seZ"/>
-                            <constraint firstItem="3dr-d2-NQX" firstAttribute="top" secondItem="qv0-cu-4YA" secondAttribute="top" constant="44" id="yfC-e3-VEr"/>
+                            <constraint firstAttribute="top" secondItem="qv0-cu-4YA" secondAttribute="top" id="yfC-e3-VEr"/>
                             <constraint firstItem="bNp-2E-g3f" firstAttribute="trailing" secondItem="3dr-d2-NQX" secondAttribute="trailing" id="zXo-fB-2by"/>
                         </constraints>
                     </view>
