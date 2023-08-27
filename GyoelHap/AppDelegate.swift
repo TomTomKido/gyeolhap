@@ -55,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         
         guard numberOfStages < 1000 else { return }
-        
 
         try! realm.write{
             if numberOfStages < 100 {
