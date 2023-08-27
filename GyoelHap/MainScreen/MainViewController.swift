@@ -18,7 +18,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setAds()
+    }
+    
+    private func setAds() {
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         addBannerViewToView(bannerView)
         bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width)
@@ -31,7 +34,6 @@ class MainViewController: UIViewController {
         bannerView.load(GADRequest())
         
         bannerView.delegate = self
-        
     }
     
     private func addBannerViewToView(_ bannerView: GADBannerView) {
