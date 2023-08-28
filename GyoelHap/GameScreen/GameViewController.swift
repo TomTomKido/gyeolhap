@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import GoogleMobileAds
+
 
 class GameViewController: UIViewController {
 
@@ -29,6 +31,9 @@ class GameViewController: UIViewController {
     var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
     var successViewLeadingToSafeAreaTrailing: NSLayoutConstraint?
     
+    private var interstitial: GADInterstitialAd?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         safeArea = self.view.safeAreaLayoutGuide
@@ -38,6 +43,24 @@ class GameViewController: UIViewController {
         upperCollectionView.dataSource = self
         lowerCollectionView.delegate = self
         lowerCollectionView.dataSource = self
+        
+        #if DEBUG
+        let adsID = "ca-app-pub-3940256099942544/4411468910" //전면광고 test id
+        #else
+        let adsID = "ca-app-pub-8667576295496816/8682486631" //전면광고 실제 id
+        #endif
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: adsID,
+                               request: request,
+                               completionHandler: { [self] ad, error in
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+        }
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +123,7 @@ class GameViewController: UIViewController {
 //            print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
+            self.displayAds()
         }
         coverSuccessView()
     }
@@ -213,3 +237,27 @@ extension GameViewController:UICollectionViewDelegateFlowLayout {
 }
 
 
+extension GameViewController: GADFullScreenContentDelegate { //전면광고 delegate
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+      print("Ad did fail to present full screen content.")
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad will present full screen content.")
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad did dismiss full screen content.")
+    }
+    
+    func displayAds() {
+      if let interstitial {
+        interstitial.present(fromRootViewController: self)
+      } else {
+        print("Ad wasn't ready")
+      }
+    }
+}
