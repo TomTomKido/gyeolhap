@@ -57,6 +57,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "gyeol")
         guard let manager = self.gameManager, let item = self.currentItem else { return }
         if !manager.checkGyeol() {
             self.showSeconds(second: 30)
@@ -75,8 +76,10 @@ class GameViewController: UIViewController {
         }
         successView.timeRecord.text = timeString(time: TimeInterval(deciSeconds))
         successView.oldBestTimeRecord.text = item.recordString
-        successView.menuTapHandler = {
+        successView.menuTapHandler = { [weak self] in
+            guard let self else { return }
             self.navigationController?.popViewController(animated: false)
+            LogManager.sendButtonClickLog(screenName: self.screenName, buttonName: "menu")
         }
         successView.retryTapHandler = {
             self.uncoverSuccessView()
@@ -105,6 +108,7 @@ class GameViewController: UIViewController {
         coverSuccessView()
     }
     @IBAction func tapBack(_ sender: UIButton) {
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
         self.navigationController?.popViewController(animated: true)
     }
 }

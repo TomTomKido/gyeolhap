@@ -21,6 +21,7 @@ class HowToViewController: UIViewController {
  
     
     @IBAction func goToMainMenu(_ sender: UIButton) {
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
         self.navigationController?.popViewController(animated: true)
     }
     
