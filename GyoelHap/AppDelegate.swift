@@ -12,13 +12,14 @@ import FirebaseCore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var lastScreenName: String?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         initializeRealm()
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
+        LogManager.sendAppLaunchLog()
         return true
     }
 
@@ -1077,6 +1078,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 realm.add(StageRealm([14, 8, 25, 12, 17, 3, 10, 21, 6]))
             }
         }
+    }
+    
+    // MARK: Log
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        LogManager.sendAppFinishLog(screenName: lastScreenName ?? "unknown")
     }
 }
 
