@@ -13,8 +13,11 @@ class MainViewController: UIViewController {
     @IBOutlet weak var howToPlayButton: UIButton!
     @IBOutlet weak var EXITButton: UIButton!
     
+    private var screenName = "main"
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        LogManager.sendScreenLog(screenName: screenName)
 
         // Do any additional setup after loading the view.
     }

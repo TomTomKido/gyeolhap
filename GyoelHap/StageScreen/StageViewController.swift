@@ -16,6 +16,8 @@ class StageViewController: UIViewController {
     private var items: Results<StageRealm>?
     private var itemsToken: NotificationToken?
     
+    private var screenName = "stage"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         items = StageRealm.all()
@@ -51,6 +53,7 @@ class StageViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
+        LogManager.sendScreenLog(screenName: screenName)
         
       itemsToken = items?.observe { [weak tableView] changes in
         guard let tableView = tableView else { return }

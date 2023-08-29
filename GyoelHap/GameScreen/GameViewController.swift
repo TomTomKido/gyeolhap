@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
     
+    private var screenName = "game"
     
     var currentItem: StageRealm?
     var gameManager: GameManager?
@@ -52,7 +53,7 @@ class GameViewController: UIViewController {
         start()
         guard let manager = self.gameManager else { return }
         manager.clearAllLists()
-        
+        LogManager.sendScreenLog(screenName: screenName)
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
@@ -112,10 +113,14 @@ extension GameViewController {
     func coverSuccessView() {
         self.successViewLeadingToSafeAreaTrailing!.isActive = false
         self.successViewLeadingToSafeAreaLeading!.isActive = true
+        screenName = "success"
+        LogManager.sendScreenLog(screenName: screenName)
     }
     func uncoverSuccessView() {
         self.successViewLeadingToSafeAreaLeading!.isActive = false
         self.successViewLeadingToSafeAreaTrailing!.isActive = true
+        screenName = "game"
+        LogManager.sendScreenLog(screenName: screenName)
     }
 }
 
