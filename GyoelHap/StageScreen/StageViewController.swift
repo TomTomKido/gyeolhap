@@ -103,6 +103,7 @@ extension StageViewController: UITableViewDelegate {
 //        print(indexPath.row)
         guard let item = items?[indexPath.row] else { return }
 //        print(item.stageId)
+        LogManager.sendStageClickLog(screenName: screenName, buttonName: "play", stageNumber: indexPath.row)
         pushGameVC(item)
         tableView.deselectRow(at: indexPath, animated: false)
     }

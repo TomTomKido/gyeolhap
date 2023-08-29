@@ -71,7 +71,7 @@ class GameViewController: UIViewController {
         }
         
         
-        guard let successView = self.SuccessView as? SuccessView else {
+        guard let successView = self.SuccessView as? SuccessView, let currentItem else {
             return
         }
         successView.timeRecord.text = timeString(time: TimeInterval(deciSeconds))
@@ -81,15 +81,18 @@ class GameViewController: UIViewController {
             self.navigationController?.popViewController(animated: false)
             LogManager.sendButtonClickLog(screenName: self.screenName, buttonName: "menu")
         }
-        successView.retryTapHandler = {
+        successView.retryTapHandler = { [weak self] in
+            guard let self else { return }
             self.uncoverSuccessView()
             self.deciSeconds = 0
             self.start()
             manager.clearAllLists()
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
+            LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "retry", stageNumber: currentItem.stageId)
         }
-        successView.nextTapHandler = {
+        successView.nextTapHandler = { [weak self] in
+            guard let self else { return }
             guard let item = self.currentItem else { return }
             let stageID = item.stageId
             let nextStageID = stageID
@@ -104,6 +107,7 @@ class GameViewController: UIViewController {
 //            print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
+            LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
         }
         coverSuccessView()
     }
