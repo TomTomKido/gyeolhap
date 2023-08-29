@@ -23,7 +23,6 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         items = StageRealm.all()
-        addSolvedProblemNumber()
         scrollToFirstNotSolvedIndex()
         setAds()
     }
@@ -70,7 +69,7 @@ class StageViewController: UIViewController {
     }
     
     
-    private func addSolvedProblemNumber() {
+    private func updateSolvedProblemCountLabel() {
         let solvedProblem = self.items?.reduce(0, { previous, item  in
             if item.isSolved == true {
                 return previous + 1
@@ -100,6 +99,7 @@ class StageViewController: UIViewController {
         super.viewWillAppear(animated)
         LogManager.sendScreenLog(screenName: screenName)
         
+        updateSolvedProblemCountLabel()
         itemsToken = items?.observe { [weak tableView] changes in
             guard let tableView = tableView else { return }
             switch changes {
