@@ -18,6 +18,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
     
+    private var screenName = "game"
     
     var currentItem: StageRealm?
     var gameManager: GameManager?
@@ -52,10 +53,11 @@ class GameViewController: UIViewController {
         start()
         guard let manager = self.gameManager else { return }
         manager.clearAllLists()
-        
+        LogManager.sendScreenLog(screenName: screenName)
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "gyeol")
         guard let manager = self.gameManager, let item = self.currentItem else { return }
         if !manager.checkGyeol() {
             self.showSeconds(second: 30)
@@ -69,23 +71,28 @@ class GameViewController: UIViewController {
         }
         
         
-        guard let successView = self.SuccessView as? SuccessView else {
+        guard let successView = self.SuccessView as? SuccessView, let currentItem else {
             return
         }
         successView.timeRecord.text = timeString(time: TimeInterval(deciSeconds))
         successView.oldBestTimeRecord.text = item.recordString
-        successView.menuTapHandler = {
+        successView.menuTapHandler = { [weak self] in
+            guard let self else { return }
             self.navigationController?.popViewController(animated: false)
+            LogManager.sendButtonClickLog(screenName: self.screenName, buttonName: "menu")
         }
-        successView.retryTapHandler = {
+        successView.retryTapHandler = { [weak self] in
+            guard let self else { return }
             self.uncoverSuccessView()
             self.deciSeconds = 0
             self.start()
             manager.clearAllLists()
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
+            LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "retry", stageNumber: currentItem.stageId)
         }
-        successView.nextTapHandler = {
+        successView.nextTapHandler = { [weak self] in
+            guard let self else { return }
             guard let item = self.currentItem else { return }
             let stageID = item.stageId
             let nextStageID = stageID
@@ -100,10 +107,12 @@ class GameViewController: UIViewController {
 //            print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
+            LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
         }
         coverSuccessView()
     }
     @IBAction func tapBack(_ sender: UIButton) {
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -112,10 +121,14 @@ extension GameViewController {
     func coverSuccessView() {
         self.successViewLeadingToSafeAreaTrailing!.isActive = false
         self.successViewLeadingToSafeAreaLeading!.isActive = true
+        screenName = "success"
+        LogManager.sendScreenLog(screenName: screenName)
     }
     func uncoverSuccessView() {
         self.successViewLeadingToSafeAreaLeading!.isActive = false
         self.successViewLeadingToSafeAreaTrailing!.isActive = true
+        screenName = "game"
+        LogManager.sendScreenLog(screenName: screenName)
     }
 }
 

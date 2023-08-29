@@ -18,6 +18,8 @@ class StageViewController: UIViewController {
     private var items: Results<StageRealm>?
     private var itemsToken: NotificationToken?
     
+    private var screenName = "stage"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         items = StageRealm.all()
@@ -96,6 +98,7 @@ class StageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        LogManager.sendScreenLog(screenName: screenName)
         
         itemsToken = items?.observe { [weak tableView] changes in
             guard let tableView = tableView else { return }
@@ -144,6 +147,7 @@ extension StageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        print(indexPath.row)
         guard let item = items?[indexPath.row] else { return }
+        LogManager.sendStageClickLog(screenName: screenName, buttonName: "play", stageNumber: indexPath.row)
         //        print(item.stageId)
         pushGameVC(item)
         tableView.deselectRow(at: indexPath, animated: false)
