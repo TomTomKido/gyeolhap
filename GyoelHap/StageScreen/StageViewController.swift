@@ -13,6 +13,7 @@ class StageViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var solvedProblemNumberLabel: UILabel!
+    @IBOutlet weak var tableViewBottomAnchor: NSLayoutConstraint!
     var bannerView: GADBannerView!
     
     private var items: Results<StageRealm>?
@@ -24,15 +25,11 @@ class StageViewController: UIViewController {
         super.viewDidLoad()
         items = StageRealm.all()
         scrollToFirstNotSolvedIndex()
+        setUpConstraints()
         setAds()
     }
     
     private func setAds() {
-        let width: Double = UIScreen.main.bounds.width
-        let height = Double(width * 50 / 320)
-        let adSize = GADAdSizeFromCGSize(CGSize(width: width, height: height)) //사이즈 직접지정
-        bannerView = GADBannerView(adSize: adSize)
-        addBannerViewToView(bannerView)
 //        bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width) //width만 지정해서 높이 도출
 //        bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50)) //사이즈 직접지정
         print("screenWidth", UIScreen.main.bounds.width)
@@ -47,25 +44,22 @@ class StageViewController: UIViewController {
         bannerView.delegate = self
     }
     
-    private func addBannerViewToView(_ bannerView: GADBannerView) {
+    private func setUpConstraints() {
+        let width: Double = UIScreen.main.bounds.width
+        let height = Double(width * 50 / 320)
+        let adSize = GADAdSizeFromCGSize(CGSize(width: width, height: height)) //사이즈 직접지정
+        bannerView = GADBannerView(adSize: adSize)
+
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(bannerView)
-        self.view.addConstraints(
-            [NSLayoutConstraint(item: bannerView,
-                                attribute: .bottom,
-                                relatedBy: .equal,
-                                toItem: view.safeAreaLayoutGuide,
-                                attribute: .bottom,
-                                multiplier: 1,
-                                constant: 0),
-             NSLayoutConstraint(item: bannerView,
-                                attribute: .centerX,
-                                relatedBy: .equal,
-                                toItem: view,
-                                attribute: .centerX,
-                                multiplier: 1,
-                                constant: 0)
-            ])
+        tableViewBottomAnchor.isActive = false
+
+        NSLayoutConstraint.activate([
+            bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bannerView.heightAnchor.constraint(equalToConstant: height),
+            tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor)
+        ])
     }
     
     
