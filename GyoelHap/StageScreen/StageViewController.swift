@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import GoogleMobileAds
 
 class StageViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
@@ -16,8 +15,6 @@ class StageViewController: UIViewController {
     @IBOutlet weak var solvedProblemNumberLabel: UILabel!
     @IBOutlet weak var tableViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopAnchor: NSLayoutConstraint!
-  
-    var bannerView: GADBannerView!
     
     var stageCarouselView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -32,49 +29,19 @@ class StageViewController: UIViewController {
         scrollToFirstNotSolvedIndex()
         setUpCollectionView()
         setUpConstraints()
-        setAds()
-    }
-    
-    private func setAds() {
-//        bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width) //width만 지정해서 높이 도출
-//        bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50)) //사이즈 직접지정
-        print("screenWidth", UIScreen.main.bounds.width)
-        #if DEBUG
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //test id
-        #else
-        bannerView.adUnitID = "ca-app-pub-8667576295496816/1622246817" //실제 하단배너 id
-        #endif
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        
-        bannerView.delegate = self
     }
     
     private func setUpConstraints() {
-        let width: Double = UIScreen.main.bounds.width
-        let height = Double(width * 50 / 320)
-        let adSize = GADAdSizeFromCGSize(CGSize(width: width, height: height)) //사이즈 직접지정
-        bannerView = GADBannerView(adSize: adSize)
-
         view.addSubview(stageCarouselView)
         stageCarouselView.translatesAutoresizingMaskIntoConstraints = false
         tableViewTopAnchor.isActive = false
-        
-        self.view.addSubview(bannerView)
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        tableViewBottomAnchor.isActive = false
-        
         
         NSLayoutConstraint.activate([
             stageCarouselView.topAnchor.constraint(equalTo: stageSelectLabel.bottomAnchor, constant: 20),
             stageCarouselView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             stageCarouselView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             stageCarouselView.bottomAnchor.constraint(equalTo: tableView.topAnchor),
-            stageCarouselView.heightAnchor.constraint(equalToConstant: 60),
-            bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            bannerView.heightAnchor.constraint(equalToConstant: height),
-            tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor)
+            stageCarouselView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
     
@@ -180,34 +147,6 @@ extension StageViewController: UITableViewDelegate {
         guard let gameVC = playStoryboard.instantiateViewController(identifier: "GameVC") as? GameViewController else { return }
         gameVC.currentItem = item
         self.navigationController?.pushViewController(gameVC, animated: true)
-    }
-}
-
-// MARK: Banner Delegate
-
-extension StageViewController: GADBannerViewDelegate {
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("bannerViewDidReceiveAd")
-    }
-    
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
-    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-        print("bannerViewDidRecordImpression")
-    }
-    
-    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillPresentScreen")
-    }
-    
-    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillDIsmissScreen")
-    }
-    
-    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewDidDismissScreen")
     }
 }
 

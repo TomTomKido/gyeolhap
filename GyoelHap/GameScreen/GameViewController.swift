@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMobileAds
 
+
 class GameViewController: UIViewController {
 
     @IBOutlet weak var stageLabel: UILabel!
@@ -18,8 +19,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var plus10sec: UILabel!
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
+    @IBOutlet weak var gyeolShineView: UIView!
+    @IBOutlet weak var answerShineView: UIView!
     @IBOutlet weak var buttonsStackView: UIStackView!
-    var bannerView: GADBannerView!
 
     
     private var screenName = "game"
@@ -34,19 +36,32 @@ class GameViewController: UIViewController {
     var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
     var successViewLeadingToSafeAreaTrailing: NSLayoutConstraint?
     
+    private var adManager = FullScreenAdManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        LogManager.sendScreenLog(screenName: screenName)
+        setUpConstraints()
+        setUpDelegates()
+        initiateGameSetup()
+    }
+    
+    private func setUpConstraints() {
         safeArea = self.view.safeAreaLayoutGuide
         successViewLeadingToSafeAreaLeading = self.SuccessView.leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor)
         successViewLeadingToSafeAreaTrailing = self.SuccessView.leadingAnchor.constraint(equalTo: safeArea!.trailingAnchor)
+    }
+    
+    private func setUpDelegates() {
+        adManager.delegate = self
         upperCollectionView.delegate = self
         upperCollectionView.dataSource = self
         lowerCollectionView.delegate = self
         lowerCollectionView.dataSource = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func initiateGameSetup() {
         uncoverSuccessView()
         guard let item = self.currentItem else { return }
         self.gameManager = GameManager(stage: item)
@@ -57,7 +72,10 @@ class GameViewController: UIViewController {
         start()
         guard let manager = self.gameManager else { return }
         manager.clearAllLists()
-        LogManager.sendScreenLog(screenName: screenName)
+    }
+    
+    @IBAction func hintButtonTapped(_ sender: Any) {
+        adManager.displayAds()
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
@@ -90,7 +108,7 @@ class GameViewController: UIViewController {
             self.uncoverSuccessView()
             self.deciSeconds = 0
             self.start()
-            manager.clearAllLists()
+            self.initiateGameSetup()
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "retry", stageNumber: currentItem.stageId)
@@ -107,57 +125,43 @@ class GameViewController: UIViewController {
             self.deciSeconds = 0
             self.start()
             self.stageLabel.text = "Stage " + String(self.currentItem!.stageId)
-            manager.clearAllLists()
+            self.initiateGameSetup()
 //            print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
         }
         coverSuccessView()
-        setAds()
     }
     @IBAction func tapBack(_ sender: UIButton) {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
         self.navigationController?.popViewController(animated: true)
     }
-    private func setAds() {
-         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-         addBannerViewToView(bannerView)
-         bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width) //width만 지정해서 높이 도출
- //        bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50)) //사이즈 직접지정
-         print("screenWidth", UIScreen.main.bounds.width)
-         #if DEBUG
-         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //test id
-         #else
-         bannerView.adUnitID = "ca-app-pub-8667576295496816/1622246817" //실제 하단배너 id
-         #endif
-         bannerView.rootViewController = self
-         bannerView.load(GADRequest())
-
-         bannerView.delegate = self
-     }
-     
-     private func addBannerViewToView(_ bannerView: GADBannerView) {
-         bannerView.translatesAutoresizingMaskIntoConstraints = false
-         self.view.addSubview(bannerView)
-         self.view.addConstraints(
-             [NSLayoutConstraint(item: bannerView,
-                                 attribute: .top,
-                                 relatedBy: .equal,
-                                 toItem: buttonsStackView,
-                                 attribute: .bottom,
-                                 multiplier: 1,
-                                 constant: 10),
-              NSLayoutConstraint(item: bannerView,
-                                 attribute: .centerX,
-                                 relatedBy: .equal,
-                                 toItem: SuccessView,
-                                 attribute: .centerX,
-                                 multiplier: 1,
-                                 constant: 0)
-             ])
-     }
-     
+    
+    // MARK: Give Hint
+    
+    func giveHint() {
+        let hint = gameManager?.getHint() ?? []
+        if hint.isEmpty {
+            blink(shineView: gyeolShineView)
+        } else {
+            lowerCollectionView.reloadData()
+            blink(shineView: answerShineView)
+        }
+    }
+    
+    private func blink(shineView: UIView) {
+        UIView.animate(withDuration: 0.1) {
+            shineView.alpha = 0.5
+        } completion: { completed in
+            shineView.alpha = 0
+            UIView.animate(withDuration: 0.1, delay: 0.1) {
+                shineView.alpha = 0.5
+            } completion: { completed in
+                shineView.alpha = 0
+            }
+        }
+    }
 }
 
 extension GameViewController {
@@ -175,7 +179,8 @@ extension GameViewController {
     }
 }
 
-//타이머 로직
+//MARK: 타이머 로직
+
 extension GameViewController {
     func start() {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -210,6 +215,8 @@ extension GameViewController {
         )
     }
 }
+
+//MARK: CollectionView Delegate
 
 extension GameViewController: UICollectionViewDataSource {
     //셀을 몇개 보여줄까?
@@ -251,6 +258,8 @@ extension GameViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: CollectionView Layout
+
 extension GameViewController:UICollectionViewDelegateFlowLayout {
     //셀 사이즈 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -265,31 +274,5 @@ extension GameViewController:UICollectionViewDelegateFlowLayout {
             let height: CGFloat = (collectionView.bounds.height - inset * 7) / 6
             return CGSize(width:width, height: height)
         }
-    }
-}
-
-extension GameViewController: GADBannerViewDelegate {
-    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("bannerViewDidReceiveAd")
-    }
-    
-    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
-        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
-    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
-        print("bannerViewDidRecordImpression")
-    }
-    
-    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillPresentScreen")
-    }
-    
-    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewWillDIsmissScreen")
-    }
-    
-    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("bannerViewDidDismissScreen")
     }
 }

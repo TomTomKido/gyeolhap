@@ -39,6 +39,8 @@
 		D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660592A9CD06D00730B6D /* LogManager.swift */; };
 		D4D6605D2A9F1BAA00730B6D /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */; };
 		D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */; };
+		D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */; };
+		D4D660682A9FAC0900730B6D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660672A9FAC0900730B6D /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
 		D4D6605E2A9F1C4000730B6D /* GyeolHap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GyeolHap.entitlements; sourceTree = "<group>"; };
 		D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCarouselCell.swift; sourceTree = "<group>"; };
+		D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdManager.swift; sourceTree = "<group>"; };
+		D4D660672A9FAC0900730B6D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyeolHap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC865E1CA6C09AF3C40BA2A4 /* Pods-GyeolHap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.debug.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +161,7 @@
 				CE20A6A32590DC0F00F47DC8 /* Assets.xcassets */,
 				CE20A6A52590DC0F00F47DC8 /* LaunchScreen.storyboard */,
 				CE20A6A82590DC0F00F47DC8 /* Info.plist */,
+				D4D660672A9FAC0900730B6D /* RootViewController.swift */,
 			);
 			path = GyoelHap;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				D4D660592A9CD06D00730B6D /* LogManager.swift */,
+				D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */,
 				D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */,
 			);
 			path = Utility;
@@ -351,7 +357,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */,
 				4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */,
+				D4D660682A9FAC0900730B6D /* RootViewController.swift in Sources */,
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
 				D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */,
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
