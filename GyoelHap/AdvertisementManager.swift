@@ -50,7 +50,6 @@ class AdvertisementManager: NSObject {
         } else {
             print("Ad wasn't ready")
         }
-        loadFullScreenAd()
     }
 }
 
@@ -70,5 +69,7 @@ extension AdvertisementManager: GADFullScreenContentDelegate {
     /// Tells the delegate that the ad dismissed full screen content.
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
         print("Ad did dismiss full screen content.")
+        delegate?.giveHint()
+        loadFullScreenAd()
     }
 }
