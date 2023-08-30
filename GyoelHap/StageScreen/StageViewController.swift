@@ -12,26 +12,30 @@ import GoogleMobileAds
 class StageViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var stageSelectLabel: UILabel!
     @IBOutlet weak var solvedProblemNumberLabel: UILabel!
+    @IBOutlet weak var tableViewBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTopAnchor: NSLayoutConstraint!
+  
     var bannerView: GADBannerView!
+    
+    var stageCarouselView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private var items: Results<StageRealm>?
     private var itemsToken: NotificationToken?
     
+    private var screenName = "stage"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         items = StageRealm.all()
-        addSolvedProblemNumber()
         scrollToFirstNotSolvedIndex()
+        setUpCollectionView()
+        setUpConstraints()
         setAds()
     }
     
     private func setAds() {
-        let width: Double = UIScreen.main.bounds.width
-        let height = Double(width * 50 / 320)
-        let adSize = GADAdSizeFromCGSize(CGSize(width: width, height: height)) //사이즈 직접지정
-        bannerView = GADBannerView(adSize: adSize)
-        addBannerViewToView(bannerView)
 //        bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width) //width만 지정해서 높이 도출
 //        bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50)) //사이즈 직접지정
         print("screenWidth", UIScreen.main.bounds.width)
@@ -46,29 +50,47 @@ class StageViewController: UIViewController {
         bannerView.delegate = self
     }
     
-    private func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
+    private func setUpConstraints() {
+        let width: Double = UIScreen.main.bounds.width
+        let height = Double(width * 50 / 320)
+        let adSize = GADAdSizeFromCGSize(CGSize(width: width, height: height)) //사이즈 직접지정
+        bannerView = GADBannerView(adSize: adSize)
+
+        view.addSubview(stageCarouselView)
+        stageCarouselView.translatesAutoresizingMaskIntoConstraints = false
+        tableViewTopAnchor.isActive = false
+        
         self.view.addSubview(bannerView)
-        self.view.addConstraints(
-            [NSLayoutConstraint(item: bannerView,
-                                attribute: .bottom,
-                                relatedBy: .equal,
-                                toItem: view.safeAreaLayoutGuide,
-                                attribute: .bottom,
-                                multiplier: 1,
-                                constant: 0),
-             NSLayoutConstraint(item: bannerView,
-                                attribute: .centerX,
-                                relatedBy: .equal,
-                                toItem: view,
-                                attribute: .centerX,
-                                multiplier: 1,
-                                constant: 0)
-            ])
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        tableViewBottomAnchor.isActive = false
+        
+        
+        NSLayoutConstraint.activate([
+            stageCarouselView.topAnchor.constraint(equalTo: stageSelectLabel.bottomAnchor, constant: 20),
+            stageCarouselView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            stageCarouselView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            stageCarouselView.bottomAnchor.constraint(equalTo: tableView.topAnchor),
+            stageCarouselView.heightAnchor.constraint(equalToConstant: 60),
+            bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            bannerView.heightAnchor.constraint(equalToConstant: height),
+            tableView.bottomAnchor.constraint(equalTo: bannerView.topAnchor)
+        ])
     }
     
+    private func setUpCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        stageCarouselView.collectionViewLayout = layout
+        
+        stageCarouselView.delegate = self
+        stageCarouselView.dataSource = self
+        stageCarouselView.showsHorizontalScrollIndicator = false
+        
+        stageCarouselView.register(StageCarouselCell.self, forCellWithReuseIdentifier: StageCarouselCell.identifier)
+    }
     
-    private func addSolvedProblemNumber() {
+    private func updateSolvedProblemCountLabel() {
         let solvedProblem = self.items?.reduce(0, { previous, item  in
             if item.isSolved == true {
                 return previous + 1
@@ -96,7 +118,9 @@ class StageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        LogManager.sendScreenLog(screenName: screenName)
         
+        updateSolvedProblemCountLabel()
         itemsToken = items?.observe { [weak tableView] changes in
             guard let tableView = tableView else { return }
             switch changes {
@@ -123,6 +147,7 @@ class StageViewController: UIViewController {
     }
 }
 
+// MARK: TableView Delegate
 
 extension StageViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,6 +169,7 @@ extension StageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        print(indexPath.row)
         guard let item = items?[indexPath.row] else { return }
+        LogManager.sendStageClickLog(screenName: screenName, buttonName: "play", stageNumber: indexPath.row)
         //        print(item.stageId)
         pushGameVC(item)
         tableView.deselectRow(at: indexPath, animated: false)
@@ -156,6 +182,8 @@ extension StageViewController: UITableViewDelegate {
         self.navigationController?.pushViewController(gameVC, animated: true)
     }
 }
+
+// MARK: Banner Delegate
 
 extension StageViewController: GADBannerViewDelegate {
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
@@ -180,5 +208,41 @@ extension StageViewController: GADBannerViewDelegate {
     
     func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
         print("bannerViewDidDismissScreen")
+    }
+}
+
+// MARK: Carousel Delegate
+
+extension StageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        (items?.count ?? 0) / 200
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StageCarouselCell.identifier, for: indexPath) as? StageCarouselCell else {
+            return UICollectionViewCell()
+        }
+        let index = indexPath.item == 0 ? 1 : 200 * indexPath.item
+        cell.configure(index: index)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let targetIndex = indexPath.item == 0 ? 0 : indexPath.item * 200 - 1
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: targetIndex, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = 80
+        let height = 40
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        10
     }
 }
