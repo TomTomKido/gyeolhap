@@ -18,7 +18,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var plus10sec: UILabel!
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
-    
+    @IBOutlet weak var gyeolShineView: UIView!
+    @IBOutlet weak var answerShineView: UIView!
     
     var currentItem: StageRealm?
     var gameManager: GameManager?
@@ -121,6 +122,18 @@ class GameViewController: UIViewController {
     }
     @IBAction func tapBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: Give Hint
+    
+    func giveHint() {
+        let hint = gameManager?.getHint() ?? []
+        if hint.isEmpty {
+            blink(shineView: gyeolShineView)
+        } else {
+            lowerCollectionView.reloadData()
+            blink(shineView: answerShineView)
+        }
     }
     
     private func blink(shineView: UIView) {

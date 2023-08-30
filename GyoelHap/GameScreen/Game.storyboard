@@ -180,6 +180,20 @@
                                         <color key="textColor" systemColor="systemPinkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3q-7T-RNP" userLabel="GyeolShine">
+                                        <rect key="frame" x="257.66666666666669" y="71.999999999999986" width="129.33333333333331" height="176.66666666666663"/>
+                                        <color key="backgroundColor" red="0.99423235649999997" green="1" blue="0.63130193950000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                    </view>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xa3-Tr-kx4" userLabel="AnswerShine">
+                                        <rect key="frame" x="2.9999999999999858" y="3" width="251.66666666666663" height="245.66666666666666"/>
+                                        <color key="backgroundColor" red="0.99423235649999997" green="1" blue="0.63130193950000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQb-S9-AOY" userLabel="Hint Button">
                                         <rect key="frame" x="257.66666666666669" y="3" width="129.33333333333331" height="66"/>
                                         <constraints>
@@ -195,15 +209,23 @@
                                 <color key="backgroundColor" red="0.43329614399999999" green="0.34087917210000002" blue="0.65101009610000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="qCb-YL-gSf" firstAttribute="centerX" secondItem="llE-Tn-HUL" secondAttribute="centerX" id="3r2-A5-8b4"/>
+                                    <constraint firstItem="Xa3-Tr-kx4" firstAttribute="trailing" secondItem="llE-Tn-HUL" secondAttribute="trailing" id="BYd-oP-Fu6"/>
                                     <constraint firstItem="FsK-7g-8iZ" firstAttribute="leading" secondItem="llE-Tn-HUL" secondAttribute="trailing" constant="3" id="CFg-Yv-u9K"/>
                                     <constraint firstItem="tQb-S9-AOY" firstAttribute="top" secondItem="61g-Qs-o9C" secondAttribute="top" constant="3" id="CIO-ra-Bln"/>
+                                    <constraint firstItem="t3q-7T-RNP" firstAttribute="trailing" secondItem="FsK-7g-8iZ" secondAttribute="trailing" id="D5X-sH-E9z"/>
+                                    <constraint firstItem="Xa3-Tr-kx4" firstAttribute="bottom" secondItem="llE-Tn-HUL" secondAttribute="bottom" id="ERD-Sm-ks9"/>
                                     <constraint firstItem="llE-Tn-HUL" firstAttribute="top" secondItem="61g-Qs-o9C" secondAttribute="top" constant="3" id="Hph-XL-9vL"/>
                                     <constraint firstItem="tQb-S9-AOY" firstAttribute="leading" secondItem="FsK-7g-8iZ" secondAttribute="leading" id="Hx1-03-bND"/>
                                     <constraint firstItem="llE-Tn-HUL" firstAttribute="leading" secondItem="61g-Qs-o9C" secondAttribute="leading" constant="3" id="Ssd-Ow-HYO"/>
                                     <constraint firstItem="tQb-S9-AOY" firstAttribute="trailing" secondItem="FsK-7g-8iZ" secondAttribute="trailing" id="Tgm-Dy-Acb"/>
+                                    <constraint firstItem="Xa3-Tr-kx4" firstAttribute="leading" secondItem="llE-Tn-HUL" secondAttribute="leading" id="YWC-Lc-xVb"/>
                                     <constraint firstItem="FsK-7g-8iZ" firstAttribute="top" secondItem="tQb-S9-AOY" secondAttribute="bottom" constant="3" id="fK7-Xa-mfW"/>
                                     <constraint firstAttribute="trailing" secondItem="FsK-7g-8iZ" secondAttribute="trailing" constant="3" id="fON-jg-yWg"/>
                                     <constraint firstItem="qCb-YL-gSf" firstAttribute="centerY" secondItem="llE-Tn-HUL" secondAttribute="centerY" id="fmm-g8-QRh"/>
+                                    <constraint firstItem="t3q-7T-RNP" firstAttribute="top" secondItem="FsK-7g-8iZ" secondAttribute="top" id="pXH-n7-QaY"/>
+                                    <constraint firstItem="t3q-7T-RNP" firstAttribute="leading" secondItem="FsK-7g-8iZ" secondAttribute="leading" id="rhi-Me-uLY"/>
+                                    <constraint firstItem="Xa3-Tr-kx4" firstAttribute="top" secondItem="llE-Tn-HUL" secondAttribute="top" id="upw-GQ-7Cr"/>
+                                    <constraint firstItem="t3q-7T-RNP" firstAttribute="bottom" secondItem="FsK-7g-8iZ" secondAttribute="bottom" id="xNr-B3-mKu"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qv0-cu-4YA" userLabel="SuccessView" customClass="SuccessView" customModule="GyeolHap" customModuleProvider="target">
@@ -335,8 +357,10 @@
                     <navigationItem key="navigationItem" id="pN6-nx-8pv"/>
                     <connections>
                         <outlet property="SuccessView" destination="qv0-cu-4YA" id="oS9-Br-574"/>
+                        <outlet property="answerShineView" destination="Xa3-Tr-kx4" id="vXN-x3-9PM"/>
                         <outlet property="backButton" destination="Vmk-5I-An4" id="kE3-1Z-LHK"/>
                         <outlet property="gyeolButton" destination="FsK-7g-8iZ" id="EGd-Pr-3dW"/>
+                        <outlet property="gyeolShineView" destination="t3q-7T-RNP" id="jXe-3V-KBu"/>
                         <outlet property="lowerCollectionView" destination="llE-Tn-HUL" id="DoV-GC-Dsb"/>
                         <outlet property="plus10sec" destination="qCb-YL-gSf" id="Klm-8e-cOs"/>
                         <outlet property="stageLabel" destination="sOI-cQ-Fi2" id="cid-8y-YrI"/>
