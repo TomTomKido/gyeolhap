@@ -221,10 +221,18 @@ extension StageViewController: UICollectionViewDelegate, UICollectionViewDelegat
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StageCarouselCell.identifier, for: indexPath) as? StageCarouselCell else {
             return UICollectionViewCell()
         }
-        
-        cell.configure(index: 200 * indexPath.item)
+        let index = indexPath.item == 0 ? 1 : 200 * indexPath.item
+        cell.configure(index: index)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let targetIndex = indexPath.item == 0 ? 0 : indexPath.item * 200 - 1
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: targetIndex, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
