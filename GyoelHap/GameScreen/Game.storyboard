@@ -207,7 +207,7 @@
                                         <color key="shadowColor" systemColor="systemTealColor"/>
                                         <size key="shadowOffset" width="3" height="3"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-yV-quh" userLabel="Button View">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="vKg-yV-quh" userLabel="Buttons View">
                                         <rect key="frame" x="23.666666666666657" y="542.33333333333337" width="343" height="97"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6M-Qh-ToC" userLabel="MenuButton">
@@ -322,6 +322,7 @@
                     <connections>
                         <outlet property="SuccessView" destination="qv0-cu-4YA" id="oS9-Br-574"/>
                         <outlet property="backButton" destination="Vmk-5I-An4" id="kE3-1Z-LHK"/>
+                        <outlet property="buttonsStackView" destination="vKg-yV-quh" id="a0y-1Z-gd4"/>
                         <outlet property="gyeolButton" destination="FsK-7g-8iZ" id="EGd-Pr-3dW"/>
                         <outlet property="lowerCollectionView" destination="llE-Tn-HUL" id="DoV-GC-Dsb"/>
                         <outlet property="plus10sec" destination="qCb-YL-gSf" id="Klm-8e-cOs"/>
