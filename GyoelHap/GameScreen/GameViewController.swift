@@ -76,6 +76,8 @@ class GameViewController: UIViewController {
         guard let manager = self.gameManager else { return }
         manager.clearAllLists()
         
+    
+    @IBAction func hintButtonTapped(_ sender: Any) {
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
