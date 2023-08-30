@@ -29,6 +29,7 @@
 		CEDCC63325D812BF008D8044 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCC63225D812BF008D8044 /* StageCell.swift */; };
 		CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */; };
 		CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */; };
+		D4D660622A9F95D900730B6D /* AdvertisementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660612A9F95D900730B6D /* AdvertisementManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		CEDCC63225D812BF008D8044 /* StageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
 		CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCell.swift; sourceTree = "<group>"; };
+		D4D660612A9F95D900730B6D /* AdvertisementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisementManager.swift; sourceTree = "<group>"; };
 		E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyeolHap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC865E1CA6C09AF3C40BA2A4 /* Pods-GyeolHap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.debug.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,6 +134,7 @@
 				CE20A6A32590DC0F00F47DC8 /* Assets.xcassets */,
 				CE20A6A52590DC0F00F47DC8 /* LaunchScreen.storyboard */,
 				CE20A6A82590DC0F00F47DC8 /* Info.plist */,
+				D4D660612A9F95D900730B6D /* AdvertisementManager.swift */,
 			);
 			path = GyoelHap;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4D660622A9F95D900730B6D /* AdvertisementManager.swift in Sources */,
 				4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */,
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,

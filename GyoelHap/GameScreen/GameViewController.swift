@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 
 class GameViewController: UIViewController {
@@ -31,36 +30,27 @@ class GameViewController: UIViewController {
     var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
     var successViewLeadingToSafeAreaTrailing: NSLayoutConstraint?
     
-    private var interstitial: GADInterstitialAd?
+    private var adManager = AdvertisementManager()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpConstraints()
+        setUpDelegates()
+    }
+    
+    private func setUpConstraints() {
         safeArea = self.view.safeAreaLayoutGuide
         successViewLeadingToSafeAreaLeading = self.SuccessView.leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor)
         successViewLeadingToSafeAreaTrailing = self.SuccessView.leadingAnchor.constraint(equalTo: safeArea!.trailingAnchor)
+    }
+    
+    private func setUpDelegates() {
+        adManager.delegate = self
         upperCollectionView.delegate = self
         upperCollectionView.dataSource = self
         lowerCollectionView.delegate = self
         lowerCollectionView.dataSource = self
-        
-        #if DEBUG
-        let adsID = "ca-app-pub-3940256099942544/4411468910" //전면광고 test id
-        #else
-        let adsID = "ca-app-pub-8667576295496816/8682486631" //전면광고 실제 id
-        #endif
-        let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: adsID,
-                               request: request,
-                               completionHandler: { [self] ad, error in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            interstitial = ad
-            interstitial?.fullScreenContentDelegate = self
-        }
-        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,9 +65,10 @@ class GameViewController: UIViewController {
         start()
         guard let manager = self.gameManager else { return }
         manager.clearAllLists()
-        
+    }
     
     @IBAction func hintButtonTapped(_ sender: Any) {
+        adManager.displayAds()
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
@@ -125,7 +116,6 @@ class GameViewController: UIViewController {
 //            print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
-            self.displayAds()
         }
         coverSuccessView()
     }
@@ -145,7 +135,8 @@ extension GameViewController {
     }
 }
 
-//타이머 로직
+//MARK: 타이머 로직
+
 extension GameViewController {
     func start() {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -180,6 +171,8 @@ extension GameViewController {
         )
     }
 }
+
+//MARK: CollectionView Delegate
 
 extension GameViewController: UICollectionViewDataSource {
     //셀을 몇개 보여줄까?
@@ -221,6 +214,8 @@ extension GameViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: CollectionView Layout
+
 extension GameViewController:UICollectionViewDelegateFlowLayout {
     //셀 사이즈 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -235,31 +230,5 @@ extension GameViewController:UICollectionViewDelegateFlowLayout {
             let height: CGFloat = (collectionView.bounds.height - inset * 7) / 6
             return CGSize(width:width, height: height)
         }
-    }
-}
-
-
-extension GameViewController: GADFullScreenContentDelegate { //전면광고 delegate
-    /// Tells the delegate that the ad failed to present full screen content.
-    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-      print("Ad did fail to present full screen content.")
-    }
-
-    /// Tells the delegate that the ad will present full screen content.
-    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-      print("Ad will present full screen content.")
-    }
-
-    /// Tells the delegate that the ad dismissed full screen content.
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-      print("Ad did dismiss full screen content.")
-    }
-    
-    func displayAds() {
-      if let interstitial {
-        interstitial.present(fromRootViewController: self)
-      } else {
-        print("Ad wasn't ready")
-      }
     }
 }
