@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pE8-Kg-yP3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +13,7 @@
         <!--Main View Controller-->
         <scene sceneID="93e-41-i8u">
             <objects>
-                <viewController id="seM-vK-YOU" customClass="MainViewController" customModule="GyeolHap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" id="seM-vK-YOU" customClass="MainViewController" customModule="GyeolHap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uOh-Xx-Hy6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="Kwj-F9-yFv" userLabel="TitleView">
-                                <rect key="frame" x="89" y="200.33333333333334" width="236" height="69.000000000000028"/>
+                                <rect key="frame" x="89" y="181.33333333333334" width="236" height="69"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo" translatesAutoresizingMaskIntoConstraints="NO" id="DVM-YG-NuY">
                                         <rect key="frame" x="0.0" y="0.0" width="69" height="69"/>
@@ -35,24 +36,24 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fjs-4E-oBq">
-                                <rect key="frame" x="62" y="451" width="290" height="288.66666666666674"/>
+                                <rect key="frame" x="62" y="407.66666666666674" width="290" height="327.33333333333326"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoU-lf-fWK">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="91"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="103.66666666666667"/>
                                         <state key="normal" image="main_PlayButton"/>
                                         <connections>
                                             <action selector="goToStageScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="5Ym-zE-fzD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxg-YW-eCo">
-                                        <rect key="frame" x="0.0" y="99" width="290" height="90.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="111.66666666666669" width="290" height="104"/>
                                         <state key="normal" image="main_HowtoPlayButton"/>
                                         <connections>
                                             <action selector="goToHowToScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="0iv-mV-HV6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exc-Jn-soU">
-                                        <rect key="frame" x="0.0" y="197.66666666666663" width="290" height="91"/>
+                                        <rect key="frame" x="0.0" y="223.66666666666666" width="290" height="103.66666666666666"/>
                                         <state key="normal" image="main_EXITButton"/>
                                         <connections>
                                             <action selector="EXIT:" destination="seM-vK-YOU" eventType="touchUpInside" id="16L-6M-r71"/>
@@ -86,24 +87,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DoW-ls-wWJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2952.1739130434785" y="1.3392857142857142"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="WlI-UL-uUc">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pE8-Kg-yP3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" largeTitles="YES" id="5bK-36-CTW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="seM-vK-YOU" kind="relationship" relationship="rootViewController" id="mph-Hs-eoQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rhy-ST-nLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2042.0289855072465" y="1.3392857142857142"/>
         </scene>
     </scenes>
     <resources>

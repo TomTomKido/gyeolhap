@@ -22,7 +22,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gyeolShineView: UIView!
     @IBOutlet weak var answerShineView: UIView!
     @IBOutlet weak var buttonsStackView: UIStackView!
-    var bannerView: GADBannerView!
 
     
     private var screenName = "game"
@@ -133,7 +132,6 @@ class GameViewController: UIViewController {
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
         }
         coverSuccessView()
-        setAds()
     }
     @IBAction func tapBack(_ sender: UIButton) {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
@@ -164,44 +162,6 @@ class GameViewController: UIViewController {
             }
         }
     }
-
-    private func setAds() {
-         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-         addBannerViewToView(bannerView)
-         bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width) //width만 지정해서 높이 도출
- //        bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50)) //사이즈 직접지정
-         print("screenWidth", UIScreen.main.bounds.width)
-         #if DEBUG
-         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //test id
-         #else
-         bannerView.adUnitID = "ca-app-pub-8667576295496816/1622246817" //실제 하단배너 id
-         #endif
-         bannerView.rootViewController = self
-         bannerView.load(GADRequest())
-
-         bannerView.delegate = self
-     }
-     
-     private func addBannerViewToView(_ bannerView: GADBannerView) {
-         bannerView.translatesAutoresizingMaskIntoConstraints = false
-         self.view.addSubview(bannerView)
-         self.view.addConstraints(
-             [NSLayoutConstraint(item: bannerView,
-                                 attribute: .top,
-                                 relatedBy: .equal,
-                                 toItem: buttonsStackView,
-                                 attribute: .bottom,
-                                 multiplier: 1,
-                                 constant: 10),
-              NSLayoutConstraint(item: bannerView,
-                                 attribute: .centerX,
-                                 relatedBy: .equal,
-                                 toItem: SuccessView,
-                                 attribute: .centerX,
-                                 multiplier: 1,
-                                 constant: 0)
-             ])
-     }
 }
 
 extension GameViewController {
