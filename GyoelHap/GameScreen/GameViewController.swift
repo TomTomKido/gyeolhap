@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class GameViewController: UIViewController {
 
@@ -17,6 +18,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var plus10sec: UILabel!
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
+    @IBOutlet weak var buttonsStackView: UIStackView!
+    var bannerView: GADBannerView!
+
     
     private var screenName = "game"
     
@@ -110,11 +114,50 @@ class GameViewController: UIViewController {
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
         }
         coverSuccessView()
+        setAds()
     }
     @IBAction func tapBack(_ sender: UIButton) {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
         self.navigationController?.popViewController(animated: true)
     }
+    private func setAds() {
+         bannerView = GADBannerView(adSize: GADAdSizeBanner)
+         addBannerViewToView(bannerView)
+         bannerView.adSize = GADCurrentOrientationInlineAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width) //width만 지정해서 높이 도출
+ //        bannerView.adSize = GADAdSizeFromCGSize(CGSize(width: UIScreen.main.bounds.width, height: 50)) //사이즈 직접지정
+         print("screenWidth", UIScreen.main.bounds.width)
+         #if DEBUG
+         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" //test id
+         #else
+         bannerView.adUnitID = "ca-app-pub-8667576295496816/1622246817" //실제 하단배너 id
+         #endif
+         bannerView.rootViewController = self
+         bannerView.load(GADRequest())
+
+         bannerView.delegate = self
+     }
+     
+     private func addBannerViewToView(_ bannerView: GADBannerView) {
+         bannerView.translatesAutoresizingMaskIntoConstraints = false
+         self.view.addSubview(bannerView)
+         self.view.addConstraints(
+             [NSLayoutConstraint(item: bannerView,
+                                 attribute: .top,
+                                 relatedBy: .equal,
+                                 toItem: buttonsStackView,
+                                 attribute: .bottom,
+                                 multiplier: 1,
+                                 constant: 10),
+              NSLayoutConstraint(item: bannerView,
+                                 attribute: .centerX,
+                                 relatedBy: .equal,
+                                 toItem: SuccessView,
+                                 attribute: .centerX,
+                                 multiplier: 1,
+                                 constant: 0)
+             ])
+     }
+     
 }
 
 extension GameViewController {
@@ -225,4 +268,28 @@ extension GameViewController:UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+extension GameViewController: GADBannerViewDelegate {
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("bannerViewDidReceiveAd")
+    }
+    
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+    
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+        print("bannerViewDidRecordImpression")
+    }
+    
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillPresentScreen")
+    }
+    
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillDIsmissScreen")
+    }
+    
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewDidDismissScreen")
+    }
+}

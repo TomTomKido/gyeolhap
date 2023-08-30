@@ -16,6 +16,7 @@ class StageViewController: UIViewController {
     @IBOutlet weak var solvedProblemNumberLabel: UILabel!
     @IBOutlet weak var tableViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopAnchor: NSLayoutConstraint!
+  
     var bannerView: GADBannerView!
     
     var stageCarouselView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -28,7 +29,6 @@ class StageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         items = StageRealm.all()
-        addSolvedProblemNumber()
         scrollToFirstNotSolvedIndex()
         setUpCollectionView()
         setUpConstraints()
@@ -90,7 +90,7 @@ class StageViewController: UIViewController {
         stageCarouselView.register(StageCarouselCell.self, forCellWithReuseIdentifier: StageCarouselCell.identifier)
     }
     
-    private func addSolvedProblemNumber() {
+    private func updateSolvedProblemCountLabel() {
         let solvedProblem = self.items?.reduce(0, { previous, item  in
             if item.isSolved == true {
                 return previous + 1
@@ -120,6 +120,7 @@ class StageViewController: UIViewController {
         super.viewWillAppear(animated)
         LogManager.sendScreenLog(screenName: screenName)
         
+        updateSolvedProblemCountLabel()
         itemsToken = items?.observe { [weak tableView] changes in
             guard let tableView = tableView else { return }
             switch changes {
