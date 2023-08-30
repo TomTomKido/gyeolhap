@@ -85,6 +85,18 @@ class GameManager {
     func printTryList() {
         print("현재 시도중: \(self.tryList)")
     }
+    
+    func getHint() -> [Int] {
+        let unsolvedAnswers = answers.filter { sortedRevealedAnswers.contains($0) == false }
+        if unsolvedAnswers.isEmpty {
+            return []
+        } else {
+            let randomHint = unsolvedAnswers[0]
+            revealedAnswers.append(randomHint)
+            sortedRevealedAnswers.append(randomHint.sorted())
+            return randomHint
+        }
+    }
 }
 
 extension GameManager {
