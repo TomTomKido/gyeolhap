@@ -37,6 +37,7 @@
 		D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */; };
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
 		D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660592A9CD06D00730B6D /* LogManager.swift */; };
+		D4D6605D2A9F1BAA00730B6D /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4D660592A9CD06D00730B6D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
+		D4D6605E2A9F1C4000730B6D /* GyeolHap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GyeolHap.entitlements; sourceTree = "<group>"; };
 		E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyeolHap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC865E1CA6C09AF3C40BA2A4 /* Pods-GyeolHap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.debug.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +123,7 @@
 		CE20A68E2590DC0C00F47DC8 = {
 			isa = PBXGroup;
 			children = (
+				D4D6605E2A9F1C4000730B6D /* GyeolHap.entitlements */,
 				D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */,
 				CE20A6992590DC0C00F47DC8 /* GyoelHap */,
 				CE20A6982590DC0C00F47DC8 /* Products */,
@@ -139,6 +143,7 @@
 		CE20A6992590DC0C00F47DC8 /* GyoelHap */ = {
 			isa = PBXGroup;
 			children = (
+				D4D6605B2A9F1B9B00730B6D /* Utility */,
 				4E6F68FB26007C760085FC49 /* fonts */,
 				CEBFAC2F25F8A65100964898 /* MainScreen */,
 				4E7CD62F25FB36FC0075F7FC /* HowToScreen */,
@@ -150,7 +155,6 @@
 				CE20A6A32590DC0F00F47DC8 /* Assets.xcassets */,
 				CE20A6A52590DC0F00F47DC8 /* LaunchScreen.storyboard */,
 				CE20A6A82590DC0F00F47DC8 /* Info.plist */,
-				D4D660592A9CD06D00730B6D /* LogManager.swift */,
 			);
 			path = GyoelHap;
 			sourceTree = "<group>";
@@ -193,6 +197,15 @@
 				CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */,
 			);
 			path = GameScreen;
+			sourceTree = "<group>";
+		};
+		D4D6605B2A9F1B9B00730B6D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D4D660592A9CD06D00730B6D /* LogManager.swift */,
+				D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		E33BB5863235E33A298C2190 /* Frameworks */ = {
@@ -347,6 +360,7 @@
 				CEDCC63325D812BF008D8044 /* StageCell.swift in Sources */,
 				CE20A69D2590DC0C00F47DC8 /* SceneDelegate.swift in Sources */,
 				CE34260725DA8DB700E2A62B /* GameManager.swift in Sources */,
+				D4D6605D2A9F1BAA00730B6D /* GameCenter.swift in Sources */,
 				CEBFAC2A25F8A63D00964898 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +501,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GyeolHap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5D5SG6DZA9;
@@ -510,6 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GyeolHap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 5D5SG6DZA9;
