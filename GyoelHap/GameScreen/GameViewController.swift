@@ -37,6 +37,7 @@ class GameViewController: UIViewController {
         
         setUpConstraints()
         setUpDelegates()
+        initiateGameSetup()
     }
     
     private func setUpConstraints() {
@@ -53,8 +54,7 @@ class GameViewController: UIViewController {
         lowerCollectionView.dataSource = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func initiateGameSetup() {
         uncoverSuccessView()
         guard let item = self.currentItem else { return }
         self.gameManager = GameManager(stage: item)
@@ -97,7 +97,7 @@ class GameViewController: UIViewController {
             self.uncoverSuccessView()
             self.deciSeconds = 0
             self.start()
-            manager.clearAllLists()
+            self.initiateGameSetup()
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
         }
@@ -112,7 +112,7 @@ class GameViewController: UIViewController {
             self.deciSeconds = 0
             self.start()
             self.stageLabel.text = "Stage " + String(self.currentItem!.stageId)
-            manager.clearAllLists()
+            self.initiateGameSetup()
 //            print("정답리스트: \(manager.getAnswers())")
             self.upperCollectionView.reloadData()
             self.lowerCollectionView.reloadData()
