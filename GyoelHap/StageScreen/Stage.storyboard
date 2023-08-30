@@ -113,8 +113,10 @@
                     <connections>
                         <outlet property="backButton" destination="feI-tp-EyC" id="531-yV-r3B"/>
                         <outlet property="solvedProblemNumberLabel" destination="y8c-xy-E13" id="7AB-tt-2uH"/>
+                        <outlet property="stageSelectLabel" destination="uX9-L7-pA0" id="u0c-ro-7FI"/>
                         <outlet property="tableView" destination="ssW-gH-Z39" id="6E1-Yi-2pM"/>
-                        <outlet property="tableViewBottomAnchor" destination="hxn-qL-dvL" id="dId-hf-1wb"/>
+                        <outlet property="tableViewBottomAnchor" destination="hxn-qL-dvL" id="e8l-Ga-Wy0"/>
+                        <outlet property="tableViewTopAnchor" destination="7bg-cF-MZM" id="3zz-5w-9YC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgE-2j-bte" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

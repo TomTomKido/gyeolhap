@@ -38,6 +38,7 @@
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
 		D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660592A9CD06D00730B6D /* LogManager.swift */; };
 		D4D6605D2A9F1BAA00730B6D /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */; };
+		D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		D4D660592A9CD06D00730B6D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
 		D4D6605E2A9F1C4000730B6D /* GyeolHap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GyeolHap.entitlements; sourceTree = "<group>"; };
+		D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCarouselCell.swift; sourceTree = "<group>"; };
 		E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyeolHap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC865E1CA6C09AF3C40BA2A4 /* Pods-GyeolHap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.debug.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBFAC3525F8EEC300964898 /* StageViewController.swift */,
+				D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */,
 				CEDCC63225D812BF008D8044 /* StageCell.swift */,
 				CEDCC5EF25D76F2F008D8044 /* Stage.storyboard */,
 			);
@@ -362,6 +365,7 @@
 				CE34260725DA8DB700E2A62B /* GameManager.swift in Sources */,
 				D4D6605D2A9F1BAA00730B6D /* GameCenter.swift in Sources */,
 				CEBFAC2A25F8A63D00964898 /* MainViewController.swift in Sources */,
+				D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
