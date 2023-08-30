@@ -37,7 +37,6 @@
 		D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */; };
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
 		D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660592A9CD06D00730B6D /* LogManager.swift */; };
-		D4D6605D2A9F1BAA00730B6D /* GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */; };
 		D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */; };
 		D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */; };
 		D4D660682A9FAC0900730B6D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660672A9FAC0900730B6D /* RootViewController.swift */; };
@@ -71,7 +70,6 @@
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4D660592A9CD06D00730B6D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
-		D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenter.swift; sourceTree = "<group>"; };
 		D4D6605E2A9F1C4000730B6D /* GyeolHap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GyeolHap.entitlements; sourceTree = "<group>"; };
 		D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCarouselCell.swift; sourceTree = "<group>"; };
 		D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdManager.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			children = (
 				D4D660592A9CD06D00730B6D /* LogManager.swift */,
 				D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */,
-				D4D6605C2A9F1BAA00730B6D /* GameCenter.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -371,7 +368,6 @@
 				CEDCC63325D812BF008D8044 /* StageCell.swift in Sources */,
 				CE20A69D2590DC0C00F47DC8 /* SceneDelegate.swift in Sources */,
 				CE34260725DA8DB700E2A62B /* GameManager.swift in Sources */,
-				D4D6605D2A9F1BAA00730B6D /* GameCenter.swift in Sources */,
 				CEBFAC2A25F8A63D00964898 /* MainViewController.swift in Sources */,
 				D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */,
 			);
