@@ -8,7 +8,7 @@
 import Foundation
 import GoogleMobileAds
 
-class AdvertisementManager: NSObject {
+class FullScreenAdManager: NSObject {
     private var fullScreenAdID: String = ""
     private var interstitial: GADInterstitialAd?
     
@@ -55,7 +55,7 @@ class AdvertisementManager: NSObject {
 
 // MARK: 전면광고 Delegate
 
-extension AdvertisementManager: GADFullScreenContentDelegate {
+extension FullScreenAdManager: GADFullScreenContentDelegate {
     /// Tells the delegate that the ad failed to present full screen content.
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
         print("Ad did fail to present full screen content.")

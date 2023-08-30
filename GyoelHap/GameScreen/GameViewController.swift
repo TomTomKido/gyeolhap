@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
     var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
     var successViewLeadingToSafeAreaTrailing: NSLayoutConstraint?
     
-    private var adManager = AdvertisementManager()
+    private var adManager = FullScreenAdManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
