@@ -122,6 +122,19 @@ class GameViewController: UIViewController {
     @IBAction func tapBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    private func blink(shineView: UIView) {
+        UIView.animate(withDuration: 0.1) {
+            shineView.alpha = 0.5
+        } completion: { completed in
+            shineView.alpha = 0
+            UIView.animate(withDuration: 0.1, delay: 0.1) {
+                shineView.alpha = 0.5
+            } completion: { completed in
+                shineView.alpha = 0
+            }
+        }
+    }
 }
 
 extension GameViewController {
