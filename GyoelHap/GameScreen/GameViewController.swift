@@ -30,7 +30,7 @@ class GameViewController: UIViewController {
     var gameManager: GameManager?
     
     var deciSeconds = 0
-    var timer = Timer()
+    var timer: Timer?
     var isTimerRunning = false
     var safeArea: UILayoutGuide?
     var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
@@ -62,6 +62,8 @@ class GameViewController: UIViewController {
     }
     
     private func initiateGameSetup() {
+        self.timer?.invalidate()
+        self.timer = nil
         uncoverSuccessView()
         guard let item = self.currentItem else { return }
         self.gameManager = GameManager(stage: item)
@@ -87,7 +89,7 @@ class GameViewController: UIViewController {
             return
         }
         
-        self.timer.invalidate()
+        self.timer?.invalidate()
         if item.record >= deciSeconds {
             item.solve(secondString: timeString(time: TimeInterval(deciSeconds)), second: deciSeconds)
         }
