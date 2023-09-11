@@ -36,7 +36,7 @@ class GameViewController: UIViewController {
     var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
     var successViewLeadingToSafeAreaTrailing: NSLayoutConstraint?
     
-    private var adManager = FullScreenAdManager()
+    private var adManager = RewardedAdManager() //전면광고 매니저에서 보상형 광고 매니저로 변경
 
     override func viewDidLoad() {
         super.viewDidLoad()

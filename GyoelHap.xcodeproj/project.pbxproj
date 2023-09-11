@@ -29,6 +29,7 @@
 		CEDCC63325D812BF008D8044 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCC63225D812BF008D8044 /* StageCell.swift */; };
 		CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */; };
 		CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */; };
+		D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */; };
 		D439C3452A9C3DB200FF8B48 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D439C3442A9C3DB200FF8B48 /* AdSupport.framework */; };
 		D439C3482A9C81BC00FF8B48 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3472A9C81BC00FF8B48 /* FirebaseAnalytics */; };
 		D439C34A2A9C81BC00FF8B48 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3492A9C81BC00FF8B48 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -67,6 +68,7 @@
 		CEDCC63225D812BF008D8044 /* StageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCell.swift; sourceTree = "<group>"; };
 		CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCell.swift; sourceTree = "<group>"; };
+		D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAdManager.swift; sourceTree = "<group>"; };
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D4D660592A9CD06D00730B6D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				D4D660592A9CD06D00730B6D /* LogManager.swift */,
 				D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */,
+				D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
 				D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */,
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
+				D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
 				CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
