@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMobileAds
+import GameKit
 
 class RootViewController: UIViewController {
     var bannerView: GADBannerView!
@@ -16,6 +17,13 @@ class RootViewController: UIViewController {
         view.backgroundColor = .clear
         setAds()
         setUpConstraints()
+        authenticateGameCenter()
+        
+    }
+    private func authenticateGameCenter() {
+        GKLocalPlayer.local.authenticateHandler = { viewController, error in
+            print("게임센터 인증 완료")
+        }
     }
     
     private func setUpConstraints() {

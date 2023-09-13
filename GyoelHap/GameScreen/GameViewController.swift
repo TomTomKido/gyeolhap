@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMobileAds
+import GameKit
 
 
 class GameViewController: UIViewController {
@@ -83,13 +84,18 @@ class GameViewController: UIViewController {
     @IBAction func gyeol(_ sender: UIButton) {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "gyeol")
         guard let manager = self.gameManager, let item = self.currentItem else { return }
-        if !manager.checkGyeol() {
+        if !manager.checkGyeol() { //결 실패
             self.showSeconds(second: 30)
             self.deciSeconds += 300
             return
         }
         
+        //결 성공
         self.timer?.invalidate()
+        
+        sendClearInfoToLeaderboard()
+        
+        
         if item.record >= deciSeconds {
             item.solve(secondString: timeString(time: TimeInterval(deciSeconds)), second: deciSeconds)
         }
@@ -165,7 +171,88 @@ class GameViewController: UIViewController {
         }
     }
 }
-
+extension GameViewController:GKGameCenterControllerDelegate  {
+    
+    private func sendClearInfoToLeaderboard() {
+        let leaderboardID = "com.taelee.GyeolHapTomKido.WeeklyClearStages"
+//        let leaderboardID2 = "com.taelee.GyeolHapTomKido.AveragePlayTime"
+        GKLeaderboard.loadLeaderboards(IDs: [leaderboardID]) { leaderboards, error in
+            if let error {
+                print("Error fetching scores: \(error)")
+                return
+            }
+//            for board in leaderboards! {
+//                print("board title: ", board.title)
+//                print("board id: ", board.baseLeaderboardID)
+//                print("board startDate: ", board.startDate)
+//                print("board nextStartDate: ", board.nextStartDate)
+//            }
+            
+            if let leaderboard = leaderboards?.first(where: { $0.baseLeaderboardID == leaderboardID }) {
+                leaderboard.loadEntries(for: [GKLocalPlayer.local], timeScope: .week) { myEntry, entries, error in
+                    if let error {
+                        print("error: \(error.localizedDescription), \(#function)")
+                        return
+                    }
+                    
+                    print("board rank: ", myEntry?.rank)
+                    print("board score: ", myEntry?.score)
+                    
+                    
+                    guard let myEntry else { //기존에 리더보드에 제출한 점수가 없는 경우(처음 플레이)
+                        GKLeaderboard.submitScore(1, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [leaderboardID]) { error in
+                            //context가 뭐지?
+                            //context: An integer value that your game uses. ???
+                            if let error {
+                                print("error: \(error.localizedDescription), \(#function)")
+                                return
+                            }
+                            print("점수 제출")
+                        }
+                        return
+                    }
+                    //기존 점수가 있는경우
+                    let previousScore = myEntry.score
+                    print("previousScore: ", previousScore)
+                    
+                    GKLeaderboard.submitScore(previousScore, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [leaderboardID]) { error in
+                        if let error {
+                            print("error: \(error.localizedDescription), \(#function)")
+                            return
+                        }
+                        print("점수 제출")
+                    }
+                }
+                
+//                // Load the leaderboard image.
+//                leaderboard.loadImage(completionHandler: { (image: UIImage?, error: Error?) -> Void in
+//                    if let image = image {
+//                        self.leaderboardImage = Image(uiImage: image)
+//                    }
+//                    if error != nil {
+//                        print("Error: \(error!.localizedDescription).")
+//                    }
+//                })
+//                let viewController = GKGameCenterViewController(state: .dashboard)
+//                viewController.gameCenterDelegate = self
+//                self.present(viewController, animated: true, completion: nil)
+                // Display scores for a specific leaderboard.
+                let viewController = GKGameCenterViewController(
+                                leaderboardID: leaderboardID,
+                                playerScope: .global,
+                                timeScope: .allTime)
+//                viewController.gameCenterDelegate = self
+                self.present(viewController, animated: true, completion: nil)
+            }
+            
+        }
+    }
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        // Dismiss the view controller.
+        gameCenterViewController.dismiss(animated:true)
+    }
+}
 extension GameViewController {
     func coverSuccessView() {
         self.successViewLeadingToSafeAreaTrailing!.isActive = false
