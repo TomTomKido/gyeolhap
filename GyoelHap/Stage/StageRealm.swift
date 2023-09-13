@@ -56,3 +56,22 @@ extension StageRealm {
     }
 }
 
+extension StageRealm {
+    static func getSolvedStageData() -> Int {
+        let items = StageRealm.all()
+        //item in items has  isSolved property. I want to get the number of all items in which isSolved property is true
+        let solvedItems = items.filter { $0.isSolved == true }
+        return solvedItems.count
+    }
+    
+    static func getAverageClearTimeData() -> Double? {
+        let items = StageRealm.all()
+        let solvedItems = items.filter { $0.isSolved == true }
+        if solvedItems.count > 0 {
+            let totalClearTime = solvedItems.reduce(0) { $0 + $1.record }
+            let averageClearTime = Double(totalClearTime) / Double(solvedItems.count)
+            return averageClearTime
+        }
+        return nil
+    }
+}

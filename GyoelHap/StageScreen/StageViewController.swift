@@ -16,6 +16,9 @@ class StageViewController: UIViewController {
     @IBOutlet weak var tableViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopAnchor: NSLayoutConstraint!
     
+    @IBOutlet weak var upperScoreInfoView: UILabel!
+    @IBOutlet weak var lowerScoreInfoView: UILabel!
+    
     @IBOutlet weak var lowerScoreView: UIView!
     var stageCarouselView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -30,6 +33,7 @@ class StageViewController: UIViewController {
         scrollToFirstNotSolvedIndex()
         setUpCollectionView()
         setUpConstraints()
+        setUpScoreViewLabel()
     }
     
     private func setUpConstraints() {
@@ -113,6 +117,36 @@ class StageViewController: UIViewController {
     @IBAction func goToMainMenu(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func timeString(time:TimeInterval) -> String {
+        let newTime = time / 10
+        let hours = Int(newTime) / 3600
+        let minutes = Int(newTime) / 60 % 60
+        let seconds = Int(newTime) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    
+    //MARK: 스코어 뷰 세팅
+    private func setUpScoreViewLabel() {
+        
+        let clearStageNumber = StageRealm.getSolvedStageData()
+        let allStageNumber = StageRealm.all().count
+        upperScoreInfoView.text = "클리어 스테이지: \(clearStageNumber) / \(allStageNumber)"
+        
+        let averageClearTime = StageRealm.getAverageClearTimeData() ?? 0
+        let averageClearTimeString = timeString(time: TimeInterval(averageClearTime))
+        lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString)"
+    }
+    
+    @IBAction func upperScoreButtonTouched(_ sender: Any) {
+        
+    }
+    @IBAction func lowerScoreButtonTouched(_ sender: Any) {
+        
+    }
+    
+    
+    
 }
 
 // MARK: TableView Delegate

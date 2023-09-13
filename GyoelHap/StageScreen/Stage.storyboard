@@ -97,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="115.5" width="414" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="클리어 스테이지: 50 / 1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjA-IM-xv2">
-                                        <rect key="frame" x="8" y="13" width="220" height="24"/>
+                                        <rect key="frame" x="10" y="13" width="220" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -108,10 +108,13 @@
                                         <buttonConfiguration key="configuration" style="plain" image="trophy.circle" catalog="system" title="">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="upperScoreButtonTouched:" destination="e1s-1z-3oZ" eventType="touchUpInside" id="Wbt-zA-yhH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="zjA-IM-xv2" firstAttribute="leading" secondItem="OJg-qj-bOK" secondAttribute="leading" constant="8" id="Hxp-hH-1Uf"/>
+                                    <constraint firstItem="zjA-IM-xv2" firstAttribute="leading" secondItem="OJg-qj-bOK" secondAttribute="leading" constant="10" id="Hxp-hH-1Uf"/>
                                     <constraint firstItem="zjA-IM-xv2" firstAttribute="centerY" secondItem="OJg-qj-bOK" secondAttribute="centerY" id="Tb8-ez-j8w"/>
                                     <constraint firstItem="f1e-sy-7ME" firstAttribute="centerY" secondItem="OJg-qj-bOK" secondAttribute="centerY" id="jfj-DE-Q7a"/>
                                     <constraint firstAttribute="trailing" secondItem="f1e-sy-7ME" secondAttribute="trailing" constant="8" id="lFX-EL-A1N"/>
@@ -121,9 +124,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swd-Nt-skj">
                                 <rect key="frame" x="0.0" y="166.5" width="414" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="평균 클리어 시간: 00:01.25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs2-OC-7FG">
-                                        <rect key="frame" x="8" y="15" width="219" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 클리어 시간: 00:01.25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs2-OC-7FG">
+                                        <rect key="frame" x="10" y="13" width="219" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -134,10 +136,15 @@
                                         <buttonConfiguration key="configuration" style="plain" image="trophy.circle" catalog="system" title="">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="lowerScoreButtonTouched:" destination="e1s-1z-3oZ" eventType="touchUpInside" id="foO-DH-952"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="zs2-OC-7FG" firstAttribute="centerY" secondItem="swd-Nt-skj" secondAttribute="centerY" id="8Pf-aZ-A2G"/>
                                     <constraint firstAttribute="trailing" secondItem="bmW-O3-FQD" secondAttribute="trailing" constant="8" id="Mcc-9c-Eng"/>
+                                    <constraint firstItem="zs2-OC-7FG" firstAttribute="leading" secondItem="swd-Nt-skj" secondAttribute="leading" constant="10" id="liZ-Jx-nWh"/>
                                     <constraint firstItem="bmW-O3-FQD" firstAttribute="centerY" secondItem="swd-Nt-skj" secondAttribute="centerY" id="sii-Mj-bZi"/>
                                 </constraints>
                             </view>
@@ -187,12 +194,14 @@
                     <navigationItem key="navigationItem" id="C6I-zD-oNL"/>
                     <connections>
                         <outlet property="backButton" destination="feI-tp-EyC" id="531-yV-r3B"/>
+                        <outlet property="lowerScoreInfoView" destination="zs2-OC-7FG" id="MWN-I2-zA1"/>
                         <outlet property="lowerScoreView" destination="swd-Nt-skj" id="ooO-Ez-TeJ"/>
                         <outlet property="solvedProblemNumberLabel" destination="y8c-xy-E13" id="7AB-tt-2uH"/>
                         <outlet property="stageSelectLabel" destination="uX9-L7-pA0" id="u0c-ro-7FI"/>
                         <outlet property="tableView" destination="ssW-gH-Z39" id="6E1-Yi-2pM"/>
                         <outlet property="tableViewBottomAnchor" destination="hxn-qL-dvL" id="e8l-Ga-Wy0"/>
                         <outlet property="tableViewTopAnchor" destination="7bg-cF-MZM" id="3zz-5w-9YC"/>
+                        <outlet property="upperScoreInfoView" destination="zjA-IM-xv2" id="Pl5-dz-fJu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BgE-2j-bte" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

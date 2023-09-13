@@ -157,24 +157,3 @@ extension GameManager {
         return newArray
     }
 }
-
-extension GameManager {
-    func getSolvedStageData() -> Int {
-        let items = StageRealm.all()
-        //item in items has  isSolved property. I want to get the number of all items in which isSolved property is true
-        let solvedItems = items.filter { $0.isSolved == true }
-        return solvedItems.count
-    }
-    
-    func getAverageClearTimeData() -> Double? {
-        let items = StageRealm.all()
-        //item in items has isSOlved property and record property. I want to get the number of average of all record which is only isSOlved == true item.
-        let solvedItems = items.filter { $0.isSolved == true }
-        if solvedItems.count > 0 {
-            let totalClearTime = solvedItems.reduce(0) { $0 + $1.record }
-            let averageClearTime = Double(totalClearTime) / Double(solvedItems.count)
-            return averageClearTime
-        }
-        return nil
-    }
-}
