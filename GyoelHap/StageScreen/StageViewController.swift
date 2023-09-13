@@ -16,6 +16,7 @@ class StageViewController: UIViewController {
     @IBOutlet weak var tableViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopAnchor: NSLayoutConstraint!
     
+    @IBOutlet weak var lowerScoreView: UIView!
     var stageCarouselView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private var items: Results<StageRealm>?
@@ -37,10 +38,10 @@ class StageViewController: UIViewController {
         tableViewTopAnchor.isActive = false
         
         NSLayoutConstraint.activate([
-            stageCarouselView.topAnchor.constraint(equalTo: stageSelectLabel.bottomAnchor, constant: 20),
+            stageCarouselView.topAnchor.constraint(equalTo: lowerScoreView.bottomAnchor, constant: 5),
             stageCarouselView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             stageCarouselView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            stageCarouselView.bottomAnchor.constraint(equalTo: tableView.topAnchor),
+            stageCarouselView.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: 5),
             stageCarouselView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
