@@ -138,6 +138,18 @@ class StageViewController: UIViewController {
         let averageClearTime = StageRealm.getAverageClearTimeData() ?? 0
         let averageClearTimeString = timeString(time: TimeInterval(averageClearTime))
         lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString)"
+        
+        Task {
+            do {
+                let (stageRank, _) = try await gameCenterManager.getRank(of: .clearStage)
+                upperScoreInfoView.text = "\(upperScoreInfoView.text)  \(stageRank)등"
+                let (playTimeRank, _) = try await gameCenterManager.getRank(of: .playTime)
+                lowerScoreInfoView.text = "\(lowerScoreInfoView.text)  \(playTimeRank)등"
+            } catch {
+                print("Error: Failed to fetch rank from leaderboard")
+            }
+        }
+        
     }
     
     @IBAction func upperScoreButtonTouched(_ sender: Any) {
