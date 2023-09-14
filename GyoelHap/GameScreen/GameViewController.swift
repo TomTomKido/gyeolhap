@@ -137,9 +137,12 @@ class GameViewController: UIViewController {
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
         }
         coverSuccessView()
+        submitScores()
+    }
+    
+    private func submitScores() {
         submitClearStageScoreToLeaderboard()
         submitAverageClearTimeScoreToLeaderboard()
-        
     }
     
     private func submitClearStageScoreToLeaderboard() {
