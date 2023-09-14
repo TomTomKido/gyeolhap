@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GADMobileAds.sharedInstance().start()
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
         LogManager.sendAppLaunchLog()
         return true
     }
