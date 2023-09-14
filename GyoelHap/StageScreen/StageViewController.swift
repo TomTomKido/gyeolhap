@@ -13,7 +13,6 @@ class StageViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stageSelectLabel: UILabel!
-    @IBOutlet weak var solvedProblemNumberLabel: UILabel!
     @IBOutlet weak var tableViewBottomAnchor: NSLayoutConstraint!
     @IBOutlet weak var tableViewTopAnchor: NSLayoutConstraint!
     
@@ -70,13 +69,6 @@ class StageViewController: UIViewController {
             }
             return previous
         })
-        
-        if let solvedProblem, let totalProbelm = items?.count {
-            solvedProblemNumberLabel.text = "\(solvedProblem)/\(totalProbelm)"
-            print(totalProbelm)
-        } else {
-            solvedProblemNumberLabel.text = ""
-        }
     }
     
     private func scrollToFirstNotSolvedIndex() {

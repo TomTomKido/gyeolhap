@@ -87,12 +87,6 @@
                                     <action selector="goToMainMenu:" destination="e1s-1z-3oZ" eventType="touchUpInside" id="E3B-cb-Jv9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50/1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8c-xy-E13">
-                                <rect key="frame" x="333" y="72" width="66" height="20"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJg-qj-bOK">
                                 <rect key="frame" x="0.0" y="115.5" width="414" height="50"/>
                                 <subviews>
@@ -167,11 +161,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="swd-Nt-skj" firstAttribute="height" secondItem="OJg-qj-bOK" secondAttribute="height" id="1Vc-oV-h9T"/>
-                            <constraint firstItem="y8c-xy-E13" firstAttribute="centerY" secondItem="uX9-L7-pA0" secondAttribute="centerY" id="5nc-Td-gXw"/>
                             <constraint firstItem="ssW-gH-Z39" firstAttribute="top" secondItem="uX9-L7-pA0" secondAttribute="bottom" constant="20" id="7bg-cF-MZM"/>
                             <constraint firstItem="uX9-L7-pA0" firstAttribute="top" secondItem="9qs-Rf-c5v" secondAttribute="top" constant="20" id="BHe-S5-h6I"/>
                             <constraint firstItem="ssW-gH-Z39" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" id="Kkw-Iz-0sQ"/>
-                            <constraint firstItem="9qs-Rf-c5v" firstAttribute="trailing" secondItem="y8c-xy-E13" secondAttribute="trailing" constant="15" id="Lqw-yi-mlw"/>
                             <constraint firstItem="olm-rS-qSQ" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" id="Nej-fq-ay2"/>
                             <constraint firstItem="OJg-qj-bOK" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" id="Npg-eJ-CF0"/>
                             <constraint firstAttribute="trailing" secondItem="rMy-NM-zFr" secondAttribute="trailing" id="SaX-ob-Hs8"/>
@@ -196,7 +188,6 @@
                         <outlet property="backButton" destination="feI-tp-EyC" id="531-yV-r3B"/>
                         <outlet property="lowerScoreInfoView" destination="zs2-OC-7FG" id="MWN-I2-zA1"/>
                         <outlet property="lowerScoreView" destination="swd-Nt-skj" id="ooO-Ez-TeJ"/>
-                        <outlet property="solvedProblemNumberLabel" destination="y8c-xy-E13" id="7AB-tt-2uH"/>
                         <outlet property="stageSelectLabel" destination="uX9-L7-pA0" id="u0c-ro-7FI"/>
                         <outlet property="tableView" destination="ssW-gH-Z39" id="6E1-Yi-2pM"/>
                         <outlet property="tableViewBottomAnchor" destination="hxn-qL-dvL" id="e8l-Ga-Wy0"/>
