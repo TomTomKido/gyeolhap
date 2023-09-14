@@ -93,6 +93,8 @@ class GameViewController: UIViewController {
         //결 성공
         self.timer?.invalidate()
         
+        submitLeaderboard()
+        
         
         if item.record >= deciSeconds {
             item.solve(secondString: timeString(time: TimeInterval(deciSeconds)), second: deciSeconds)
@@ -138,6 +140,12 @@ class GameViewController: UIViewController {
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
         }
         coverSuccessView()
+    }
+    
+    private func submitLeaderboard() {
+        let manager = GameCenterManager()
+        let score = StageRealm.getSolvedStageData()
+        manager.submitScore(to: .clearStage, score: score)
     }
     @IBAction func tapBack(_ sender: UIButton) {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
