@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import GameKit
 
 class StageViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
@@ -26,6 +27,7 @@ class StageViewController: UIViewController {
     private var itemsToken: NotificationToken?
     
     private var screenName = "stage"
+    private let gameCenterManager = GameCenterManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,10 +141,11 @@ class StageViewController: UIViewController {
     }
     
     @IBAction func upperScoreButtonTouched(_ sender: Any) {
+        gameCenterManager.presentLeaderboard(of: .clearStage, on: self)
         
     }
     @IBAction func lowerScoreButtonTouched(_ sender: Any) {
-        
+        gameCenterManager.presentLeaderboard(of: .playTime, on: self)
     }
     
     
@@ -218,5 +221,11 @@ extension StageViewController: UICollectionViewDelegate, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         10
+    }
+}
+
+extension StageViewController: GKGameCenterControllerDelegate {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
     }
 }
