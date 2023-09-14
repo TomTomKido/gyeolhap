@@ -18,6 +18,7 @@ enum LeaderboardType {
             return "com.taelee.GyeolHapTomKido.WeeklyClearStages"
         case .playTime:
             return "com.taelee.GyeolHapTomKido.AveragePlayTime"
+//            return "com.taelee.GyeolHapTomKido.ClearPlayTime"
         }
     }
 }
@@ -44,32 +45,24 @@ class GameCenterManager: NSObject {
     }
     
     func getRank(of type: LeaderboardType) async throws -> (rank: Int, score: Int) {
-        print("asdfasdf login : ", isUserAuthenticated())
         let isLogin = isUserAuthenticated()
 
         guard isLogin == true else {
-            print("asdfasdf 11111")
             throw GameCenterError.notAuthenticated
         }
-        print("asdfasdf 1")
         
         let leaderboardId = type.leaderboardId
         let leaderboards = try await GKLeaderboard.loadLeaderboards(IDs: [leaderboardId])
         
-        print("asdfasdf 2")
         guard let leaderboard = leaderboards.first(where: { $0.baseLeaderboardID == leaderboardId }) else {
-            print("asdfasdf 22222")
             throw GameCenterError.leaderboardNotFound
         }
         
-        print("asdfasdf 3")
-        let (localPlayerEntry, _) = try await leaderboard.loadEntries(for: [GKLocalPlayer.local], timeScope: .week)
+        let (localPlayerEntry, otherPlayEntries) = try await leaderboard.loadEntries(for: [GKLocalPlayer.local], timeScope: .week)
         
         guard let myEntry = localPlayerEntry else {
-            print("asdfasdf 33333")
             throw GameCenterError.leaderboardNotFound
         }
-        print("asdfasdf 4")
         return (rank: myEntry.rank, score: myEntry.score)
     }
     

@@ -93,9 +93,6 @@ class GameViewController: UIViewController {
         //결 성공
         self.timer?.invalidate()
         
-        submitLeaderboard()
-        
-        
         if item.record >= deciSeconds {
             item.solve(secondString: timeString(time: TimeInterval(deciSeconds)), second: deciSeconds)
         }
@@ -140,13 +137,26 @@ class GameViewController: UIViewController {
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
         }
         coverSuccessView()
+        submitClearStageScoreToLeaderboard()
+        submitAverageClearTimeScoreToLeaderboard()
+        
     }
     
-    private func submitLeaderboard() {
+    private func submitClearStageScoreToLeaderboard() {
         let manager = GameCenterManager()
         let score = StageRealm.getSolvedStageData()
+        print("leaderboard submit stage clear: ", score)
         manager.submitScore(to: .clearStage, score: score)
     }
+    
+    private func submitAverageClearTimeScoreToLeaderboard() {
+        let manager = GameCenterManager()
+        guard let score = StageRealm.getAverageClearTimeData() else { return }
+        let milliSeconds = Int(score * 10)
+        print("leaderboard submit clear time: ", score)
+        manager.submitScore(to: .playTime, score: milliSeconds)
+    }
+    
     @IBAction func tapBack(_ sender: UIButton) {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
         self.navigationController?.popViewController(animated: true)

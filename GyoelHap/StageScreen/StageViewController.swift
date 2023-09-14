@@ -35,7 +35,6 @@ class StageViewController: UIViewController {
         scrollToFirstNotSolvedIndex()
         setUpCollectionView()
         setUpConstraints()
-        setUpScoreViewLabel()
     }
     
     private func setUpConstraints() {
@@ -109,6 +108,7 @@ class StageViewController: UIViewController {
             case .error: break
             }
         }
+        setUpScoreViewLabel()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -135,16 +135,20 @@ class StageViewController: UIViewController {
         let allStageNumber = StageRealm.all().count
         upperScoreInfoView.text = "클리어 스테이지: \(clearStageNumber) / \(allStageNumber)"
         
-        let averageClearTime = StageRealm.getAverageClearTimeData() ?? 0
-        let averageClearTimeString = timeString(time: TimeInterval(averageClearTime))
+        let averageClearTimeDouble = StageRealm.getAverageClearTimeData() ?? 0
+        let averageClearTimeString = timeString(time: TimeInterval(Int(averageClearTimeDouble)))
         lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString)"
         
         Task {
             do {
                 let (stageRank, _) = try await gameCenterManager.getRank(of: .clearStage)
-                upperScoreInfoView.text = "\(upperScoreInfoView.text)  \(stageRank)등"
+                if let text1 = upperScoreInfoView.text {
+                    upperScoreInfoView.text = text1 + " | \(stageRank)등"
+                }
                 let (playTimeRank, _) = try await gameCenterManager.getRank(of: .playTime)
-                lowerScoreInfoView.text = "\(lowerScoreInfoView.text)  \(playTimeRank)등"
+                if let text2 = lowerScoreInfoView.text {
+                    lowerScoreInfoView.text = text2 + " | \(playTimeRank)등"
+                }
             } catch {
                 print("Error: Failed to fetch rank from leaderboard")
             }
