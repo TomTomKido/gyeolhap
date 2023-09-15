@@ -11,6 +11,7 @@ import UIKit
 class StageCarouselCell: UICollectionViewCell {
     static let identifier = "stageCarousel"
     var scrollAction: (() -> Void)?
+    var widthSize: CGFloat = 80
     
     var stageLabel = UILabel(frame: .zero)
     var backgroundRectangleView = UIView(frame: .zero)
@@ -21,6 +22,12 @@ class StageCarouselCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(text: String, widthSize: CGFloat) {
+        stageLabel.text = text
+        self.widthSize = widthSize
+        setConstraints()
     }
     
     func configure(index: Int) {
@@ -35,7 +42,8 @@ class StageCarouselCell: UICollectionViewCell {
         backgroundRectangleView.translatesAutoresizingMaskIntoConstraints = false
         backgroundRectangleView.layer.cornerRadius = 8
         backgroundRectangleView.layer.borderWidth = 2
-        backgroundRectangleView.layer.borderColor = UIColor.black.cgColor
+//        backgroundRectangleView.layer.borderColor = UIColor.black.cgColor //여기 systemcolor로 바꾸기
+        backgroundRectangleView.layer.borderColor = UIColor.label.cgColor//여기 systemcolor로 바꾸기
         
         NSLayoutConstraint.activate([
             backgroundRectangleView.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -43,7 +51,7 @@ class StageCarouselCell: UICollectionViewCell {
             backgroundRectangleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             backgroundRectangleView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             backgroundRectangleView.heightAnchor.constraint(equalToConstant: 40),
-            backgroundRectangleView.widthAnchor.constraint(equalToConstant: 80),
+            backgroundRectangleView.widthAnchor.constraint(equalToConstant: widthSize),
             stageLabel.centerYAnchor.constraint(equalTo: backgroundRectangleView.centerYAnchor),
             stageLabel.centerXAnchor.constraint(equalTo: backgroundRectangleView.centerXAnchor)
         ])

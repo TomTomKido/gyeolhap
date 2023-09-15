@@ -200,21 +200,32 @@ extension StageViewController: UITableViewDelegate {
 
 extension StageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        (items?.count ?? 0) / 200
+        (items?.count ?? 0) / 200 + 1 //Not solved 셀 추가
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StageCarouselCell.identifier, for: indexPath) as? StageCarouselCell else {
             return UICollectionViewCell()
         }
-        let index = indexPath.item == 0 ? 1 : 200 * indexPath.item
-        cell.configure(index: index)
         
+        // Check for the special first cell
+        if indexPath.item == 0 {
+            cell.configure(text: "Not Solved", widthSize: 110) //아래 collectionView layout width하고 숫자 맞추기
+        } else {
+            let index = indexPath.item == 1 ? 1 : 200 * (indexPath.item - 1)
+            cell.configure(index: index)
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let targetIndex = indexPath.item == 0 ? 0 : indexPath.item * 200 - 1
+        // If the first cell is tapped, scroll to the last cell
+        if indexPath.item == 0 {
+            scrollToFirstNotSolvedIndex()
+            return
+        }
+        
+        let targetIndex = indexPath.item == 1 ? 0 : 200 * (indexPath.item - 1) - 1
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: targetIndex, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
@@ -222,7 +233,7 @@ extension StageViewController: UICollectionViewDelegate, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = 80
+        let width = indexPath.row == 0 ? 110 : 80
         let height = 40
         return CGSize(width: width, height: height)
     }
