@@ -20,8 +20,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var plus10sec: UILabel!
     @IBOutlet weak var gyeolButton: UIButton!
     @IBOutlet weak var SuccessView: UIView!
-    @IBOutlet weak var gyeolShineView: UIView!
-    @IBOutlet weak var answerShineView: UIView!
+    @IBOutlet weak var gyeolHintOutline: UIView!
     @IBOutlet weak var buttonsStackView: UIStackView!
 
     
@@ -43,6 +42,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         LogManager.sendScreenLog(screenName: screenName)
+        setUpGyeolHintOutline()
         setUpConstraints()
         setUpDelegates()
         initiateGameSetup()
@@ -55,6 +55,12 @@ class GameViewController: UIViewController {
     
     private func adManagerSetUp() {
         adManager.delegate = self
+    }
+    
+    private func setUpGyeolHintOutline() {
+        gyeolHintOutline.layer.borderColor = UIColor.yellow.cgColor
+        gyeolHintOutline.layer.borderWidth = 4
+        gyeolHintOutline.layer.cornerRadius = 3
     }
     
     private func setUpConstraints() {
@@ -184,23 +190,10 @@ class GameViewController: UIViewController {
     func giveHint() {
         let hint = gameManager?.getHint() ?? []
         if hint.isEmpty {
-            blink(shineView: gyeolShineView)
+            gyeolHintOutline.isHidden = false
         } else {
             lowerCollectionView.reloadData()
-            blink(shineView: answerShineView)
-        }
-    }
-    
-    private func blink(shineView: UIView) {
-        UIView.animate(withDuration: 0.1) {
-            shineView.alpha = 0.5
-        } completion: { completed in
-            shineView.alpha = 0
-            UIView.animate(withDuration: 0.1, delay: 0.1) {
-                shineView.alpha = 0.5
-            } completion: { completed in
-                shineView.alpha = 0
-            }
+            
         }
     }
 }
