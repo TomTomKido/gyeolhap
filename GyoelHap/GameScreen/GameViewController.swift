@@ -77,6 +77,7 @@ class GameViewController: UIViewController {
     }
     
     private func initiateGameSetup() {
+        gyeolHintOutline.alpha = 0
         self.timer?.invalidate()
         self.timer = nil
         uncoverSuccessView()
@@ -190,7 +191,7 @@ class GameViewController: UIViewController {
     func giveHint() {
         let hint = gameManager?.getHint() ?? []
         if hint.isEmpty {
-            gyeolHintOutline.isHidden = false
+            gyeolHintOutline.alpha = 1
         } else {
             lowerCollectionView.reloadData()
             
