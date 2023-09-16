@@ -29,7 +29,7 @@ class RewardedAdManager: NSObject {
         loadAd()
     }
     
-    func loadAd() {
+    private func loadAd() {
         let request = GADRequest()
         GADRewardedAd.load(withAdUnitID: adID,
                                request: request,
@@ -46,10 +46,10 @@ class RewardedAdManager: NSObject {
     }
     
     // MARK: display Ad
-    func displayAds() {
+    func displayAds(completion: @escaping () -> Void) {
         if let ad, let delegate {
             ad.present(fromRootViewController: delegate) {
-                delegate.giveHint()
+                completion()
             }
         } else {
             print("Ad wasn't ready")

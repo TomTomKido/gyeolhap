@@ -86,7 +86,9 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func hintButtonTapped(_ sender: Any) {
-        adManager.displayAds()
+        adManager.displayAds { [weak self] in
+            self?.giveHint()
+        }
     }
     
     @IBAction func gyeol(_ sender: UIButton) {
@@ -118,13 +120,17 @@ class GameViewController: UIViewController {
         }
         successView.retryTapHandler = { [weak self] in
             guard let self else { return }
-            self.uncoverSuccessView()
-            self.deciSeconds = 0
-            self.start()
-            self.initiateGameSetup()
-            self.upperCollectionView.reloadData()
-            self.lowerCollectionView.reloadData()
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "retry", stageNumber: currentItem.stageId)
+
+            self.adManager.displayAds { [weak self] in
+                guard let self else { return }
+                self.uncoverSuccessView()
+                self.deciSeconds = 0
+                self.start()
+                self.initiateGameSetup()
+                self.upperCollectionView.reloadData()
+                self.lowerCollectionView.reloadData()
+            }
         }
         successView.nextTapHandler = { [weak self] in
             guard let self else { return }
