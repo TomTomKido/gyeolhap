@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
     var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
     var successViewLeadingToSafeAreaTrailing: NSLayoutConstraint?
     
-    private var adManager = RewardedAdManager() //전면광고 매니저에서 보상형 광고 매니저로 변경
+    private var adManager = RewardedAdManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,16 @@ class GameViewController: UIViewController {
         initiateGameSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        adManagerSetUp()
+    }
+    
+    private func adManagerSetUp() {
+        adManager.delegate = self
+        adManager.loadAd()
+    }
+    
     private func setUpConstraints() {
         safeArea = self.view.safeAreaLayoutGuide
         successViewLeadingToSafeAreaLeading = self.SuccessView.leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor)
@@ -55,7 +65,6 @@ class GameViewController: UIViewController {
     }
     
     private func setUpDelegates() {
-        adManager.delegate = self
         upperCollectionView.delegate = self
         upperCollectionView.dataSource = self
         lowerCollectionView.delegate = self

@@ -29,7 +29,7 @@ class RewardedAdManager: NSObject {
         loadAd()
     }
     
-    private func loadAd() {
+    func loadAd() {
         let request = GADRequest()
         GADRewardedAd.load(withAdUnitID: adID,
                                request: request,
