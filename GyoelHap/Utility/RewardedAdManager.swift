@@ -41,6 +41,7 @@ class RewardedAdManager: NSObject {
             }
             self.ad = ad
             self.ad?.fullScreenContentDelegate = self
+            print("Loading Ads completed")
         })
     }
     

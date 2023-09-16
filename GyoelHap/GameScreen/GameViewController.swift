@@ -55,7 +55,6 @@ class GameViewController: UIViewController {
     
     private func adManagerSetUp() {
         adManager.delegate = self
-        adManager.loadAd()
     }
     
     private func setUpConstraints() {
