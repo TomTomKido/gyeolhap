@@ -193,8 +193,7 @@ class GameViewController: UIViewController {
         if hint.isEmpty {
             gyeolHintOutline.alpha = 1
         } else {
-            lowerCollectionView.reloadData()
-            
+            upperCollectionView.reloadData()
         }
     }
 }
@@ -269,8 +268,8 @@ extension GameViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TileCollectionViewCell", for: indexPath) as? TileCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            guard let item = currentItem else { return UICollectionViewCell() }
-            cell.updateUI(index: indexPath.item, item: item.getArrayData()[indexPath.item], tryList: gameManager!.getTryList())
+            guard let item = currentItem, let gameManager else { return UICollectionViewCell() }
+            cell.updateUI(index: indexPath.item, item: item.getArrayData()[indexPath.item], tryList: gameManager.getTryList(), hint: gameManager.currentHint)
             cell.tapHandler = {
                 guard let manager = self.gameManager else { return }
                 manager.addToTryList(indexPath.item + 1)
