@@ -283,10 +283,11 @@ extension GameViewController: UICollectionViewDataSource {
             }
             return cell
         } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath) as? AnswerCell else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnswerCell", for: indexPath) as? AnswerCell,
+            let gameManager else {
                 return UICollectionViewCell()
             }
-            cell.updateUI(index: indexPath.item, item: gameManager!.getRevealedAnswers())
+            cell.updateUI(index: indexPath.item, item: gameManager.getRevealedAnswers(), hints: gameManager.getRevealedHints())
             return cell
         }
     }

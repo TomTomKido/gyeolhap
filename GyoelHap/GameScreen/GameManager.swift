@@ -16,6 +16,7 @@ class GameManager {
     private var revealedAnswers: [[Int]] = []
     private(set) var currentHint: [Int] = []
     private var sortedRevealedAnswers: [[Int]] = []
+    private var revealedHints: [[Int]] = []
     
     init(stage: StageRealm) {
         self.stage = stage
@@ -42,6 +43,10 @@ class GameManager {
     }
     func getRevealedAnswers() -> [[Int]] {
         return revealedAnswers
+    }
+    
+    func getRevealedHints() -> [[Int]] {
+        return revealedHints
     }
     func clearTryList() {
         self.tryList = []
@@ -75,6 +80,7 @@ class GameManager {
             isAnswer = true
             revealedAnswers.append(tryList)
             sortedRevealedAnswers.append(tryList.sorted())
+            revealedHints.append(currentHint)
             currentHint = []
         } else {
             print("오답입니다")
