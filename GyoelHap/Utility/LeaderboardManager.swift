@@ -67,11 +67,7 @@ class GameCenterManager: NSObject {
     }
     
     func presentLeaderboard(of type: LeaderboardType, on viewController: UIViewController & GKGameCenterControllerDelegate) {
-        // Make sure the user is authenticated with Game Center
-        guard GKLocalPlayer.local.isAuthenticated else {
-            print("User is not authenticated with Game Center.")
-            return
-        }
+        //로그인 했는지 검사 안하는 이유: 게임센터 로그인이 안되어 있으면 리더보드 요청시 자동으로 로그인 화면으로 이동함
         
         // Create and configure the view controller
         let gameCenterViewController = GKGameCenterViewController(

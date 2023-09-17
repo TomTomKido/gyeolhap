@@ -125,22 +125,19 @@ class StageViewController: UIViewController {
         
         let clearStageNumber = StageRealm.getSolvedStageData()
         let allStageNumber = StageRealm.all().count
-        upperScoreInfoView.text = "클리어 스테이지: \(clearStageNumber) / \(allStageNumber)"
+        upperScoreInfoView.text = "클리어 스테이지: \(clearStageNumber) / \(allStageNumber) | ??등"
         
         let averageClearTimeDouble = StageRealm.getAverageClearTimeData() ?? 0
         let averageClearTimeString = timeString(time: TimeInterval(Int(averageClearTimeDouble)))
-        lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString)"
+        lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString) | ??등"
         
         Task {
             do {
                 let (stageRank, _) = try await gameCenterManager.getRank(of: .clearStage)
-                if let text1 = upperScoreInfoView.text {
-                    upperScoreInfoView.text = text1 + " | \(stageRank)등"
-                }
+                upperScoreInfoView.text = "클리어 스테이지: \(clearStageNumber) / \(allStageNumber) | \(stageRank)등"
+                
                 let (playTimeRank, _) = try await gameCenterManager.getRank(of: .playTime)
-                if let text2 = lowerScoreInfoView.text {
-                    lowerScoreInfoView.text = text2 + " | \(playTimeRank)등"
-                }
+                lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString) | \(playTimeRank)등"
             } catch {
                 print("Error: Failed to fetch rank from leaderboard")
             }
