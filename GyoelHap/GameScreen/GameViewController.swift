@@ -144,19 +144,29 @@ class GameViewController: UIViewController {
             let nextStageID = stageID
             let items = StageRealm.all()
             self.currentItem = items[nextStageID]
-
-            self.uncoverSuccessView()
-            self.deciSeconds = 0
-            self.start()
-            self.stageLabel.text = "Stage " + String(self.currentItem!.stageId)
-            self.initiateGameSetup()
-//            print("정답리스트: \(manager.getAnswers())")
-            self.upperCollectionView.reloadData()
-            self.lowerCollectionView.reloadData()
-            LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: currentItem.stageId)
+            guard let nextItem = self.currentItem else { return }
+            
+            if nextItem.isSolved == .unsolved {
+                self.moveToStage(item: nextItem)
+            } else {
+                RewardedAdManager.shared.displayAds {
+                    self.moveToStage(item: nextItem)
+                }
+            }
         }
         coverSuccessView()
         submitScores()
+    }
+    
+    private func moveToStage(item: StageRealm) {
+        uncoverSuccessView()
+        deciSeconds = 0
+        start()
+        stageLabel.text = "Stage " + String(self.currentItem!.stageId)
+        initiateGameSetup()
+        upperCollectionView.reloadData()
+        lowerCollectionView.reloadData()
+        LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: item.stageId)
     }
     
     private func submitScores() {

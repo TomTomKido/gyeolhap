@@ -30,7 +30,14 @@ class StageCell: UITableViewCell {
             record.text = ""
         case .failed:
             completeFlag.text = ""
-            record.text = "재도전"
+            record.text = "↻"
+            record.font = .systemFont(ofSize: 30)
         }
+    }
+    
+    override func prepareForReuse() {
+        record.font = .systemFont(ofSize: 22)
+        record.text = ""
+        completeFlag.text = ""
     }
 }
