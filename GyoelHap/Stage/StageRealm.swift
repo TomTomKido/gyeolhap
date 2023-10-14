@@ -12,10 +12,17 @@ class StageRealm: Object {
     enum Property: String{
         case id, stageId, randomNumberString, isSolved, record
     }
+    
+    @objc enum SolvedStatus: Int, RealmEnum {
+        case unsolved = 0
+        case solved
+        case failed
+    }
+    
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var stageId: Int = 0
     @objc dynamic var randomNumberString: String? = nil
-    @objc dynamic var isSolved = false
+    @objc dynamic var isSolved: SolvedStatus = .unsolved
     @objc dynamic var recordString = ""
     @objc dynamic var record: Int = 9999999999
     
@@ -49,9 +56,18 @@ extension StageRealm {
     func solve(secondString: String, second: Int) {
         guard let realm = realm else { return }
         try! realm.write {
-            isSolved = true
+            isSolved = .solved
             self.recordString = secondString
             self.record = second
+        }
+    }
+    
+    func fail() {
+        guard let realm = realm else { return }
+        try! realm.write {
+            isSolved = .failed
+            self.recordString = "fail"
+            self.record = -1
         }
     }
 }
@@ -60,13 +76,13 @@ extension StageRealm {
     static func getSolvedStageData() -> Int {
         let items = StageRealm.all()
         //item in items has  isSolved property. I want to get the number of all items in which isSolved property is true
-        let solvedItems = items.filter { $0.isSolved == true }
+        let solvedItems = items.filter { $0.isSolved == .solved }
         return solvedItems.count
     }
     
     static func getAverageClearTimeData() -> Double? {
         let items = StageRealm.all()
-        let solvedItems = items.filter { $0.isSolved == true }
+        let solvedItems = items.filter { $0.isSolved == .solved }
         if solvedItems.count > 0 {
             let totalClearTime = solvedItems.reduce(0) { $0 + $1.record }
             let averageClearTime = Double(totalClearTime) / Double(solvedItems.count)

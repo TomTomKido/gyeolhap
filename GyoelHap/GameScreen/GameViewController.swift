@@ -35,8 +35,6 @@ class GameViewController: UIViewController {
     var safeArea: UILayoutGuide?
     var successViewLeadingToSafeAreaLeading: NSLayoutConstraint?
     var successViewLeadingToSafeAreaTrailing: NSLayoutConstraint?
-    
-    private var adManager = RewardedAdManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +52,7 @@ class GameViewController: UIViewController {
     }
     
     private func adManagerSetUp() {
-        adManager.delegate = self
+        RewardedAdManager.shared.delegate = self
     }
     
     private func setUpGyeolHintOutline() {
@@ -93,7 +91,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func hintButtonTapped(_ sender: Any) {
-        adManager.displayAds { [weak self] in
+        RewardedAdManager.shared.displayAds { [weak self] in
             self?.giveHint()
         }
     }
@@ -110,7 +108,7 @@ class GameViewController: UIViewController {
         //결 성공
         self.timer?.invalidate()
         
-        if item.record >= deciSeconds {
+        if item.record >= deciSeconds || item.record == -1 {
             item.solve(secondString: timeString(time: TimeInterval(deciSeconds)), second: deciSeconds)
         }
         
@@ -129,7 +127,7 @@ class GameViewController: UIViewController {
             guard let self else { return }
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "retry", stageNumber: currentItem.stageId)
 
-            self.adManager.displayAds { [weak self] in
+            RewardedAdManager.shared.displayAds { [weak self] in
                 guard let self else { return }
                 self.uncoverSuccessView()
                 self.deciSeconds = 0
@@ -182,8 +180,35 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func tapBack(_ sender: UIButton) {
+        guard let item = currentItem else { return }
+        if item.isSolved == .unsolved {
+            showFailWarning()
+        } else {
+            goBack()
+        }
+    }
+    
+    private func goBack() {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
         self.navigationController?.popViewController(animated: true)
+    }
+        
+    private func showFailWarning() {
+        let alert = UIAlertController(title: nil, message: "스테이지를 포기하시겠습니까? 나중에 다시 재도전하실 수 있습니다.", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "포기", style: .default, handler: { [weak self] _ in
+            self?.failThisStage()
+        })
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func failThisStage() {
+        guard let item = currentItem else { return }
+        item.fail()
+        goBack()
     }
     
     // MARK: Give Hint

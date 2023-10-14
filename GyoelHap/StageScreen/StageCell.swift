@@ -21,12 +21,16 @@ class StageCell: UITableViewCell {
     
     func updateUI(_ item: StageRealm) {
         stageName.text = String("Stage \(item.stageId)")
-        if item.isSolved {
+        switch item.isSolved {
+        case .solved:
             completeFlag.text = "✔️ "
             record.text = item.recordString
-        } else {
+        case .unsolved:
             completeFlag.text = ""
             record.text = ""
+        case .failed:
+            completeFlag.text = ""
+            record.text = "재도전"
         }
     }
 }
