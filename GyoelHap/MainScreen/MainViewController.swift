@@ -36,6 +36,14 @@ class MainViewController: UIViewController {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "howToButton")
     }
     
+    @IBAction func cloudBackupButtonTapped(_ sender: Any) {
+        let cloudBackupStoryboard = UIStoryboard.init(name: "CloudBackup", bundle: nil)
+        guard let cloudBackupVC = cloudBackupStoryboard.instantiateViewController(identifier: "CloudBackupVC") as? CloudBackupViewController else { return }
+        self.navigationController?.pushViewController(cloudBackupVC, animated: true)
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "cloudBackupButton")
+    }
+    
+    
     @IBAction func EXIT(_ sender: UIButton) {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "exit")
         exit(0)
