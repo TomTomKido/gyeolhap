@@ -18,8 +18,8 @@ class CloudBackupViewController: UIViewController {
         super.viewDidLoad()
         
         settingsData = [
-            ("icloud.and.arrow.up", "클라우드에 데이터 백업하기", { [weak self] in self?.backupToCloud() }),
-            ("icloud.and.arrow.down", "클라우드 데이터 가져오기", { [weak self] in self?.bringCloudData() })
+            ("icloud.and.arrow.up", "클라우드에 데이터 백업하기", { [weak self] in self?.backupToCloudTapped() }),
+            ("icloud.and.arrow.down", "클라우드 데이터 가져오기", { [weak self] in self?.bringCloudDataTapped() })
         ]
     }
     
@@ -28,12 +28,26 @@ class CloudBackupViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func backupToCloud() {
-        cloudManager.backupToCloud()
+    func backupToCloudTapped() {
+        let alert = UIAlertController(title: nil, message: "클라우드의 데이터ㄹ 현재 데이터로 교체합니다. 백업하시겠습니까?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "백업하기", style: .default) { [weak self] _ in
+            self?.cloudManager.backupToCloud()
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
-    func bringCloudData() {
-        cloudManager.bringCloudData()
+    func bringCloudDataTapped() {
+        let alert = UIAlertController(title: nil, message: "현재 데이터를 클라우드 데이터로 교체합니다. 클라우드 데이터를 가져오시겠습니까?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "가져오기", style: .default) { [weak self] _ in
+            self?.cloudManager.bringCloudData()
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }
 
@@ -59,5 +73,6 @@ extension CloudBackupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         settingsData[indexPath.row].action()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
