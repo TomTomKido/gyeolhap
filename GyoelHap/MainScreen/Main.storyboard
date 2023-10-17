@@ -52,11 +52,11 @@
                                             <action selector="goToHowToScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="0iv-mV-HV6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tg-ML-L2A" userLabel="Cloud Backup Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tg-ML-L2A" userLabel="Settings Button">
                                         <rect key="frame" x="0.0" y="167.66666666666669" width="290" height="75.666666666666686"/>
-                                        <state key="normal" image="main_Cloud"/>
+                                        <state key="normal" image="main_Settings"/>
                                         <connections>
-                                            <action selector="cloudBackupButtonTapped:" destination="seM-vK-YOU" eventType="touchUpInside" id="pw2-mc-y7W"/>
+                                            <action selector="settingsButtonTapped:" destination="seM-vK-YOU" eventType="touchUpInside" id="kD5-lK-CCJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exc-Jn-soU">
@@ -98,10 +98,10 @@
     </scenes>
     <resources>
         <image name="main_BG" width="375" height="667"/>
-        <image name="main_Cloud" width="292" height="83.333335876464844"/>
         <image name="main_EXITButton" width="292" height="93.333335876464844"/>
         <image name="main_HowtoPlayButton" width="292" height="83.333335876464844"/>
         <image name="main_PlayButton" width="292" height="83.333335876464844"/>
+        <image name="main_Settings" width="292" height="83.333335876464844"/>
         <image name="main_logo" width="69" height="64"/>
         <image name="main_title" width="124" height="65"/>
         <systemColor name="systemBackgroundColor">

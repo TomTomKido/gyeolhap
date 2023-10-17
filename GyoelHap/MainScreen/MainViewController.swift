@@ -36,11 +36,11 @@ class MainViewController: UIViewController {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "howToButton")
     }
     
-    @IBAction func cloudBackupButtonTapped(_ sender: Any) {
-        let cloudBackupStoryboard = UIStoryboard.init(name: "CloudBackup", bundle: nil)
-        guard let cloudBackupVC = cloudBackupStoryboard.instantiateViewController(identifier: "CloudBackupVC") as? CloudBackupViewController else { return }
-        self.navigationController?.pushViewController(cloudBackupVC, animated: true)
-        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "cloudBackupButton")
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        let settingsStoryboard = UIStoryboard.init(name: "Settings", bundle: nil)
+        guard let settingsVC = settingsStoryboard.instantiateViewController(identifier: "SettingsVC") as? SettingsViewController else { return }
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "settingsButton")
     }
     
     

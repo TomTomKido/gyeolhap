@@ -39,9 +39,9 @@
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
 		D47156722AB1F7A3008A9D19 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */; };
 		D4D466142ADACE6C005265F7 /* CloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D466132ADACE6C005265F7 /* CloudManager.swift */; };
-		D4D466172ADBECF1005265F7 /* CloudBackup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D466162ADBECF0005265F7 /* CloudBackup.storyboard */; };
-		D4D4661B2ADBED17005265F7 /* CloudBackupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D4661A2ADBED17005265F7 /* CloudBackupViewController.swift */; };
+		D4D4661B2ADBED17005265F7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D4661A2ADBED17005265F7 /* SettingsViewController.swift */; };
 		D4D4661D2ADC01B3005265F7 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D4661C2ADC01B3005265F7 /* SettingsTableViewCell.swift */; };
+		D4D466212ADE4CE7005265F7 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D466202ADE4CE7005265F7 /* Settings.storyboard */; };
 		D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660592A9CD06D00730B6D /* LogManager.swift */; };
 		D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */; };
 		D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */; };
@@ -78,9 +78,9 @@
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
 		D4D466132ADACE6C005265F7 /* CloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
-		D4D466162ADBECF0005265F7 /* CloudBackup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CloudBackup.storyboard; sourceTree = "<group>"; };
-		D4D4661A2ADBED17005265F7 /* CloudBackupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudBackupViewController.swift; sourceTree = "<group>"; };
+		D4D4661A2ADBED17005265F7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D4D4661C2ADC01B3005265F7 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		D4D466202ADE4CE7005265F7 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		D4D660592A9CD06D00730B6D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		D4D6605E2A9F1C4000730B6D /* GyeolHap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GyeolHap.entitlements; sourceTree = "<group>"; };
 		D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCarouselCell.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				4E6F68FB26007C760085FC49 /* fonts */,
 				CEBFAC2F25F8A65100964898 /* MainScreen */,
 				4E7CD62F25FB36FC0075F7FC /* HowToScreen */,
-				D4D466152ADBECD8005265F7 /* CloudBackupScreen */,
+				D4D466152ADBECD8005265F7 /* SettingsScreen */,
 				CEDCC5F325D772E6008D8044 /* StageScreen */,
 				CEEBB84425D3A55F00CFFAF4 /* GameScreen */,
 				CEEBB84325D3A55600CFFAF4 /* Stage */,
@@ -218,14 +218,14 @@
 			path = GameScreen;
 			sourceTree = "<group>";
 		};
-		D4D466152ADBECD8005265F7 /* CloudBackupScreen */ = {
+		D4D466152ADBECD8005265F7 /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				D4D466162ADBECF0005265F7 /* CloudBackup.storyboard */,
-				D4D4661A2ADBED17005265F7 /* CloudBackupViewController.swift */,
+				D4D4661A2ADBED17005265F7 /* SettingsViewController.swift */,
+				D4D466202ADE4CE7005265F7 /* Settings.storyboard */,
 				D4D4661C2ADC01B3005265F7 /* SettingsTableViewCell.swift */,
 			);
-			path = CloudBackupScreen;
+			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
 		D4D6605B2A9F1B9B00730B6D /* Utility */ = {
@@ -319,8 +319,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */,
-				D4D466172ADBECF1005265F7 /* CloudBackup.storyboard in Resources */,
 				CEBFAC2D25F8A64A00964898 /* Main.storyboard in Resources */,
+				D4D466212ADE4CE7005265F7 /* Settings.storyboard in Resources */,
 				4EC2E39125FCB7A800AFCF85 /* HowTo.storyboard in Resources */,
 				4E6F68F826007C670085FC49 /* GmarketSansBold.otf in Resources */,
 				CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */,
@@ -400,7 +400,7 @@
 				CE34260725DA8DB700E2A62B /* GameManager.swift in Sources */,
 				CEBFAC2A25F8A63D00964898 /* MainViewController.swift in Sources */,
 				D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */,
-				D4D4661B2ADBED17005265F7 /* CloudBackupViewController.swift in Sources */,
+				D4D4661B2ADBED17005265F7 /* SettingsViewController.swift in Sources */,
 				D47156722AB1F7A3008A9D19 /* LeaderboardManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

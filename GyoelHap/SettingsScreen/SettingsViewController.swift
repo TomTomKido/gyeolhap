@@ -1,5 +1,5 @@
 //
-//  CloudBackupViewController.swift
+//  SettingsViewController.swift
 //  GyeolHap
 //
 //  Created by JeongAh Hong on 2023/10/15.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class CloudBackupViewController: UIViewController {
+class SettingsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    let screenName = "cloudBackup"
+    let screenName = "settings"
     var settingsData: [(iconName: String, text: String, action: () -> Void)] = []
     let cloudManager = CloudManager()
     
@@ -51,13 +51,13 @@ class CloudBackupViewController: UIViewController {
     }
 }
 
-extension CloudBackupViewController: UITableViewDelegate {
+extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         settingsData.count
     }
 }
 
-extension CloudBackupViewController: UITableViewDataSource {
+extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as? SettingsTableViewCell else {
             return UITableViewCell()

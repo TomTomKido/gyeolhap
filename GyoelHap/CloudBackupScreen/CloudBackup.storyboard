@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Cloud Backup View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="CloudBackupVC" id="Y6W-OH-hqX" customClass="CloudBackupViewController" customModule="GyeolHap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="GyeolHap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,20 +58,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" id="j4q-TZ-bqI" customClass="SettingsTableViewCell" customModule="GyeolHap" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="28.333333969116211"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="28"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j4q-TZ-bqI" id="uCH-np-WSb">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="28.333333969116211"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="28"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JrT-g4-3Z3">
-                                                    <rect key="frame" x="10" y="10" width="8.3333333333333357" height="8.3333333333333357"/>
+                                                    <rect key="frame" x="10" y="10" width="8" height="8"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="JrT-g4-3Z3" secondAttribute="height" multiplier="1:1" id="JtU-uR-Iwh"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAy-hK-qQv">
-                                                    <rect key="frame" x="28.333333333333332" y="0.0" width="54.333333333333343" height="28.333333333333332"/>
+                                                    <rect key="frame" x="28.000000000000004" y="0.0" width="54.333333333333343" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
