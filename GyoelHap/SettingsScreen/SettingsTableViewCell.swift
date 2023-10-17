@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var settingsLabel: UILabel!
 
     override func awakeFromNib() {
@@ -24,8 +24,13 @@ class SettingsTableViewCell: UITableViewCell {
     }
 
     func configure(text: String, iconName: String) {
-        icon.image = UIImage(systemName: iconName)
-        icon.tintColor = .black
+        iconImageView.image = UIImage(systemName: iconName)
+        iconImageView.tintColor = .black
         settingsLabel.text = text
+    }
+    
+    override func prepareForReuse() {
+        iconImageView.image = nil
+        settingsLabel.text = ""
     }
 }

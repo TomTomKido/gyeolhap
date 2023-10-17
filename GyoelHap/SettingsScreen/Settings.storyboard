@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="GyeolHap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,6 +25,46 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u6W-dy-3Gt">
                                 <rect key="frame" x="0.0" y="124.66666666666669" width="393" height="693.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingsCell" rowHeight="60" id="U1D-qs-KSw" customClass="SettingsTableViewCell" customModule="GyeolHap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U1D-qs-KSw" id="5YD-XH-T8s">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iIh-ej-JJz">
+                                                    <rect key="frame" x="10" y="5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="iIh-ej-JJz" secondAttribute="height" multiplier="1:1" id="iyU-O0-6sI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2Z-eQ-jis">
+                                                    <rect key="frame" x="70" y="16" width="42" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="iIh-ej-JJz" secondAttribute="bottom" constant="5" id="3u7-Wf-2ne"/>
+                                                <constraint firstItem="X2Z-eQ-jis" firstAttribute="top" secondItem="5YD-XH-T8s" secondAttribute="topMargin" constant="5" id="6m2-7y-v9x"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="X2Z-eQ-jis" secondAttribute="bottom" constant="5" id="cyc-bf-kAO"/>
+                                                <constraint firstItem="iIh-ej-JJz" firstAttribute="leading" secondItem="5YD-XH-T8s" secondAttribute="leading" constant="10" id="ftd-nN-sPB"/>
+                                                <constraint firstItem="X2Z-eQ-jis" firstAttribute="leading" secondItem="iIh-ej-JJz" secondAttribute="trailing" constant="10" id="heJ-O1-wUv"/>
+                                                <constraint firstItem="iIh-ej-JJz" firstAttribute="top" secondItem="5YD-XH-T8s" secondAttribute="top" constant="5" id="kQE-33-H25"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="iIh-ej-JJz" id="SqN-H2-FQB"/>
+                                            <outlet property="settingsLabel" destination="X2Z-eQ-jis" id="9ND-Zc-daF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="arl-cf-02Z"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="Kpu-je-y9u"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o8C-G3-p96" userLabel="NavigationBar">
                                 <rect key="frame" x="0.0" y="59.000000000000007" width="393" height="65.666666666666686"/>
@@ -35,6 +75,9 @@
                                             <constraint firstAttribute="width" secondItem="H9N-KO-j69" secondAttribute="height" multiplier="1:1" id="1oA-Xq-ttV"/>
                                         </constraints>
                                         <state key="normal" image="back_button"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dM3-5K-pny"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="설정화면" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xsr-c0-yQ8">
                                         <rect key="frame" x="138.66666666666666" y="19" width="115.66666666666666" height="26.666666666666671"/>
@@ -67,6 +110,9 @@
                             <constraint firstItem="o8C-G3-p96" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yje-H4-V7X"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="u6W-dy-3Gt" id="j27-OB-l3d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

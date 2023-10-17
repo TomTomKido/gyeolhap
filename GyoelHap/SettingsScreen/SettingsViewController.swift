@@ -29,20 +29,17 @@ class SettingsViewController: UIViewController {
     }
     
     func backupToCloudTapped() {
-        let alert = UIAlertController(title: nil, message: "클라우드의 데이터ㄹ 현재 데이터로 교체합니다. 백업하시겠습니까?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "백업하기", style: .default) { [weak self] _ in
-            self?.cloudManager.backupToCloud()
-        }
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        alert.addAction(cancelAction)
-        alert.addAction(okAction)
-        present(alert, animated: true)
+        showAlert(message: "클라우드의 데이터에 현재 데이터를 덮어씌웁니다. 백업하시겠습니까?", okActionMessage: "백업하기")
     }
     
     func bringCloudDataTapped() {
-        let alert = UIAlertController(title: nil, message: "현재 데이터를 클라우드 데이터로 교체합니다. 클라우드 데이터를 가져오시겠습니까?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "가져오기", style: .default) { [weak self] _ in
-            self?.cloudManager.bringCloudData()
+        showAlert(message: "현재 데이터에 클라우드 데이터를 덮어씌웁니다. 클라우드 데이터를 가져오시겠습니까?", okActionMessage: "가져오기")
+    }
+    
+    private func showAlert(message: String, okActionMessage: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okActionMessage, style: .default) { [weak self] _ in
+            self?.cloudManager.backupToCloud()
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel)
         alert.addAction(cancelAction)
