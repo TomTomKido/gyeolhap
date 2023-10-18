@@ -110,6 +110,7 @@ class GameViewController: UIViewController {
         
         if item.record >= deciSeconds || item.record == -1 {
             item.solve(secondString: timeString(time: TimeInterval(deciSeconds)), second: deciSeconds)
+            CloudManager.shared.updateToiCloud()
         }
         
         
@@ -218,6 +219,7 @@ class GameViewController: UIViewController {
     private func failThisStage() {
         guard let item = currentItem else { return }
         item.fail()
+        CloudManager.shared.updateToiCloud()
         goBack()
     }
     
