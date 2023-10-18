@@ -39,28 +39,21 @@
                                 <rect key="frame" x="62" y="407.66666666666674" width="290" height="327.33333333333326"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoU-lf-fWK">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="103.66666666666667"/>
                                         <state key="normal" image="main_PlayButton"/>
                                         <connections>
                                             <action selector="goToStageScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="5Ym-zE-fzD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxg-YW-eCo">
-                                        <rect key="frame" x="0.0" y="84" width="290" height="75.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="111.66666666666669" width="290" height="104"/>
                                         <state key="normal" image="main_HowtoPlayButton"/>
                                         <connections>
                                             <action selector="goToHowToScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="0iv-mV-HV6"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tg-ML-L2A" userLabel="Settings Button">
-                                        <rect key="frame" x="0.0" y="167.66666666666669" width="290" height="75.666666666666686"/>
-                                        <state key="normal" image="main_Settings"/>
-                                        <connections>
-                                            <action selector="settingsButtonTapped:" destination="seM-vK-YOU" eventType="touchUpInside" id="kD5-lK-CCJ"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exc-Jn-soU">
-                                        <rect key="frame" x="0.0" y="251.33333333333331" width="290" height="76"/>
+                                        <rect key="frame" x="0.0" y="223.66666666666666" width="290" height="103.66666666666666"/>
                                         <state key="normal" image="main_EXITButton"/>
                                         <connections>
                                             <action selector="EXIT:" destination="seM-vK-YOU" eventType="touchUpInside" id="16L-6M-r71"/>
@@ -101,7 +94,6 @@
         <image name="main_EXITButton" width="292" height="93.333335876464844"/>
         <image name="main_HowtoPlayButton" width="292" height="83.333335876464844"/>
         <image name="main_PlayButton" width="292" height="83.333335876464844"/>
-        <image name="main_Settings" width="292" height="83.333335876464844"/>
         <image name="main_logo" width="69" height="64"/>
         <image name="main_title" width="124" height="65"/>
         <systemColor name="systemBackgroundColor">
