@@ -21,12 +21,23 @@ class StageCell: UITableViewCell {
     
     func updateUI(_ item: StageRealm) {
         stageName.text = String("Stage \(item.stageId)")
-        if item.isSolved {
+        switch item.isSolved {
+        case .solved:
             completeFlag.text = "✔️ "
             record.text = item.recordString
-        } else {
+        case .unsolved:
             completeFlag.text = ""
             record.text = ""
+        case .failed:
+            completeFlag.text = ""
+            record.text = "↻"
+            record.font = .systemFont(ofSize: 30)
         }
+    }
+    
+    override func prepareForReuse() {
+        record.font = .systemFont(ofSize: 22)
+        record.text = ""
+        completeFlag.text = ""
     }
 }

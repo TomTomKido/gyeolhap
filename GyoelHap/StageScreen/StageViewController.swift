@@ -64,7 +64,7 @@ class StageViewController: UIViewController {
     
     private func updateSolvedProblemCountLabel() {
         let solvedProblem = self.items?.reduce(0, { previous, item  in
-            if item.isSolved == true {
+            if item.isSolved == .solved {
                 return previous + 1
             }
             return previous
@@ -73,7 +73,7 @@ class StageViewController: UIViewController {
     
     private func scrollToFirstNotSolvedIndex() {
         //첫번째로 안 푼 문제를 찾아서 거기까지 스크롤 해줌
-        guard let firstNotSolvedIndex = self.items?.firstIndex(where: { !$0.isSolved }) else { return }
+        guard let firstNotSolvedIndex = self.items?.firstIndex(where: { $0.isSolved == .unsolved }) else { return }
         //        print("첫번째로 안푼 문제: ", firstNotSolvedIndex)
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: firstNotSolvedIndex, section: 0)
@@ -101,6 +101,8 @@ class StageViewController: UIViewController {
             }
         }
         setUpScoreViewLabel()
+        
+        RewardedAdManager.shared.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -179,10 +181,19 @@ extension StageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //        print(indexPath.row)
         guard let item = items?[indexPath.row] else { return }
-        LogManager.sendStageClickLog(screenName: screenName, buttonName: "play", stageNumber: indexPath.row)
-        //        print(item.stageId)
-        pushGameVC(item)
+        if item.isSolved == .solved || item.isSolved == .failed {
+            RewardedAdManager.shared.displayAds { [weak self] in
+                self?.presentGameScreen(index: indexPath.row, item: item)
+            }
+        } else {
+            presentGameScreen(index: indexPath.row, item: item)
+        }
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    private func presentGameScreen(index: Int, item: StageRealm) {
+        LogManager.sendStageClickLog(screenName: screenName, buttonName: "play", stageNumber: index)
+        pushGameVC(item)
     }
     
     func pushGameVC(_ item: StageRealm) {

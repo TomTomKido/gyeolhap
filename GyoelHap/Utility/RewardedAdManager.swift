@@ -9,11 +9,12 @@ import Foundation
 import GoogleMobileAds
 
 class RewardedAdManager: NSObject {
+    static let shared = RewardedAdManager()
     private var adID: String = ""
 //    private var interstitial: GADInterstitialAd?
     private var ad: GADRewardedAd?
     
-    weak var delegate: GameViewController?
+    weak var delegate: UIViewController?
     
     override init() {
         super.init()

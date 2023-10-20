@@ -1087,6 +1087,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         LogManager.sendAppFinishLog(screenName: lastScreenName ?? "unknown")
+        NSUbiquitousKeyValueStore.default.synchronize()
     }
 }
 
