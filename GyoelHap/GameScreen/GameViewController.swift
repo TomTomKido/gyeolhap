@@ -128,30 +128,35 @@ class GameViewController: UIViewController {
             guard let self else { return }
             LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "retry", stageNumber: currentItem.stageId)
 
-            RewardedAdManager.shared.displayAds { [weak self] in
-                guard let self else { return }
-                self.uncoverSuccessView()
-                self.deciSeconds = 0
-                self.start()
-                self.initiateGameSetup()
-                self.upperCollectionView.reloadData()
-                self.lowerCollectionView.reloadData()
+            AlertManager.showAlert(at: self, message: "광고 시청 후 재시도 가능합니다. 시청하시겠습니까?", okActionMessage: "광고 보기") {
+                RewardedAdManager.shared.displayAds { [weak self] in
+                    guard let self else { return }
+                    self.uncoverSuccessView()
+                    self.deciSeconds = 0
+                    self.start()
+                    self.initiateGameSetup()
+                    self.upperCollectionView.reloadData()
+                    self.lowerCollectionView.reloadData()
+                }
             }
         }
         successView.nextTapHandler = { [weak self] in
             guard let self else { return }
             guard let item = self.currentItem else { return }
             let stageID = item.stageId
-            let nextStageID = stageID
             let items = StageRealm.all()
-            self.currentItem = items[nextStageID]
-            guard let nextItem = self.currentItem else { return }
+            
+            let nextStageID = stageID
+            let nextItem = items[nextStageID]
             
             if nextItem.isSolved == .unsolved {
                 self.moveToStage(item: nextItem)
             } else {
-                RewardedAdManager.shared.displayAds {
-                    self.moveToStage(item: nextItem)
+                AlertManager.showAlert(at: self, message: "다음 스테이지 재시도는 광고 시청 후 가능합니다. 시청하시겠습니까?", okActionMessage: "광고 보기") {
+                    self.currentItem = nextItem
+                    RewardedAdManager.shared.displayAds {
+                        self.moveToStage(item: nextItem)
+                    }
                 }
             }
         }
@@ -193,7 +198,9 @@ class GameViewController: UIViewController {
     @IBAction func tapBack(_ sender: UIButton) {
         guard let item = currentItem else { return }
         if item.isSolved == .unsolved {
-            showFailWarning()
+            AlertManager.showAlert(at: self, message: "스테이지를 포기하시겠습니까? 나중에 다시 재도전하실 수 있습니다.", okActionMessage: "포기") { [weak self] in
+                self?.failThisStage()
+            }
         } else {
             goBack()
         }
@@ -202,18 +209,6 @@ class GameViewController: UIViewController {
     private func goBack() {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "back")
         self.navigationController?.popViewController(animated: true)
-    }
-        
-    private func showFailWarning() {
-        let alert = UIAlertController(title: nil, message: "스테이지를 포기하시겠습니까? 나중에 다시 재도전하실 수 있습니다.", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "포기", style: .default, handler: { [weak self] _ in
-            self?.failThisStage()
-        })
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
     }
     
     private func failThisStage() {

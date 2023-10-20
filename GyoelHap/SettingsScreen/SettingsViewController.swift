@@ -28,26 +28,15 @@ class SettingsViewController: UIViewController {
     }
     
     func backupToCloudTapped() {
-        showAlert(message: "클라우드의 데이터에 현재 데이터를 덮어씌웁니다. 백업하시겠습니까?", okActionMessage: "백업하기") {
+        AlertManager.showAlert(at: self, message: "클라우드의 데이터에 현재 데이터를 덮어씌웁니다. 백업하시겠습니까?", okActionMessage: "백업하기") {
             ()
         }
     }
     
     func bringCloudDataTapped() {
-        showAlert(message: "현재 데이터에 클라우드 데이터를 덮어씌웁니다. 클라우드 데이터를 가져오시겠습니까?", okActionMessage: "가져오기") {
+        AlertManager.showAlert(at: self, message: "현재 데이터에 클라우드 데이터를 덮어씌웁니다. 클라우드 데이터를 가져오시겠습니까?", okActionMessage: "가져오기") {
             ()
         }
-    }
-    
-    private func showAlert(message: String, okActionMessage: String, okHanlder: @escaping () -> Void) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: okActionMessage, style: .default) { [weak self] _ in
-            okHanlder()
-        }
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
-        alert.addAction(cancelAction)
-        alert.addAction(okAction)
-        present(alert, animated: true)
     }
 }
 

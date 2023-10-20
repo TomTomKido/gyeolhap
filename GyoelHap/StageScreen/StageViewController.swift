@@ -154,9 +154,6 @@ class StageViewController: UIViewController {
     @IBAction func lowerScoreButtonTouched(_ sender: Any) {
         gameCenterManager.presentLeaderboard(of: .playTime, on: self)
     }
-    
-    
-    
 }
 
 // MARK: TableView Delegate
@@ -182,8 +179,10 @@ extension StageViewController: UITableViewDelegate {
         //        print(indexPath.row)
         guard let item = items?[indexPath.row] else { return }
         if item.isSolved == .solved || item.isSolved == .failed {
-            RewardedAdManager.shared.displayAds { [weak self] in
-                self?.presentGameScreen(index: indexPath.row, item: item)
+            AlertManager.showAlert(at: self, message: "광고 시청 후 재시도 가능합니다. 시청하시겠습니까?", okActionMessage: "광고 보기") {
+                RewardedAdManager.shared.displayAds { [weak self] in
+                    self?.presentGameScreen(index: indexPath.row, item: item)
+                }
             }
         } else {
             presentGameScreen(index: indexPath.row, item: item)
