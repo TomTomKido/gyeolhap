@@ -191,7 +191,7 @@ extension StageViewController: UITableViewDelegate {
     }
     
     private func presentGameScreen(index: Int, item: StageRealm) {
-        LogManager.sendStageClickLog(screenName: screenName, buttonName: "play", stageNumber: index)
+        LogManager.sendClickLog(screenName: screenName, buttonName: "play", stageNumber: index)
         pushGameVC(item)
     }
     

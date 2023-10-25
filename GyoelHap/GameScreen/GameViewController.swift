@@ -125,7 +125,7 @@ class GameViewController: UIViewController {
         }
         successView.retryTapHandler = { [weak self] in
             guard let self else { return }
-            LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "retry", stageNumber: currentItem.stageId)
+            LogManager.sendClickLog(screenName: self.screenName, buttonName: "retry", stageNumber: currentItem.stageId)
 
             AlertManager.showAlert(at: self, message: "광고 시청 후 재시도 가능합니다. 시청하시겠습니까?", okActionMessage: "광고 보기") {
                 RewardedAdManager.shared.displayAds { [weak self] in
@@ -172,7 +172,7 @@ class GameViewController: UIViewController {
         initiateGameSetup()
         upperCollectionView.reloadData()
         lowerCollectionView.reloadData()
-        LogManager.sendStageClickLog(screenName: self.screenName, buttonName: "next", stageNumber: item.stageId)
+        LogManager.sendClickLog(screenName: self.screenName, buttonName: "next", stageNumber: item.stageId)
     }
     
     private func submitScores() {

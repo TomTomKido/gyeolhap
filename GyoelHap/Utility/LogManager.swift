@@ -17,12 +17,19 @@ struct LogManager {
         ])
     }
     
-    static func sendStageClickLog(screenName: String, buttonName: String, stageNumber: Int) {
-        Analytics.logEvent("stage_click", parameters: [
-          "screenName": screenName,
-          "click_target": "\(buttonName)_button",
-          "stage_number": stageNumber
-        ])
+    static func sendClickLog(screenName: String, buttonName: String, stageNumber: Int? = nil) {
+        if let stageNumber {
+            Analytics.logEvent("click", parameters: [
+              "screen_name": screenName,
+              "click_target": "\(buttonName)_button",
+              "stage_number": stageNumber
+            ])
+        } else {
+            Analytics.logEvent("click", parameters: [
+                "screenName": screenName,
+                "click_target": "\(buttonName)_button"
+            ])
+        }
     }
     
     static func sendScreenLog(screenName: String) {
