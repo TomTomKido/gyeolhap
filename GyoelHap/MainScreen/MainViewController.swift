@@ -6,22 +6,45 @@
 //
 
 import UIKit
+import SnapKit
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var howToPlayButton: UIButton!
     @IBOutlet weak var EXITButton: UIButton!
     
     private var screenName = "main"
-
+    private lazy var versionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "version loding"
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 15)
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         LogManager.sendScreenLog(screenName: screenName)
-
-        // Do any additional setup after loading the view.
+        view.addSubview(versionLabel)
+        setAutoLayout()
+        setVersionLabel()
     }
-
+    
+    private func setAutoLayout() {
+        versionLabel.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-10)
+            make.leading.equalToSuperview().offset(10)
+        }
+    }
+    
+    private func setVersionLabel() {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+           let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+            versionLabel.text = "Version \(version) (\(build))"
+        }
+    }
+    
     @IBAction func goToStageScreen(_ sender: UIButton) {
         let stageStoryboard = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let stageVC = stageStoryboard.instantiateViewController(identifier: "StageVC") as? StageViewController else { return }

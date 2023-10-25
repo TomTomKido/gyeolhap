@@ -51,12 +51,16 @@ PODS:
   - Realm/Headers (10.7.1)
   - RealmSwift (10.7.1):
     - Realm (= 10.7.1)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - RealmSwift (= 10.7.1)
+  - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SnapKit
   trunk:
     - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
@@ -76,7 +80,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   Realm: 55bae3a2f42186360b54fd8783e884ae8656ab05
   RealmSwift: 0d9bb38ad2cb953fc61d6827be5611972a75ca31
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: c80c745f300a76d1bc17ab908af6dad97fa4238f
+PODFILE CHECKSUM: 9f6b356cd973fac30d0641698810c87356b94f51
 
 COCOAPODS: 1.11.2
