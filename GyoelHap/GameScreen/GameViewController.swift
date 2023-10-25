@@ -149,6 +149,7 @@ class GameViewController: UIViewController {
             let nextItem = items[nextStageID]
             
             if nextItem.isSolved == .unsolved {
+                self.currentItem = nextItem
                 self.moveToStage(item: nextItem)
             } else {
                 AlertManager.showAlert(at: self, message: "다음 스테이지 재시도는 광고 시청 후 가능합니다. 시청하시겠습니까?", okActionMessage: "광고 보기") {
