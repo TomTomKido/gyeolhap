@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var howToPlayButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var EXITButton: UIButton!
     
     private var screenName = "main"
@@ -34,6 +35,13 @@ class MainViewController: UIViewController {
         guard let howToVC = howToStoryboard.instantiateViewController(identifier: "HowToVC") as? HowToViewController else { return }
         self.navigationController?.pushViewController(howToVC, animated: true)
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "howToButton")
+    }
+    
+    @IBAction func goToSettingsScreen(_ sender: Any) {
+        let howToStoryboard = UIStoryboard.init(name: "Settings", bundle: nil)
+        guard let howToVC = howToStoryboard.instantiateViewController(identifier: "SettingsVC") as? SettingsViewController else { return }
+        self.navigationController?.pushViewController(howToVC, animated: true)
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "settingsButton")
     }
     
     @IBAction func EXIT(_ sender: UIButton) {
