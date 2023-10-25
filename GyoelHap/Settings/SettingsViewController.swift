@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     }
     
     func backupToCloudTapped() {
-        AlertManager.showAlert(at: self, message: "클라우드의 데이터ㄹ 현재 데이터로 교체합니다. 백업하시겠습니까?", okActionMessage: "백업하기") { [weak self] in
+        AlertManager.showAlert(at: self, message: "클라우드의 데이터를 현재 데이터로 교체합니다. 백업하시겠습니까?", okActionMessage: "백업하기") { [weak self] in
             self?.cloudManager.backupToCloud()
         }
     }
