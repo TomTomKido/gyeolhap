@@ -9,11 +9,6 @@ import UIKit
 import SnapKit
 
 class MainViewController: UIViewController {
-    
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var howToPlayButton: UIButton!
-    @IBOutlet weak var EXITButton: UIButton!
-    
     private var screenName = "main"
     private lazy var versionLabel: UILabel = {
         let label = UILabel()
@@ -45,18 +40,15 @@ class MainViewController: UIViewController {
         }
     }
     
+    @IBAction func goToEasyMode(_ sender: Any) {
+        print("esay o/x")
+    }
+    
     @IBAction func goToStageScreen(_ sender: UIButton) {
         let stageStoryboard = UIStoryboard.init(name: "Stage", bundle: nil)
         guard let stageVC = stageStoryboard.instantiateViewController(identifier: "StageVC") as? StageViewController else { return }
         self.navigationController?.pushViewController(stageVC, animated: true)
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "playButton")
-    }
-    
-    @IBAction func goToHowToScreen(_ sender: UIButton) {
-        let howToStoryboard = UIStoryboard.init(name: "HowTo", bundle: nil)
-        guard let howToVC = howToStoryboard.instantiateViewController(identifier: "HowToVC") as? HowToViewController else { return }
-        self.navigationController?.pushViewController(howToVC, animated: true)
-        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "howToButton")
     }
     
     @IBAction func EXIT(_ sender: UIButton) {
