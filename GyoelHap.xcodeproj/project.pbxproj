@@ -39,6 +39,10 @@
 		D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */; };
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
 		D47156722AB1F7A3008A9D19 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */; };
+		D4C8B5452AED47290057497C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5442AED47290057497C /* Settings.storyboard */; };
+		D4C8B5482AED473F0057497C /* SettingsButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5472AED473F0057497C /* SettingsButton.xib */; };
+		D4C8B54A2AED47C00057497C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C8B5492AED47C00057497C /* SettingsViewController.swift */; };
+		D4C8B54C2AED47D20057497C /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C8B54B2AED47D20057497C /* SettingsTableViewCell.swift */; };
 		D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660592A9CD06D00730B6D /* LogManager.swift */; };
 		D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */; };
 		D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */; };
@@ -75,6 +79,10 @@
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
+		D4C8B5442AED47290057497C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		D4C8B5472AED473F0057497C /* SettingsButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsButton.xib; sourceTree = "<group>"; };
+		D4C8B5492AED47C00057497C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D4C8B54B2AED47D20057497C /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		D4D660592A9CD06D00730B6D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		D4D6605E2A9F1C4000730B6D /* GyeolHap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GyeolHap.entitlements; sourceTree = "<group>"; };
 		D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCarouselCell.swift; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 		CE20A6992590DC0C00F47DC8 /* GyoelHap */ = {
 			isa = PBXGroup;
 			children = (
+				D4C8B5462AED472F0057497C /* SettingsScreen */,
 				D4D6605B2A9F1B9B00730B6D /* Utility */,
 				4E6F68FB26007C760085FC49 /* fonts */,
 				CEBFAC2F25F8A65100964898 /* MainScreen */,
@@ -209,6 +218,17 @@
 				CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */,
 			);
 			path = GameScreen;
+			sourceTree = "<group>";
+		};
+		D4C8B5462AED472F0057497C /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D4C8B5442AED47290057497C /* Settings.storyboard */,
+				D4C8B5472AED473F0057497C /* SettingsButton.xib */,
+				D4C8B5492AED47C00057497C /* SettingsViewController.swift */,
+				D4C8B54B2AED47D20057497C /* SettingsTableViewCell.swift */,
+			);
+			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
 		D4D6605B2A9F1B9B00730B6D /* Utility */ = {
@@ -302,8 +322,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */,
+				D4C8B5452AED47290057497C /* Settings.storyboard in Resources */,
 				CEBFAC2D25F8A64A00964898 /* Main.storyboard in Resources */,
 				4EC2E39125FCB7A800AFCF85 /* HowTo.storyboard in Resources */,
+				D4C8B5482AED473F0057497C /* SettingsButton.xib in Resources */,
 				4E6F68F826007C670085FC49 /* GmarketSansBold.otf in Resources */,
 				CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */,
 				4E6F68F726007C670085FC49 /* GmarketSansLight.otf in Resources */,
@@ -366,6 +388,7 @@
 				D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */,
 				4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */,
 				D4D660682A9FAC0900730B6D /* RootViewController.swift in Sources */,
+				D4C8B54A2AED47C00057497C /* SettingsViewController.swift in Sources */,
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
 				D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */,
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
@@ -373,6 +396,7 @@
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
 				CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
+				D4C8B54C2AED47D20057497C /* SettingsTableViewCell.swift in Sources */,
 				D41101CD2AE203CF00D70BC5 /* AlertManager.swift in Sources */,
 				CEA6A8B525F3661D00BA6195 /* StageRealm.swift in Sources */,
 				CEBFAC3625F8EEC300964898 /* StageViewController.swift in Sources */,
