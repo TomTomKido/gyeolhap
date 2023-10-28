@@ -91,8 +91,10 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func hintButtonTapped(_ sender: Any) {
-        RewardedAdManager.shared.displayAds { [weak self] in
-            self?.giveHint()
+        AlertManager.showAlert(at: self, message: "힌트 얻기는 광고 시청 후 가능합니다. 시청하시겠습니까?", okActionMessage: "광고 보기") {
+            RewardedAdManager.shared.displayAds { [weak self] in
+                self?.giveHint()
+            }
         }
     }
     
