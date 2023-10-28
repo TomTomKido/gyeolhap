@@ -198,8 +198,13 @@ class GameViewController: UIViewController {
     @IBAction func tapBack(_ sender: UIButton) {
         guard let item = currentItem else { return }
         if item.isSolved == .unsolved {
-            AlertManager.showAlert(at: self, message: "스테이지를 포기하시겠습니까? 나중에 다시 재도전하실 수 있습니다.", okActionMessage: "포기") { [weak self] in
-                self?.failThisStage()
+            AlertManager.showAlert(at: self, message: "스테이지를 포기하시겠습니까? 나중에 다시 재도전하실 수 있습니다.\n(10초 이내에는 포기 기록이 남지 않습니다.)", okActionMessage: "포기") { [weak self] in
+                guard let deciSeconds = self?.deciSeconds else {    return }
+                if deciSeconds <= 100 {
+                    self?.goBack()
+                } else {
+                    self?.failThisStage()
+                }
             }
         } else {
             goBack()
