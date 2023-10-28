@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         FirebaseConfiguration.shared.setLoggerLevel(.min)
         LogManager.sendAppLaunchLog()
+        CloudManager.shared.updateToiCloud()
         return true
     }
 

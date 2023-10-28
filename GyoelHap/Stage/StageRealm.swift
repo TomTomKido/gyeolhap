@@ -15,8 +15,8 @@ class StageRealm: Object {
     
     @objc enum SolvedStatus: Int, RealmEnum {
         case unsolved = 0
-        case solved
         case failed
+        case solved
     }
     
     @objc dynamic var id = UUID().uuidString

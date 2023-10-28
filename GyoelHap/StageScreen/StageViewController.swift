@@ -114,14 +114,6 @@ class StageViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func timeString(time:TimeInterval) -> String {
-        let newTime = time / 10
-        let hours = Int(newTime) / 3600
-        let minutes = Int(newTime) / 60 % 60
-        let seconds = Int(newTime) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
-    }
-    
     //MARK: 스코어 뷰 세팅
     private func setUpScoreViewLabel() {
         
@@ -130,7 +122,7 @@ class StageViewController: UIViewController {
         upperScoreInfoView.text = "클리어 스테이지: \(clearStageNumber) / \(allStageNumber) | ??등"
         
         let averageClearTimeDouble = StageRealm.getAverageClearTimeData() ?? 0
-        let averageClearTimeString = timeString(time: TimeInterval(Int(averageClearTimeDouble)))
+        let averageClearTimeString = averageClearTimeDouble.timeString()
         lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString) | ??등"
         
         Task {

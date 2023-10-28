@@ -37,6 +37,7 @@
 		D439C34E2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D439C34D2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */; };
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
+		D459C4ED2ADFACDF00B2ECFD /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D459C4EC2ADFACDF00B2ECFD /* Int+Extension.swift */; };
 		D47156722AB1F7A3008A9D19 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */; };
 		D4D466142ADACE6C005265F7 /* CloudManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D466132ADACE6C005265F7 /* CloudManager.swift */; };
 		D4D4661B2ADBED17005265F7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D4661A2ADBED17005265F7 /* SettingsViewController.swift */; };
@@ -76,6 +77,7 @@
 		D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAdManager.swift; sourceTree = "<group>"; };
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D459C4EC2ADFACDF00B2ECFD /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
 		D4D466132ADACE6C005265F7 /* CloudManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudManager.swift; sourceTree = "<group>"; };
 		D4D4661A2ADBED17005265F7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */,
 				D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */,
 				D4D466132ADACE6C005265F7 /* CloudManager.swift */,
+				D459C4EC2ADFACDF00B2ECFD /* Int+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */,
+				D459C4ED2ADFACDF00B2ECFD /* Int+Extension.swift in Sources */,
 				4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */,
 				D4D660682A9FAC0900730B6D /* RootViewController.swift in Sources */,
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
@@ -543,7 +547,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GyeolHap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5D5SG6DZA9;
 				INFOPLIST_FILE = GyoelHap/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
@@ -551,7 +555,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taelee.GyeolHapTomKido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -567,7 +571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GyeolHap.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 5D5SG6DZA9;
 				INFOPLIST_FILE = GyoelHap/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
@@ -575,7 +579,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taelee.GyeolHapTomKido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

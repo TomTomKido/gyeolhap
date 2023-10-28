@@ -109,7 +109,7 @@ class GameViewController: UIViewController {
         self.timer?.invalidate()
         
         if item.record >= deciSeconds || item.record == -1 {
-            item.solve(secondString: timeString(time: TimeInterval(deciSeconds)), second: deciSeconds)
+            item.solve(secondString: deciSeconds.timeString(), second: deciSeconds)
             CloudManager.shared.updateToiCloud()
         }
         
@@ -117,7 +117,7 @@ class GameViewController: UIViewController {
         guard let successView = self.SuccessView as? SuccessView, let currentItem else {
             return
         }
-        successView.timeRecord.text = timeString(time: TimeInterval(deciSeconds))
+        successView.timeRecord.text = deciSeconds.timeString()
         successView.oldBestTimeRecord.text = item.recordString
         successView.menuTapHandler = { [weak self] in
             guard let self else { return }
@@ -259,15 +259,7 @@ extension GameViewController {
 
     @objc func updateTimer() {
         deciSeconds += 1
-        self.timerLabel.text = timeString(time: TimeInterval(deciSeconds))
-    }
-
-    func timeString(time:TimeInterval) -> String {
-        let newTime = time / 10
-        let hours = Int(newTime) / 3600
-        let minutes = Int(newTime) / 60 % 60
-        let seconds = Int(newTime) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+        self.timerLabel.text = deciSeconds.timeString()
     }
 
     func showSeconds(second: Int) {
