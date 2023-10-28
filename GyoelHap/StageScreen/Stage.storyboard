@@ -39,7 +39,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOV-pc-Ash">
-                                                    <rect key="frame" x="335" y="29.5" width="59" height="26.5"/>
+                                                    <rect key="frame" x="335" y="29.5" width="59" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feI-tp-EyC">
-                                <rect key="frame" x="15" y="73.5" width="16" height="22"/>
+                                <rect key="frame" x="15" y="71" width="16" height="22"/>
                                 <state key="normal">
                                     <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="large"/>
                                 </state>
@@ -156,6 +156,18 @@
                                     <constraint firstAttribute="height" constant="1" id="0ga-Ee-mVO"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XjK-BI-wRY" userLabel="Settings Button">
+                                <rect key="frame" x="353" y="65" width="51" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XjK-BI-wRY" secondAttribute="height" multiplier="3:2" id="job-fg-gwj"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="gearshape.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="e1s-1z-3oZ" eventType="touchUpInside" id="0ja-tU-xbh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9qs-Rf-c5v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -166,12 +178,14 @@
                             <constraint firstItem="ssW-gH-Z39" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" id="Kkw-Iz-0sQ"/>
                             <constraint firstItem="olm-rS-qSQ" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" id="Nej-fq-ay2"/>
                             <constraint firstItem="OJg-qj-bOK" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" id="Npg-eJ-CF0"/>
+                            <constraint firstItem="9qs-Rf-c5v" firstAttribute="trailing" secondItem="XjK-BI-wRY" secondAttribute="trailing" constant="10" id="SS4-el-B8i"/>
                             <constraint firstAttribute="trailing" secondItem="rMy-NM-zFr" secondAttribute="trailing" id="SaX-ob-Hs8"/>
                             <constraint firstItem="feI-tp-EyC" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" constant="15" id="Une-En-8wg"/>
                             <constraint firstItem="olm-rS-qSQ" firstAttribute="top" secondItem="OJg-qj-bOK" secondAttribute="bottom" id="VGR-Md-4TA"/>
                             <constraint firstItem="swd-Nt-skj" firstAttribute="leading" secondItem="9qs-Rf-c5v" secondAttribute="leading" id="VGs-9r-TJe"/>
                             <constraint firstItem="swd-Nt-skj" firstAttribute="top" secondItem="olm-rS-qSQ" secondAttribute="bottom" id="bZ9-YZ-whg"/>
-                            <constraint firstItem="feI-tp-EyC" firstAttribute="bottom" secondItem="uX9-L7-pA0" secondAttribute="bottom" id="duX-4H-pO2"/>
+                            <constraint firstItem="feI-tp-EyC" firstAttribute="centerY" secondItem="uX9-L7-pA0" secondAttribute="centerY" id="c0H-h9-Did"/>
+                            <constraint firstItem="XjK-BI-wRY" firstAttribute="centerY" secondItem="uX9-L7-pA0" secondAttribute="centerY" id="c9v-j2-qgZ"/>
                             <constraint firstItem="swd-Nt-skj" firstAttribute="trailing" secondItem="9qs-Rf-c5v" secondAttribute="trailing" id="fSW-SV-Nq5"/>
                             <constraint firstItem="OJg-qj-bOK" firstAttribute="trailing" secondItem="9qs-Rf-c5v" secondAttribute="trailing" id="fhN-ab-jHs"/>
                             <constraint firstItem="9qs-Rf-c5v" firstAttribute="trailing" secondItem="olm-rS-qSQ" secondAttribute="trailing" id="g5x-vY-Pf6"/>
@@ -181,6 +195,7 @@
                             <constraint firstItem="rMy-NM-zFr" firstAttribute="leading" secondItem="lRq-cB-34j" secondAttribute="leading" id="lFh-IJ-BRy"/>
                             <constraint firstItem="OJg-qj-bOK" firstAttribute="top" secondItem="uX9-L7-pA0" secondAttribute="bottom" constant="20" id="qWu-j1-QCX"/>
                             <constraint firstItem="rMy-NM-zFr" firstAttribute="top" secondItem="swd-Nt-skj" secondAttribute="bottom" id="sAD-dR-lFB"/>
+                            <constraint firstItem="XjK-BI-wRY" firstAttribute="height" secondItem="uX9-L7-pA0" secondAttribute="height" multiplier="1.23636" id="wgI-5m-YJ1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="C6I-zD-oNL"/>
@@ -188,6 +203,7 @@
                         <outlet property="backButton" destination="feI-tp-EyC" id="531-yV-r3B"/>
                         <outlet property="lowerScoreInfoView" destination="zs2-OC-7FG" id="MWN-I2-zA1"/>
                         <outlet property="lowerScoreView" destination="swd-Nt-skj" id="ooO-Ez-TeJ"/>
+                        <outlet property="settingsButton" destination="XjK-BI-wRY" id="yzG-GK-vXa"/>
                         <outlet property="stageSelectLabel" destination="uX9-L7-pA0" id="u0c-ro-7FI"/>
                         <outlet property="tableView" destination="ssW-gH-Z39" id="6E1-Yi-2pM"/>
                         <outlet property="tableViewBottomAnchor" destination="hxn-qL-dvL" id="e8l-Ga-Wy0"/>
@@ -202,6 +218,7 @@
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="trophy.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

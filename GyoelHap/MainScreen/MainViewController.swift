@@ -63,4 +63,8 @@ class MainViewController: UIViewController {
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "exit")
         exit(0)
     }
+    
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+    }
 }

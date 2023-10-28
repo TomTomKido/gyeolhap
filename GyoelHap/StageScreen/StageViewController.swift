@@ -154,6 +154,9 @@ class StageViewController: UIViewController {
     @IBAction func lowerScoreButtonTouched(_ sender: Any) {
         gameCenterManager.presentLeaderboard(of: .playTime, on: self)
     }
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+    }
 }
 
 // MARK: TableView Delegate
