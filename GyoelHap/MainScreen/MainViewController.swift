@@ -66,5 +66,9 @@ class MainViewController: UIViewController {
     
     
     @IBAction func settingsButtonTapped(_ sender: Any) {
+        let howToStoryboard = UIStoryboard.init(name: "Settings", bundle: nil)
+        guard let howToVC = howToStoryboard.instantiateViewController(identifier: "SettingsVC") as? SettingsViewController else { return }
+        self.navigationController?.pushViewController(howToVC, animated: true)
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "settingsButton")
     }
 }
