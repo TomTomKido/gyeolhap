@@ -11,6 +11,7 @@ class EasyOXGameViewController: UIViewController {
     @IBOutlet weak var gameTitle: UILabel!
     @IBOutlet weak var timerFillView: UIView!
     @IBOutlet weak var timerBackgroundView: UIView!
+    @IBOutlet weak var timerTimeLabel: UILabel!
     
     @IBOutlet weak var tile1: UIImageView!
     @IBOutlet weak var tile2: UIImageView!
@@ -32,14 +33,17 @@ class EasyOXGameViewController: UIViewController {
     }
         
     @objc func updateTimer() {
+        timerTimeLabel.text = Int(ceil(totalTime - currentTime)).description
+        
         currentTime += 0.01
-        let percentage = currentTime / totalTime
+        let percentage = 0.01 / totalTime
 
-        timerFillViewWidth.constant = timerBackgroundView.frame.width * CGFloat(percentage)
-        view.layoutIfNeeded()  // To refresh the layout immediately
+        timerFillViewWidth.constant -= timerBackgroundView.frame.width * CGFloat(percentage)
+        view.layoutIfNeeded()
         
         if currentTime >= totalTime {
             timer?.invalidate()
+            timerTimeLabel.text = "0"
         }
     }
     
