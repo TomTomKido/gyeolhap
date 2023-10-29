@@ -40,6 +40,8 @@
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
 		D44FBBC22AEE12B400E25B26 /* EasyOX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */; };
 		D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */; };
+		D44FBBCC2AEE1A7F00E25B26 /* EasyOXGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */; };
+		D44FBBCE2AEE1A8800E25B26 /* EasyOXGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */; };
 		D47156722AB1F7A3008A9D19 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */; };
 		D4C8B5452AED47290057497C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5442AED47290057497C /* Settings.storyboard */; };
 		D4C8B5482AED473F0057497C /* SettingsButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5472AED473F0057497C /* SettingsButton.xib */; };
@@ -82,6 +84,8 @@
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EasyOX.storyboard; sourceTree = "<group>"; };
 		D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOXViewController.swift; sourceTree = "<group>"; };
+		D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EasyOXGame.storyboard; sourceTree = "<group>"; };
+		D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOXGameViewController.swift; sourceTree = "<group>"; };
 		D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
 		D4C8B5442AED47290057497C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		D4C8B5472AED473F0057497C /* SettingsButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsButton.xib; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		CE20A6992590DC0C00F47DC8 /* GyoelHap */ = {
 			isa = PBXGroup;
 			children = (
+				D44FBBCA2AEE1A7500E25B26 /* EasyOXGameScreen */,
 				D44FBBC02AEE12A800E25B26 /* EsayOXScreen */,
 				D4C8B5462AED472F0057497C /* SettingsScreen */,
 				D4D6605B2A9F1B9B00730B6D /* Utility */,
@@ -232,6 +237,15 @@
 				D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */,
 			);
 			path = EsayOXScreen;
+			sourceTree = "<group>";
+		};
+		D44FBBCA2AEE1A7500E25B26 /* EasyOXGameScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */,
+				D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */,
+			);
+			path = EasyOXGameScreen;
 			sourceTree = "<group>";
 		};
 		D4C8B5462AED472F0057497C /* SettingsScreen */ = {
@@ -348,6 +362,7 @@
 				D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */,
 				CEDCC5F025D76F2F008D8044 /* Stage.storyboard in Resources */,
 				CE20A6A42590DC0F00F47DC8 /* Assets.xcassets in Resources */,
+				D44FBBCC2AEE1A7F00E25B26 /* EasyOXGame.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +418,7 @@
 				D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */,
 				4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */,
 				D4D660682A9FAC0900730B6D /* RootViewController.swift in Sources */,
+				D44FBBCE2AEE1A8800E25B26 /* EasyOXGameViewController.swift in Sources */,
 				D4C8B54A2AED47C00057497C /* SettingsViewController.swift in Sources */,
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
 				D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */,
