@@ -38,6 +38,8 @@
 		D439C34E2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D439C34D2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */; };
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
+		D44FBBC22AEE12B400E25B26 /* EasyOX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */; };
+		D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */; };
 		D47156722AB1F7A3008A9D19 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */; };
 		D4C8B5452AED47290057497C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5442AED47290057497C /* Settings.storyboard */; };
 		D4C8B5482AED473F0057497C /* SettingsButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5472AED473F0057497C /* SettingsButton.xib */; };
@@ -78,6 +80,8 @@
 		D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAdManager.swift; sourceTree = "<group>"; };
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EasyOX.storyboard; sourceTree = "<group>"; };
+		D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOXViewController.swift; sourceTree = "<group>"; };
 		D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
 		D4C8B5442AED47290057497C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		D4C8B5472AED473F0057497C /* SettingsButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsButton.xib; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 		CE20A6992590DC0C00F47DC8 /* GyoelHap */ = {
 			isa = PBXGroup;
 			children = (
+				D44FBBC02AEE12A800E25B26 /* EsayOXScreen */,
 				D4C8B5462AED472F0057497C /* SettingsScreen */,
 				D4D6605B2A9F1B9B00730B6D /* Utility */,
 				4E6F68FB26007C760085FC49 /* fonts */,
@@ -218,6 +223,15 @@
 				CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */,
 			);
 			path = GameScreen;
+			sourceTree = "<group>";
+		};
+		D44FBBC02AEE12A800E25B26 /* EsayOXScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */,
+				D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */,
+			);
+			path = EsayOXScreen;
 			sourceTree = "<group>";
 		};
 		D4C8B5462AED472F0057497C /* SettingsScreen */ = {
@@ -328,6 +342,7 @@
 				D4C8B5482AED473F0057497C /* SettingsButton.xib in Resources */,
 				4E6F68F826007C670085FC49 /* GmarketSansBold.otf in Resources */,
 				CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */,
+				D44FBBC22AEE12B400E25B26 /* EasyOX.storyboard in Resources */,
 				4E6F68F726007C670085FC49 /* GmarketSansLight.otf in Resources */,
 				4E6F68F926007C670085FC49 /* GmarketSansMedium.otf in Resources */,
 				D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */,
@@ -394,6 +409,7 @@
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
 				D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
+				D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */,
 				CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
 				D4C8B54C2AED47D20057497C /* SettingsTableViewCell.swift in Sources */,
