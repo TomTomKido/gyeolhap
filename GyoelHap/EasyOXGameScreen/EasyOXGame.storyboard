@@ -195,7 +195,6 @@
                         <outlet property="tile3" destination="i5h-Sd-MfD" id="E0v-fq-GHZ"/>
                         <outlet property="timerBackgroundView" destination="15V-lJ-BMh" id="mIb-mL-Qg8"/>
                         <outlet property="timerFillView" destination="jE2-Ma-nu6" id="tcJ-0a-MoE"/>
-                        <outlet property="ㅇㅇ" destination="y93-8t-JLd" id="xzo-eQ-gTw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
