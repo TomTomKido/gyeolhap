@@ -15,14 +15,33 @@ class EasyOXGameViewController: UIViewController {
     @IBOutlet weak var tile1: UIImageView!
     @IBOutlet weak var tile2: UIImageView!
     @IBOutlet weak var tile3: UIImageView!
+    @IBOutlet weak var timerFillViewWidth: NSLayoutConstraint!
     
+    private var timer: Timer?
+    private var currentTime: TimeInterval = 0
+    private let totalTime: TimeInterval = 5
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        startTimer()
     }
-
     
+    func startTimer() {
+
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+        
+    @objc func updateTimer() {
+        currentTime += 0.01
+        let percentage = currentTime / totalTime
+
+        timerFillViewWidth.constant = timerBackgroundView.frame.width * CGFloat(percentage)
+        view.layoutIfNeeded()  // To refresh the layout immediately
+        
+        if currentTime >= totalTime {
+            timer?.invalidate()
+        }
+    }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)

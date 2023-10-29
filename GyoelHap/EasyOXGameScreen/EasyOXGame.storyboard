@@ -37,7 +37,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="n연승 성공" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-Sw-xT5">
-                                        <rect key="frame" x="132" y="13" width="129" height="40"/>
+                                        <rect key="frame" x="124.33333333333333" y="13" width="144.33333333333337" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6gt-AH-jfU"/>
                                         </constraints>
@@ -74,9 +74,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jE2-Ma-nu6" userLabel="TimerFillView">
-                                        <rect key="frame" x="50" y="29.999999999999986" width="123" height="10"/>
+                                        <rect key="frame" x="50" y="29.999999999999986" width="0.0" height="10"/>
                                         <color key="backgroundColor" name="purple2"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" id="Ljm-yP-z2L"/>
                                             <constraint firstAttribute="height" constant="10" id="zwJ-sF-Crf"/>
                                         </constraints>
                                     </view>
@@ -168,7 +169,6 @@
                                     <constraint firstItem="jE2-Ma-nu6" firstAttribute="top" secondItem="pQZ-kK-m4A" secondAttribute="top" constant="30" id="IAS-6z-Q5Z"/>
                                     <constraint firstAttribute="bottom" secondItem="FvY-v7-c4B" secondAttribute="bottom" constant="150" id="Ugw-H6-cma"/>
                                     <constraint firstItem="9c5-bZ-1n9" firstAttribute="centerX" secondItem="pQZ-kK-m4A" secondAttribute="centerX" id="YFB-ao-abF"/>
-                                    <constraint firstItem="15V-lJ-BMh" firstAttribute="leading" secondItem="jE2-Ma-nu6" secondAttribute="trailing" constant="-123" id="bcP-Qt-s7h"/>
                                     <constraint firstItem="FvY-v7-c4B" firstAttribute="centerX" secondItem="pQZ-kK-m4A" secondAttribute="centerX" id="fuf-tz-6xy"/>
                                     <constraint firstItem="15V-lJ-BMh" firstAttribute="centerX" secondItem="pQZ-kK-m4A" secondAttribute="centerX" id="lcP-P1-I3e"/>
                                     <constraint firstItem="9c5-bZ-1n9" firstAttribute="centerY" secondItem="pQZ-kK-m4A" secondAttribute="centerY" constant="-80" id="xZr-eX-Oak"/>
@@ -195,6 +195,7 @@
                         <outlet property="tile3" destination="i5h-Sd-MfD" id="E0v-fq-GHZ"/>
                         <outlet property="timerBackgroundView" destination="15V-lJ-BMh" id="mIb-mL-Qg8"/>
                         <outlet property="timerFillView" destination="jE2-Ma-nu6" id="tcJ-0a-MoE"/>
+                        <outlet property="timerFillViewWidth" destination="Ljm-yP-z2L" id="WBx-Gh-dWV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
