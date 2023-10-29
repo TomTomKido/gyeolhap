@@ -44,6 +44,16 @@ class GameViewController: UIViewController {
         setUpConstraints()
         setUpDelegates()
         initiateGameSetup()
+        
+        
+        //3개 randomNumber문제 내는 코드
+//        if let gameManagerResult = gameManager?.getOXQuestion() {
+//            let question = gameManagerResult.question
+//            let isHap = gameManagerResult.isHap
+//            print("question: \(question), isHap: \(isHap)")
+//        } else {
+//            print("GameManager or the result of getOXQuestion is nil")
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
