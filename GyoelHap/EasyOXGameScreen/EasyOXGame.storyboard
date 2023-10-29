@@ -67,14 +67,14 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15V-lJ-BMh" userLabel="TimerBackgroundView">
-                                        <rect key="frame" x="65.333333333333371" y="29.999999999999986" width="307.66666666666663" height="10"/>
+                                        <rect key="frame" x="65.333333333333343" y="29.999999999999986" width="297.66666666666663" height="10"/>
                                         <color key="backgroundColor" name="purple1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="Umh-3R-bYj"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jE2-Ma-nu6" userLabel="TimerFillView">
-                                        <rect key="frame" x="65.333333333333371" y="29.999999999999986" width="307.66666666666663" height="10"/>
+                                        <rect key="frame" x="65.333333333333343" y="29.999999999999986" width="297.66666666666663" height="10"/>
                                         <color key="backgroundColor" name="purple2"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="zwJ-sF-Crf"/>
@@ -178,7 +178,7 @@
                                     <constraint firstItem="15V-lJ-BMh" firstAttribute="leading" secondItem="BL1-5C-9aG" secondAttribute="trailing" constant="10" id="Y7n-K6-nkq"/>
                                     <constraint firstItem="9c5-bZ-1n9" firstAttribute="centerX" secondItem="pQZ-kK-m4A" secondAttribute="centerX" id="YFB-ao-abF"/>
                                     <constraint firstItem="FvY-v7-c4B" firstAttribute="centerX" secondItem="pQZ-kK-m4A" secondAttribute="centerX" id="fuf-tz-6xy"/>
-                                    <constraint firstAttribute="trailing" secondItem="15V-lJ-BMh" secondAttribute="trailing" constant="20" id="gLW-l7-x3w"/>
+                                    <constraint firstAttribute="trailing" secondItem="15V-lJ-BMh" secondAttribute="trailing" constant="30" id="gLW-l7-x3w"/>
                                     <constraint firstItem="9c5-bZ-1n9" firstAttribute="centerY" secondItem="pQZ-kK-m4A" secondAttribute="centerY" constant="-80" id="xZr-eX-Oak"/>
                                     <constraint firstItem="jE2-Ma-nu6" firstAttribute="width" secondItem="15V-lJ-BMh" secondAttribute="width" id="yna-Xi-6hp"/>
                                 </constraints>
