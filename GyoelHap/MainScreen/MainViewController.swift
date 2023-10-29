@@ -41,7 +41,10 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func goToEasyMode(_ sender: Any) {
-        print("esay o/x")
+        let stageStoryboard = UIStoryboard.init(name: "EasyOX", bundle: nil)
+        guard let stageVC = stageStoryboard.instantiateViewController(identifier: "EasyOXVC") as? EasyOXViewController else { return }
+        self.navigationController?.pushViewController(stageVC, animated: true)
+        LogManager.sendButtonClickLog(screenName: screenName, buttonName: "easyOXButton")
     }
     
     @IBAction func goToStageScreen(_ sender: UIButton) {
