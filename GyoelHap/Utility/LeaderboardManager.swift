@@ -11,6 +11,7 @@ import GameKit
 enum LeaderboardType {
     case clearStage
     case playTime
+    case oxWinStreak
     
     var leaderboardId: String {
         switch self {
@@ -19,6 +20,8 @@ enum LeaderboardType {
         case .playTime:
             return "com.taelee.GyeolHapTomKido.AveragePlayTime"
 //            return "com.taelee.GyeolHapTomKido.ClearPlayTime"
+        case .oxWinStreak:
+            return "com.taelee.GyeolHapTomKido.OXWinStreak"
         }
     }
 }
