@@ -28,6 +28,8 @@ class EasyOXGameViewController: UIViewController {
     private var answer: Bool = false
     private var currentStage: Int = -1
     
+    var delegate: OXGameScorePassDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -114,7 +116,9 @@ class EasyOXGameViewController: UIViewController {
     
     private func showAlert(message: String) {
         AlertManager.showAlert(at: self, message: message, leftMessage: "확인", lefttHanlder: { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            guard let self else { return }
+            self.delegate?.update(score: self.currentStage)
+            self.navigationController?.popViewController(animated: true)
         }, rightMessage: "한번더") { [weak self] in
             guard let self else { return }
             AlertManager.showAlert(at: self, message: "광고를 시청 후 연승게임을 이어 진행하시겠습니까?", okActionMessage: "확인") { [weak self] in
@@ -155,6 +159,7 @@ class EasyOXGameViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
+        delegate?.update(score: currentStage)
         navigationController?.popViewController(animated: true)
     }
     

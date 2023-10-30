@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import GameKit
 
 class EasyOXViewController: UIViewController {
 
     @IBOutlet weak var recordLabel: UILabel!
     private let screenName = "easyOX"
+    private let gameCenterManager = GameCenterManager()
+    private var bestScore = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,25 +21,17 @@ class EasyOXViewController: UIViewController {
     }
     
     private func setUpRecordLabel() {
-//        let clearStageNumber = StageRealm.getSolvedStageData()
-//        let allStageNumber = StageRealm.all().count
-//        upperScoreInfoView.text = "클리어 스테이지: \(clearStageNumber) / \(allStageNumber) | ??등"
-//
-//        let averageClearTimeDouble = StageRealm.getAverageClearTimeData() ?? 0
-//        let averageClearTimeString = timeString(time: TimeInterval(Int(averageClearTimeDouble)))
-//        lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString) | ??등"
-//
-//        Task {
-//            do {
-//                let (stageRank, _) = try await gameCenterManager.getRank(of: .clearStage)
-//                upperScoreInfoView.text = "클리어 스테이지: \(clearStageNumber) / \(allStageNumber) | \(stageRank)등"
-//
-//                let (playTimeRank, _) = try await gameCenterManager.getRank(of: .playTime)
-//                lowerScoreInfoView.text = "평균 클리어 시간: \(averageClearTimeString) | \(playTimeRank)등"
-//            } catch {
-//                print("Error: Failed to fetch rank from leaderboard")
-//            }
-//        }
+        let winStreakNumber = UserDefaults.standard.integer(forKey: "winStreak")
+        recordLabel.text = "연승게임: \(winStreakNumber)연승 | ??등 "
+
+        Task {
+            do {
+                let (streakRank, _) = try await gameCenterManager.getRank(of: .oxWinStreak)
+                recordLabel.text = "연승게임: \(winStreakNumber)연승 | \(streakRank)등"
+            } catch {
+                print("Error: Failed to fetch rank from leaderboard")
+            }
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -44,15 +39,36 @@ class EasyOXViewController: UIViewController {
     }
     
     @IBAction func leaderboardTapped(_ sender: Any) {
-//        gameCenterManager.presentLeaderboard(of: .oxquiz, on: self)
+        gameCenterManager.presentLeaderboard(of: .oxWinStreak, on: self)
     }
     
     
     @IBAction func startTapped(_ sender: Any) {
-        let howToStoryboard = UIStoryboard.init(name: "EasyOXGame", bundle: nil)
-        guard let howToVC = howToStoryboard.instantiateViewController(identifier: "EasyOXGameVC") as? EasyOXGameViewController else { return }
-        self.navigationController?.pushViewController(howToVC, animated: true)
+        let easyOXStoryboard = UIStoryboard.init(name: "EasyOXGame", bundle: nil)
+        guard let easyOXVC = easyOXStoryboard.instantiateViewController(identifier: "EasyOXGameVC") as? EasyOXGameViewController else { return }
+        easyOXVC.delegate = self
+        self.navigationController?.pushViewController(easyOXVC, animated: true)
         LogManager.sendButtonClickLog(screenName: screenName, buttonName: "easyOXGameButton")
     }
-    
+}
+
+extension EasyOXViewController: GKGameCenterControllerDelegate {
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension EasyOXViewController: OXGameScorePassDelegate {
+    func update(score: Int) {
+        if score > bestScore {
+            bestScore = score
+            UserDefaults.standard.set(bestScore, forKey: "winStreak")
+            gameCenterManager.submitScore(to: .oxWinStreak, score: bestScore)
+            setUpRecordLabel()
+        }
+    }
+}
+
+protocol OXGameScorePassDelegate {
+    func update(score: Int)
 }
