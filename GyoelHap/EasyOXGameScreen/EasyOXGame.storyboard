@@ -164,6 +164,18 @@
                                         <color key="textColor" name="purple1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correct_o_image" translatesAutoresizingMaskIntoConstraints="NO" id="cb8-br-Ak7" userLabel="correctImage">
+                                        <rect key="frame" x="39.333333333333343" y="109.33333333333334" width="314.33333333333326" height="314.66666666666663"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="cb8-br-Ak7" secondAttribute="height" multiplier="1:1" id="PjE-Ho-mhf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wrong_x_image" translatesAutoresizingMaskIntoConstraints="NO" id="v0q-wt-fQZ" userLabel="wrongImage">
+                                        <rect key="frame" x="39.333333333333343" y="109.33333333333334" width="314.33333333333326" height="314.66666666666663"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="v0q-wt-fQZ" secondAttribute="height" multiplier="1:1" id="INF-QD-ddM"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.13725490200000001" green="0.14901960780000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -171,8 +183,14 @@
                                     <constraint firstItem="p5w-m3-NpM" firstAttribute="trailing" secondItem="BL1-5C-9aG" secondAttribute="leading" constant="-5" id="3vO-j6-b0x"/>
                                     <constraint firstItem="p5w-m3-NpM" firstAttribute="centerY" secondItem="15V-lJ-BMh" secondAttribute="centerY" id="Bfa-r1-a9k"/>
                                     <constraint firstItem="15V-lJ-BMh" firstAttribute="top" secondItem="pQZ-kK-m4A" secondAttribute="top" constant="30" id="Bjw-Zi-2VM"/>
+                                    <constraint firstItem="v0q-wt-fQZ" firstAttribute="width" secondItem="cb8-br-Ak7" secondAttribute="width" id="D3t-We-EoU"/>
+                                    <constraint firstItem="cb8-br-Ak7" firstAttribute="width" secondItem="pQZ-kK-m4A" secondAttribute="width" multiplier="0.8" id="GkE-Ir-YQO"/>
+                                    <constraint firstItem="cb8-br-Ak7" firstAttribute="centerX" secondItem="pQZ-kK-m4A" secondAttribute="centerX" id="HXu-Xr-gx0"/>
                                     <constraint firstItem="jE2-Ma-nu6" firstAttribute="top" secondItem="pQZ-kK-m4A" secondAttribute="top" constant="30" id="IAS-6z-Q5Z"/>
                                     <constraint firstItem="jE2-Ma-nu6" firstAttribute="leading" secondItem="15V-lJ-BMh" secondAttribute="leading" id="MEZ-up-kzh"/>
+                                    <constraint firstItem="cb8-br-Ak7" firstAttribute="centerY" secondItem="pQZ-kK-m4A" secondAttribute="centerY" constant="-80" id="NnX-q8-IH2"/>
+                                    <constraint firstItem="v0q-wt-fQZ" firstAttribute="centerX" secondItem="pQZ-kK-m4A" secondAttribute="centerX" id="R1g-DF-W0U"/>
+                                    <constraint firstItem="v0q-wt-fQZ" firstAttribute="centerY" secondItem="pQZ-kK-m4A" secondAttribute="centerY" constant="-80" id="SkS-CA-C7q"/>
                                     <constraint firstAttribute="bottom" secondItem="FvY-v7-c4B" secondAttribute="bottom" constant="150" id="Ugw-H6-cma"/>
                                     <constraint firstItem="BL1-5C-9aG" firstAttribute="centerY" secondItem="15V-lJ-BMh" secondAttribute="centerY" id="VOF-yr-qNJ"/>
                                     <constraint firstItem="15V-lJ-BMh" firstAttribute="leading" secondItem="BL1-5C-9aG" secondAttribute="trailing" constant="10" id="Y7n-K6-nkq"/>
@@ -197,7 +215,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="gameTitle" destination="9EZ-Sw-xT5" id="VRt-tM-wAa"/>
+                        <outlet property="correctImage" destination="cb8-br-Ak7" id="LDj-Gk-zb9"/>
+                        <outlet property="gameTitle" destination="9EZ-Sw-xT5" id="DHG-d7-aoJ"/>
                         <outlet property="tile1" destination="bqE-kh-Gk5" id="70a-kQ-Hkh"/>
                         <outlet property="tile2" destination="ckI-dG-v7U" id="eTc-yl-gkS"/>
                         <outlet property="tile3" destination="i5h-Sd-MfD" id="E0v-fq-GHZ"/>
@@ -205,6 +224,7 @@
                         <outlet property="timerFillView" destination="jE2-Ma-nu6" id="tcJ-0a-MoE"/>
                         <outlet property="timerFillViewWidth" destination="yna-Xi-6hp" id="Hsi-LH-crK"/>
                         <outlet property="timerTimeLabel" destination="BL1-5C-9aG" id="Qwl-6H-T9b"/>
+                        <outlet property="wrongImage" destination="v0q-wt-fQZ" id="4uZ-QG-1rX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -215,6 +235,8 @@
     <resources>
         <image name="back_button" width="201" height="201"/>
         <image name="clock" catalog="system" width="128" height="123"/>
+        <image name="correct_o_image" width="448" height="448"/>
+        <image name="wrong_x_image" width="433.66665649414062" height="433.33334350585938"/>
         <namedColor name="purple1">
             <color red="0.79607843137254897" green="0.74901960784313726" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
