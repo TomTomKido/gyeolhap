@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMobileAds
 import GameKit
+import SnapKit
 
 
 class GameViewController: UIViewController {
@@ -311,9 +312,137 @@ extension GameViewController: UICollectionViewDataSource {
             cell.tapHandler = {
                 guard let manager = self.gameManager else { return }
                 manager.addToTryList(indexPath.item + 1)
-                if manager.checkHap() == false {
-                    self.deciSeconds += 100
-                    self.showSeconds(second: 10)
+                if manager.getTryList().count == 3 {
+                    switch manager.checkHap() {
+                    case .hap:
+                        break
+                    case .submittedAnswer:
+                        self.deciSeconds += 100
+                        self.showSeconds(second: 10)
+                        print("asdfasdf 제출된 정답입니다.")
+                        
+                    case .wrongAnswer:
+                        self.deciSeconds += 100
+                        self.showSeconds(second: 10)
+                        let hintArray = manager.hintArray
+                        let shapeHint = hintArray?.shape
+                        let bgColorHint = hintArray?.bgColor
+                        let colorHint = hintArray?.color
+                        print("shapeHint: ", shapeHint)
+                        print("bgColorHint: ", bgColorHint)
+                        print("colorHint: ", colorHint)
+
+                        DispatchQueue.main.async {
+                            
+                            let hintView = UIView()
+                            hintView.backgroundColor = .white
+                            hintView.layer.borderColor = UIColor(red: 175/255, green: 153/255, blue: 73/255, alpha: 1).cgColor
+                            hintView.layer.cornerRadius = 10
+                            hintView.layer.masksToBounds = true
+                            hintView.layer.borderWidth = 3
+                            self.view.addSubview(hintView)
+                            hintView.snp.makeConstraints { (make) in
+                                make.top.equalTo(self.upperCollectionView.snp.bottom).offset(10)
+                                make.bottom.equalToSuperview().offset(-10)
+                                make.leading.equalToSuperview().offset(20)
+                                make.trailing.equalToSuperview().offset(-20)
+                            }
+                            
+                            let shapeHintStackView = UIStackView()
+                            shapeHintStackView.axis = .horizontal
+                            shapeHintStackView.distribution = .fillEqually
+                            shapeHintStackView.spacing = 5
+                            guard let shapeHint = manager.hintArray?.shape else { return }
+                            for i in shapeHint {
+                                let imageView = UIImageView()
+                                //i want imageView keep its ratio 
+                                //so i set contentMode to .scaleAspectFit
+                                imageView.contentMode = .scaleAspectFit
+                                imageView.image = UIImage(named: "shape\(i)")
+                                shapeHintStackView.addArrangedSubview(imageView)
+                            }
+                            //add a UILabel in shapeHint StackView at the mote right
+                            //label text is "모양"
+                            let shapeHintLabel = UILabel()
+                            shapeHintLabel.text = "모양이 다 같거나 다르지 않습니다."
+                            shapeHintLabel.font = UIFont.boldSystemFont(ofSize: 20)
+                            shapeHintLabel.textAlignment = .center
+                            shapeHintLabel.textColor = .black
+                            shapeHintStackView.addArrangedSubview(shapeHintLabel)
+                            
+                            hintView.addSubview(shapeHintStackView)
+                            
+                            shapeHintStackView.snp.makeConstraints { (make) in
+                                make.top.equalToSuperview().offset(20)
+                                make.leading.equalToSuperview().offset(20)
+                                make.trailing.equalToSuperview().offset(-20)
+                                make.height.equalTo(40)
+                            }
+
+                            let bgColorHintStackView = UIStackView()
+                            bgColorHintStackView.axis = .horizontal
+                            bgColorHintStackView.distribution = .fillEqually
+                            bgColorHintStackView.spacing = 10
+                            guard let bgColorHint = manager.hintArray?.bgColor else { return }
+                            for i in bgColorHint {
+                                let imageView = UIImageView()
+                                imageView.image = UIImage(named: "bgColor\(i)")
+                                bgColorHintStackView.addArrangedSubview(imageView)
+                            }
+                            //add a UILabel in bgColorHint StackView at the mote right
+                            //label text is "배경색"
+                            let bgColorHintLabel = UILabel()
+                            bgColorHintLabel.text = "배경색이 다 같거나 다르지 않습니다."
+                            bgColorHintLabel.font = UIFont.boldSystemFont(ofSize: 20)
+                            bgColorHintLabel.textAlignment = .center
+                            bgColorHintLabel.textColor = .black
+                            bgColorHintStackView.addArrangedSubview(bgColorHintLabel)
+
+                            hintView.addSubview(bgColorHintStackView)
+
+                            bgColorHintStackView.snp.makeConstraints { (make) in
+                                make.top.equalTo(shapeHintStackView.snp.bottom).offset(20)
+                                make.leading.equalToSuperview().offset(20)
+                                make.trailing.equalToSuperview().offset(-20)
+                                make.height.equalTo(40)
+                            }
+
+                            let colorHintStackView = UIStackView()
+                            colorHintStackView.axis = .horizontal
+                            colorHintStackView.distribution = .fillEqually
+                            colorHintStackView.spacing = 10
+                            guard let colorHint = manager.hintArray?.color else { return }
+                            for i in colorHint {
+                                let imageView = UIImageView()
+                                imageView.image = UIImage(named: "color\(i)")
+                                colorHintStackView.addArrangedSubview(imageView)
+                            }
+                            //add a UILabel in colorHint StackView at the mote right
+                            //label text is "색"
+                            let colorHintLabel = UILabel()
+                            colorHintLabel.text = "색이 다 같거나 다르지 않습니다."
+                            colorHintLabel.font = UIFont.boldSystemFont(ofSize: 20)
+                            colorHintLabel.textAlignment = .center
+                            colorHintLabel.textColor = .black
+                            colorHintStackView.addArrangedSubview(colorHintLabel)
+
+                            hintView.addSubview(colorHintStackView)
+
+                            colorHintStackView.snp.makeConstraints { (make) in
+                                make.top.equalTo(bgColorHintStackView.snp.bottom).offset(20)
+                                make.leading.equalToSuperview().offset(20)
+                                make.trailing.equalToSuperview().offset(-20)
+                                make.height.equalTo(40)
+                            }
+
+
+
+
+                            
+                            
+                            
+                        }
+                    }
                 }
 //                manager.printTryList()
                 self.upperCollectionView.reloadData()

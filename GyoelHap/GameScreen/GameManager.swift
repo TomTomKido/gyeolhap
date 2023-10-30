@@ -8,6 +8,12 @@
 import Foundation
 import RealmSwift
 
+enum HapType {
+    case hap
+    case submittedAnswer
+    case wrongAnswer
+}
+
 class GameManager {
     
     private let stage:StageRealm
@@ -17,6 +23,8 @@ class GameManager {
     private(set) var currentHint: [Int] = []
     private var sortedRevealedAnswers: [[Int]] = []
     private var revealedHints: [[Int]] = []
+    
+    var hintArray: (shape: [Int], bgColor: [Int], color: [Int])?
     
     init(stage: StageRealm) {
         self.stage = stage
@@ -66,28 +74,74 @@ class GameManager {
         print("결 실패")
         return false
     }
+    
+    
 
-    func checkHap() -> (Bool) {
-        var isAnswer = false
+    func checkHap() -> HapType {
+        var isHap = HapType.wrongAnswer
         
-        if self.tryList.count < 3 {
-            return true
-        }
         if sortedRevealedAnswers.contains(tryList.sorted()) {
           print("제출했던 정답입니다.")
+            isHap = .submittedAnswer
         } else if answers.contains(tryList.sorted()) {
             print("정답입니다")
-            isAnswer = true
+//            isAnswer = true
             revealedAnswers.append(tryList)
             sortedRevealedAnswers.append(tryList.sorted())
             revealedHints.append(currentHint)
             currentHint = []
+            isHap = .hap
         } else {
+            //여기에 틀린답 정보 저장하기?
             print("오답입니다")
+            isHap = .wrongAnswer
+            print("제출한 정답: ", tryList)
+            getHintNumbers()
         }
         tryList = []
         print("밝혀진 정답은 \(revealedAnswers)")
-        return isAnswer
+        return isHap
+    }
+    
+    func getHintNumbers() {
+        if self.tryList.count < 3 {
+            return
+        }
+        let tryListSorted = self.tryList.sorted()
+        print("tryListSorted: ", tryListSorted)
+        print("arrayData: ", self.stage.getArrayData())
+        let number0 = self.stage.getArrayData()[tryListSorted[0] - 1]
+        let number1 = self.stage.getArrayData()[tryListSorted[1] - 1]
+        let number2 = self.stage.getArrayData()[tryListSorted[2] - 1]
+        
+        let tryAnswer = [number0, number1, number2]
+        
+        let shapeHint = getShapeHint(tryAnswer)
+        let bgColorHint = getBgColorHint(tryAnswer)
+        let colorHint = getColorHint(tryAnswer)
+        hintArray = (shapeHint, bgColorHint, colorHint)
+    }
+    private func getShapeHint(_ tryList: [Int]) -> [Int] {
+        let shapeHint = tryList.map { num in
+            return Int(floor(Double(num / 3))) % 3
+        }
+        return shapeHint
+    }
+
+    private func getBgColorHint(_ tryList: [Int]) -> [Int] {
+        //tryList에 있는 숫자들을 3으로 나눈 몫을 리턴
+        let bgColorHint = tryList.map { num in
+            return Int(floor(Double(num / 3)))
+        }
+        return bgColorHint
+    }
+
+    private func getColorHint(_ tryList: [Int]) -> [Int] {
+        //tryList에 있는 숫자들을 9으로 나눈 나머지를 리턴
+        let colorHint = tryList.map { num in
+            return num % 9
+        }
+        return colorHint
     }
     
     func isHint(index: Int) -> Bool {
