@@ -48,6 +48,10 @@ class EasyOXGameViewController: UIViewController {
             totalTime = 1
         }
         timerTimeLabel.text = String(format: "%.2f", totalTime)
+        if totalTime == 2 {
+            timerTimeLabel.textColor = UIColor.hotpink
+            timerFillView.backgroundColor = UIColor.hotpink
+        }
         
         setupQuestionTiles()
         startTimer()
