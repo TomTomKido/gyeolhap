@@ -72,6 +72,7 @@ class MainViewController: UIViewController {
     }
 }
 
+//MARK: notice from remote config
 extension MainViewController {
     private func fetchAndActivateRemoteConfig() {
         let remoteConfig = RemoteConfig.remoteConfig()
@@ -90,7 +91,6 @@ extension MainViewController {
         }
     }
     
-    
     private func displayNotice(remoteConfig: RemoteConfig) {
         guard let noticeJSONString = remoteConfig.configValue(forKey: "notice_message").stringValue,
               let noticeData = noticeJSONString.data(using: .utf8) else {
@@ -103,7 +103,9 @@ extension MainViewController {
             let notices = try decoder.decode(Notices.self, from: noticeData)
             if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
                let notice = notices[appVersion] {
-                showNotice(message: notice.message, shouldRepeat: notice.shouldRepeat)
+                if isAppUpdated() || notice.shouldRepeat {
+                    showNotice(message: notice.message)
+                }
             } else {
                 print("No notice available for this app version")
             }
@@ -112,7 +114,7 @@ extension MainViewController {
         }
     }
     
-    private func showNotice(message: String, shouldRepeat: Bool) {
+    private func showNotice(message: String) {
         DispatchQueue.main.async {
             let noticeView = UIView()
             noticeView.backgroundColor = .white
@@ -177,11 +179,26 @@ extension MainViewController {
                 make.bottom.equalToSuperview().offset(-20)
             }
         }
+        saveCurrentVersion()
+    }
+    
+    private func saveCurrentVersion() {
+        if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            UserDefaults.standard.set(appVersion, forKey: "AppVersion")
+        }
     }
     
     @objc
     private func closeButtonTapped(_ sender: UIButton) {
         sender.superview?.subviews.forEach{$0.removeFromSuperview()}
         sender.superview?.removeFromSuperview()
+    }
+    
+    //MARK: check current version is updated
+    private func isAppUpdated() -> Bool {
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let previousVersion = UserDefaults.standard.string(forKey: "AppVersion")
+        
+        return currentVersion != previousVersion
     }
 }
