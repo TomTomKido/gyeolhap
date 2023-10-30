@@ -31,6 +31,7 @@ class EasyOXGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        RewardedAdManager.shared.delegate = self
         initializeGame()
     }
     
@@ -52,6 +53,16 @@ class EasyOXGameViewController: UIViewController {
             timerTimeLabel.textColor = UIColor.hotpink
             timerFillView.backgroundColor = UIColor.hotpink
         }
+        
+        setupQuestionTiles()
+        startTimer()
+    }
+    
+    private func continueGame() {
+        timerTimeLabel.text = "5"
+        timerTimeLabel.alpha = 1
+        
+        currentTime = 0
         
         setupQuestionTiles()
         startTimer()
@@ -84,9 +95,7 @@ class EasyOXGameViewController: UIViewController {
         if let _ = timeover {
             showAnimation(isCorrect: false) { [weak self] in
                 guard let self else { return }
-                AlertManager.showAlert(at: self, message: "시간을 초과했습니다.\n\(self.currentStage)연승 성공!", okActionMessage: "확인") { [weak self] in
-                    self?.navigationController?.popViewController(animated: true)
-                }
+                self.showAlert(message: "시간을 초과했습니다.\n\(self.currentStage)연승 성공!")
             }
             return
         }
@@ -98,8 +107,19 @@ class EasyOXGameViewController: UIViewController {
         } else {
             showAnimation(isCorrect: false) { [weak self] in
                 guard let self else { return }
-                AlertManager.showAlert(at: self, message: "틀렸습니다.\n\(self.currentStage)연승 성공!", okActionMessage: "확인") { [weak self] in
-                    self?.navigationController?.popViewController(animated: true)
+                self.showAlert(message: "틀렸습니다.\n\(self.currentStage)연승 성공!")
+            }
+        }
+    }
+    
+    private func showAlert(message: String) {
+        AlertManager.showAlert(at: self, message: message, leftMessage: "확인", lefttHanlder: { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }, rightMessage: "한번더") { [weak self] in
+            guard let self else { return }
+            AlertManager.showAlert(at: self, message: "광고를 시청 후 연승게임을 이어 진행하시겠습니까?", okActionMessage: "확인") { [weak self] in
+                RewardedAdManager.shared.displayAds { [weak self] in
+                    self?.continueGame()
                 }
             }
         }
