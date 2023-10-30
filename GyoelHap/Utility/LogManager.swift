@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAnalytics
+import UIKit
 
 struct LogManager {
     static func sendButtonClickLog(screenName: String, buttonName: String) {
