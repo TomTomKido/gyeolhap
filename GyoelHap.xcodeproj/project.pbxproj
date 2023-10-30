@@ -38,6 +38,7 @@
 		D439C34E2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D439C34D2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */; };
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
+		D44FBBBF2AEDFA3500E25B26 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBBE2AEDFA3500E25B26 /* Color+Extension.swift */; };
 		D44FBBC22AEE12B400E25B26 /* EasyOX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */; };
 		D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */; };
 		D44FBBCC2AEE1A7F00E25B26 /* EasyOXGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */; };
@@ -83,6 +84,7 @@
 		D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAdManager.swift; sourceTree = "<group>"; };
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D44FBBBE2AEDFA3500E25B26 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EasyOX.storyboard; sourceTree = "<group>"; };
 		D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOXViewController.swift; sourceTree = "<group>"; };
 		D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EasyOXGame.storyboard; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */,
 				D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */,
 				D41101CC2AE203CF00D70BC5 /* AlertManager.swift */,
+				D44FBBBE2AEDFA3500E25B26 /* Color+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
 				D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
+				D44FBBBF2AEDFA3500E25B26 /* Color+Extension.swift in Sources */,
 				D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */,
 				D44FBBD02AEFBE8500E25B26 /* OXGameManager.swift in Sources */,
 				CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */,
