@@ -42,6 +42,7 @@
 		D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */; };
 		D44FBBCC2AEE1A7F00E25B26 /* EasyOXGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */; };
 		D44FBBCE2AEE1A8800E25B26 /* EasyOXGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */; };
+		D44FBBD02AEFBE8500E25B26 /* OXGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBCF2AEFBE8500E25B26 /* OXGameManager.swift */; };
 		D47156722AB1F7A3008A9D19 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */; };
 		D4C8B5452AED47290057497C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5442AED47290057497C /* Settings.storyboard */; };
 		D4C8B5482AED473F0057497C /* SettingsButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5472AED473F0057497C /* SettingsButton.xib */; };
@@ -86,6 +87,7 @@
 		D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOXViewController.swift; sourceTree = "<group>"; };
 		D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EasyOXGame.storyboard; sourceTree = "<group>"; };
 		D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOXGameViewController.swift; sourceTree = "<group>"; };
+		D44FBBCF2AEFBE8500E25B26 /* OXGameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OXGameManager.swift; sourceTree = "<group>"; };
 		D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
 		D4C8B5442AED47290057497C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		D4C8B5472AED473F0057497C /* SettingsButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsButton.xib; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */,
 				D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */,
+				D44FBBCF2AEFBE8500E25B26 /* OXGameManager.swift */,
 			);
 			path = EasyOXGameScreen;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
 				D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */,
+				D44FBBD02AEFBE8500E25B26 /* OXGameManager.swift in Sources */,
 				CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
 				D4C8B54C2AED47D20057497C /* SettingsTableViewCell.swift in Sources */,

@@ -21,14 +21,22 @@ class EasyOXGameViewController: UIViewController {
     private var timer: Timer?
     private var currentTime: TimeInterval = 0
     private let totalTime: TimeInterval = 5
+    private let gameManager = OXGameManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupQuestionTiles()
         startTimer()
     }
     
+    private func setupQuestionTiles() {
+//        tile1.image = UIImage(named: "tile1")
+//        tile2.image =
+        
+    }
+    
     func startTimer() {
-
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
         
