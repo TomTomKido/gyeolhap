@@ -23,7 +23,7 @@ class EasyOXGameViewController: UIViewController {
     
     private var timer: Timer?
     private var currentTime: TimeInterval = 0
-    private let totalTime: TimeInterval = 5
+    private var totalTime: TimeInterval = 5.05
     private let gameManager = OXGameManager()
     private var answer: Bool = false
     private var currentStage: Int = -1
@@ -42,6 +42,12 @@ class EasyOXGameViewController: UIViewController {
         timerTimeLabel.alpha = 1
         
         currentTime = 0
+        
+        totalTime -= 0.05
+        if totalTime <= 1 {
+            totalTime = 1
+        }
+        timerTimeLabel.text = String(format: "%.2f", totalTime)
         
         setupQuestionTiles()
         startTimer()
@@ -96,7 +102,7 @@ class EasyOXGameViewController: UIViewController {
     }
     
     private func showAnimation(isCorrect: Bool, completionHandler: @escaping () -> Void) {
-        UIView.animate(withDuration: 1, delay: 0) { [weak self] in
+        UIView.animate(withDuration: 0.5, delay: 0) { [weak self] in
             if isCorrect {
                 self?.correctImage.alpha = 1
             } else {
@@ -113,8 +119,6 @@ class EasyOXGameViewController: UIViewController {
     }
         
     @objc func updateTimer() {
-        timerTimeLabel.text = Int(ceil(totalTime - currentTime)).description
-        
         currentTime += 0.01
         let percentage = 0.01 / totalTime
 
