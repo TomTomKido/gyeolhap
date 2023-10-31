@@ -14,6 +14,20 @@ enum HapType {
     case wrongAnswer
 }
 
+struct HintInformation {
+    let shapeHintArray: [Int]
+    let bgColorHintArray: [Int]
+    let colorHintArray: [Int]
+    
+    let isShapeHap: Bool
+    let isBgColorHap: Bool
+    let isColorHap: Bool
+    
+    let shapeMessage: String
+    let bgColorMessage: String
+    let colorMessage: String
+}
+
 class GameManager {
     
     private let stage:StageRealm
@@ -23,8 +37,8 @@ class GameManager {
     private(set) var currentHint: [Int] = []
     private var sortedRevealedAnswers: [[Int]] = []
     private var revealedHints: [[Int]] = []
+    var hintInformation: HintInformation?
     
-    var hintArray: (shape: [Int], bgColor: [Int], color: [Int])?
     
     init(stage: StageRealm) {
         self.stage = stage
@@ -85,7 +99,6 @@ class GameManager {
             isHap = .submittedAnswer
         } else if answers.contains(tryList.sorted()) {
             print("정답입니다")
-//            isAnswer = true
             revealedAnswers.append(tryList)
             sortedRevealedAnswers.append(tryList.sorted())
             revealedHints.append(currentHint)
@@ -119,7 +132,48 @@ class GameManager {
         let shapeHint = getShapeHint(tryAnswer)
         let bgColorHint = getBgColorHint(tryAnswer)
         let colorHint = getColorHint(tryAnswer)
-        hintArray = (shapeHint, bgColorHint, colorHint)
+        //sum of all the numbers in shapeHint are divisible by 3, isShapeHap is true
+        let isShapeHap = shapeHint.reduce(0, +) % 3 == 0
+        let isBgColorHap = bgColorHint.reduce(0, +) % 3 == 0
+        let isColorHap = colorHint.reduce(0, +) % 3 == 0
+
+        //if all the numbers in shapeHint are the same, shapeMessage is "모양이 전부 같습니다.(O)"
+        //if all the numbers are different, shapeMessage is "모양이 전부 다릅니다.(O)"
+        //if isShapeHap is false, shapeMessage is "모양이 전부 같거나 다르지 않습니다.(X)"
+
+        let shapeMessage: String
+        if shapeHint[0] == shapeHint[1] && shapeHint[1] == shapeHint[2] {
+            shapeMessage = "모양이 전부 같습니다.(O)"
+        } else if shapeHint[0] != shapeHint[1] && shapeHint[1] != shapeHint[2] && shapeHint[0] != shapeHint[2] {
+            shapeMessage = "모양이 전부 다릅니다.(O)"
+        } else {
+            shapeMessage = "모양이 전부 같거나 다르지 않습니다.(X)"
+        }
+
+        let bgColorMessage: String
+        if bgColorHint[0] == bgColorHint[1] && bgColorHint[1] == bgColorHint[2] {
+            bgColorMessage = "배경색이 전부 같습니다.(O)"
+        } else if bgColorHint[0] != bgColorHint[1] && bgColorHint[1] != bgColorHint[2] && bgColorHint[0] != bgColorHint[2] {
+            bgColorMessage = "배경색이 전부 다릅니다.(O)"
+        } else {
+            bgColorMessage = "배경색이 전부 같거나 다르지 않습니다.(X)"
+        }
+
+        let colorMessage: String
+        if colorHint[0] == colorHint[1] && colorHint[1] == colorHint[2] {
+            colorMessage = "색이 전부 같습니다.(O)"
+        } else if colorHint[0] != colorHint[1] && colorHint[1] != colorHint[2] && colorHint[0] != colorHint[2] {
+            colorMessage = "색이 전부 다릅니다.(O)"
+        } else {
+            colorMessage = "색이 전부 같거나 다르지 않습니다.(X)"
+        }
+
+        
+        hintInformation = HintInformation(
+            shapeHintArray: shapeHint, bgColorHintArray: bgColorHint, colorHintArray: colorHint,
+            isShapeHap: isShapeHap, isBgColorHap: isBgColorHap, isColorHap: isColorHap,
+            shapeMessage: shapeMessage, bgColorMessage: bgColorMessage, colorMessage: colorMessage
+        )
     }
     private func getShapeHint(_ tryList: [Int]) -> [Int] {
         let shapeHint = tryList.map { num in
