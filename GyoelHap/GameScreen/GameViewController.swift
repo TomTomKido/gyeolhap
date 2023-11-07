@@ -24,6 +24,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var gyeolHintOutline: UIView!
     @IBOutlet weak var buttonsStackView: UIStackView!
     
+    var hintInformation: [HintInformation] = []
     
     private var screenName = "game"
     
@@ -326,28 +327,14 @@ extension GameViewController: UICollectionViewDataSource {
                         self.deciSeconds += 100
                         self.showSeconds(second: 10)
 
-                        let hintInformation = manager.hintInformation
-                        
-                        let shapeHint = hintInformation?.shapeHintArray
-                        let bgColorHint = hintInformation?.bgColorHintArray
-                        let colorHint = hintInformation?.colorHintArray
-                        print("shapeHint: ", shapeHint)
-                        print("bgColorHint: ", bgColorHint)
-                        print("colorHint: ", colorHint)
-                        
-                        //I want to replace hintView with a table view.
-                        //and replace each stackView with a cell in the table view.
-                        //each cell has 3 images and a label and a image view for sf symbol
-
-                        //table view's size is the same with hintView's size below
-                        //each cell's height is 1/3 of the table view's height
+                        self.hintInformation = manager.hintInformation
 
                         let tableView = UITableView()
                         tableView.backgroundColor = .white
                         tableView.layer.borderColor = UIColor(red: 175/255, green: 153/255, blue: 73/255, alpha: 1).cgColor
-                        tableView.layer.cornerRadius = 10
+                        tableView.layer.cornerRadius = 5
                         tableView.layer.masksToBounds = true
-                        tableView.layer.borderWidth = 3
+                        tableView.layer.borderWidth = 1
                         self.view.addSubview(tableView)
                         tableView.snp.makeConstraints { (make) in
                             make.top.equalTo(self.upperCollectionView.snp.bottom).offset(-10)
@@ -358,125 +345,7 @@ extension GameViewController: UICollectionViewDataSource {
                         tableView.delegate = self
                         tableView.dataSource = self
                         tableView.register(HintTableViewCell.self, forCellReuseIdentifier: "HintTableViewCell")
-
-
-
-
-
-                        // DispatchQueue.main.async {
-                        //     let hintView = UIView()
-                        //     hintView.backgroundColor = .white
-                        //     hintView.layer.borderColor = UIColor(red: 175/255, green: 153/255, blue: 73/255, alpha: 1).cgColor
-                        //     hintView.layer.cornerRadius = 10
-                        //     hintView.layer.masksToBounds = true
-                        //     hintView.layer.borderWidth = 3
-                        //     self.view.addSubview(hintView)
-                        //     hintView.snp.makeConstraints { (make) in
-                        //         make.top.equalTo(self.upperCollectionView.snp.bottom).offset(-10)
-                        //         make.bottom.equalToSuperview().offset(-5)
-                        //         make.leading.equalToSuperview().offset(10)
-                        //         make.trailing.equalToSuperview().offset(-10)
-                        //     }
-                            
-                        //     let shapeHintStackView = UIStackView()
-                        //     shapeHintStackView.axis = .horizontal
-                        //     shapeHintStackView.distribution = .fillProportionally
-                        //     shapeHintStackView.spacing = 5
-                        //     guard let shapeHint else { return }
-                        //     for i in shapeHint {
-                        //         let imageView = UIImageView()
-                        //         imageView.contentMode = .scaleAspectFit
-                        //         imageView.image = UIImage(named: "shape\(i)")
-                        //         shapeHintStackView.addArrangedSubview(imageView)
-                        //     }
-                        //     let shapeHintLabel = UILabel()
-                        //     shapeHintLabel.text = "모양이 다 같거나 다르지 않습니다."
-                        //     shapeHintLabel.font = UIFont.boldSystemFont(ofSize: 12)
-                        //     shapeHintLabel.textAlignment = .center
-                        //     shapeHintLabel.textColor = .black
-                        //     shapeHintStackView.addArrangedSubview(shapeHintLabel)
-
-                        //     hintView.addSubview(shapeHintStackView)
-                            
-                        //     shapeHintStackView.snp.makeConstraints { (make) in
-                        //         make.top.equalToSuperview().offset(10)
-                        //         make.leading.equalToSuperview().offset(5)
-                        //         make.trailing.equalToSuperview().offset(-5)
-                        //         make.height.equalTo(hintView.snp.height).multipliedBy(1.0/3).offset(-20)
-                        //     }
-                            
-                        //     let bgColorHintStackView = UIStackView()
-                        //     bgColorHintStackView.axis = .horizontal
-                        //     bgColorHintStackView.distribution = .fillProportionally
-                        //     bgColorHintStackView.spacing = 5
-                        //     guard let bgColorHint else { return }
-                        //     for i in bgColorHint {
-                        //         let imageView = UIImageView()
-                        //         imageView.contentMode = .scaleAspectFit
-                        //         imageView.image = UIImage(named: "bgColor\(i)")
-                        //         bgColorHintStackView.addArrangedSubview(imageView)
-                        //     }
-                        //     //add a UILabel in bgColorHint StackView at the mote right
-                        //     //label text is "배경색"
-                        //     let bgColorHintLabel = UILabel()
-                        //     bgColorHintLabel.text = "배경색이 다 같거나 다르지 않습니다."
-                        //     bgColorHintLabel.font = UIFont.boldSystemFont(ofSize: 12)
-                        //     bgColorHintLabel.textAlignment = .center
-                        //     bgColorHintLabel.textColor = .black
-                        //     bgColorHintStackView.addArrangedSubview(bgColorHintLabel)
-                            
-                        //     hintView.addSubview(bgColorHintStackView)
-                            
-                        //     bgColorHintStackView.snp.makeConstraints { (make) in
-                        //         make.top.equalTo(shapeHintStackView.snp.bottom).offset(10)
-                        //         make.leading.equalToSuperview().offset(5)
-                        //         make.trailing.equalToSuperview().offset(-5)
-                        //         make.height.equalTo(hintView.snp.height).multipliedBy(1.0/3).offset(-20)
-                        //     }
-                            
-                        //     let colorHintStackView = UIStackView()
-                        //     colorHintStackView.axis = .horizontal
-                        //     colorHintStackView.distribution = .fillProportionally
-                        //     colorHintStackView.spacing = 5
-                        //     guard let colorHint else { return }
-                        //     for i in colorHint {
-                        //         let imageView = UIImageView()
-                        //         imageView.contentMode = .scaleAspectFit
-                        //         imageView.image = UIImage(named: "color\(i)")
-                        //         colorHintStackView.addArrangedSubview(imageView)
-                        //     }
-                        //     //add a UILabel in colorHint StackView at the mote right
-                        //     //label text is "색"
-                        //     let colorHintLabel = UILabel()
-                        //     colorHintLabel.text = "색이 다 같거나 다르지 않습니다."
-                        //     colorHintLabel.font = UIFont.boldSystemFont(ofSize: 12)
-                        //     colorHintLabel.textAlignment = .center
-                        //     colorHintLabel.textColor = .black
-                        //     colorHintStackView.addArrangedSubview(colorHintLabel)
-                            
-                        //     hintView.addSubview(colorHintStackView)
-                            
-                        //     colorHintStackView.snp.makeConstraints { (make) in
-                        //         make.top.equalTo(bgColorHintStackView.snp.bottom).offset(10)
-                        //         make.leading.equalToSuperview().offset(5)
-                        //         make.trailing.equalToSuperview().offset(-5)
-                        //         make.height.equalTo(hintView.snp.height).multipliedBy(1.0/3).offset(-20)
-                        //     }
-
-                        //     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        //         UIView.animate(withDuration: 2, delay: 0, options: [],
-                        //                        animations: {
-                        //             hintView.alpha = 0
-                        //         },
-                        //                        completion: { _ in
-                        //             hintView.removeFromSuperview()
-                        //             for view in hintView.subviews {
-                        //                 view.removeFromSuperview()
-                        //             }
-                        //         }
-                        //         )
-                        //     }
-                        // }
+                        self.animateTableViewDisappear(tableView: tableView)
                     }
                 }
                 //                manager.printTryList()
@@ -493,12 +362,23 @@ extension GameViewController: UICollectionViewDataSource {
             return cell
         }
     }
+    func animateTableViewDisappear(tableView: UITableView) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            UIView.animate(withDuration: 2, animations: {
+                tableView.alpha = 0
+            }, completion: { _ in
+                tableView.subviews.forEach {$0.removeFromSuperview()}
+                tableView.removeFromSuperview()
+            })
+        }
+    }
+
 }
 
 extension GameViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let manager = self.gameManager else { return 0 }
-        return manager.hintInformation?.shapeHintArray.count ?? 0
+        return manager.hintInformation.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -506,15 +386,15 @@ extension GameViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HintTableViewCell", for: indexPath) as? HintTableViewCell else {
             return UITableViewCell()
         }
-        guard let shapeHint = manager.hintInformation?.shapeHintArray,
-              let bgColorHint = manager.hintInformation?.bgColorHintArray,
-              let colorHint = manager.hintInformation?.colorHintArray else { return UITableViewCell() }
-        let shapeHintImage = UIImage(named: "shape\(shapeHint[indexPath.row])")
-        let bgColorHintImage = UIImage(named: "bgColor\(bgColorHint[indexPath.row])")
-        let colorHintImage = UIImage(named: "color\(colorHint[indexPath.row])")
-        let labelText = "모양, 배경색, 색이 다 같거나 다르지 않습니다."
-        let symbolImage = UIImage(systemName: "questionmark.circle")
-        cell.bindData(image1: shapeHintImage!, image2: bgColorHintImage!, image3: colorHintImage!, labelText: labelText, symbolImage: symbolImage!)
+        let hint = self.hintInformation[indexPath.row]
+        let hintArray = hint.hintArray
+        let image1 = UIImage(named: "\(hint.hintType.rawValue)\(hintArray[0])")!
+        let image2 = UIImage(named: "\(hint.hintType.rawValue)\(hintArray[1])")!
+        let image3 = UIImage(named: "\(hint.hintType.rawValue)\(hintArray[2])")!
+        let labelText = hint.message
+        let symbolImage = hint.symbolImage
+        
+        cell.bindData(image1: image1, image2: image2, image3: image3, labelText: labelText, symbolImage: symbolImage)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -539,104 +419,4 @@ extension GameViewController:UICollectionViewDelegateFlowLayout {
             return CGSize(width:width, height: height)
         }
     }
-}
-
-  //I want to replace hintView with a table view.
-                        //and replace each stackView with a cell in the table view.
-                        //each cell has 3 images and a label and a image view for sf symbol
-
-                        //table view's size is the same with hintView's size below
-                        //each cell's height is 1/3 of the table view's height
-
-class HintTableViewCell: UITableViewCell {
-    lazy var imageView1: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    lazy var imageView2: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    lazy var imageView3: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 12)
-        label.textAlignment = .center
-        label.textColor = .black
-        return label
-    }()
-    lazy var symbolImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        //Add label for new class
-        setUpContentView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    func bindData(image1: UIImage, image2: UIImage, image3: UIImage, labelText: String, symbolImage: UIImage) {
-        imageView1.image = image1
-        imageView2.image = image2
-        imageView3.image = image3
-        label.text = labelText
-        symbolImageView.image = symbolImage
-    }
-
-    private func setUpContentView() {
-        contentView.backgroundColor = .white
-        contentView.layer.borderColor = UIColor(red: 175/255, green: 153/255, blue: 73/255, alpha: 1).cgColor
-        contentView.layer.cornerRadius = 10
-        contentView.layer.masksToBounds = true
-        contentView.layer.borderWidth = 3
-
-        contentView.addSubview(imageView1)
-        imageView1.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.leading.equalToSuperview().offset(5)
-            make.width.equalTo(30)
-            make.height.equalTo(30)
-        }
-        contentView.addSubview(imageView2)
-        imageView2.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.leading.equalTo(imageView1.snp.trailing).offset(5)
-            make.width.equalTo(30)
-            make.height.equalTo(30)
-        }
-        contentView.addSubview(imageView3)
-        imageView3.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.leading.equalTo(imageView2.snp.trailing).offset(5)
-            make.width.equalTo(30)
-            make.height.equalTo(30)
-        }
-        contentView.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(10)
-            make.leading.equalTo(imageView3.snp.trailing).offset(5)
-            make.trailing.equalToSuperview().offset(-5)
-            make.height.equalTo(30)
-        }
-        contentView.addSubview(symbolImageView)
-        symbolImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(imageView1.snp.bottom).offset(5)
-            make.leading.equalToSuperview().offset(5)
-            make.trailing.equalToSuperview().offset(-5)
-            make.bottom.equalToSuperview().offset(-5)
-        }
-    }
-    
 }

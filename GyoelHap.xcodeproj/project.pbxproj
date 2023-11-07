@@ -30,6 +30,7 @@
 		CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */; };
 		CEFA23DF71E4AFD80CA31822 /* Pods_GyeolHap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DF7D69171FC1FEB8A0DEAC /* Pods_GyeolHap.framework */; };
 		D41101CD2AE203CF00D70BC5 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41101CC2AE203CF00D70BC5 /* AlertManager.swift */; };
+		D41D4F1F2AF113E700A5AEB6 /* HintTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D4F1E2AF113E700A5AEB6 /* HintTableViewCell.swift */; };
 		D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */; };
 		D439C3452A9C3DB200FF8B48 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D439C3442A9C3DB200FF8B48 /* AdSupport.framework */; };
 		D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */; };
@@ -68,6 +69,7 @@
 		CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileCell.swift; sourceTree = "<group>"; };
 		D41101CC2AE203CF00D70BC5 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		D41D4F1E2AF113E700A5AEB6 /* HintTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintTableViewCell.swift; sourceTree = "<group>"; };
 		D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAdManager.swift; sourceTree = "<group>"; };
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3343E225CAC91200D1954E /* GameViewController.swift */,
+				D41D4F1E2AF113E700A5AEB6 /* HintTableViewCell.swift */,
 				CE68E44B26102D0500E1000B /* SuccessView.swift */,
 				CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */,
 				CE16E3B225E52FB600EE07DC /* AnswerCell.swift */,
@@ -351,6 +354,7 @@
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
 				D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
+				D41D4F1F2AF113E700A5AEB6 /* HintTableViewCell.swift in Sources */,
 				CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
 				D41101CD2AE203CF00D70BC5 /* AlertManager.swift in Sources */,
