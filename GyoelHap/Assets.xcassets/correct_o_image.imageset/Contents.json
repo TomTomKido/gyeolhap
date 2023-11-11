@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "main_HowtoPlayButton.png",
+      "filename" : "correct_o.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "main_HowtoPlayButton@2x.png",
+      "filename" : "correct_o@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "main_HowtoPlayButton@3x.png",
+      "filename" : "correct_o@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

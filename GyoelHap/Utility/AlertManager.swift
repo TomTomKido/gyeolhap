@@ -18,4 +18,17 @@ class AlertManager {
         alert.addAction(okAction)
         parent.present(alert, animated: true)
     }
+    
+    static func showAlert(at parent: UIViewController, title: String? = nil, message: String, leftMessage: String, lefttHanlder: @escaping () -> Void, rightMessage: String, rightHanlder: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let leftAction = UIAlertAction(title: leftMessage, style: .default) { _ in
+            lefttHanlder()
+        }
+        let rightAction = UIAlertAction(title: rightMessage, style: .default) { _ in
+            rightHanlder()
+        }
+        alert.addAction(leftAction)
+        alert.addAction(rightAction)
+        parent.present(alert, animated: true)
+    }
 }
