@@ -38,21 +38,21 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fjs-4E-oBq">
                                 <rect key="frame" x="62" y="407.66666666666674" width="290" height="327.33333333333326"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoU-lf-fWK">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZoU-lf-fWK" userLabel="Easy Button">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="103.66666666666667"/>
-                                        <state key="normal" image="main_PlayButton"/>
+                                        <state key="normal" image="main_Easy"/>
                                         <connections>
-                                            <action selector="goToStageScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="5Ym-zE-fzD"/>
+                                            <action selector="goToEasyMode:" destination="seM-vK-YOU" eventType="touchUpInside" id="ctc-8E-kcs"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxg-YW-eCo">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuS-ML-Uvq" userLabel="Normal Button">
                                         <rect key="frame" x="0.0" y="111.66666666666669" width="290" height="104"/>
-                                        <state key="normal" image="main_HowtoPlayButton"/>
+                                        <state key="normal" image="main_Normal"/>
                                         <connections>
-                                            <action selector="goToHowToScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="0iv-mV-HV6"/>
+                                            <action selector="goToStageScreen:" destination="seM-vK-YOU" eventType="touchUpInside" id="PVc-iv-GrV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exc-Jn-soU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exc-Jn-soU" userLabel="Exit Button">
                                         <rect key="frame" x="0.0" y="223.66666666666666" width="290" height="103.66666666666666"/>
                                         <state key="normal" image="main_EXITButton"/>
                                         <connections>
@@ -61,6 +61,21 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7p-Pe-WA1">
+                                <rect key="frame" x="354" y="54.000000000000007" width="50" height="26.333333333333336"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="OF0-Uk-NPi"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="gearshape.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="seM-vK-YOU" eventType="touchUpInside" id="73V-xp-IGt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ex0-Jq-0wo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -71,18 +86,15 @@
                             <constraint firstAttribute="bottom" secondItem="fGb-w2-ZdJ" secondAttribute="bottom" id="COT-hl-DGm"/>
                             <constraint firstItem="fGb-w2-ZdJ" firstAttribute="top" secondItem="uOh-Xx-Hy6" secondAttribute="top" id="N2N-44-fqB"/>
                             <constraint firstItem="Fjs-4E-oBq" firstAttribute="centerX" secondItem="ex0-Jq-0wo" secondAttribute="centerX" id="OxD-L9-ZSk"/>
+                            <constraint firstItem="c7p-Pe-WA1" firstAttribute="trailing" secondItem="fGb-w2-ZdJ" secondAttribute="trailing" constant="-10" id="dc5-p7-p2S"/>
                             <constraint firstItem="Kwj-F9-yFv" firstAttribute="centerX" secondItem="ex0-Jq-0wo" secondAttribute="centerX" id="f3V-96-ExM"/>
                             <constraint firstItem="ex0-Jq-0wo" firstAttribute="trailing" secondItem="fGb-w2-ZdJ" secondAttribute="trailing" id="hn3-B3-5Z1"/>
                             <constraint firstItem="Fjs-4E-oBq" firstAttribute="width" secondItem="ex0-Jq-0wo" secondAttribute="width" multiplier="0.7" id="kHd-5l-2fq"/>
+                            <constraint firstItem="c7p-Pe-WA1" firstAttribute="top" secondItem="ex0-Jq-0wo" secondAttribute="top" constant="10" id="kV7-3O-UOQ"/>
                             <constraint firstItem="fGb-w2-ZdJ" firstAttribute="leading" secondItem="ex0-Jq-0wo" secondAttribute="leading" id="zTf-3j-mV9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zeu-IQ-amb"/>
-                    <connections>
-                        <outlet property="EXITButton" destination="exc-Jn-soU" id="agH-pL-kMZ"/>
-                        <outlet property="howToPlayButton" destination="Kxg-YW-eCo" id="ZFT-cb-Hfd"/>
-                        <outlet property="playButton" destination="ZoU-lf-fWK" id="LeY-TR-XPX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DoW-ls-wWJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,10 +102,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="main_BG" width="375" height="667"/>
         <image name="main_EXITButton" width="292" height="93.333335876464844"/>
-        <image name="main_HowtoPlayButton" width="292" height="83.333335876464844"/>
-        <image name="main_PlayButton" width="292" height="83.333335876464844"/>
+        <image name="main_Easy" width="292" height="83.333335876464844"/>
+        <image name="main_Normal" width="292" height="83.333335876464844"/>
         <image name="main_logo" width="69" height="64"/>
         <image name="main_title" width="124" height="65"/>
         <systemColor name="systemBackgroundColor">

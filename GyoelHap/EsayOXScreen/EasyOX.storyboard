@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GmarketSansMedium.otf">
+            <string>GmarketSansMedium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--EasyOX View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="EasyOXVC" id="Y6W-OH-hqX" customClass="EasyOXViewController" customModule="GyeolHap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YE-Ms-gjO" userLabel="NavigationBar">
+                                <rect key="frame" x="0.0" y="59.000000000000007" width="393" height="65.666666666666686"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dir-O8-yya" userLabel="Back Button">
+                                        <rect key="frame" x="14.999999999999996" y="8.9999999999999964" width="47.666666666666657" height="47.666666666666657"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="47.670000000000002" id="6eF-w8-kUI"/>
+                                            <constraint firstAttribute="width" secondItem="Dir-O8-yya" secondAttribute="height" multiplier="1:1" id="Jml-o5-KFt"/>
+                                        </constraints>
+                                        <state key="normal" image="back_button"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZWo-pJ-ouw"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OX Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoS-2w-c5B">
+                                        <rect key="frame" x="117.66666666666669" y="13" width="158" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="rTF-8G-D30"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GmarketSansMedium" family="Gmarket Sans" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.24313725489999999" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="Dir-O8-yya" firstAttribute="leading" secondItem="6YE-Ms-gjO" secondAttribute="leading" constant="15" id="6Mm-0c-TDD"/>
+                                    <constraint firstItem="OoS-2w-c5B" firstAttribute="centerY" secondItem="6YE-Ms-gjO" secondAttribute="centerY" id="DtQ-w2-eIZ"/>
+                                    <constraint firstItem="OoS-2w-c5B" firstAttribute="centerX" secondItem="6YE-Ms-gjO" secondAttribute="centerX" id="hr9-XO-T1b"/>
+                                    <constraint firstItem="Dir-O8-yya" firstAttribute="top" secondItem="6YE-Ms-gjO" secondAttribute="top" constant="9" id="r0g-jR-nyq"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dir-O8-yya" secondAttribute="bottom" constant="9" id="xpi-hR-Vkg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cKi-7Z-DGT">
+                                <rect key="frame" x="0.0" y="124.66666666666669" width="393" height="693.33333333333326"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvg-xN-JCv">
+                                        <rect key="frame" x="62.666666666666657" y="201.66666666666663" width="267.66666666666674" height="79"/>
+                                        <string key="text">최대한 많은 연승을 쌓으세요.
+제한시간 내 답을 맞추지 못하면
+게임이 종료됩니다.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fb7-Tm-3MR">
+                                        <rect key="frame" x="131.66666666666666" y="320.66666666666663" width="129.99999999999997" height="52"/>
+                                        <color key="backgroundColor" name="purple2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="fb7-Tm-3MR" secondAttribute="height" multiplier="5:2" id="3nX-a3-BMG"/>
+                                            <constraint firstAttribute="width" constant="130" id="rAp-qE-dgl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Start"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="startTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vcc-Un-wMO"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BHv-U5-nf7">
+                                        <rect key="frame" x="75.666666666666686" y="29.999999999999986" width="242" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연승게임: n승 | m등" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gR-Lu-9Cb">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoy-ei-TKx">
+                                                <rect key="frame" x="212" y="0.0" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="xoy-ei-TKx" secondAttribute="height" multiplier="1:1" id="4D7-42-HFF"/>
+                                                </constraints>
+                                                <color key="tintColor" name="wrong_x"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="trophy.fill" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="leaderboardTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="05t-QW-nUg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDx-iz-BS5">
+                                        <rect key="frame" x="76.666666666666686" y="412.66666666666669" width="240" height="79"/>
+                                        <string key="text">모든 속성(모양,색,배경색)이
+모두 같거나 모두 다르면 합,
+아니면 결을 누르세요.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.14901960784313725" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fb7-Tm-3MR" firstAttribute="centerY" secondItem="cKi-7Z-DGT" secondAttribute="centerY" id="Dip-mQ-mBm"/>
+                                    <constraint firstItem="fb7-Tm-3MR" firstAttribute="centerX" secondItem="cKi-7Z-DGT" secondAttribute="centerX" id="SNO-Kz-Tsk"/>
+                                    <constraint firstItem="Xvg-xN-JCv" firstAttribute="centerX" secondItem="cKi-7Z-DGT" secondAttribute="centerX" id="VNH-NH-HTt"/>
+                                    <constraint firstItem="IDx-iz-BS5" firstAttribute="centerX" secondItem="cKi-7Z-DGT" secondAttribute="centerX" id="YQd-Xy-vcG"/>
+                                    <constraint firstItem="IDx-iz-BS5" firstAttribute="top" secondItem="fb7-Tm-3MR" secondAttribute="bottom" constant="40" id="axG-8a-wYm"/>
+                                    <constraint firstItem="BHv-U5-nf7" firstAttribute="centerX" secondItem="cKi-7Z-DGT" secondAttribute="centerX" id="wWl-gS-LuI"/>
+                                    <constraint firstItem="fb7-Tm-3MR" firstAttribute="top" secondItem="Xvg-xN-JCv" secondAttribute="bottom" constant="40" id="xNI-Oc-OyL"/>
+                                    <constraint firstItem="BHv-U5-nf7" firstAttribute="top" secondItem="cKi-7Z-DGT" secondAttribute="top" constant="30" id="ynN-Je-KnA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.30588235294117649" green="0.24313725490196078" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6YE-Ms-gjO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="99B-Le-PQx"/>
+                            <constraint firstItem="6YE-Ms-gjO" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="K8V-bp-FJk"/>
+                            <constraint firstItem="6YE-Ms-gjO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bhd-8O-w6g"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cKi-7Z-DGT" secondAttribute="trailing" id="bpX-F5-00l"/>
+                            <constraint firstItem="cKi-7Z-DGT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="cZa-aL-BIZ"/>
+                            <constraint firstItem="cKi-7Z-DGT" firstAttribute="top" secondItem="6YE-Ms-gjO" secondAttribute="bottom" id="omD-KU-XUS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cKi-7Z-DGT" secondAttribute="bottom" id="tdc-kq-wAt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="recordLabel" destination="0gR-Lu-9Cb" id="mvm-lc-ekX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.58778625954199" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back_button" width="201" height="201"/>
+        <image name="trophy.fill" catalog="system" width="128" height="128"/>
+        <namedColor name="purple2">
+            <color red="0.42352941176470588" green="0.34901960784313724" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="wrong_x">
+            <color red="0.94117647058823528" green="0.396078431372549" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

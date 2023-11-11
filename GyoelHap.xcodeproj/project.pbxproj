@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		147035A58C0559E600A4B3B7 /* Pods_GyeolHap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */; };
 		4E6F68F726007C670085FC49 /* GmarketSansLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6F68F426007C670085FC49 /* GmarketSansLight.otf */; };
 		4E6F68F826007C670085FC49 /* GmarketSansBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6F68F526007C670085FC49 /* GmarketSansBold.otf */; };
 		4E6F68F926007C670085FC49 /* GmarketSansMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6F68F626007C670085FC49 /* GmarketSansMedium.otf */; };
@@ -29,16 +28,23 @@
 		CEDCC63325D812BF008D8044 /* StageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDCC63225D812BF008D8044 /* StageCell.swift */; };
 		CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEBB83425CACDEE00CFFAF4 /* Game.storyboard */; };
 		CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEBB83825CAF1D500CFFAF4 /* TileCell.swift */; };
+		CEFA23DF71E4AFD80CA31822 /* Pods_GyeolHap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DF7D69171FC1FEB8A0DEAC /* Pods_GyeolHap.framework */; };
 		D41101CD2AE203CF00D70BC5 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41101CC2AE203CF00D70BC5 /* AlertManager.swift */; };
 		D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */; };
 		D439C3452A9C3DB200FF8B48 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D439C3442A9C3DB200FF8B48 /* AdSupport.framework */; };
-		D439C3482A9C81BC00FF8B48 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3472A9C81BC00FF8B48 /* FirebaseAnalytics */; };
-		D439C34A2A9C81BC00FF8B48 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3492A9C81BC00FF8B48 /* FirebaseAnalyticsOnDeviceConversion */; };
-		D439C34C2A9C81BC00FF8B48 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D439C34B2A9C81BC00FF8B48 /* FirebaseAnalyticsSwift */; };
-		D439C34E2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D439C34D2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */; };
 		D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */; };
+		D44FBBBF2AEDFA3500E25B26 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBBE2AEDFA3500E25B26 /* Color+Extension.swift */; };
+		D44FBBC22AEE12B400E25B26 /* EasyOX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */; };
+		D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */; };
+		D44FBBCC2AEE1A7F00E25B26 /* EasyOXGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */; };
+		D44FBBCE2AEE1A8800E25B26 /* EasyOXGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */; };
+		D44FBBD02AEFBE8500E25B26 /* OXGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44FBBCF2AEFBE8500E25B26 /* OXGameManager.swift */; };
 		D47156722AB1F7A3008A9D19 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */; };
+		D4C8B5452AED47290057497C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5442AED47290057497C /* Settings.storyboard */; };
+		D4C8B5482AED473F0057497C /* SettingsButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4C8B5472AED473F0057497C /* SettingsButton.xib */; };
+		D4C8B54A2AED47C00057497C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C8B5492AED47C00057497C /* SettingsViewController.swift */; };
+		D4C8B54C2AED47D20057497C /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C8B54B2AED47D20057497C /* SettingsTableViewCell.swift */; };
 		D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660592A9CD06D00730B6D /* LogManager.swift */; };
 		D4D660602A9F2BD500730B6D /* StageCarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */; };
 		D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */; };
@@ -46,12 +52,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A890E5F375BD2AE460FE0BC /* Pods-GyeolHap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.debug.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.debug.xcconfig"; sourceTree = "<group>"; };
 		4E6F68F426007C670085FC49 /* GmarketSansLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansLight.otf; sourceTree = "<group>"; };
 		4E6F68F526007C670085FC49 /* GmarketSansBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansBold.otf; sourceTree = "<group>"; };
 		4E6F68F626007C670085FC49 /* GmarketSansMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GmarketSansMedium.otf; sourceTree = "<group>"; };
 		4EC2E38D25FCB79D00AFCF85 /* HowToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToViewController.swift; sourceTree = "<group>"; };
 		4EC2E39025FCB7A800AFCF85 /* HowTo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HowTo.storyboard; sourceTree = "<group>"; };
-		A8CF7D0EB41F3E8948BB2E7D /* Pods-GyeolHap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.release.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.release.xcconfig"; sourceTree = "<group>"; };
+		5E4477E3A39127DF34906E7D /* Pods-GyeolHap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.release.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.release.xcconfig"; sourceTree = "<group>"; };
+		79DF7D69171FC1FEB8A0DEAC /* Pods_GyeolHap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyeolHap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE16E3B225E52FB600EE07DC /* AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerCell.swift; sourceTree = "<group>"; };
 		CE20A6972590DC0C00F47DC8 /* GyeolHap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GyeolHap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE20A69A2590DC0C00F47DC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,14 +82,22 @@
 		D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAdManager.swift; sourceTree = "<group>"; };
 		D439C3442A9C3DB200FF8B48 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		D439C34F2A9CA4BD00FF8B48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D44FBBBE2AEDFA3500E25B26 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EasyOX.storyboard; sourceTree = "<group>"; };
+		D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOXViewController.swift; sourceTree = "<group>"; };
+		D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EasyOXGame.storyboard; sourceTree = "<group>"; };
+		D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOXGameViewController.swift; sourceTree = "<group>"; };
+		D44FBBCF2AEFBE8500E25B26 /* OXGameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OXGameManager.swift; sourceTree = "<group>"; };
 		D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
+		D4C8B5442AED47290057497C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		D4C8B5472AED473F0057497C /* SettingsButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsButton.xib; sourceTree = "<group>"; };
+		D4C8B5492AED47C00057497C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D4C8B54B2AED47D20057497C /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		D4D660592A9CD06D00730B6D /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		D4D6605E2A9F1C4000730B6D /* GyeolHap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GyeolHap.entitlements; sourceTree = "<group>"; };
 		D4D6605F2A9F2BD500730B6D /* StageCarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageCarouselCell.swift; sourceTree = "<group>"; };
 		D4D660612A9F95D900730B6D /* FullScreenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenAdManager.swift; sourceTree = "<group>"; };
 		D4D660672A9FAC0900730B6D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GyeolHap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC865E1CA6C09AF3C40BA2A4 /* Pods-GyeolHap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GyeolHap.debug.xcconfig"; path = "Target Support Files/Pods-GyeolHap/Pods-GyeolHap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,13 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				147035A58C0559E600A4B3B7 /* Pods_GyeolHap.framework in Frameworks */,
-				D439C34E2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				D439C3452A9C3DB200FF8B48 /* AdSupport.framework in Frameworks */,
-				D439C3482A9C81BC00FF8B48 /* FirebaseAnalytics in Frameworks */,
-				D439C34A2A9C81BC00FF8B48 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
-				D439C3522A9CA4EE00FF8B48 /* FirebaseAuth in Frameworks */,
-				D439C34C2A9C81BC00FF8B48 /* FirebaseAnalyticsSwift in Frameworks */,
+				CEFA23DF71E4AFD80CA31822 /* Pods_GyeolHap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +116,8 @@
 		0D1A16035C8EBDFBAD917744 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FC865E1CA6C09AF3C40BA2A4 /* Pods-GyeolHap.debug.xcconfig */,
-				A8CF7D0EB41F3E8948BB2E7D /* Pods-GyeolHap.release.xcconfig */,
+				3A890E5F375BD2AE460FE0BC /* Pods-GyeolHap.debug.xcconfig */,
+				5E4477E3A39127DF34906E7D /* Pods-GyeolHap.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -153,6 +164,9 @@
 		CE20A6992590DC0C00F47DC8 /* GyoelHap */ = {
 			isa = PBXGroup;
 			children = (
+				D44FBBCA2AEE1A7500E25B26 /* EasyOXGameScreen */,
+				D44FBBC02AEE12A800E25B26 /* EsayOXScreen */,
+				D4C8B5462AED472F0057497C /* SettingsScreen */,
 				D4D6605B2A9F1B9B00730B6D /* Utility */,
 				4E6F68FB26007C760085FC49 /* fonts */,
 				CEBFAC2F25F8A65100964898 /* MainScreen */,
@@ -211,6 +225,36 @@
 			path = GameScreen;
 			sourceTree = "<group>";
 		};
+		D44FBBC02AEE12A800E25B26 /* EsayOXScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D44FBBC12AEE12B400E25B26 /* EasyOX.storyboard */,
+				D44FBBC32AEE12C700E25B26 /* EasyOXViewController.swift */,
+			);
+			path = EsayOXScreen;
+			sourceTree = "<group>";
+		};
+		D44FBBCA2AEE1A7500E25B26 /* EasyOXGameScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D44FBBCB2AEE1A7F00E25B26 /* EasyOXGame.storyboard */,
+				D44FBBCD2AEE1A8800E25B26 /* EasyOXGameViewController.swift */,
+				D44FBBCF2AEFBE8500E25B26 /* OXGameManager.swift */,
+			);
+			path = EasyOXGameScreen;
+			sourceTree = "<group>";
+		};
+		D4C8B5462AED472F0057497C /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D4C8B5442AED47290057497C /* Settings.storyboard */,
+				D4C8B5472AED473F0057497C /* SettingsButton.xib */,
+				D4C8B5492AED47C00057497C /* SettingsViewController.swift */,
+				D4C8B54B2AED47D20057497C /* SettingsTableViewCell.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
 		D4D6605B2A9F1B9B00730B6D /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +263,7 @@
 				D42133CE2AAF2DAB00780609 /* RewardedAdManager.swift */,
 				D47156712AB1F7A3008A9D19 /* LeaderboardManager.swift */,
 				D41101CC2AE203CF00D70BC5 /* AlertManager.swift */,
+				D44FBBBE2AEDFA3500E25B26 /* Color+Extension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -227,7 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				D439C3442A9C3DB200FF8B48 /* AdSupport.framework */,
-				E7196D71813608852F438CB3 /* Pods_GyeolHap.framework */,
+				79DF7D69171FC1FEB8A0DEAC /* Pods_GyeolHap.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -239,24 +284,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE20A6AB2590DC0F00F47DC8 /* Build configuration list for PBXNativeTarget "GyeolHap" */;
 			buildPhases = (
-				B5C85C8D2598D7A6C3AC7A6B /* [CP] Check Pods Manifest.lock */,
+				F2D5CB96FC5C88C0801B0D19 /* [CP] Check Pods Manifest.lock */,
 				CE20A6932590DC0C00F47DC8 /* Sources */,
 				CE20A6942590DC0C00F47DC8 /* Frameworks */,
 				CE20A6952590DC0C00F47DC8 /* Resources */,
-				6D25F1ECC703D3A572BB1DC7 /* [CP] Embed Pods Frameworks */,
+				A71B9D88713624D780B6253C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GyeolHap;
-			packageProductDependencies = (
-				D439C3472A9C81BC00FF8B48 /* FirebaseAnalytics */,
-				D439C3492A9C81BC00FF8B48 /* FirebaseAnalyticsOnDeviceConversion */,
-				D439C34B2A9C81BC00FF8B48 /* FirebaseAnalyticsSwift */,
-				D439C34D2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport */,
-				D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */,
-			);
 			productName = GyoelHap;
 			productReference = CE20A6972590DC0C00F47DC8 /* GyeolHap.app */;
 			productType = "com.apple.product-type.application";
@@ -284,9 +322,6 @@
 				Base,
 			);
 			mainGroup = CE20A68E2590DC0C00F47DC8;
-			packageReferences = (
-				D439C3462A9C81BC00FF8B48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
 			productRefGroup = CE20A6982590DC0C00F47DC8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -302,22 +337,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEEBB83525CACDEE00CFFAF4 /* Game.storyboard in Resources */,
+				D4C8B5452AED47290057497C /* Settings.storyboard in Resources */,
 				CEBFAC2D25F8A64A00964898 /* Main.storyboard in Resources */,
 				4EC2E39125FCB7A800AFCF85 /* HowTo.storyboard in Resources */,
+				D4C8B5482AED473F0057497C /* SettingsButton.xib in Resources */,
 				4E6F68F826007C670085FC49 /* GmarketSansBold.otf in Resources */,
 				CE20A6A72590DC0F00F47DC8 /* LaunchScreen.storyboard in Resources */,
+				D44FBBC22AEE12B400E25B26 /* EasyOX.storyboard in Resources */,
 				4E6F68F726007C670085FC49 /* GmarketSansLight.otf in Resources */,
 				4E6F68F926007C670085FC49 /* GmarketSansMedium.otf in Resources */,
 				D439C3502A9CA4BD00FF8B48 /* GoogleService-Info.plist in Resources */,
 				CEDCC5F025D76F2F008D8044 /* Stage.storyboard in Resources */,
 				CE20A6A42590DC0F00F47DC8 /* Assets.xcassets in Resources */,
+				D44FBBCC2AEE1A7F00E25B26 /* EasyOXGame.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6D25F1ECC703D3A572BB1DC7 /* [CP] Embed Pods Frameworks */ = {
+		A71B9D88713624D780B6253C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -334,7 +373,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GyeolHap/Pods-GyeolHap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B5C85C8D2598D7A6C3AC7A6B /* [CP] Check Pods Manifest.lock */ = {
+		F2D5CB96FC5C88C0801B0D19 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -366,13 +405,19 @@
 				D4D660622A9F95D900730B6D /* FullScreenAdManager.swift in Sources */,
 				4EC2E38E25FCB79D00AFCF85 /* HowToViewController.swift in Sources */,
 				D4D660682A9FAC0900730B6D /* RootViewController.swift in Sources */,
+				D44FBBCE2AEE1A8800E25B26 /* EasyOXGameViewController.swift in Sources */,
+				D4C8B54A2AED47C00057497C /* SettingsViewController.swift in Sources */,
 				CEEBB83925CAF1D500CFFAF4 /* TileCell.swift in Sources */,
 				D4D6605A2A9CD06D00730B6D /* LogManager.swift in Sources */,
 				CE16E3B325E52FB600EE07DC /* AnswerCell.swift in Sources */,
 				D42133CF2AAF2DAB00780609 /* RewardedAdManager.swift in Sources */,
 				CE3343E325CAC91200D1954E /* GameViewController.swift in Sources */,
+				D44FBBBF2AEDFA3500E25B26 /* Color+Extension.swift in Sources */,
+				D44FBBC42AEE12C700E25B26 /* EasyOXViewController.swift in Sources */,
+				D44FBBD02AEFBE8500E25B26 /* OXGameManager.swift in Sources */,
 				CE68E44C26102D0500E1000B /* SuccessView.swift in Sources */,
 				CE20A69B2590DC0C00F47DC8 /* AppDelegate.swift in Sources */,
+				D4C8B54C2AED47D20057497C /* SettingsTableViewCell.swift in Sources */,
 				D41101CD2AE203CF00D70BC5 /* AlertManager.swift in Sources */,
 				CEA6A8B525F3661D00BA6195 /* StageRealm.swift in Sources */,
 				CEBFAC3625F8EEC300964898 /* StageViewController.swift in Sources */,
@@ -517,7 +562,7 @@
 		};
 		CE20A6AC2590DC0F00F47DC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC865E1CA6C09AF3C40BA2A4 /* Pods-GyeolHap.debug.xcconfig */;
+			baseConfigurationReference = 3A890E5F375BD2AE460FE0BC /* Pods-GyeolHap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -531,7 +576,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taelee.GyeolHapTomKido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -541,7 +586,7 @@
 		};
 		CE20A6AD2590DC0F00F47DC8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8CF7D0EB41F3E8948BB2E7D /* Pods-GyeolHap.release.xcconfig */;
+			baseConfigurationReference = 5E4477E3A39127DF34906E7D /* Pods-GyeolHap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -555,7 +600,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.taelee.GyeolHapTomKido;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -585,45 +630,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D439C3462A9C81BC00FF8B48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D439C3472A9C81BC00FF8B48 /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D439C3462A9C81BC00FF8B48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		D439C3492A9C81BC00FF8B48 /* FirebaseAnalyticsOnDeviceConversion */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D439C3462A9C81BC00FF8B48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsOnDeviceConversion;
-		};
-		D439C34B2A9C81BC00FF8B48 /* FirebaseAnalyticsSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D439C3462A9C81BC00FF8B48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsSwift;
-		};
-		D439C34D2A9C81BC00FF8B48 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D439C3462A9C81BC00FF8B48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsWithoutAdIdSupport;
-		};
-		D439C3512A9CA4EE00FF8B48 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D439C3462A9C81BC00FF8B48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE20A68F2590DC0C00F47DC8 /* Project object */;
 }

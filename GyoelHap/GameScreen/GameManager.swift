@@ -114,9 +114,9 @@ extension GameManager {
     func solver(stage: StageRealm) -> [[Int]] {
         var answers: [[Int]] = []
         let dataArray = stage.getArrayData()
-        let colors: [Int] = getColors(array: dataArray)
-        let shapes: [Int] = getShapes(array: dataArray)
-        let BGColors: [Int] = getBGColors(array: dataArray)
+        let colors: [Int] = GameManager.getColors(array: dataArray)
+        let shapes: [Int] = GameManager.getShapes(array: dataArray)
+        let BGColors: [Int] = GameManager.getBGColors(array: dataArray)
         
         for i in 0 ..< 9 {
             for j in i + 1 ..< 9 {
@@ -135,7 +135,7 @@ extension GameManager {
         return answers
     }
     
-    func getColors(array: [Int]) -> [Int] {
+    static func getColors(array: [Int]) -> [Int] {
         //0: pink, 1: dark blue, 2: yellow
         var newArray: [Int] = []
 
@@ -146,7 +146,7 @@ extension GameManager {
         return newArray
     }
 
-    func getShapes(array: [Int]) -> [Int] {
+    static func getShapes(array: [Int]) -> [Int] {
         //0: star, 1: moon, 2: sun
         var newArray: [Int] = []
 
@@ -157,7 +157,7 @@ extension GameManager {
         return newArray
     }
 
-    func getBGColors(array: [Int]) -> [Int] {
+    static func getBGColors(array: [Int]) -> [Int] {
         //0: red, 1: purple, 2: green
         var newArray: [Int] = []
 

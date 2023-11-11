@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         FirebaseConfiguration.shared.setLoggerLevel(.min)
+//        FirebaseConfiguration.shared.setLoggerLevel(.max)
         LogManager.sendAppLaunchLog()
         return true
     }
