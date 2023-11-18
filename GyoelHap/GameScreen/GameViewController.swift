@@ -85,19 +85,32 @@ class GameViewController: UIViewController {
     }
     
     private func initiateGameSetup() {
+        // remove hint effect
         gyeolHintOutline.alpha = 0
+        
+        // stop and remove timer
         self.timer?.invalidate()
         self.timer = nil
+        
+        // show successview
         uncoverSuccessView()
+        
+        // get next game manager and reset
         guard let item = self.currentItem else { return }
         self.gameManager = GameManager(stage: item)
-        self.timerLabel.text = "00:00:00"
-        self.stageLabel.text = "Stage " + String(item.stageId)
-        print("정답리스트: \(String(describing: gameManager!.getAnswers()))")
-        deciSeconds = 0
-        start()
         guard let manager = self.gameManager else { return }
         manager.clearAllLists()
+        print("정답리스트: \(String(describing: manager.getAnswers()))")
+        
+        // update stage info
+        self.stageLabel.text = "Stage " + String(item.stageId)
+        
+        // init and start timer
+        self.timerLabel.text = "00:00:00"
+        deciSeconds = 0
+        start()
+        
+        // init hap count
         hapCountLabel.alpha = 0
         hapCountLabel.text = "합 \(gameManager?.getAnswers().count ?? 0)개"
     }
