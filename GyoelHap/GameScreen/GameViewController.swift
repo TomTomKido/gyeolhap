@@ -112,7 +112,7 @@ class GameViewController: UIViewController {
         
         // init hap count
         hapCountLabel.alpha = 0
-        hapCountLabel.text = "합 \(gameManager?.getAnswers().count ?? 0)개"
+        hapCountLabel.text = "답 \(gameManager?.getAnswers().count ?? 0)개"
     }
     
     @IBAction func hintButtonTapped(_ sender: Any) {
@@ -287,8 +287,18 @@ extension GameViewController {
         deciSeconds += 1
         let timeString = timeString(time: TimeInterval(deciSeconds))
         self.timerLabel.text = timeString
-        if timeString == "00:00:31" {
-            hapCountLabel.alpha = 1
+        if timeString == "00:00:16" {
+            if hapCountLabel.alpha == 1 { return }
+            self.hapCountLabel.alpha = 1
+            UIView.animateKeyframes(withDuration: 0.3, delay: 0.0, options: [], animations: { [weak self] in
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.7, animations: {
+                    self?.hapCountLabel.transform = CGAffineTransform(scaleX: 2, y: 2)
+                })
+
+                UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
+                    self?.hapCountLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+                })
+            }, completion: nil)
         }
     }
 
