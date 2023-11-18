@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -43,6 +44,12 @@
                                             <action selector="tapBack:" destination="73t-bL-9E7" eventType="touchUpInside" id="ZGi-SY-W0R"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="합 n개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04D-Ey-Ljy" userLabel="HapCount Label">
+                                        <rect key="frame" x="261" y="16.666666666666664" width="43.333333333333314" height="20.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="hotpink1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.30755198" green="0.24440178279999999" blue="0.49021941419999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -51,6 +58,8 @@
                                     <constraint firstItem="Vmk-5I-An4" firstAttribute="centerY" secondItem="bNp-2E-g3f" secondAttribute="centerY" id="LNu-tD-U1k"/>
                                     <constraint firstItem="sOI-cQ-Fi2" firstAttribute="bottom" secondItem="Vwy-5y-s0p" secondAttribute="bottom" id="Z6p-gc-b9C"/>
                                     <constraint firstItem="Vwy-5y-s0p" firstAttribute="centerY" secondItem="bNp-2E-g3f" secondAttribute="centerY" id="bwD-uL-0z7"/>
+                                    <constraint firstItem="04D-Ey-Ljy" firstAttribute="centerY" secondItem="Vwy-5y-s0p" secondAttribute="centerY" id="gOJ-um-V5S"/>
+                                    <constraint firstItem="04D-Ey-Ljy" firstAttribute="leading" secondItem="Vwy-5y-s0p" secondAttribute="trailing" constant="20.666666666666686" id="lek-6V-u2u"/>
                                     <constraint firstItem="Vwy-5y-s0p" firstAttribute="centerX" secondItem="bNp-2E-g3f" secondAttribute="centerX" id="pw1-kh-Cpv"/>
                                     <constraint firstAttribute="trailing" secondItem="Vmk-5I-An4" secondAttribute="trailing" constant="20" id="yN3-ey-baA"/>
                                 </constraints>
@@ -350,6 +359,7 @@
                         <outlet property="buttonsStackView" destination="vKg-yV-quh" id="a0y-1Z-gd4"/>
                         <outlet property="gyeolButton" destination="FsK-7g-8iZ" id="EGd-Pr-3dW"/>
                         <outlet property="gyeolHintOutline" destination="t3q-7T-RNP" id="jXe-3V-KBu"/>
+                        <outlet property="hapCountLabel" destination="04D-Ey-Ljy" id="aao-i6-n7c"/>
                         <outlet property="lowerCollectionView" destination="llE-Tn-HUL" id="DoV-GC-Dsb"/>
                         <outlet property="plus10sec" destination="qCb-YL-gSf" id="Klm-8e-cOs"/>
                         <outlet property="stageLabel" destination="sOI-cQ-Fi2" id="cid-8y-YrI"/>
@@ -374,14 +384,17 @@
         <image name="next" width="97" height="97"/>
         <image name="retry" width="97" height="97"/>
         <image name="tile0" width="90" height="90"/>
+        <namedColor name="hotpink1">
+            <color red="1" green="0.28627450980392155" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

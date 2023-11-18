@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var SuccessView: UIView!
     @IBOutlet weak var gyeolHintOutline: UIView!
     @IBOutlet weak var buttonsStackView: UIStackView!
-
+    @IBOutlet weak var hapCountLabel: UILabel!
     
     private var screenName = "game"
     
@@ -98,6 +98,8 @@ class GameViewController: UIViewController {
         start()
         guard let manager = self.gameManager else { return }
         manager.clearAllLists()
+        hapCountLabel.alpha = 0
+        hapCountLabel.text = "합 \(gameManager?.getAnswers().count ?? 0)개"
     }
     
     @IBAction func hintButtonTapped(_ sender: Any) {
@@ -270,7 +272,11 @@ extension GameViewController {
 
     @objc func updateTimer() {
         deciSeconds += 1
-        self.timerLabel.text = timeString(time: TimeInterval(deciSeconds))
+        let timeString = timeString(time: TimeInterval(deciSeconds))
+        self.timerLabel.text = timeString
+        if timeString == "00:00:31" {
+            hapCountLabel.alpha = 1
+        }
     }
 
     func timeString(time:TimeInterval) -> String {
