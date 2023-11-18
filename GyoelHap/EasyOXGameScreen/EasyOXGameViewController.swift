@@ -119,7 +119,7 @@ class EasyOXGameViewController: UIViewController {
             guard let self else { return }
             self.delegate?.update(score: self.currentStage)
             self.navigationController?.popViewController(animated: true)
-        }, rightMessage: "한번더") { [weak self] in
+        }, rightMessage: "광고보고 이어하기") { [weak self] in
             guard let self else { return }
             AlertManager.showAlert(at: self, message: "광고를 시청 후 연승게임을 이어 진행하시겠습니까?", okActionMessage: "확인") { [weak self] in
                 RewardedAdManager.shared.displayAds { [weak self] in
