@@ -84,18 +84,17 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FvY-v7-c4B" userLabel="OXStackView">
                                         <rect key="frame" x="56.666666666666657" y="521.33333333333337" width="280" height="52"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dT-aR-EvT">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dT-aR-EvT" userLabel="OButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="52"/>
                                                 <color key="backgroundColor" name="purple2"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5dT-aR-EvT" secondAttribute="height" multiplier="5:2" id="5Zl-bn-8rA"/>
                                                     <constraint firstAttribute="width" constant="130" id="OkO-xa-xY9"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal">
-                                                    <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
+                                                <inset key="imageEdgeInsets" minX="45" minY="6" maxX="45" maxY="6"/>
+                                                <state key="normal" image="correct_o_image">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -107,7 +106,7 @@
                                                     <action selector="hapButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pw0-2K-u7x"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y93-8t-JLd">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y93-8t-JLd" userLabel="XButton">
                                                 <rect key="frame" x="150" y="0.0" width="130" height="52"/>
                                                 <color key="backgroundColor" name="purple2"/>
                                                 <constraints>
@@ -115,11 +114,10 @@
                                                     <constraint firstAttribute="width" constant="130" id="Q9I-dg-ZNM"/>
                                                     <constraint firstAttribute="width" secondItem="y93-8t-JLd" secondAttribute="height" multiplier="5:2" id="e6A-Ix-C0D"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="45" minY="6" maxX="45" maxY="6"/>
                                                 <state key="normal">
-                                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="large"/>
+                                                    <imageReference key="image" image="wrong_x_image" symbolScale="large"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -247,11 +245,9 @@
     </scenes>
     <resources>
         <image name="back_button" width="201" height="201"/>
-        <image name="circle" catalog="system" width="128" height="123"/>
         <image name="clock" catalog="system" width="128" height="123"/>
         <image name="correct_o_image" width="448" height="448"/>
         <image name="wrong_x_image" width="433.66665649414062" height="433.33334350585938"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="purple1">
             <color red="0.79607843137254897" green="0.74901960784313726" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
